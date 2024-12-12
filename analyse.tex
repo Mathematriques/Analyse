@@ -272,37 +272,32 @@
 \end{proposition}
 
 \begin{demonstration}
-	Par double implication.
+	Soit $G$ un sous-groupe de $\R$.
+	Si $G = \{ 0 \}$ alors $G = 0\Z$ donc le résultat est vérifié.
+	Sinon il existe alors un $x_0\in G$ non nul et quitte à prendre $-x_0$ on peut supposer que $x_0$ est strictement positif.
+	Ainsi l’ensemble $\{x\in G \ | \ x > 0\}$ est non vide et minoré par 0, il admet donc une borne inférieure $a=\inf\{x\in G \ | \ x > 0\}$.
 	\begin{itemise}
-		\item[$\Leftarrow$] $a\Z$ est toujours un sous-groupe de $\R$.
-		\item[$\Rightarrow$] Si $G=\{0\}=0\Z$ le résultat est vrai.
-		Soit $G$ un sous-groupe de $\R$ avec un élément $x$ non nul.
-		Quite à prendre $-x\in G$ on peut supposer $x>0$.
-		Soit $a=\inf\{x\in G \ |\ x>0\}$.
+		\item Si $a = 0$ les éléments de $\{x\in G \ | \ x > 0\}$ sont moralement aussi petit qu'on veut.
+		On veut donc montrer que $G$ est dense dans $\R$.
+		Soit $x\in\R$ et $\epsilon > 0 = a$.
+		Puisque $\epsilon$ n'est pas un minorant il existe $x_\epsilon\in G$ tel que $0 < x_\epsilon < \epsilon$.
+		Puisque $x_\epsilon$ est non nul il est possible de couper $\R$ en bandes de tailles $x_\epsilon$ par $\bigcup_{n\in\Z}[nx_\epsilon, (n+1)x_\epsilon[$.
+		Ainsi $x$ est dans l'une de ces bandes c'est-à-dire qu'il existe $n\in\Z$ tel que $nx_\epsilon\infegal x < (n + 1)x_\epsilon=nx_\epsilon + x_\epsilon < nx_\epsilon + \epsilon$.
+		Donc $0\infegal x - nx_\epsilon < \epsilon$ et puisque $nx_\epsilon = x_\epsilon + \cdots + x_\epsilon\in G$ alors $G$ est dense dans $\R$.
+		\item Si $a>0$ cela veut dire que $G$ ne peut pas décrire des nombres aussi petits que l'on veut.
+		En fait on va montrer que le plus petit pas que l'on peut faire dans $G$ est exactement $a$.
+		Puis que $G$ étant un groupe ses autres éléments seront donc des multiples de $a$.
 		\begin{itemise}
-			\item Si $a=0$ les éléments de $\{x\in G \ | \ x > 0\}$ sont aussi petit qu'on veut.
-			Ainsi pour $\epsilon > 0$ il existe $x_\epsilon\in G$ tel que $0 < x_\epsilon < \epsilon$.
-			Soit $n$ un entier tel que $\frac{x}{x_\epsilon} \infegal n < \frac{x}{x_\epsilon} + 1$.
-			Ainsi $x \infegal nx_\epsilon < x + x_\epsilon < x + \epsilon$ donc $0 \infegal x - nx_\epsilon < \epsilon$.
-			Puisque $nx_\epsilon$ est dans $G$ alors $G$ est dense dans $\R$.
-
-			\item Si $a>0$ montrons que $a\in G$.
-			Pour tout $\epsilon > 0$ par défintion de l'inf il existe $x_\epsilon\in G$ tel que $a \infegal x_\epsilon < a + \epsilon$.
-			En soustrayant deux inégalités on a $-\frac{\epsilon}{2}\infegal x_\epsilon - x_\frac{\epsilon}{2} < \epsilon$.
-			Ainsi pour $\epsilon$ suffisamment petit on a $x_\epsilon - x_\frac{\epsilon}{2} < a$.
-			Or $G$ est un groupe donc $x_\epsilon - x_\frac{\epsilon}{2}\in G$.
-			Par défintion le seul élément de $G$ plus petit que $a$ est $0$.
-			Ainsi $\epsilon\mapsto x_\epsilon$ est constante pour $\epsilon$ suffisament petit.
-			Appelons cette constante $x$.
-			Par définition pour tout $\epsilon > 0$ on a $a\infegal x < a + \epsilon$.
-			Par l'absurde supposons $x > a$ on obtient pour $\epsilon = x - a$ l'inéquation $a\infegal x < a$ qui est absurde.
-			Ainsi $x=a$ ce qui montre $a\in G$. \\
-			Soit $x\in G$ montrons que $x\in a\Z$.
-			Soit $n$ un entier tel que $\frac{x}{a} \infegal n < \frac{x}{a} + 1$.
-			Ainsi $x \infegal na < x + a$ donc $0 \infegal na - x < a$.
-			Or $G$ est un groupe donc $x - na\in G$.
-			Par défintion le seul élément de $G$ plus petit que $a$ est $0$.
-			Ainsi $na - x=0$, et donc $x\in a\Z$.
+			\item Montrons que $a\in G$ par l'absurde.
+			Puisque $2a$ n'est pas un minorant il existe $x\in G$ tel que $a \infegal x < 2a$.
+			Mais $a\notin G$ donc l'inégalité est stricte montrant que $x$ n'est pas un minorant.
+			De même il existe $y\in G$ tel que $a < y < x < 2a$ ce qui montre $0 < x - y < a$.
+			Puisque $G$ est un groupe $0 < x - y\in G$ ce qui est absurde car $a$ est la borne inférieure.
+			Ainsi $a\in G$ et donc $a\Z\subset G$.
+			\item Montrons que $G\subset a\Z$.
+			Soit $x\in G$ en coupant $\R$ en bandes de taille $a$ il existe $n\in\Z$ tel que $na\infegal x<(n+1)a$ donc $0\infegal x - na < a$.
+			Or $x - na\in G$ car $G$ est un groupe et $n$ est entier.
+			Par défintion le seul élément de $G$ plus petit que $a$ est $0$ ce qui montre que $x=na\in a\Z$.
 		\end{itemise}
 	\end{itemise}
 \end{demonstration}
