@@ -263,7 +263,6 @@
 	\end{itemise}
 \end{demonstration}
 
-
 \begin{proposition}
 	Tout sous-groupe de $(\R, +)$ est de la forme $a\Z$, pour un unique $a\supegal0$, ou dense.
 \end{proposition}
@@ -304,7 +303,6 @@
 	On appelle classe à droite de $x$ l'ensemble $xH = \{xh\ |\ h\in H\}$.
 	On définit de même la classe à gauche.
 \end{definition}
-
 
 \begin{proposition}
 	Soit $H$ un sous-groupe de $G$.
@@ -348,7 +346,6 @@
 	Le quotient d'un groupe $G$ par $H\trianglelefteq G$ noté $G/H$ est l'ensemble des classes de $H$.
 	C'est un groupe pour la loi $xH, yH\longmapsto (xH)\star(yH)=(xy)H$.
 \end{definition}
-
 
 \begin{proposition}
 	Théorème de factorisation.
@@ -495,8 +492,6 @@ Ces définitions étant équivalentes, on se permettra dans la suite de définir
 	\end{itemise}
 \end{definition}
 
-
-
 \begin{proposition}
 	Les topologies d'intérieur sont en bijection avec les topologies d'ouverts.
 \end{proposition}
@@ -575,7 +570,6 @@ Un espace topologique est un ensemble munie d'une topologie.
 	On dit que $\mathfrak{B}$ engendre par union les ouverts.
 \end{definition}
 
-
 \begin{proposition}
 	Il existe une topologie dont $\mathfrak{B}$ est une base si et seulement si:
 	\begin{itemise}
@@ -597,7 +591,6 @@ Un espace topologique est un ensemble munie d'une topologie.
 		\end{itemise}
 	\end{itemise}
 \end{demonstration}
-
 
 \begin{proposition}
 	L'intersection quelconque de topologies $(\mathscr{T}_i)_{i\in I}$ sur $E$ est une topologie.
@@ -621,7 +614,6 @@ Un espace topologique est un ensemble munie d'une topologie.
 
 
 \section{Premières propriétés}
-
 
 \begin{proposition}
 	\begin{itemise}
@@ -649,7 +641,6 @@ Un espace topologique est un ensemble munie d'une topologie.
 		\item les inclusions précédentes peuvent être strictes : $\overline{]-\infty, 0[\cap]0, +\infty[}=\overline{\vide}=\vide$ tandis que  $\overline{]-\infty, 0[}\cap\overline{]0, +\infty[}=]-\infty, 0]\cap\overline[0, +\infty[=\{0\}$.
 	\end{itemise}
 \end{remarque}
-
 
 \begin{proposition}
 	$\overline{X}=\{x\in E| \forall V\in\mathfrak{V}(x), V\cap X\neq\vide\}$
@@ -711,8 +702,6 @@ On se donne une application $f\colon E\rightarrow F$.
 	\end{itemise}
 \end{demonstration}
 
-
-
 \begin{proposition}
 	Si $f$ est continue en $x$ et $g$ en $f(x)$ alors $g\circ f$ l'est en $x$.
 \end{proposition}
@@ -729,7 +718,6 @@ On se donne une application $f\colon E\rightarrow F$.
 	L'ensemble des applications continues de $E$ dans $F$ est noté $\mathcal{C}(E, F)$.
 	%S'il n'y a pas d'ambiguïté, on notera $f\in\cont(E, F)$ sans préciser les topologies.
 \end{definition}
-
 
 \begin{proposition}
 	Les propositions suivantes sont équivalentes:
@@ -756,7 +744,6 @@ On se donne une application $f\colon E\rightarrow F$.
 	\end{itemise}
 \end{demonstration}
 
-
 \begin{proposition}
 	Si $f$ est continue alors $\forall X\in\mathfrak{P}(E), \overline{\inv{f}(X)}\subset\inv{f}(\overline{X})$.
 \end{proposition}
@@ -776,12 +763,12 @@ On se donne une application $f\colon E\rightarrow F$.
 \end{exemple}
 
 \section{Comparaison de topologies}
+
 Soient $(E, \mathscr{T}_1), (E, \mathscr{T}_2), (F, \mathscr{U})$ des espace topologiques et $f\colon E\rightarrow F$.
 
 \begin{definition}
 	On dit que $\mathscr{U}$ est plus fine que $\mathscr{T}$ si l'identité $\id\colon(E, \mathscr{U})\rightarrow(E, \mathscr{T})$ est continue.
 \end{definition}
-
 
 \begin{proposition}
 	Les propositions suivantes sont équivalentes:
@@ -797,7 +784,7 @@ Soient $(E, \mathscr{T}_1), (E, \mathscr{T}_2), (F, \mathscr{U})$ des espace top
 \end{proposition}
 
 \begin{demonstration}
-	Toutes ces propriétés découlent u théorème précédent, à l'exception de l'inclusion.
+	Toutes ces propriétés découlent du théorème précédent, à l'exception de l'inclusion.
 	Or si $O\in\mathscr{T}$ par continuité de $\id\colon(E, \mathscr{U})\rightarrow(E, \mathscr{T})$, $\inv{\id}(O)=O\in\mathscr{U}$.
 \end{demonstration}
 
@@ -805,7 +792,6 @@ Soient $(E, \mathscr{T}_1), (E, \mathscr{T}_2), (F, \mathscr{U})$ des espace top
 	Il est possible qu'entre deux topologies, aucune ne soit plus fine que l'autre, puisqu'il est possible qu'aucune des deux n'inclut l'autre.
 	On dit alors qu'elles ne sont pas comparables.
 \end{remarque}
-
 
 \begin{proposition}
 	\begin{itemise}
@@ -818,7 +804,6 @@ Soient $(E, \mathscr{T}_1), (E, \mathscr{T}_2), (F, \mathscr{U})$ des espace top
 	Elle est immédiate.
 	De façon imagé, plus la topologie d'arrivée est fine, plus elle possède d'ouverts, plus il y a de propriétés à vérifier pour être une application continue.
 \end{demonstration}
-
 
 \begin{proposition}
 	Si $f\colon E\rightarrow F$ est une application continue qui est soit ouverte, soit fermée, alors:
@@ -840,7 +825,6 @@ Soient $(E, \mathscr{T}_1), (E, \mathscr{T}_2), (F, \mathscr{U})$ des espace top
 
 Soit $E$ est un espace topologique et $F$ une partie de $E$.
 
-
 \begin{proposition}
 	La topologie cofinie sur $E$ est $\mathscr{T}=\{\vide\}\cup\{X\subset E|\complement X\text{ fini}\}$.
 \end{proposition}
@@ -852,7 +836,6 @@ Soit $E$ est un espace topologique et $F$ une partie de $E$.
 		\item Si $X_{1\infegal i\infegal n}\in\mathscr{T}$ alors $\complement\bigcap_{1\infegal i\infegal n}X_i=\bigcup_{1\infegal i\infegal n}\complement X_i$ est fini par union finie de finis.
 	\end{itemise}
 \end{demonstration}
-
 
 \begin{proposition}
 	La topologie codén\up{ble} sur $E$ est $\mathscr{T}=\{\vide\}\cup\{X\subset E|\complement X\text{ dénombrable}\}$.
@@ -866,13 +849,11 @@ Soit $E$ est un espace topologique et $F$ une partie de $E$.
 	\end{itemise}
 \end{demonstration}
 
-
 \begin{proposition}
 	la topologie classique sur $\R$ est $\mathscr{T}=\{]a, b[|a<b\}$
 \end{proposition}
 
 \section{Topologie induite}
-
 
 \begin{proposition}
 	Les ouverts de la topologie induite par $E$ sur $F$ sont les traces sur $F$ des ouverts de $E$.
@@ -891,7 +872,6 @@ Soit $E, F$ topologiques, $\mathcal{R}$ une relation d’équivalence sur $E$, $
 	La topologie quotient sur $E/\mathcal{R}$ est formée des ouverts $O$ tels que $\inv{\pi}(O)$ soit un ouvert de $E$.
 \end{definition}
 
-
 \begin{proposition}
 	La topologie quotient est la topologie finale associée à $\pi$, c'est à dire la plus fine rendant $\pi$ continue.
 \end{proposition}
@@ -901,7 +881,6 @@ Soit $E, F$ topologiques, $\mathcal{R}$ une relation d’équivalence sur $E$, $
 	Soit $\mathscr{U}$ une topologie sur $E/\mathcal{R}$ rendant $\pi$ continue.
 	Si $O\in\mathscr{U}$ alors $\inv{\pi}(O)$ est un ouvert de $E$ par continuité de $\pi$, donc $O$ est dans la topologie quotient, qui est donc plus fine que $\mathscr{U}$.
 \end{demonstration}
-
 
 \begin{proposition}
 	$f\in\cont(E/\mathcal{R}, F)\iff f\circ\pi\in\cont(E, F)$
@@ -919,7 +898,6 @@ On note $F=\prod_{i\in I} F_i$ le produit cartésien des $F_i$ et $\pi_i\colon F
 \begin{definition}
 	On appelle topologie produit la topologie initiale associées aux projections canoniques $\pi_i\colon F\rightarrow F_i$ c'est à dire la topologie la moins fine rendant les $\pi_i$ continues.
 \end{definition}
-
 
 \begin{proposition}
 	L'ensemble $\mathfrak{B}=\{\prod_{k=1}^nO_{i_k}\times\prod_{j\in I\setminus\{i_1, ..., i_n\}}F_j|n\in\N^*, O_{i_k}\in\mathscr{U}_{i_k}\}$ des pavés formés d'ouverts différents de $F_i$ dans un ensemble $\{i_1,...,i_n\}$ fini de directions est une base de topologie de $F$.
@@ -946,7 +924,6 @@ On note $F=\prod_{i\in I} F_i$ le produit cartésien des $F_i$ et $\pi_i\colon F
 	La topologie produit inclue donc bien la famille $\mathfrak{B}$ annoncée.
 	C'est bien une base puisque pour $n=0$ on obtient $F\in\mathfrak{B}$ et qu'elle est par contruction stable par intersection finie.
 \end{demonstration}
-
 
 \begin{proposition}
 	$f\in\cont(E, F)\iff\forall i\in I, \pi_i\circ f\in\cont(E, F_i)$
@@ -985,7 +962,6 @@ On considère ici un espace topologique $(E, \mathscr{T})$.
 	\end{itemise}
 \end{definition}
 
-
 \begin{proposition}
 	$T_0$ est équivalente à $\forall x, y\in E, x\neq y\implies x\notin\overline{\{y\}}\ou y\notin\overline{\{x\}}$
 \end{proposition}
@@ -995,7 +971,6 @@ On considère ici un espace topologique $(E, \mathscr{T})$.
 		\iff\exists F\in\complement\mathscr{T}, y\in F\et x\notin F
 		\iff\exists O\in\mathscr{T}, x\in O, y\notin O$
 \end{demonstration}
-
 
 \begin{proposition}
 	$T_1$ est équivalente à :
@@ -1015,7 +990,6 @@ On considère ici un espace topologique $(E, \mathscr{T})$.
 		\item Soit $y\neq x$ on a $y\notin\{x\}=\bigcap_{V\in\mathfrak{V}(x)}V$ donc $\exists U\in\mathscr{T}, x\in U\et y\notin U$.
 	\end{itemise}
 \end{demonstration}
-
 
 \begin{proposition}
 	$T_2$ est équivalente à :
@@ -1044,7 +1018,6 @@ On considère ici un espace topologique $(E, \mathscr{T})$.
 	\end{itemise}
 \end{demonstration}
 
-
 \begin{proposition}
 	$T_3$ équivaut à tout fermé de $E$ est l'intersection de ses voisinages ouverts.
 \end{proposition}
@@ -1063,7 +1036,6 @@ On considère ici un espace topologique $(E, \mathscr{T})$.
 	\end{itemise}
 \end{demonstration}
 
-
 \begin{proposition}
 	$T_4$ équivaut à $\forall O, F\in\mathscr{T}\times\complement\mathscr{T}, F\subset O\implies\exists U\in\mathscr{T}, F\subset U\subset\overline{U}\subset O$.
 \end{proposition}
@@ -1081,7 +1053,6 @@ On considère ici un espace topologique $(E, \mathscr{T})$.
 \end{demonstration}
 
 \section{Classification}
-
 
 \begin{proposition}
 	\begin{center}
@@ -1249,7 +1220,7 @@ On considère ici un espace topologique $(E, \mathscr{T})$.
 				\draw[black!20!red, very thick] (2.3, 2)--(2.3, 0)--(4.3, 2);
 			\end{tikzpicture}
 		\end{center}
-		
+
 		Cet espace est $T_3$.
 		Montrons $\forall x, O\in E\times\mathscr{T}, x\in O\Rightarrow\exists G\in\complement\mathscr{T}, x\in G\subset O$
 		\begin{itemise}
@@ -1258,7 +1229,7 @@ On considère ici un espace topologique $(E, \mathscr{T})$.
 			\item pour $x=\infty$ et $U_n$ un voisinage alors on remarque que seul les points de $]n+1, n+2]\times\{0\}$ hors de $U_{n+2}$ peuvent lui adhérer (grâce à branche à oblique des voisinages) donc $\overline{U_{n+2}}\subset U_n$ vérifie la propriété
 		\end{itemise}
 		En prenant $F=\complement O$, $U=O$ et $V=\complement G$ dans la définition de $T_3$ on conclue.
-		
+
 		Cet espace n'est pas $T_{3\frac{1}{2}}$.
 		Soit $F=[0, 1]\times\{0\}$ et $f\in\cont(E, [0, 1])$ où $f(F)=\{0\}$.
 		$\complement F=(\R\times\R_+^*)\cup\bigcup_{x\notin[0, 1]}R_x\in\mathscr{T}$ donc $F$ est fermé.
@@ -1272,12 +1243,12 @@ On considère ici un espace topologique $(E, \mathscr{T})$.
 		\item[$T_{2\frac{1}{2}}\not\Rightarrow T_3$ et $T_{2\frac{1}{2}}\not\Rightarrow T_{2\frac{3}{4}}$:]
 		Soit $K=\{1/n|n\in\N^*\}$.
 		On munie $\R$ de la la $K$-topologie dont une base est formée des $]a, b[$ et des $]a, b[\setminus K$.
-		Elle est plus fine que la topologie classique, préservant donc la continuité des fonctions $f:\R\rightarrow[0, 1]$.
-		En particulier, une fonction montrant la $T_{2\frac{3}{4}}$ séparation de $\R$ (par exemple une interpolation) montre que $(\R, K)$ l'est aussi.
-		Cet espace n'est pas $T_3$.
-		Soit $]a, 2[, ]-1, b[$ des ouverts contenant respectivement $K$ et $\{0\}$.
-		De $0\in]-1, b[$ on a $b>0$.
-		Si $a>0$ alors $\frac{1}{a}\infegal \lceil\frac{1}{a}\rceil=n\in\N^*$ donc $\frac{1}{n}<a$ et $K\ni\frac{1}{n}\notin]a, 2[$ absurde.
+						Elle est plus fine que la topologie classique, préservant donc la continuité des fonctions $f:\R\rightarrow[0, 1]$.
+						En particulier, une fonction montrant la $T_{2\frac{3}{4}}$ séparation de $\R$ (par exemple une interpolation) montre que $(\R, K)$ l'est aussi.
+						Cet espace n'est pas $T_3$.
+						Soit $]a, 2[, ]-1, b[$ des ouverts contenant respectivement $K$ et $\{0\}$.
+						De $0\in]-1, b[$ on a $b>0$.
+						Si $a>0$ alors $\frac{1}{a}\infegal \lceil\frac{1}{a}\rceil=n\in\N^*$ donc $\frac{1}{n}<a$ et $K\ni\frac{1}{n}\notin]a, 2[$ absurde.
 		Ainsi $a\infegal0<b$, forçant tout voisinages de la base de $0$ et $K$ à s'intersecter.
 	\end{itemise}
 \end{demonstration}
@@ -1293,7 +1264,6 @@ Soit $(E, \mathscr{T})$ et $(F_i, \mathscr{U}_i)_{i\in I}$ des espaces topologiq
 \begin{definition}
 	Si $\forall x, F\in E\times\complement\mathscr{T}, x\notin F\Rightarrow\exists i\in I, f_i(x)\notin\overline{f_i(F)}$ alors on dit que la famille $f_{i\in I}$ sépare les points des fermés.
 \end{definition}
-
 
 \begin{proposition}
 	Soit $e:E\rightarrow F$ telle que $e(x)_i=f_i(x)$.
@@ -1320,7 +1290,6 @@ Soit $(E, \mathscr{T})$ et $(F_i, \mathscr{U}_i)_{i\in I}$ des espaces topologiq
 	On appelle quasi-cube les espace de la forme $Q^I$ pour un certain $I\neq\vide$.
 \end{definition}
 
-
 \begin{proposition}
 	L'espace $Q$ est $T_0$, quasi-compact mais pas $T_1$.
 \end{proposition}
@@ -1338,7 +1307,6 @@ Soit $(E, \mathscr{T})$ et $(F_i, \mathscr{U}_i)_{i\in I}$ des espaces topologiq
 \begin{definition}
 	Une application $f:E\rightarrow[0, 1]$ est semi-continue supérieurement si et seulement si $f:E\rightarrow Q$ est continue.
 \end{definition}
-
 
 \begin{proposition}
 	Tout espace $T_0$ est homéomorphe à un sous-espace d'un quasi-cube.
@@ -1369,7 +1337,6 @@ Soit $(E, \mathscr{T})$ et $(F_i, \mathscr{U}_i)_{i\in I}$ des espaces topologiq
 	Un espace métrique séparable est homéomorphe à un sous-espace de $[0, 1]^\N$.
 \end{remarque}
 
-
 \begin{proposition}
 	Tout espace est $T_0+T_{3\frac{1}{2}}$ si et seulement s'il est homéomorphe à un sous-espace d'un cube $[0, 1]^I$.
 \end{proposition}
@@ -1392,9 +1359,9 @@ Soit $(E, \mathscr{T})$ et $(F_i, \mathscr{U}_i)_{i\in I}$ des espaces topologiq
 		Soit $x, F\in[0, 1]^I\times\complement\mathscr{T}$ tels que $x\notin F$.
 		$O=\complement F$ est un ouvert de $[0, 1]^I$ contenant $x$.
 		Par définition de la topologie produit et de la topologie usuelle de $[0, 1]$, il existe un ouvert $V$ tels que $x\in V\subset U$ et $V=\prod_{k=1}^n]x_{i_k}-\varepsilon, x_{i_k}+\varepsilon[\times\prod_{i\in I\setminus\{i_1, ..., i_n\}}[0, 1]$.
-		Soit $f$ une fonction chapeau en $x_{i_1}$ nulle hors $]x_{i_1}-\varepsilon, x_{i_1}+\varepsilon[$.
+					Soit $f$ une fonction chapeau en $x_{i_1}$ nulle hors $]x_{i_1}-\varepsilon, x_{i_1}+\varepsilon[$.
 		Alors $f\circ\pi_{i_1}$ montre que l'espace est $T_{3\frac{1}{2}}$.
-		
+
 		Soit maintenant un sous-espace $X$ de $[0, 1]^I$.
 		Toute partie d'un espace séparé est elle-même séparé (on dit que $T_2$ est une propriété héréditaire) donc $X$ est $T_0+T_{3\frac{1}{2}}$.
 	\end{itemise}
@@ -1523,7 +1490,6 @@ On se donne une application $f:E\rightarrow F$.
 	Si $\mathfrak{B}$ fait de $\mathfrak{F}=\{U|\exists X\in\mathfrak{B}, X\subset U\}$ un filtre on dit que $\mathfrak{B}$ est une base de filtre.
 \end{definition}
 
-
 \begin{proposition}
 	$\mathfrak{B}\subset\mathfrak{P}(E)$ est une base de filtre si et seulement si:
 	\begin{itemise}
@@ -1549,7 +1515,6 @@ On se donne une application $f:E\rightarrow F$.
 	\end{itemise}
 \end{demonstration}
 
-
 \begin{proposition}
 	L'intersection d'une famille de filtre $(\mathfrak{F}_i)_{i\in I}$ sur $E$ est un filtre sur $E$.
 \end{proposition}
@@ -1569,7 +1534,6 @@ On se donne une application $f:E\rightarrow F$.
 \begin{remarque}
 	Il est facile de vérifier que si $\mathfrak{B}$ est une base du filtre $\mathfrak{F}$ alors $\mathfrak{F}=\sigma_\text{filtre}(\mathfrak{B})$.
 \end{remarque}
-
 
 \begin{proposition}
 	Soit $\mathfrak{B}$ une base de filtre de $E$.
@@ -1592,7 +1556,6 @@ On se donne une application $f:E\rightarrow F$.
 	On notera $\mathfrak{F}\rightarrow x$.
 \end{definition}
 
-
 \begin{proposition}
 	Un espace topologique est $T_2$ si et seulement si tout filtre a au plus une limite.
 \end{proposition}
@@ -1610,7 +1573,6 @@ On se donne une application $f:E\rightarrow F$.
 		Alors $V\cap W$ forment une base de filtre dont le filtre associé converge vers $x$ et $y$, ce qui est absurde.
 	\end{itemise}
 \end{demonstration}
-
 
 \begin{proposition}
 	$x$ adhère à $X$ si et seulement si c'est la limite d'un filtre sur $X$.
@@ -1634,7 +1596,6 @@ On se donne une application $f:E\rightarrow F$.
 		Ainsi $x\in\overline{X}$.
 	\end{itemise}
 \end{demonstration}
-
 
 \begin{proposition}
 	$f\text{ continue en }x\iff\forall\mathfrak{F}\text{ filtre},\quad\mathfrak{F}\rightarrow x\Rightarrow\sigma_\text{filtre}(f(\mathfrak{F}))\rightarrow f(x)$
@@ -1666,7 +1627,6 @@ On se donne une application $f:E\rightarrow F$.
 	On dit qu'un filtre $\mathfrak{U}$ sur est un ultrafiltre s'il n'existe pas de filtre strictement plus fin (c'est à dire que $\forall\mathfrak{F}\text{ filtre}, \mathfrak{F}\supset\mathfrak{U}\Rightarrow\mathfrak{F}=\mathfrak{U}$).
 \end{definition}
 
-
 \begin{proposition}
 	$\mathfrak{U}\text{ est un ultrafiltre}\iff\forall X\subset E, (X\in\mathfrak{U})\ou(\complement X\in\mathfrak{U})$
 \end{proposition}
@@ -1692,7 +1652,6 @@ On se donne une application $f:E\rightarrow F$.
 	\end{itemise}
 \end{demonstration}
 
-
 \begin{proposition}
 	Soit $f:E\rightarrow F$ une application et $\mathfrak{B}$ une base d'un ultrafiltre filtre de $E$.
 	Alors $f(\mathfrak{B})$ est une base d'ultrafiltre sur $F$.
@@ -1707,7 +1666,6 @@ On se donne une application $f:E\rightarrow F$.
 	Si c'est $\inv{f}(\complement Y)$ alors $\complement Y=f(\inv{f}(\complement Y))$ appartient au filtre engendré par $f(\mathfrak{B})$.
 	Ainsi $\forall Y\subset E, Y\in\mathfrak{V}\ou\complement V\in\mathfrak{V}$.
 \end{demonstration}
-
 
 \begin{proposition}
 	Tout filtre est contenu dans un ultrafiltre.
@@ -1744,7 +1702,6 @@ On se donne une application $f:E\rightarrow F$.
 	On appelle suite sur $E$ une application $x:\N\rightarrow E\in E^\N$.
 \end{definition}
 
-
 \begin{proposition}
 	Les suites sur un espace métrique sont un cas particulier de filtres.
 \end{proposition}
@@ -1757,7 +1714,6 @@ On se donne une application $f:E\rightarrow F$.
 		\item Soit $X_m, X_n\in\mathfrak{B}$ alors $X_m\cap X_n=X_{\max(m, n)}\in\mathfrak{B}$.
 	\end{itemise}
 \end{demonstration}
-
 
 \begin{proposition}
 	Soit $(x_n)$ une suite et $(x_{\phi(n)})$ une suite extraite.
@@ -1775,13 +1731,12 @@ On se donne une application $f:E\rightarrow F$.
 	Une suite $(x_n)$ converge vers $x$ si et seulement si son filtre associé converge vers $x$.
 \end{definition}
 
-
 \begin{proposition}
 	Soit $E$ un espace topologique.
 	$$
-	x_n\rightarrow x
-	\iff
-	\forall V\in\mathfrak{V}(x), \exists N, \forall n\supegal N, x_n\in V
+		x_n\rightarrow x
+		\iff
+		\forall V\in\mathfrak{V}(x), \exists N, \forall n\supegal N, x_n\in V
 	$$
 \end{proposition}
 
@@ -1803,7 +1758,6 @@ On se donne une application $f:E\rightarrow F$.
 	La fermeture séquentielle de $X$ est $\overline{X}^\text{seq}=\{x | \exists(x_n)\in X^\N, x_n\rightarrow x\}$.
 \end{definition}
 
-
 \begin{proposition}
 	Soit $X$ une partie d'un espace topologique $E$.
 	Alors $\overline{X}\supset\overline{X}^\text{seq}$.
@@ -1814,13 +1768,12 @@ On se donne une application $f:E\rightarrow F$.
 	Par caractérisation de l'adhérence en terme de filtre, on obtient l'inclusion.
 \end{demonstration}
 
-
 \begin{proposition}
 	Soient $E$ et $F$ deux espaces topologiques, $f:E\rightarrow F$.
 	$$
-	\text{$f$ continue en $x$}
-	\implies
-	\left[\forall(x_n)\in E^\N, x_n\rightarrow x\implies f(x_n)\rightarrow f(x)\right]
+		\text{$f$ continue en $x$}
+		\implies
+		\left[\forall(x_n)\in E^\N, x_n\rightarrow x\implies f(x_n)\rightarrow f(x)\right]
 	$$
 \end{proposition}
 
@@ -1828,7 +1781,6 @@ On se donne une application $f:E\rightarrow F$.
 	On a démontré qu'une suite définissait un filtre, et que la suite convergeait si et seulement si ce filtre convergeait.
 	Par caractérisation de la continuité en terme de filtre, on obtient l'implication.
 \end{demonstration}
-
 
 \begin{proposition}
 	Sur espace topologique compact de toute suite on peut extraire une sous suite convergente.
@@ -1851,7 +1803,6 @@ L'affaiblissement convenable consiste à omettre l'axiome de symétrie.
 On parle alors de quasi-uniformité, et tout espace est quasi-uniformisable: c'est donc cet axiome de symétrie qui caractérise véritablement les espaces uniformisable parmi les espaces topologiques, et le procédé consistant à définir une topologie à partir d'entourages de la diagonale est tout à fait général.
 Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales pour définir les topologies: par les ouverts (Sierpinski) par les fermé (Alexandroff) par les voisinages (Hausdorff) par les fermetures (Kuratowski) par les filtres convergents (Bourbaki) et cætera...
 
-\iffalse
 \begin{figure}[h]
 	\centering
 	\begin{tikzpicture}[scale=4]
@@ -1877,7 +1828,6 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 	\end{tikzpicture}
 	\caption{$F\circ G$}
 \end{figure}
-\fi
 
 \section{Définitions}
 
@@ -1906,7 +1856,6 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 \begin{definition}
 	Si $\mathfrak{B}$ fait de $\mathscr{U}=\{U\in\mathfrak{P}(E^2) | \exists X\in\mathfrak{B}, X\subset U\}$ une (quasi-)uniformité on dit que $\mathfrak{B}$ est une base de (quasi-)uniformité.
 \end{definition}
-
 
 \begin{proposition}
 	$\mathfrak{B}\subset\mathfrak{P}(E)$ est une base de (quasi-)uniformité si et seulement si:
@@ -1939,7 +1888,6 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 	\end{itemise}
 \end{demonstration}
 
-
 \begin{proposition}
 	L'intersection d'une famille de (quasi-)uniformités $\mathscr{U}_{i\in I}$ est une (quasi-)uniformité.
 \end{proposition}
@@ -1962,7 +1910,6 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 \begin{remarque}
 	Il est facile de vérifier que si $\mathfrak{B}$ est une base de la (quasi-)uniformité $\mathscr{U}$ alors $\mathscr{U}=\sigma_\text{quasi}(\mathfrak{B})$.
 \end{remarque}
-
 
 \begin{proposition}
 	Les quasi-uniformités forment un espace plus gros que les topologies.
@@ -2025,7 +1972,7 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 		\node at (0,-0.25) {$\mathscr{T}$};
 		\node at (1,-0.25) {$\mathscr{U}$};
 		\node at (2,-0.25) {$\mathscr{T}$};
-		
+
 		\node (t1) at (0,0) {};
 		\node (t2) at (0,1) {};
 		\node (u1) at (1,0) {};
@@ -2034,17 +1981,17 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 		\node (u4) at (1, 1.5) {};
 		\node (v1) at (2,0) {};
 		\node (v2) at (2,1) {};
-		
+
 		\draw[thick,->] (-0.4,0.5)--(2.4,0.5) node[right] {id};
 		\node[circle,fill=white,inner sep=0pt,minimum size=5pt] at (0.15,0.5) {};
 		\node[circle,fill=white,inner sep=0pt,minimum size=5pt] at (1.15,0.5) {};
 		\node[circle,fill=white,inner sep=0pt,minimum size=5pt] at (2.15,0.5) {};
-		
+
 		\draw[very thick] (0,0.5) ellipse (0.15 and 0.5);
 		\draw[very thick] (1,0.5) ellipse (0.15 and 0.5);
 		\draw[very thick] (1,0.5) ellipse (0.3 and 1.0);
 		\draw[very thick] (2,0.5) ellipse (0.15 and 0.5);
-		
+
 		\draw[->] (0,0)--(1,0);
 		\draw[->] (0,1)--(1,1);
 		\draw[->] (1,0)--(2,0);
@@ -2055,7 +2002,6 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 \end{center}
 
 \section{Séparation}
-
 
 \begin{proposition}
 	Un espace topologie $E$ est $T_3$ si et seulement si sa quasi-uniformité de Pervin vérifie $\forall U\in\mathscr{U}, \forall x\in E, \exists V\in\mathscr{U}, V=\inv{V}\et (V\circ V)[x]\subset U[x]$
@@ -2124,7 +2070,6 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 	Une jauge sur un ensemble $E$ est une famille $(d_i)_{i\in I}$ d'écarts sur $E$.
 \end{definition}
 
-
 \begin{proposition}
 	Soit $d_{i\in I}$ une jauge sur $E$.
 	La famille $\mathfrak{B}'=\{\inv{d_i}([0, \varepsilon[)|\varepsilon\in\R^+, i\in I\}$ est une prébase d'uniformité.
@@ -2148,7 +2093,6 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 \begin{demonstration}
 \end{demonstration}
 
-
 \begin{proposition}
 	La topologie engendrée par la jauge $d_{i\in I}$ est la même que celle engendrée par $\{\max(d_{i_1}, ..., d_{i_n})|i_1, ..., i_n\in I\}$ appelée saturation de la jauge.
 \end{proposition}
@@ -2171,13 +2115,13 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 		Construisons une suite décroissante d'entourages symétriques par $V_0=U\in\mathscr{U}$ et $V_{n+1}\circ V_{n+1}\circ V_{n+1}\subset V_n$ qui existe car par construction $V_n\in\mathscr{U}$.
 		Soient:
 		\begin{align*}
-			f_U(x, y)&=
+			f_U(x, y) & =
 			\left\{\begin{array}{lll}
-				1 & \text{si} & (x, y)\notin V_0 \\
+				1      & \text{si} & (x, y)\notin V_0               \\
 				2^{-n} & \text{si} & (x, y)\in V_{n-1}\setminus V_n \\
-				0 & \text{si} & (x, y)\in\bigcap_{n\in\N} V_n
+				0      & \text{si} & (x, y)\in\bigcap_{n\in\N} V_n
 			\end{array}\right.\\
-			d_U(x, y)&=\inf\{\sum_{k=0}^nf_U(a_k, a_{k+1})|a_0=x, a_k\in E, a_{n+1}=y\}
+			d_U(x, y) & =\inf\{\sum_{k=0}^nf_U(a_k, a_{k+1})|a_0=x, a_k\in E, a_{n+1}=y\}
 		\end{align*}
 		Vérifions que $d_U$ est un écart.
 		\begin{itemise}
@@ -2220,7 +2164,6 @@ On se donne une application $f:E\rightarrow F$.
 	$f$ est uniformément continue si et seulement si tout entourage $V\in\mathscr{V}$ il existe un entourage $U\in\mathscr{U}$ tel que $\forall (x, y)\in U, (f(x), f(y))\in V$.
 \end{definition}
 
-
 \begin{proposition}
 	$f$ est uniformément continue si et seulement si $\forall V\in\mathscr{V}, \inv{f\times F}(V)\in\mathscr{U}$.
 \end{proposition}
@@ -2248,7 +2191,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Un espace topologique est localement compact s'il est séparé et admet des voisinages compacts pour tous ses points.
 \end{definition}
 
-
 \begin{proposition}
 	Une partie quasi-compact d'un espace topologique séparé est fermé.
 \end{proposition}
@@ -2260,7 +2202,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Ainsi $\bigcap_{k=1}^nU_{xy^k}$ est un ouvert disjoint de $K$ puis $\bigcup_{x\in\complement K}\bigcap_{k=1}^nU_{xy^k}=\complement K$ est un ouvert.
 \end{demonstration}
 
-
 \begin{proposition}
 	Un fermé d'un espace topologique quasi-compact est quasi-compact.
 \end{proposition}
@@ -2271,7 +2212,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Par compacité, on peut en extraire un sous recouvrement fini.
 	Ce recouvrement fini couvre $F$, donc $F$ est quasi-compact.
 \end{demonstration}
-
 
 \begin{proposition}
 	Un espace topologique est quasi-compact si et seulement si de tout filtre on peut en extraire un filtre plus fin convergent.
@@ -2298,7 +2238,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	\end{itemise}
 \end{demonstration}
 
-
 \begin{proposition}
 	Un espace est quasi-compact si et seulement si tout ultrafiltre converge.
 \end{proposition}
@@ -2315,7 +2254,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 		Il est contenu dans un ultrafiltre d'après le lemme de Zorn, qui converge par hypothèse.
 	\end{itemise}
 \end{demonstration}
-
 
 \begin{proposition}
 	Tout produit d’espaces quasi-compacts est quasi-compact.
@@ -2335,7 +2273,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 
 \section{Application aux fonctions continues}
 
-
 \begin{proposition}
 	L’image continue d’un quasi-compact est quasi-compacte.
 \end{proposition}
@@ -2354,7 +2291,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	C’est ce qui explique que les structures légères et résistantes soient du type ‘nid d’abeilles’ et sortent du cadre des formes géométriques régulières.
 \end{remarque}
 
-
 \begin{proposition}
 	Une fonction $f:K\rightarrow\R$ (dite fonction numérique) continue sur un compact est bornée, elle atteint son maximum et son minimum.
 \end{proposition}
@@ -2372,7 +2308,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \begin{remarque}
 	La compacité est une propriété particulièrement agréable mais rare ; en témoigne la proposition suivante, qui montre qu’une topologie d’espace compact ne peut être affaiblie sans perdre la propriété de séparation, en particulier, au sein d’une famille de topologies séparées comparables sur un ensemble donné, l’une au plus est une topologie d’espace compact.
 \end{remarque}
-
 
 \begin{proposition}
 	Si $E$ est quasi-compact pour une topologie il ne peut pas être muni d’une topologie séparé moins fine.
@@ -2396,7 +2331,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	On appelle groupe topologique $(G, \star)$ un groupe munie d'une topologie pour laquelle les applications $\star:G^2\rightarrow G$ et $\inv{}:G\rightarrow G$ sont continues.
 \end{definition}
 
-
 \begin{proposition}
 	Un groupe $(G, \star)$ munie d'une topologie est un groupe topologique si et seulement si $x, y\longmapsto x\star\inv{y}$ est continue.
 \end{proposition}
@@ -2419,7 +2353,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Cf théorie de la mesure.
 \end{demonstration}
 
-
 \begin{proposition}
 	Les translations $x\longmapsto x\star a$ et $x\longmapsto a\star x$ sont des homéomorphismes.
 \end{proposition}
@@ -2427,7 +2360,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \begin{demonstration}
 	Par continuité de $\star$ ces deux applications sont continues et leurs réciproques $x\longmapsto x\star\inv{a}$ et $x\longmapsto\inv{a}\star x$ sont continues.
 \end{demonstration}
-
 
 \begin{proposition}
 	Dans un groupe topologique, les voisinages d’un point sont les translatés des voisinage de $e$.
@@ -2440,11 +2372,10 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Ainsi $x+V=\phi(V)=\phi(\inv{\phi}(W))=W$ par surjectivité de $\phi$.
 \end{demonstration}
 
-
 \begin{proposition}
 	Soit $G$ et $H$ deux groupes topologiques, $f:G\rightarrow H$ un morphisme de groupe.
 	$$
-	f\in\cont(G, H)\iff f\in\cont(e_G, H)
+		f\in\cont(G, H)\iff f\in\cont(e_G, H)
 	$$
 \end{proposition}
 
@@ -2462,7 +2393,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 		Donc $\inv{f}(V)$ contient un voisinage de $x$.
 	\end{itemise}
 \end{demonstration}
-
 
 \begin{proposition}
 	Un groupe topologique est séparé si et seulement si le singleton ${e}$ est fermé.
@@ -2483,7 +2413,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	\end{itemise}
 \end{demonstration}
 
-
 \begin{proposition}
 	Soit $O$ un ouvert et $X$ une partie d'un groupe topologique.
 	Alors $O\star X$ et $O\star X$ sont ouverts.
@@ -2493,7 +2422,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	$O\star X=\bigcup_{x\in X}O\star x$ est ouvert car $O\star x$ l'est car c'est l'image réciproque de l'ouvert $O$ par l'application continue $y\longmapsto y\star x^{-1}$.
 	Idem pour l'autre sens.
 \end{demonstration}
-
 
 \begin{proposition}
 	Tout groupe quotient $G/H$ d'un groupe topologique $G$ par un sous-groupe disingué $H$ est encore un groupe topologique, lorsque $G/H$ est muni de la topologie quotient.
@@ -2541,7 +2469,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Un $\R$-espace vectoriel topologique $E$ est un $\R$-espace vectoriel dont l'addition $+:E\times E\rightarrow E$ et la multiplication externe $\cdot:\R\times E\rightarrow E$ sont continues.
 \end{definition}
 
-
 \begin{proposition}
 	Dans un $\R$-espace vectoriel topologique, les voisinages d’un point sont les translatés des voisinage de l'origine.
 \end{proposition}
@@ -2552,7 +2479,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Or $\phi(0)=x$ donc $V=\inv{\phi}(W)$ est un voisinage de 0.
 	Ainsi $x+V=\phi(V)=\phi(\inv{\phi}(W))=W$ par surjectivité de $\phi$.
 \end{demonstration}
-
 
 \begin{proposition}
 	Soit $E$ un $\R$-espace vectoriel topologique.
@@ -2579,11 +2505,10 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	\end{itemise}
 \end{demonstration}
 
-
 \begin{proposition}
 	Soit $E$ et $F$ deux $\R$-espaces vectoriels topologiques, et $f:E\rightarrow F$ linéaire.
 	$$
-	f\in\cont(0_E, F)\implies f\in\cont(E, F)
+		f\in\cont(0_E, F)\implies f\in\cont(E, F)
 	$$
 \end{proposition}
 
@@ -2594,7 +2519,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Par continuité en $0_E$ de $f$, $\inv{f}(V)$ est un voisinage de $0_E$.
 	Ainsi $\inv{f}(W)$ est un voisinage de $x$.
 \end{demonstration}
-
 
 \begin{proposition}
 	Soit $E$ un ensemble qui soit un espace $\R$-vectoriel et un espace topologique.
@@ -2608,7 +2532,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \begin{definition}
 	Une partie d'un $\R$-espace vectoriel topologique est bornée si et seulement si elle est absorbée par tout voisinage de 0.
 \end{definition}
-
 
 \begin{proposition}
 	Les compacts d'un $\R$-espace vectoriel topologique sont bornés.
@@ -2635,7 +2558,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	\end{itemise}
 \end{definition}
 
-
 \begin{proposition}
 	Soit $(E, d)$ un espace métrique.
 	C'est un espace séparable pour la topologie engendrée par les boules ouvertes $B_\epsilon(x)=\{y|d(x, y)<\epsilon\}=\inv{d(x, \cdot)}([0, \epsilon[)$.
@@ -2656,13 +2578,12 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Différentes distances peuvent être à l’origine de la même topologie, c’est pourquoi on distingue espace métrique (où la distance est donnée) et espace métrisable (où seule la topologie est donnée).
 \end{remarque}
 
-
 \begin{proposition}
 	Soient $E$ et $F$ deux espaces métriques définis par $d$ et $\delta$, $f:E\rightarrow F$.
 	$$
-	f\in\cont(x, F)
-	\iff
-	\forall\epsilon>0, \exists\eta, \forall y\in E, d(x, y)<\eta\implies\delta(f(x), f(y))<\epsilon
+		f\in\cont(x, F)
+		\iff
+		\forall\epsilon>0, \exists\eta, \forall y\in E, d(x, y)<\eta\implies\delta(f(x), f(y))<\epsilon
 	$$
 \end{proposition}
 
@@ -2682,13 +2603,12 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 
 \section{Les suites suffisent}
 
-
 \begin{proposition}
 	Soit $E$ un espace métrique.
 	$$
-	(x_n)\rightarrow x
-	\iff
-	\forall\epsilon>0, \exists N, \forall n\supegal N, d(x_n, x)<\epsilon
+		(x_n)\rightarrow x
+		\iff
+		\forall\epsilon>0, \exists N, \forall n\supegal N, d(x_n, x)<\epsilon
 	$$
 \end{proposition}
 
@@ -2704,7 +2624,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	\end{itemise}
 \end{demonstration}
 
-
 \begin{proposition}
 	Soit $X$ une partie d'un espace métrique $E$.
 	Alors $\overline{X}=\overline{X}^\text{seq}$
@@ -2716,7 +2635,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Alors $V$ contient une boule ouverte centrée en $x$, c'est à dire $\exists\epsilon>0, B_\epsilon(x)\subset V$.
 	En prenant $x_n\in B_{1/n}(x)\cap X$ qui est non vide car $x$ est dedans, avec $1/n<\epsilon$, on obtient une suite $(x_n)$ de $X$ qui converge vers $x$.
 \end{demonstration}
-
 
 \begin{proposition}
 	Soient $E$, $F$ métriques, $f:E\rightarrow F$ une application.
@@ -2733,7 +2651,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \end{demonstration}
 
 \section{Compacité}
-
 
 \begin{proposition}
 	Un espace topologique est compact si et seulement si de toute suite on peut en extraire une sous suite convergente.
@@ -2772,7 +2689,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Une partie d'un espace métrique est bornée si et seulement si la distance entre chacun de ses point est majorée par une constante.
 \end{definition}
 
-
 \begin{proposition}
 	Une partie compact d'un espace métrique est fermée et bornée.
 \end{proposition}
@@ -2782,7 +2698,6 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	De plus d'après la démonstration précédente, cette partie compact peut être recouverte par un nombre fini $n$ de boules ouvertes de rayon 1.
 	Par inégalité triangulaire, on majore la distance entre n'importe quel bipoint par $1+n+1$.
 \end{demonstration}
-
 
 \begin{proposition}
 	Une fonction numérique réelle d'un compact est bornée et atteint ses bornes.
@@ -2807,41 +2722,41 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \chapter{JSP}
 
 \paragraph{Définition:} Distances équivalentes: $\exists\alpha_-\\alpha_+\quad\alpha_- d_1\le d_2\le\alpha_+ d_1 $.
-	C'est une relation d'équivalence.
+C'est une relation d'équivalence.
 
 \paragraph{Théorème:}
 $
-\begin{array}{rcl}
-	\text{$d_1$ est équivalente à $d_2$}
-	&\implies &\forall x, y\in E\quad\forall r > 0, 
-	\left\{
-	\begin{array}{cc}
-		y\in B_2(x, r)\implies y\in B_1(x, r/\alpha_-)\\
-		y\in B_1(x, r)\implies y\in B_2(x, r/\alpha_+)\\
+	\begin{array}{rcl}
+		\text{$d_1$ est équivalente à $d_2$}
+		  & \implies & \forall x, y\in E\quad\forall r > 0,
+		\left\{
+		\begin{array}{cc}
+			y\in B_2(x, r)\implies y\in B_1(x, r/\alpha_-) \\
+			y\in B_1(x, r)\implies y\in B_2(x, r/\alpha_+) \\
+		\end{array}
+		\right.\\
+		  & \implies & \text{les voisinages issus de $d_1$ sont des voisinage pour $d_2$ et inversement} \\
+		  & \implies & \text{les topologies sont égales}                                                 \\
 	\end{array}
-	\right.\\
-	&\implies &\text{les voisinages issus de $d_1$ sont des voisinage pour $d_2$ et inversement}\\
-	&\implies &\text{les topologies sont égales}\\
-\end{array}
 $
 
-\paragraph{Définition:} Suite de Cauchy: $ d(x_m, x_n)\underset{m, n\rightarrow +\infty}{\rightarrow} 0$, 
+\paragraph{Définition:} Suite de Cauchy: $ d(x_m, x_n)\underset{m, n\rightarrow +\infty}{\rightarrow} 0$,
 soit: $\quad\forall\varepsilon > 0, \exists N, \quad m, n\ge N\implies d(x_m, x_n) <\varepsilon$.
 
-\paragraph{Définition:} Espace complet: toutes suites de Cauchy est convergente (réciproque triviale). 
+\paragraph{Définition:} Espace complet: toutes suites de Cauchy est convergente (réciproque triviale).
 
 \section{Norme, Espace vectoriel normé}
 
 \paragraph{Définition:}
 $
-\text{$|| \cdot||:E\rightarrow\mathbb{R}^+$ est une norme sur $E$}:
-\left\{
-\begin{array}{ll}
-	\text{$|| \cdot||$ est séparable:} & ||x||=0\iff x=0\\
-	\text{$|| \cdot||$ est homogène:} & || \lambda x||=| \lambda| ||x|| \\
-	\text{inégalité triangulaire:} & ||x+z|| \le ||x+y||+||y+z|| \\
-\end{array}
-\right.
+	\text{$|| \cdot||:E\rightarrow\mathbb{R}^+$ est une norme sur $E$}:
+	\left\{
+	\begin{array}{ll}
+		\text{$|| \cdot||$ est séparable:} & ||x||=0\iff x=0                 \\
+		\text{$|| \cdot||$ est homogène:}  & || \lambda x||=| \lambda| ||x|| \\
+		\text{inégalité triangulaire:}     & ||x+z|| \le ||x+y||+||y+z||     \\
+	\end{array}
+	\right.
 $
 
 \paragraph{Théorème:} Un espace vectoriel normé est un espace métrique en posant $d(x, y)=||x-y||$.
@@ -2852,19 +2767,19 @@ $
 
 \fbox{$\implies$} Cf théorème pour les espace métriques.
 
-\fbox{$\Longleftarrow$} 
+\fbox{$\Longleftarrow$}
 $
-\begin{array}{rcl}
-	\text{Topologies égales}
-	&\implies &\forall O_1\in\mathscr{T}_1, \exists O_2\in\mathscr{T}_2, \quad O_2\subset O_1\\text{(et inversement)}\\
-	&\implies &\forall r_1, \exists r_2, \quad B_2(x, r_2)\subset B_1(x, r_1)\\text{(et inversement)}\\
-	&\implies &\forall r_1, \exists r_2, \quad ||x-y||_2<r_2\implies ||x-y||_1<r_1\\text{(et inversement)}\\
-	&\implies &\forall r_1, \exists r_2, \quad ||y||_2<r_2\implies ||y||_1<r_1\\text{(et inversement)}\\
-	&\implies &\forall r_1, \exists r_2, \quad ||x\frac{r_2}{\varepsilon+||x||_2}||_2<r_2\implies ||x\frac{r_2}{\varepsilon+||x||_2}||_1<r_1\\text{(et inversement)}\\
-	&\implies &\forall r_1, \exists r_2, \quad ||x||_2<\varepsilon+||x||_2\implies ||x||_1<\frac{r_1}{r_2}(\varepsilon+||x||_2)\\text{(et inversement)}\\
-	&\implies &\exists r_2, \quad ||x||_1 <\frac{1}{r_2}||x||_2\\text{(et inversement)}\\
-	&\implies &\text{$|| \cdot||_1$ et $|| \cdot||_2$ sont équivalentes}
-\end{array}
+	\begin{array}{rcl}
+		\text{Topologies égales}
+		  & \implies & \forall O_1\in\mathscr{T}_1, \exists O_2\in\mathscr{T}_2, \quad O_2\subset O_1                                                \\text{(et inversement)}\\
+		  & \implies & \forall r_1, \exists r_2, \quad B_2(x, r_2)\subset B_1(x, r_1)                                                                \\text{(et inversement)}\\
+		  & \implies & \forall r_1, \exists r_2, \quad ||x-y||_2<r_2\implies ||x-y||_1<r_1                                                           \\text{(et inversement)}\\
+		  & \implies & \forall r_1, \exists r_2, \quad ||y||_2<r_2\implies ||y||_1<r_1                                                               \\text{(et inversement)}\\
+		  & \implies & \forall r_1, \exists r_2, \quad ||x\frac{r_2}{\varepsilon+||x||_2}||_2<r_2\implies ||x\frac{r_2}{\varepsilon+||x||_2}||_1<r_1 \\text{(et inversement)}\\
+		  & \implies & \forall r_1, \exists r_2, \quad ||x||_2<\varepsilon+||x||_2\implies ||x||_1<\frac{r_1}{r_2}(\varepsilon+||x||_2)              \\text{(et inversement)}\\
+		  & \implies & \exists r_2, \quad ||x||_1 <\frac{1}{r_2}||x||_2                                                                              \\text{(et inversement)}\\
+		  & \implies & \text{$|| \cdot||_1$ et $|| \cdot||_2$ sont équivalentes}
+	\end{array}
 $
 
 \paragraph{Définition:} Espace de Banach: espace vectoriel normé et complet.
@@ -2872,35 +2787,35 @@ $
 
 \paragraph{Théorème:}
 $
-\begin{array}{rcl}
-	\text{$f$ linéaire entre evn continue en $0$}
-	&\implies &\forall r > 0, \exists\rho > 0\quad ||x||_E <\rho\implies ||f(x)||_F < r\\
-	&\implies &\forall r > 0, \exists\rho > 0\quad ||x-y||_E <\rho\implies ||f(x-y)||_F=||f(x)-f(y)||_F < r\\
-	&\implies &\text{$f$ est continue sur tout $E$}
-\end{array}
+	\begin{array}{rcl}
+		\text{$f$ linéaire entre evn continue en $0$}
+		  & \implies & \forall r > 0, \exists\rho > 0\quad ||x||_E <\rho\implies ||f(x)||_F < r                     \\
+		  & \implies & \forall r > 0, \exists\rho > 0\quad ||x-y||_E <\rho\implies ||f(x-y)||_F=||f(x)-f(y)||_F < r \\
+		  & \implies & \text{$f$ est continue sur tout $E$}
+	\end{array}
 $
 
 \paragraph{Théorème:}
 $
-\begin{array}{rcl}
-	\text{$f$ est continue sur tout $E$}
-	&\implies &\forall r > 0, \exists\rho > 0\quad ||x||_E <\rho\implies ||f(x)||_F < r\\
-	&\implies &\exists\rho > 0\quad ||x||_E <\rho\implies ||f(x)||_F < 1\\
-	&\implies &\exists\rho > 0\quad ||y\frac{\rho}{\varepsilon + ||y||_E}||_E <\rho\implies ||f(y\frac{\rho}{\varepsilon + ||y||_E})||_F < 1\\
-	&\implies &\exists\rho > 0\quad ||y||_E <\varepsilon + ||y||_E\implies ||f(y)||_F <\frac{1}{\rho}(\varepsilon + ||y||_E)\\
-	&\implies &\exists\rho > 0\quad ||f(y)||_F <\frac{1}{\rho}||y||_E\\
-	&\implies &\text{$f$ lipschitzienne en zéro}
-\end{array}
+	\begin{array}{rcl}
+		\text{$f$ est continue sur tout $E$}
+		  & \implies & \forall r > 0, \exists\rho > 0\quad ||x||_E <\rho\implies ||f(x)||_F < r                                                      \\
+		  & \implies & \exists\rho > 0\quad ||x||_E <\rho\implies ||f(x)||_F < 1                                                                     \\
+		  & \implies & \exists\rho > 0\quad ||y\frac{\rho}{\varepsilon + ||y||_E}||_E <\rho\implies ||f(y\frac{\rho}{\varepsilon + ||y||_E})||_F < 1 \\
+		  & \implies & \exists\rho > 0\quad ||y||_E <\varepsilon + ||y||_E\implies ||f(y)||_F <\frac{1}{\rho}(\varepsilon + ||y||_E)                 \\
+		  & \implies & \exists\rho > 0\quad ||f(y)||_F <\frac{1}{\rho}||y||_E                                                                        \\
+		  & \implies & \text{$f$ lipschitzienne en zéro}
+	\end{array}
 $
 
 \paragraph{Théorème:}
 $
-\begin{array}{rcl}
-	\text{$f$ lipschitzienne en zéro}
-	&\implies &\exists\rho > 0\quad ||f(y)||_F <\frac{1}{\rho}||y||_E\\
-	&\implies &\exists\rho > 0, \quad\forall r > 0, ||y||_E < r/\rho\implies ||f(y)||_F <\frac{1}{\rho}||y||_E=r\\
-	&\implies &\text{$f$ est continue en $0$}
-\end{array}
+	\begin{array}{rcl}
+		\text{$f$ lipschitzienne en zéro}
+		  & \implies & \exists\rho > 0\quad ||f(y)||_F <\frac{1}{\rho}||y||_E                                            \\
+		  & \implies & \exists\rho > 0, \quad\forall r > 0, ||y||_E < r/\rho\implies ||f(y)||_F <\frac{1}{\rho}||y||_E=r \\
+		  & \implies & \text{$f$ est continue en $0$}
+	\end{array}
 $
 
 \paragraph{Théorème:Hahn-Banach} $f$ forme linéaire partielle et majorée pas une distance Minkovskienne (application sous linéaire) $\implies$ $f$ prolongeable sur tout $E$ avec la même inégalité.
@@ -2915,40 +2830,50 @@ $
 
 \end{document}
 
+
+
+
+
+
+
+
+
+
+
 \usepackage{tikz}  % dessins
 \usetikzlibrary{arrows}
 \usetikzlibrary{calc}
 \usetikzlibrary{decorations.pathreplacing}
 \tikzset{%
-  show curve controls/.style={
-	postaction={
-	  decoration={
-		show path construction, 
-		curveto code={
-		 \draw [blue] 
-			(\tikzinputsegmentfirst)--(\tikzinputsegmentsupporta)
-			(\tikzinputsegmentlast)--(\tikzinputsegmentsupportb);
-		 \fill [red, opacity=0.5] 
-			(\tikzinputsegmentsupporta) circle [radius=.5ex]
-			(\tikzinputsegmentsupportb) circle [radius=.5ex];
-		}
-	  }, 
-	  decorate
-}}}
+	show curve controls/.style={
+			postaction={
+					decoration={
+							show path construction,
+							curveto code={
+									\draw [blue]
+									(\tikzinputsegmentfirst)--(\tikzinputsegmentsupporta)
+									(\tikzinputsegmentlast)--(\tikzinputsegmentsupportb);
+									\fill [red, opacity=0.5]
+									(\tikzinputsegmentsupporta) circle [radius=.5ex]
+									(\tikzinputsegmentsupportb) circle [radius=.5ex];
+								}
+						},
+					decorate
+				}}}
 
 \begin{tikzpicture}
-\draw [show curve controls] (-3, 4) .. controls ++(135:-1) and ++(135:1) .. (0, 4);
-\draw [show curve controls] (0, 0) 
-  .. controls ++(0:-1) and ++(240: 1) .. (3, 2)
-  .. controls ++(240:-1) and ++(165:-1) .. (2, 4)
-  .. controls ++(165: 1) and ++(175:-2) .. (-1, 2)
-  .. controls ++(175: 2) and ++(165: 1) .. (0, 0);
+	\draw [show curve controls] (-3, 4) .. controls ++(135:-1) and ++(135:1) .. (0, 4);
+	\draw [show curve controls] (0, 0)
+	.. controls ++(0:-1) and ++(240: 1) .. (3, 2)
+	.. controls ++(240:-1) and ++(165:-1) .. (2, 4)
+	.. controls ++(165: 1) and ++(175:-2) .. (-1, 2)
+	.. controls ++(175: 2) and ++(165: 1) .. (0, 0);
 \end{tikzpicture}
 
 \begin{center}
 	\begin{tikzpicture}[scale=0.5]
-	\draw [help lines] (0, 0) grid (3, 3);
-	\draw [show curve controls] (0, 0)
+		\draw [help lines] (0, 0) grid (3, 3);
+		\draw [show curve controls] (0, 0)
 		.. controls ++(45:-1) and ++(45:1) .. (0, 2)
 		.. controls (1, 2) .. (2, 2)
 		.. controls (2, 1) .. (2, 0)
@@ -2957,27 +2882,25 @@ $
 \end{center}
 
 \begin{tikzpicture}
-\begin{scope}[scale=0.5]
-\draw (-3, 0.6) .. controls +(1, 0) and +(-1, 0) .. (0, 1.8) 
-			 .. controls +(1, 0) and +(0, -3) .. (5, 3.2)
-			 .. controls +(0, 2) and +(2, 0)  .. (0, 5.2)
-			 .. controls +(-1, 0) and +(0, 3) .. (-4.5, 2.2)
-			 .. controls +(0, -1) and +(-1, 0).. (-3, 0.6);
-\begin{scope}  % pour limiter la portée du clip
-\clip (-3, 0.6) .. controls +(1, 0) and +(-1, 0) .. (0, 1.8) 
-			 .. controls +(1, 0) and +(0, -3) .. (5, 3.2)
-			 .. controls +(0, 2) and +(2, 0)  .. (0, 5.2)
-			 .. controls +(-1, 0) and +(0, 3) .. (-4.5, 2.2)
-			 .. controls +(0, -1) and +(-1, 0).. (-3, 0.6);
-\draw (-5, 0) grid[step=1](5, 6);
-\end{scope}
-\draw[<->] (-5, 2)--(-5, 3) node[midway, left]{$\varepsilon$};
-\node at (0, 1) {$\Omega$};
-\end{scope}
+	\begin{scope}[scale=0.5]
+		\draw (-3, 0.6) .. controls +(1, 0) and +(-1, 0) .. (0, 1.8)
+		.. controls +(1, 0) and +(0, -3) .. (5, 3.2)
+		.. controls +(0, 2) and +(2, 0)  .. (0, 5.2)
+		.. controls +(-1, 0) and +(0, 3) .. (-4.5, 2.2)
+		.. controls +(0, -1) and +(-1, 0).. (-3, 0.6);
+		\begin{scope}  % pour limiter la portée du clip
+			\clip (-3, 0.6) .. controls +(1, 0) and +(-1, 0) .. (0, 1.8)
+			.. controls +(1, 0) and +(0, -3) .. (5, 3.2)
+			.. controls +(0, 2) and +(2, 0)  .. (0, 5.2)
+			.. controls +(-1, 0) and +(0, 3) .. (-4.5, 2.2)
+			.. controls +(0, -1) and +(-1, 0).. (-3, 0.6);
+			\draw (-5, 0) grid[step=1](5, 6);
+		\end{scope}
+		\draw[<->] (-5, 2)--(-5, 3) node[midway, left]{$\varepsilon$};
+		\node at (0, 1) {$\Omega$};
+	\end{scope}
 \end{tikzpicture}
 }
-
-\iffalse
 
 \begin{proposition}
 	Si $\mathfrak{B}$ est une base $\sigma_\text{topologie}(\mathfrak{B})=\{U\subset E| \exists X_{i\in I}\in\mathfrak{B}, U=\bigcup_{i\in I}X_i\}$
@@ -2986,9 +2909,9 @@ $
 \begin{demonstration}
 	Notons l'ensemble de droite $\mathscr{T}=\{U\subset E| \exists X_{i\in I}\in\mathfrak{B}, U=\bigcup_{i\in I}X_i\}$ et montrons $\mathscr{T}=\sigma_\text{topologie}(\mathfrak{B})$ par double inclusion.
 	\begin{itemise}
-		 \item[$\subset$] Soit $O\in\mathscr{T}$ alors $\exists X_{i\in I}\in\mathfrak{B}, O=\bigcup_{i\in I}X_i$.
+		\item[$\subset$] Soit $O\in\mathscr{T}$ alors $\exists X_{i\in I}\in\mathfrak{B}, O=\bigcup_{i\in I}X_i$.
 		Or $\sigma_\text{topologie}(\mathfrak{B})$ continent $\mathfrak{B}$ donc $X_{i\in I}\in\sigma_\text{topologie}(\mathfrak{B})$, et est une topologie donc $O=\bigcup_{i\in I}X_i\in\sigma_\text{topologie}(\mathfrak{B})$.
-		 \item[$\supset$] Montons que $\mathscr{T}$ est une topologie.
+		\item[$\supset$] Montons que $\mathscr{T}$ est une topologie.
 		\begin{itemise}
 			\item de $E\subset\bigcup_{X\in\mathfrak{B}}X$ on a $E\in\mathscr{T}$.
 			Pour $I=\vide$ on obtient $\vide\in\mathscr{T}$
@@ -3002,9 +2925,7 @@ $
 		Donc $\mathscr{T}\supset\sigma_\text{topologie}(\mathfrak{B})$.
 	\end{itemise}
 \end{demonstration}
-\fi
 
-\iffalse
 Soit $\mathfrak{V}$ une voisinagination de $E$.
 Vérifions que $\mathscr{T}_\text{ouvert}=\Phi(\mathfrak{V})$ est une topologie d'ouverts.
 \begin{itemise}
@@ -3016,7 +2937,7 @@ Vérifions que $\mathscr{T}_\text{ouvert}=\Phi(\mathfrak{V})$ est une topologie 
 \end{itemise}
 
 $$
-\mathscr{T}_\text{ouvert}\underset{\Psi}{\longmapsto}\mathfrak{V}\underset{\Phi}{\longmapsto}\mathscr{T}_\text{ouvert}'
+	\mathscr{T}_\text{ouvert}\underset{\Psi}{\longmapsto}\mathfrak{V}\underset{\Phi}{\longmapsto}\mathscr{T}_\text{ouvert}'
 $$
 
 Vérifions que $\Psi\circ\Phi=\id$.
@@ -3024,7 +2945,7 @@ Soit $\mathscr{T}_\text{ouvert}$ une topologie d'ouverts de $E$.
 Vérifions que $\mathscr{T}_\text{ouvert}'=\mathscr{T}_\text{ouvert}$.
 
 $$
-\mathfrak{V}\underset{\Phi}{\longmapsto}\mathscr{T}_\text{ouvert}\underset{\Psi}{\longmapsto}\mathfrak{V}'
+	\mathfrak{V}\underset{\Phi}{\longmapsto}\mathscr{T}_\text{ouvert}\underset{\Psi}{\longmapsto}\mathfrak{V}'
 $$
 Soit $\mathfrak{V}$ une voisinagination de $E$.
 Vérifions que $\mathfrak{V}'=\mathfrak{V}$.
@@ -3036,10 +2957,8 @@ Vérifions que $\mathfrak{V}'=\mathfrak{V}$.
 	\item Si $V'\in\mathfrak{V}'(x)$ alors $\exists O\in\mathscr{T}_\text{ouvert}, x\in O\subset V'$.
 	Or $\mathscr{T}_\text{ouvert}=\Phi(\mathfrak{V})$ donc $O\in\mathfrak{V}(x)$, puis $V'\in\mathfrak{V}(x)$ par définition d'une voisinagination.
 \end{itemise}
-\fi
 
 
-\iffalse
 Soit $O$ un ouvert non vide et $x\in O$.
 Alors $O$ est un voisinage de $x$, et $x\in\overline{X}$ donc $O\cap X\neq\vide$.
 
@@ -3047,7 +2966,6 @@ Soit $O$ un ouvert de $E$ inclus dans $\complement X$.
 Par l'absurde supposons $O\neq\vide$.
 Alors $O\cap X\neq\vide$, puis $\vide\neq O\cap X\subset\complement X\cap X=\vide$.
 C'est absurde, donc $O$ est vide, puis $\complement\overline{X}=\vide$, soit $\overline{X}=E$.
-\fi
 
 \begin{definition}
 	Soient $(E_i)_{i\in I}$ des espaces topologiques, $E=\prod_{i\in I}E_i$ leur produit cartésien.
@@ -3060,7 +2978,6 @@ C'est absurde, donc $O$ est vide, puis $\complement\overline{X}=\vide$, soit $\o
 	C’est en fait la proposition suivante qui justifie cette définition.
 \end{remarque}
 
-
 \begin{proposition}
 	La topologie produit est la topologie initiale associée aux projections canoniques $\pi_i:E\rightarrow E_i$, c'est à dire la moins fine rendant les $\pi_i$ continues.
 \end{proposition}
@@ -3071,28 +2988,28 @@ C'est absurde, donc $O$ est vide, puis $\complement\overline{X}=\vide$, soit $\o
 	Soit $O=\prod_{j\in J}O_j\times\prod_{i\in I\setminus J}E_i$ dans $\mathfrak{B}$.
 	Remarquons que :
 	$$
-	p_i\left(\bigcap_{j\in J}\inv{p_j}(O_j)\right)
-	=\bigcap_{j\in J}p_i(\inv{p_j}(O_j))
-	=\bigcap_{j\in J}\left\{
-	\begin{array}{cc}
-		O_i &\text{si $i=j$}\\
-		E_i &\text{si $i\neq j$}
-	\end{array}
-	\right.
-	=\left\{
-	\begin{array}{cc}
-		O_i &\text{si $i\in J$}\\
-		E_i &\text{si $i\not\in J$}
-	\end{array}
-	\right.
-	=O_i
+		p_i\left(\bigcap_{j\in J}\inv{p_j}(O_j)\right)
+		=\bigcap_{j\in J}p_i(\inv{p_j}(O_j))
+		=\bigcap_{j\in J}\left\{
+		\begin{array}{cc}
+			O_i & \text{si $i=j$}     \\
+			E_i & \text{si $i\neq j$}
+		\end{array}
+		\right.
+		=\left\{
+		\begin{array}{cc}
+			O_i & \text{si $i\in J$}     \\
+			E_i & \text{si $i\not\in J$}
+		\end{array}
+		\right.
+		=O_i
 	$$
 	Puisque $X=\prod_{i\in I}p_i(X)$ pour tout $X\subset E$ on obtient:
 	$$
-	O
-	=\prod_{i\in I}O_i
-	=\prod_{i\in I}p_i\left(\bigcap_{j\in J}\inv{p_j}(O_j)\right)
-	=\bigcap_{j\in J}\inv{p_j}(O_j)
+		O
+		=\prod_{i\in I}O_i
+		=\prod_{i\in I}p_i\left(\bigcap_{j\in J}\inv{p_j}(O_j)\right)
+		=\bigcap_{j\in J}\inv{p_j}(O_j)
 	$$
 	Par continuité de $p_i$, $\inv{p_j}(O_j)\in\mathscr{T}$ et l'intersection étant finie $O\in\mathscr{T}$.
 	Par minimalité de la topologie engendrée, la topologie produit est incluse dans $\mathscr{T}$.
