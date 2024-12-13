@@ -555,12 +555,13 @@ Les topologies d'intérieur sont en bijection avec les topologies d'ouverts.
 	On appelle système fondamentale de voisinage d'un point $x$ un ensemble de voisinages $\mathfrak{S}$ tel que $\forall V\in\mathfrak{V}(x), \exists W\in\mathfrak{S}, W\subset V$. On peut de même définir un système fondamental de voisinage d'une partie de $E$.
 \end{definition}
 
-\exemple
-\begin{itemise}
-	\item Dans un espace discret, l'ensemble $\{x\}$ (qui est ouvert donc un voisinage) est une base fondamentale de voisinage de $x$.
-	\item Sur la droite rationnelle $[q-\frac{1}{n}, q+\frac{1}{n}]$ ou $]q-\frac{1}{n}, q+\frac{1}{n}[$ avec $n\in\N^*$ sont des systèmes fondamentaux de voisinages de $q\in\Q$.
-	\item Il en va de même pour le droite réelle.
-\end{itemise}
+\begin{exemple}
+	\begin{itemise}
+		\item Dans un espace discret, l'ensemble $\{x\}$ (qui est ouvert donc un voisinage) est une base fondamentale de voisinage de $x$.
+		\item Sur la droite rationnelle $[q-\frac{1}{n}, q+\frac{1}{n}]$ ou $]q-\frac{1}{n}, q+\frac{1}{n}[$ avec $n\in\N^*$ sont des systèmes fondamentaux de voisinages de $q\in\Q$.
+		\item Il en va de même pour le droite réelle.
+	\end{itemise}
+\end{exemple}
 
 \begin{definition}
 	On appelle base de la topologie $\mathscr{T}$ toute collection $\mathfrak{B}\subset\mathfrak{P}(E)$ telle que tout ouvert soit réunion d'éléments de $\mathfrak{B}$, id est $\forall O\in\mathscr{T}, \exists X_{i\in I}\in\mathfrak{B}, O=\bigcup_{i\in I} X_i$.
@@ -739,7 +740,8 @@ Si $f$ est continue alors $\forall X\in\mathfrak{P}(E), \overline{\inv{f}(X)}\su
 	Par minimalité de $\overline{\inv{f}(X)}$ on obtient le résultat.
 \end{demonstration}
 
-\begin{exemple} Il faut cependant ce méfier :
+\begin{exemple}
+	Il faut cependant ce méfier :
 	\begin{itemise}
 		\item L'image directe d'un ouvert par une application continue n'est pas nécessairement ouvert (on dit alors que $f$ est ouverte).
 		Par exemple l'image de $\R$ par $x\mapsto\frac{1}{1+x^2}$ est $]0,1]$ qui n'est ni fermé ni ouvert.
@@ -802,7 +804,9 @@ Dans les deux premiers cas, être ouvert ou fermé n'est qu'une condition suffis
 \chapter{Topologies de références}
 
 \section{Trousse à topologies}
+
 Soit $E$ est un espace topologique et $F$ une partie de $E$.
+
 \proposition
 La topologie cofinie sur $E$ est $\mathscr{T}=\{\vide\}\cup\{X\subset E|\complement X\text{ fini}\}$.
 
@@ -1018,6 +1022,7 @@ $T_4$ équivaut à $\forall O, F\in\mathscr{T}\times\complement\mathscr{T}, F\su
 \end{demonstration}
 
 \section{Classification}
+
 \proposition
 \begin{center}
 	\begin{tikzpicture}[xscale=2.5, yscale=1.5]
@@ -1217,6 +1222,7 @@ $T_4$ équivaut à $\forall O, F\in\mathscr{T}\times\complement\mathscr{T}, F\su
 \end{demonstration}
 
 \section{Théorèmes de représentation}
+
 Soit $(E, \mathscr{T})$ et $(F_i, \mathscr{U}_i)_{i\in I}$ des espaces topologiques $F=\prod_{i\in I}F_i$ leur produit cartésien munie de sa topologie produit $\mathscr{U}$ et $f_i:E\rightarrow F_i$ des applications continues.
 
 \begin{definition}
@@ -1339,42 +1345,47 @@ Mais un sous-espace fermé d'un $T_4$ n'est pas nécessairement $T_4$...
 La parade consiste à remplacer les sous-espace fermés par des rétracts: un sous-espace $X$ du topologique $E$ est un rétract s'il existe une application continue $f:E\rightarrow X$ telle que $f_{\vert X}=\id_{\vert X}$.
 On dit alors que $f$ est une rétraction $E\rightarrow X$.
 
-\textbf{Exemple:}
-Si un produit $\prod_{i\in I}E_i$ d'espaces topologiques est $T_2+T_4$ alors chaque $E_i$ est $T_2+T_4$.
-Pour le démontrer on remarque que chaque $E_i$ est homéomorphe à un sous espace fermé du produit.
-Si les espaces ne sont pas séparés cette démonstration ne fonctionne plus.
-On peut néanmoins utiliser les rétracts: par les projections $\pi_i:\prod_{i\in I}E_i\rightarrow E_i$ chaque $E_i$ est un rétract du produit.
-S'il est $T_4$ il en va de même pour chaque $E_i$.
+\begin{exemple}
+	Si un produit $\prod_{i\in I}E_i$ d'espaces topologiques est $T_2+T_4$ alors chaque $E_i$ est $T_2+T_4$.
+	Pour le démontrer on remarque que chaque $E_i$ est homéomorphe à un sous espace fermé du produit.
+	Si les espaces ne sont pas séparés cette démonstration ne fonctionne plus.
+	On peut néanmoins utiliser les rétracts: par les projections $\pi_i:\prod_{i\in I}E_i\rightarrow E_i$ chaque $E_i$ est un rétract du produit.
+	S'il est $T_4$ il en va de même pour chaque $E_i$.
+\end{exemple}
 
-\textbf{Exemple:}
-Si $E$ n'est pas séparé la diagonale $\Delta_E$ n'est pas fermée.
-Mais le graphe d'une application continue $f:E\rightarrow F$ est un rétract de $E\times F$ grâce à la rétraction $E\times F\rightarrow\Gamma(f); (x, y)\mapsto(x, f(x))$.
-Si $E$ et $F$ sont séparé alors $\Gamma(f)$ est fermé ce qui montre $\Delta_E$ fermé avec $f=\id$.
+
+\begin{exemple}
+	Si $E$ n'est pas séparé la diagonale $\Delta_E$ n'est pas fermée.
+	Mais le graphe d'une application continue $f:E\rightarrow F$ est un rétract de $E\times F$ grâce à la rétraction $E\times F\rightarrow\Gamma(f); (x, y)\mapsto(x, f(x))$.
+	Si $E$ et $F$ sont séparé alors $\Gamma(f)$ est fermé ce qui montre $\Delta_E$ fermé avec $f=\id$.
+\end{exemple}
 
 \textbf{Se méfier des applications continues:}
 Si $E$ et $F$ sont séparés $f\in\cont(E, F)$ a un graphe fermé.
 Si les espaces ne sont pas séparé c'est à priori faux.
 Comme c'est bien souvent le graphe fermé qui est important, un remède est de considérer les applications dont le graphe est fermé plutôt que les applications continues.
 
-\textbf{Exemple:}
-Si $E$ est compact, $F$ séparé et $f\in\cont(E, F)$ alors $f$ est fermée.
-Si $F$ n'est pas séparé, c'est faux.
-Cependant, si $E$ est compact et que $f:E\rightarrow F$ a un graphe fermé alors $f$ est fermée.
+\begin{exemple}
+	Si $E$ est compact, $F$ séparé et $f\in\cont(E, F)$ alors $f$ est fermée.
+	Si $F$ n'est pas séparé, c'est faux.
+	Cependant, si $E$ est compact et que $f:E\rightarrow F$ a un graphe fermé alors $f$ est fermée.
+\end{exemple}
 
-\textbf{Exemple:}
-Si $E$ et $F$ sont des espaces vectoriels topologiques sur $\R$ et si $f$ est additive et a graphe fermé alors $f$ est linéaire.
-En effet $f(\frac{n}{d}x)=nf(\frac{x}{d})=\frac{n}{d}df(\frac{x}{d})=\frac{n}{d}f(x)$.
-Ainsi $\forall q\in\Q, f(qx)=qf(x)$.
-Si l'application était continue on conclurait directement.
-Sinon pour $\lambda\in\R$ et $r\in\Q$ on fait tendre $r\rightarrow\lambda$ ainsi $rx\rightarrow\lambda x$ et $f(rx)=rf(x)\rightarrow\lambda f(x)$ par continuité de la multiplication externe.
-Or $(rx, rf(x))\in\Gamma(f)$ fermé on a $(\lambda x, \lambda f(x))\in\Gamma(f)$ id est $f(\lambda x)=\lambda f(x)$.
+\begin{exemple}
+	Si $E$ et $F$ sont des espaces vectoriels topologiques sur $\R$ et si $f$ est additive et a graphe fermé alors $f$ est linéaire.
+	En effet $f(\frac{n}{d}x)=nf(\frac{x}{d})=\frac{n}{d}df(\frac{x}{d})=\frac{n}{d}f(x)$.
+	Ainsi $\forall q\in\Q, f(qx)=qf(x)$.
+	Si l'application était continue on conclurait directement.
+	Sinon pour $\lambda\in\R$ et $r\in\Q$ on fait tendre $r\rightarrow\lambda$ ainsi $rx\rightarrow\lambda x$ et $f(rx)=rf(x)\rightarrow\lambda f(x)$ par continuité de la multiplication externe.
+	Or $(rx, rf(x))\in\Gamma(f)$ fermé on a $(\lambda x, \lambda f(x))\in\Gamma(f)$ id est $f(\lambda x)=\lambda f(x)$.
+\end{exemple}
 
 \textbf{Se méfier des espace localement compacts:}
 « Tout point de $E$ appartient à un ouvert dont la fermeture est compacte » est équivalent dans un espace séparé à « tout point de $E$ a un voisinage compact » c'est à dire:
 $$
-\forall x\in E, \exists O\in\mathscr{T}, x\in O\et\overline{O}\text{ compact}
-\iff
-\forall x\in E, \exists V\in\mathfrak{V}(x), V\text{ compact}
+	\forall x\in E, \exists O\in\mathscr{T}, x\in O\et\overline{O}\text{ compact}
+	\iff
+	\forall x\in E, \exists V\in\mathfrak{V}(x), V\text{ compact}
 $$
 Si l'on essaye de généraliser cette définition aux quasi-compact on perd l'équivalence, ce qui donne deux définitions de la local-quasi-compacité.
 On a $\Rightarrow$ car $\overline{O}$ est un voisinage de $x$ compact.
@@ -1386,7 +1397,7 @@ Cette espace est de plus $T_0$ mais pas $T_1$ (mais totu de même $T_4$...).
 Le remède aux espaces localement-quasi-compacts est simple: préciser clairement la définition utilisée.
 
 \textbf{Se méfier les espaces quasi-compacts:}
-Le muricain utilise \textit{compact} pour signifier \textit{quasi-compact}, tandis qu'ils faut leurs dire \textit{compact-Hausdorff} pour dire \textit{compact}.
+Le muricain utilise \textit{compact} pour signifier \textit{quasi-compact}, tandis qu'il faut lui dire \textit{compact-Hausdorff} en lieu et place de \textit{compact}.
 Beaucoup de propriétés vraies dans les espaces compacts deviennent fausses dans les espaces quasi-compacts.
 
 \chapter{Filtres}
@@ -1427,8 +1438,9 @@ On se donne une application $f:E\rightarrow F$.
 	\end{itemise}
 \end{definition}
 
-\exemple
-Soit $(E, \mathfrak{V})$ un espace topologique, $\forall x\in E, \mathfrak{V}(x)$ est un filtre sur $E$.
+\begin{exemple}
+	Soit $(E, \mathfrak{V})$ un espace topologique, $\forall x\in E, \mathfrak{V}(x)$ est un filtre sur $E$.
+\end{exemple}
 
 \begin{demonstration}
 	$\vide\neq V\in\mathfrak{V}(x)$ car $x\in V$.
