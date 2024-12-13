@@ -359,43 +359,6 @@
 
 \chapter{Espaces topologiques généraux}
 
-\section{Définitions}
-
-\begin{definition}
-	On appelle topologie sur $E$ une collection $\mathscr{T}\subset\mathfrak{P}(E)$ telle que:
-	\begin{itemise}
-		\item Toute réunion d'ensembles de $\mathscr{T}$ est un ensemble de $\mathscr{T}$.
-		\item Toute intersection finie d'ensembles de $\mathscr{T}$ est un ensemble de $\mathscr{T}$.
-	\end{itemise}
-	Les éléments de $\mathscr{T}$ sont appelés les ouverts de $E$.
-	Un espace topologique est un ensemble munie d'une topologie.
-\end{definition}
-
-Cette définition élégante est celle donnée par Bourbarki.
-En pratique on utilise la caractérisation suivante, provenant de la convention qu'une intersection d'aucune partie de $E$ est $E$ lui même, et que l'union d'aucune partie de $E$ est $\vide$.
-On voit donc souvent la définition suivante:
-
-\begin{definition}
-	Une topologie $\mathscr{T}$ est aussi définie par les propriétés:
-	\begin{itemise}
-		\item $E$ et $\vide$ sont dans $\mathscr{T}$
-		\item Si $O$ et $O'$ sont dans $\mathscr{T}$ alors $O\cap O'$ aussi.
-		\item Si les $O_i$ sont dans $\mathscr{T}$ alors $\bigcup_iO_i$ aussi.
-	\end{itemise}
-\end{definition}
-
-\begin{exemple} Voici quelques topologies dont on peut toujours munir un ensemble quelconque $E$:
-	\begin{itemise}
-		\item la topologie grossière $\mathscr{T}=\{\vide, E\}$.
-		\item la topologie discrète $\mathscr{T}=\mathfrak{P}(E)$.
-		\item la topologie cofinie $\mathscr{T}=\{\vide\}\cup\{O\subset E\ |\ \complement O\text{ fini}\}$.
-		Démontrons que c'est bien une topologie sur $E$.
-		Par définition $\vide\in\mathscr{T}$ et $\complement E=\vide$ est fini donc $E\in\mathscr{T}$.
-		Si $O$ et $O'$ sont dans $\mathscr{T}$ alors $\complement O$ et $\complement O'$ sont finis donc $\complement O\cup\complement O'=\complement(O\cap O')$ est fini donc $O\cap O'$ est dans $\mathscr{T}$.
-		Si les $O_i$ sont dans $\mathscr{T}$ alors $\complement O_i$ sont finis donc $\bigcap_i\complement O_i=\complement\bigcup_iO_i$ est fini donc $\bigcup_iO_i$ est dans $\mathscr{T}$.
-	\end{itemise}
-\end{exemple}
-
 \section{Équivalences}
 
 Ayant été étudiés par de nombreuses personnes, il existe plusieurs façon équivalentes de définir un espace topologique.
@@ -403,24 +366,37 @@ On donne dans la suite les définitions les plus classiques.
 Ces définitions étant équivalentes, on se permettra dans la suite de définir des topologies à partir d'une de ces constructions, voir d'un mélange de plusieurs d'entre elles.
 
 \begin{definition}
-	Les fermés d'une topologie sur $E$ sont des éléments de $\mathfrak{P}(E)$ vérifiant:
+	On appelle topologie d'ouverts sur $E$ une collection $\mathscr{O}\subset\mathfrak{P}(E)$ telle que:
 	\begin{itemise}
-		\item Toute réunion finie de fermés est fermée.
-		\item Toute intersection d'ensembles fermés est fermée.
+		\item Toute réunion d'ensembles de $\mathscr{O}$ est un ensemble de $\mathscr{O}$.
+		\item Toute intersection finie d'ensembles de $\mathscr{O}$ est un ensemble de $\mathscr{O}$.
 	\end{itemise}
+	Les éléments de $\mathscr{O}$ sont appelés les ouverts de $E$.
+\end{definition}
+
+\begin{definition}
+	On appelle topologie de fermés sur $E$ une collection $\mathscr{F}\subset\mathfrak{P}(E)$ telle que:
+	\begin{itemise}
+		\item Toute réunion finie d'ensembles de $\mathscr{F}$ est un ensemble de $\mathscr{F}$.
+		\item Toute intersection d'ensembles de $\mathscr{F}$ est un ensemble de $\mathscr{F}$.
+	\end{itemise}
+	Les éléments de $\mathscr{F}$ sont appelés les fermés de $E$.
+
 \end{definition}
 
 \begin{proposition}
 	L'ensemble des topologies d'ouverts est en bijection avec celui des fermés.
 \end{proposition}
 
-L'application $\Psi:X\longmapsto\complement X$ est une bijection car c'est une involution.
-Il ne reste plus qu'à vérifier que l'image d'une topologie d'ouvert est une topologie de fermés et inversement.
-\begin{itemise}
-	\item $E, \vide=\complement\vide, \complement E$.
-	\item Si $F, F'=\complement O, \complement O'$ alors $F\cup F'=\complement O\cup\complement O'=\complement(O\cap O')$.
-	\item Si $F_i=\complement O_i$ alors $\bigcap_iF_i=\bigcap_i\complement O_i=\complement\bigcup_iO_i$.
-\end{itemise}
+\begin{demonstration}
+	L'application $\Psi:X\longmapsto\complement X$ est une bijection car c'est une involution.
+	Soit $\mathscr{O}$ une topologie d'ouverts et montrons que $\mathscr{F}=\Psi(\mathscr{O})$ est une topologie de fermés.
+	\begin{itemise}
+		\item Soit $I$ fini et $(F_i)_{i\in I}\in\mathscr{F}^I$ alors $\bigcup_{i\in I}F_i=\bigcup_{i\in I}\complement O_i=\complement\bigcap_{i\in I}O_i\in\Psi(\mathscr{O})=\mathscr{F}$.
+		\item Soit $I$ quelconque et $(F_i)_{i\in I}\in\mathscr{F}^I$ alors $\bigcap_{i\in I}F_i=\bigcap_{i\in I}\complement O_i=\complement\bigcup_{i\in I}O_i\in\Psi(\mathscr{O})=\mathscr{F}$.
+	\end{itemise}
+	Inversement on  montre de même que si $\mathscr{F}$ une topologie de fermés alors $\mathscr{O}=\Psi(\mathscr{F})$ est une topologie d'ouverts.
+\end{demonstration}
 
 \begin{definition}
 	On appelle voisinagination sur $E$ une fonction $\mathfrak{V}:E\rightarrow\mathfrak{P}(\mathfrak{P}(E))$ telle que:
@@ -551,6 +527,34 @@ Il ne reste plus qu'à vérifier que l'image d'une topologie d'ouvert est une to
 		Soit $O\in\mathscr{T}_\text{Ouvert}$ alors $O=\Phi(\mathscr{T}_\text{ouvert})(O)=\Phi(\mathscr{T}_\text{ouvert}')(O)=\bigcup_{O\supset O'\in\mathscr{T}_\text{ouvert}'}O'\in\mathscr{T}_\text{ouvert}'$.
 	\end{itemise}
 \end{demonstration}
+
+\section{Définitions}
+
+La définition élégante d'une topologie par les ouverts est celle donnée par Bourbaki.
+En pratique on utilise la caractérisation suivante, provenant de la convention qu'une intersection d'aucune partie de $E$ est $E$ lui même, et que l'union d'aucune partie de $E$ est $\vide$.
+Un espace topologique est un ensemble munie d'une topologie.
+
+\begin{definition}
+	Une topologie $\mathscr{T}$ est aussi définie par les propriétés:
+	\begin{itemise}
+		\item $E$ et $\vide$ sont dans $\mathscr{T}$
+		\item Si $O$ et $O'$ sont dans $\mathscr{T}$ alors $O\cap O'$ aussi.
+		\item Si les $O_i$ sont dans $\mathscr{T}$ alors $\bigcup_iO_i$ aussi.
+	\end{itemise}
+\end{definition}
+
+\begin{exemple}
+	Voici quelques topologies dont on peut toujours munir un ensemble quelconque $E$:
+	\begin{itemise}
+		\item la topologie grossière $\mathscr{T}=\{\vide, E\}$.
+		\item la topologie discrète $\mathscr{T}=\mathfrak{P}(E)$.
+		\item la topologie cofinie $\mathscr{T}=\{\vide\}\cup\{O\subset E\ |\ \complement O\text{ fini}\}$.
+		Démontrons que c'est bien une topologie sur $E$.
+		Par définition $\vide\in\mathscr{T}$ et $\complement E=\vide$ est fini donc $E\in\mathscr{T}$.
+		Si $O$ et $O'$ sont dans $\mathscr{T}$ alors $\complement O$ et $\complement O'$ sont finis donc $\complement O\cup\complement O'=\complement(O\cap O')$ est fini donc $O\cap O'$ est dans $\mathscr{T}$.
+		Si les $O_i$ sont dans $\mathscr{T}$ alors $\complement O_i$ sont finis donc $\bigcap_i\complement O_i=\complement\bigcup_iO_i$ est fini donc $\bigcup_iO_i$ est dans $\mathscr{T}$.
+	\end{itemise}
+\end{exemple}
 
 \section{Système fondamental de voisinage, Base d'une topologie}
 
