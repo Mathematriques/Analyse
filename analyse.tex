@@ -611,8 +611,9 @@ Il ne reste plus qu'à vérifier que l'image d'une topologie d'ouvert est une to
 	On pose donc $\sigma_\text{topologie}(\mathfrak{A})=\bigcap_{\mathfrak{A}\subset\mathscr{T}\text{topologie}}\mathscr{T}$ la plus petite topologie contenant $\mathfrak{A}$ nommée topologie engendré par $\mathfrak{A}$.
 \end{definition}
 
-\remarque
-Il est facile de vérifier que si $\mathfrak{B}$ est une base de la topologie $\mathscr{T}$ alors $\mathscr{T}=\sigma_\text{topologie}(\mathfrak{B})$.
+\begin{remarque}
+	Il est facile de vérifier que si $\mathfrak{B}$ est une base de la topologie $\mathscr{T}$ alors $\mathscr{T}=\sigma_\text{topologie}(\mathfrak{B})$.
+\end{remarque}
 
 
 \section{Premières propriétés}
@@ -637,12 +638,13 @@ Il est facile de vérifier que si $\mathfrak{B}$ est une base de la topologie $\
 	$X\cup Y\supset X^\circ\cup Y^\circ$ qui est ouvert donc par maximalité.
 \end{demonstration}
 
-\remarque
-\begin{itemise}
-	\item Une intersection infinie d'ouverts peut ne pas être un ouvert : $\bigcap_{x>0}]-x,x[=\{0\}$.
-	\item Une union infinie de fermés peut ne pas être fermée : $\bigcup_{0<x<1}[x,1]=]0, 1]$.
-	\item les inclusions précédentes peuvent être strictes : $\overline{]-\infty, 0[\cap]0, +\infty[}=\overline{\vide}=\vide$ tandis que  $\overline{]-\infty, 0[}\cap\overline{]0, +\infty[}=]-\infty, 0]\cap\overline[0, +\infty[=\{0\}$.
-\end{itemise}
+\begin{remarque}
+	\begin{itemise}
+		\item Une intersection infinie d'ouverts peut ne pas être un ouvert : $\bigcap_{x>0}]-x,x[=\{0\}$.
+		\item Une union infinie de fermés peut ne pas être fermée : $\bigcup_{0<x<1}[x,1]=]0, 1]$.
+		\item les inclusions précédentes peuvent être strictes : $\overline{]-\infty, 0[\cap]0, +\infty[}=\overline{\vide}=\vide$ tandis que  $\overline{]-\infty, 0[}\cap\overline{]0, +\infty[}=]-\infty, 0]\cap\overline[0, +\infty[=\{0\}$.
+	\end{itemise}
+\end{remarque}
 
 
 \begin{proposition}
@@ -795,9 +797,10 @@ Soient $(E, \mathscr{T}_1), (E, \mathscr{T}_2), (F, \mathscr{U})$ des espace top
 	Or si $O\in\mathscr{T}$ par continuité de $\id\colon(E, \mathscr{U})\rightarrow(E, \mathscr{T})$, $\inv{\id}(O)=O\in\mathscr{U}$.
 \end{demonstration}
 
-\remarque
-Il est possible qu'entre deux topologies, aucune ne soit plus fine que l'autre, puisqu'il est possible qu'aucune des deux n'inclut l'autre.
-On dit alors qu'elles ne sont pas comparables.
+\begin{remarque}
+	Il est possible qu'entre deux topologies, aucune ne soit plus fine que l'autre, puisqu'il est possible qu'aucune des deux n'inclut l'autre.
+	On dit alors qu'elles ne sont pas comparables.
+\end{remarque}
 
 
 \begin{proposition}
@@ -871,11 +874,11 @@ Soit $E$ est un espace topologique et $F$ une partie de $E$.
 	Les ouverts de la topologie induite par $E$ sur $F$ sont les traces sur $F$ des ouverts de $E$.
 \end{proposition}
 
-\remarque
-Cette notion est d’usage fréquent, c’est en particulier à elle qu’on fait appel pour
-définir la continuité d’une fonction sur un intervalle fermé $[a, b]$ de $\R$.
-On dira que f est continue sur $[a, b]$ si elle est continue pour la toplogie induite par $\R$ sur cet intervalle, topologie pour laquelle $[a, b]$ est en fait ouvert !
-Les notions de continuité à droite ou à gauche aux bornes de l’intervalle font alors partie intégrante de la notion générale de continuité sur l’espace topologique $[a, b]$.
+\begin{remarque}
+	Cette notion est d’usage fréquent, c’est en particulier à elle qu’on fait appel pour définir la continuité d’une fonction sur un intervalle fermé $[a, b]$ de $\R$.
+	On dira que f est continue sur $[a, b]$ si elle est continue pour la toplogie induite par $\R$ sur cet intervalle, topologie pour laquelle $[a, b]$ est en fait ouvert !
+	Les notions de continuité à droite ou à gauche aux bornes de l’intervalle font alors partie intégrante de la notion générale de continuité sur l’espace topologique $[a, b]$.
+\end{remarque}
 
 \section{Topologie quotient}
 Soit $E, F$ topologiques, $\mathcal{R}$ une relation d’équivalence sur $E$, $\pi\colon E\rightarrow E/\mathcal{R}$ la surjection canonique et $f\colon E/\mathcal{R}\rightarrow F$ une application.
@@ -1350,15 +1353,17 @@ Soit $(E, \mathscr{T})$ et $(F_i, \mathscr{U}_i)_{i\in I}$ des espaces topologiq
 	D'après {\color{red} ???} c'est un homéomorphisme.
 \end{demonstration}
 
-\remarque
-D'après le théorème de Tychonoff, un produit d'espaces quasi-compacts est quasi-compact.
-En outre tout fermé d'un espace quasi-compact  est quasi-compact (l'inverse est faux, voir {\color{red} ???}).
-Ainsi si $E$ est $T_0$, $\overline{e(E)}$ (la fermeture de $e(E)$ dans $Q^F$) est un quasi-compact dans lequel $e(E)$ est dense: c'est une quasi-compactification de $E$.
+\begin{remarque}
+	D'après le théorème de Tychonoff, un produit d'espaces quasi-compacts est quasi-compact.
+	En outre tout fermé d'un espace quasi-compact  est quasi-compact (l'inverse est faux, voir {\color{red} ???}).
+	Ainsi si $E$ est $T_0$, $\overline{e(E)}$ (la fermeture de $e(E)$ dans $Q^F$) est un quasi-compact dans lequel $e(E)$ est dense: c'est une quasi-compactification de $E$.
+\end{remarque}
 
-\remarque
-Dans le cas d'un espace métrique séparable de distance $d$, il suffit de prendre $f_{n\in\N}=d(x_n, \cdot)$ avec $x_{n\in\N}$ une famille dénombrable dense.
-Cette famille satisfait aux hypothèses.
-Un espace métrique séparable est homéomorphe à un sous-espace de $[0, 1]^\N$.
+\begin{remarque}
+	Dans le cas d'un espace métrique séparable de distance $d$, il suffit de prendre $f_{n\in\N}=d(x_n, \cdot)$ avec $x_{n\in\N}$ une famille dénombrable dense.
+	Cette famille satisfait aux hypothèses.
+	Un espace métrique séparable est homéomorphe à un sous-espace de $[0, 1]^\N$.
+\end{remarque}
 
 
 \begin{proposition}
@@ -1391,10 +1396,11 @@ Un espace métrique séparable est homéomorphe à un sous-espace de $[0, 1]^\N$
 	\end{itemise}
 \end{demonstration}
 
-\remarque
-D'après le théorème de Tychonoff, un produit d'espaces quasi-compacts est quasi-compact.
-En outre le produit d'espaces séparés est séparé.
-Ainsi si $E$ est $T_0+T_{3\frac{1}{2}}$ l'adhérence de $e(E)$ dans $[0, 1]^I$ est un compact dans lequel $e(E)$ est dense: c'est la compactification de Stone-Čech de $E$.
+\begin{remarque}
+	D'après le théorème de Tychonoff, un produit d'espaces quasi-compacts est quasi-compact.
+	En outre le produit d'espaces séparés est séparé.
+	Ainsi si $E$ est $T_0+T_{3\frac{1}{2}}$ l'adhérence de $e(E)$ dans $[0, 1]^I$ est un compact dans lequel $e(E)$ est dense: c'est la compactification de Stone-Čech de $E$.
+\end{remarque}
 
 
 \section{Les pièges dans les espaces non séparés}
@@ -1556,8 +1562,9 @@ On se donne une application $f:E\rightarrow F$.
 	On pose donc $\sigma_\text{filtre}(\mathfrak{A})=\bigcap_{\mathfrak{A}\subset\mathfrak{F}\text{ filtre}}\mathfrak{F}$ le plus petit filtre contenant $\mathfrak{A}$ nommée filtre engendré par $\mathfrak{A}$.
 \end{definition}
 
-\remarque
-Il est facile de vérifier que si $\mathfrak{B}$ est une base du filtre $\mathfrak{F}$ alors $\mathfrak{F}=\sigma_\text{filtre}(\mathfrak{B})$.
+\begin{remarque}
+	Il est facile de vérifier que si $\mathfrak{B}$ est une base du filtre $\mathfrak{F}$ alors $\mathfrak{F}=\sigma_\text{filtre}(\mathfrak{B})$.
+\end{remarque}
 
 
 \begin{proposition}
@@ -1948,8 +1955,9 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 	On pose donc $\sigma_\text{quasi}(\mathfrak{A})=\bigcap_{X\subset\mathscr{U}\text{ quasi}}\mathscr{U}$ la plus petite (quasi-)uniformité contenant $\mathfrak{A}$ nommée (quasi-)uniformité engendré par $\mathfrak{A}$.
 \end{definition}
 
-\remarque
-Il est facile de vérifier que si $\mathfrak{B}$ est une base de la (quasi-)uniformité $\mathscr{U}$ alors $\mathscr{U}=\sigma_\text{quasi}(\mathfrak{B})$.
+\begin{remarque}
+	Il est facile de vérifier que si $\mathfrak{B}$ est une base de la (quasi-)uniformité $\mathscr{U}$ alors $\mathscr{U}=\sigma_\text{quasi}(\mathfrak{B})$.
+\end{remarque}
 
 
 \begin{proposition}
@@ -2002,10 +2010,11 @@ Il est facile de vérifier que si $\mathfrak{B}$ est une base de la (quasi-)unif
 	\end{itemise}
 \end{demonstration}
 
-\remarque
-On a ainsi montré qu'on peut construire une unique topologie à partir d'une quasi-uniformité.
-L'inverse est faux: une topologie engendrée par une quasi-uniformité est en générale engendrée par toute une famille de quasi-uniformité.
-On verre au chapitre suivant la structure des uniformités engendrant une topologie uniformisable.
+\begin{remarque}
+	On a ainsi montré qu'on peut construire une unique topologie à partir d'une quasi-uniformité.
+	L'inverse est faux: une topologie engendrée par une quasi-uniformité est en générale engendrée par toute une famille de quasi-uniformité.
+	On verre au chapitre suivant la structure des uniformités engendrant une topologie uniformisable.
+\end{remarque}
 
 \begin{center}
 	\begin{tikzpicture}[scale=1.5]
@@ -2335,10 +2344,11 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Alors $f(E)=f(\bigcup_{k=1}^n\inv{f}(O_{i_k}))=\bigcup_{k=1}^nf(\inv{f}(O_{i_k}))=\bigcup_{k=1}^nO_{i_k}$ est un recouvrement par des ouverts de l'image qui est donc quasi-compact.
 \end{demonstration}
 
-\remarque
-Voici maintenant une application de la compacité aux problèmes d’optimisation, le résultat qui suit est en effet est à la base des démonstrations qui prouvent l’existence d’un optimum.
-De façon générale, il s’agit de trouver quel jeu de valeurs d’un certain nombre de paramètres rend optimal le résultat d’une opération donnée ; il peut s’agir de son coût, de sa rapidité, de la résistance à la flexion d’une poutre en fonction de sa forme géométrique Ce dernier exemple est d’ailleurs plutôt instructif, puisqu’on peut montrer qu’un tel maximum n’existe pas dans l’ensemble des géométries qui conservent le volume et la longueur de la poutre !
-C’est ce qui explique que les structures légères et résistantes soient du type ‘nid d’abeilles’ et sortent du cadre des formes géométriques régulières.
+\begin{remarque}
+	Voici maintenant une application de la compacité aux problèmes d’optimisation, le résultat qui suit est en effet est à la base des démonstrations qui prouvent l’existence d’un optimum.
+	De façon générale, il s’agit de trouver quel jeu de valeurs d’un certain nombre de paramètres rend optimal le résultat d’une opération donnée ; il peut s’agir de son coût, de sa rapidité, de la résistance à la flexion d’une poutre en fonction de sa forme géométrique Ce dernier exemple est d’ailleurs plutôt instructif, puisqu’on peut montrer qu’un tel maximum n’existe pas dans l’ensemble des géométries qui conservent le volume et la longueur de la poutre !
+	C’est ce qui explique que les structures légères et résistantes soient du type ‘nid d’abeilles’ et sortent du cadre des formes géométriques régulières.
+\end{remarque}
 
 
 \begin{proposition}
@@ -2355,8 +2365,9 @@ C’est ce qui explique que les structures légères et résistantes soient du t
 	Le maximum est atteint ; il en est de même pour le minimum.
 \end{demonstration}
 
-\remarque
-La compacité est une propriété particulièrement agréable mais rare ; en témoigne la proposition suivante, qui montre qu’une topologie d’espace compact ne peut être affaiblie sans perdre la propriété de séparation, en particulier, au sein d’une famille de topologies séparées comparables sur un ensemble donné, l’une au plus est une topologie d’espace compact.
+\begin{remarque}
+	La compacité est une propriété particulièrement agréable mais rare ; en témoigne la proposition suivante, qui montre qu’une topologie d’espace compact ne peut être affaiblie sans perdre la propriété de séparation, en particulier, au sein d’une famille de topologies séparées comparables sur un ensemble donné, l’une au plus est une topologie d’espace compact.
+\end{remarque}
 
 
 \begin{proposition}
@@ -2637,8 +2648,9 @@ La compacité est une propriété particulièrement agréable mais rare ; en té
 	S’il existe une distance permettant de construire une topologie, on dit que la topologie découle d’une distance et on parle d’espace métrisable.
 \end{definition}
 
-\remarque
-Différentes distances peuvent être à l’origine de la même topologie, c’est pourquoi on distingue espace métrique (où la distance est donnée) et espace métrisable (où seule la topologie est donnée).
+\begin{remarque}
+	Différentes distances peuvent être à l’origine de la même topologie, c’est pourquoi on distingue espace métrique (où la distance est donnée) et espace métrisable (où seule la topologie est donnée).
+\end{remarque}
 
 
 \begin{proposition}
@@ -3039,9 +3051,10 @@ C'est absurde, donc $O$ est vide, puis $\complement\overline{X}=\vide$, soit $\o
 	%Il est alors facile de voir qu’une base de voisinages de $x=(x_i)_{i\in I}$ est formée des pavés $\prod_{i\in I} V_i$ où les $V_i\in\mathfrak{V}(x_i)$ sont tous égaux à $E_i$ , sauf un nombre fini d’entre eux.
 \end{definition}
 
-\remarque
-Cette définition de la topologie produit peut sembler surprenante, car les voisinages ne sont susceptibles de manifester de restriction que dans un nombre fini de directions (la fameuse tranche Napolitaine).
-C’est en fait la proposition suivante qui justifie cette définition.
+\begin{remarque}
+	Cette définition de la topologie produit peut sembler surprenante, car les voisinages ne sont susceptibles de manifester de restriction que dans un nombre fini de directions (la fameuse tranche Napolitaine).
+	C’est en fait la proposition suivante qui justifie cette définition.
+\end{remarque}
 
 
 \begin{proposition}
