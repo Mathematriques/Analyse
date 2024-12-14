@@ -72,6 +72,8 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 
+\newcommand\ens[2]{\{#1 \ |\ #2\}}
+
 %----- Pour l'instant pas utile -----
 \newcommand\transp{\, {}^t}
 \newcommand\diag{\mathrm{diag}}
@@ -234,7 +236,7 @@
 \end{definition}
 
 \begin{proposition}
-	$\sigma_\text{groupe}(\mathfrak{B})=\{x_1^{\epsilon_1}\star\dots\star x_n^{\epsilon_n} | n\in\N, x_i\in\mathfrak{B}, \epsilon_i=\pm1\}$
+	$\sigma_\text{groupe}(\mathfrak{B})=\ens{x_1^{\epsilon_1}\star\dots\star x_n^{\epsilon_n}}{n\in\N, x_i\in\mathfrak{B}, \epsilon_i=\pm1}$
 \end{proposition}
 
 \begin{demonstration}
@@ -271,9 +273,9 @@
 	Soit $G$ un sous-groupe de $\R$.
 	Si $G = \{ 0 \}$ alors $G = 0\Z$ donc le résultat est vérifié.
 	Sinon il existe alors un $x_0\in G$ non nul et quitte à prendre $-x_0$ on peut supposer que $x_0$ est strictement positif.
-	Ainsi l’ensemble $\{x\in G \ | \ x > 0\}$ est non vide et minoré par 0, il admet donc une borne inférieure $a=\inf\{x\in G \ | \ x > 0\}$.
+	Ainsi l’ensemble $\ens{x\in G}{x > 0}$ est non vide et minoré par 0, il admet donc une borne inférieure $a=\inf\ens{x\in G}{x > 0}$.
 	\begin{itemise}
-		\item Si $a = 0$ les éléments de $\{x\in G \ | \ x > 0\}$ sont moralement aussi petit qu'on veut.
+		\item Si $a = 0$ les éléments de $\ens{x\in G}{x > 0}$ sont moralement aussi petit qu'on veut.
 		On veut donc montrer que $G$ est dense dans $\R$.
 		Soit $x\in\R$ et $\epsilon > 0 = a$.
 		Puisque $\epsilon$ n'est pas un minorant il existe $x_\epsilon\in G$ tel que $0 < x_\epsilon < \epsilon$.
@@ -300,7 +302,7 @@
 
 \begin{definition}
 	Soit $x$ un élément d'un groupe $G$ et $H$ un sous-groupe.
-	On appelle classe à droite de $x$ l'ensemble $xH = \{xh\ |\ h\in H\}$.
+	On appelle classe à droite de $x$ l'ensemble $xH = \ens{xh}{h\in H}$.
 	On définit de même la classe à gauche.
 \end{definition}
 
@@ -411,8 +413,8 @@ Ces définitions étant équivalentes, on se permettra dans la suite de définir
 \end{proposition}
 
 \begin{demonstration}
-	Soit $\Phi:\mathscr{T}\mapsto(x\mapsto\{V\subset E\ |\ \exists O\in\mathscr{T}, x\in O\subset V\})$. \\
-	Pour une voisinagination $\mathfrak{V}$ montrons que $\mathscr{T}=\{O\subset E\ |\ \forall x\in O, O\in\mathfrak{V}(x)\}$ est une topologie.
+	Soit $\Phi:\mathscr{T}\mapsto(x\mapsto\ens{V\subset E}{\exists O\in\mathscr{T}, x\in O\subset V})$. \\
+	Pour une voisinagination $\mathfrak{V}$ montrons que $\mathscr{T}=\ens{O\subset E}{\forall x\in O, O\in\mathfrak{V}(x)}$ est une topologie.
 	\begin{itemise}
 		\item Soient $O_i$ des éléments de $\mathscr{T}$ et $x\in\bigcup_iO_i$.
 		Alors $x$ appartient à un certain $O_j\in\mathscr{T}$ donc $O_j\in\mathfrak{V}(x)$.
@@ -426,7 +428,7 @@ Ces définitions étant équivalentes, on se permettra dans la suite de définir
 		\item Soit $V\in\Phi(\mathscr{T})(x)$ alors il existe $O\in\mathscr{T}$ tel que $x\in O\subset V$.
 		Étant dans $\mathscr{T}$ on a $\forall y\in O, O\in\mathfrak{V}(y)$ en particulier $O\in\mathfrak{V}(x)$.
 		Puisque $V$ inclut $O$ alors $V\in\mathfrak{V}(x)$.
-		\item Soit $V\in\mathfrak{V}(x)$ et posons (essayez de deviner, c'est magnifique) $U=\{y\in E\ |\ V\in\mathfrak{V}(y)\}$.
+		\item Soit $V\in\mathfrak{V}(x)$ et posons (essayez de deviner, c'est magnifique) $U=\ens{y\in E}{V\in\mathfrak{V}(y)}$.
 		\begin{itemise}
 			\item Puisque $V\in\mathfrak{V}(x)$ alors $x\in U$.
 			\item De $V\in\mathfrak{V}(y)$ on tire $y\in V$ montrant que si $y\in U$ alors $y\in V$ c'est à dire $U\subset V$.
@@ -465,7 +467,7 @@ Ces définitions étant équivalentes, on se permettra dans la suite de définir
 	Vérifions que $\Phi$ est surjective.
 	Soit $\overline{\cdot}$ une adhérence sur $E$.
 	On utilisera plusieurs fois la croissance de cette application (si $X\subset Y$ alors $\overline{Y}=\overline{Y\setminus X\cup X}=\overline{Y\setminus X}\cup\overline{X}\supset\overline{X}$). \\
-	Alors $\mathscr{T}_\text{fermé}=\{F\subset E|F=\overline{F}\}$ est un topologie de fermés.
+	Alors $\mathscr{T}_\text{fermé}=\ens{F\subset E}{F=\overline{F}}$ est un topologie de fermés.
 	\begin{itemise}
 		\item $\overline{\vide}=\vide$ donc $\vide\in\mathscr{T}_\text{fermé}$ et $E\subset\overline{E}\subset E$ donc $E\in\mathscr{T}_\text{fermé}$.
 		\item Si $F, F'\in\mathscr{T}_\text{fermé}$ alors $\overline{F\cup F'}=\overline{F}\cup\overline{F'}=F\cup F'$.
@@ -502,7 +504,7 @@ Ces définitions étant équivalentes, on se permettra dans la suite de définir
 		\item Vérifions que $\Phi$ est surjective.
 		Soit $\cdot^\circ$ un intérieur sur $E$.
 		On utilisera plusieur fois la croissance de cette application (si $X\subset Y$ alors $X^\circ=(X\cap Y)^\circ=X^\circ\cap Y^\circ\subset Y^\circ$). \\
-		Alors $\mathscr{T}_\text{ouvert}=\{O\subset E|O=O^\circ\}$ est un topologie d'ouverts.
+		Alors $\mathscr{T}_\text{ouvert}=\ens{O\subset E}{O=O^\circ}$ est un topologie d'ouverts.
 		\begin{itemise}
 			\item $\vide^\circ=\vide$ donc $\vide\in\mathscr{T}_\text{ouvert}$ et $E=E^\circ$ donc $E\in\mathscr{T}_\text{ouvert}$.
 			\item Si $O, O'\in\mathscr{T}_\text{ouvert}$
@@ -543,7 +545,7 @@ Un espace topologique est un ensemble munie d'une topologie.
 	\begin{itemise}
 		\item la topologie grossière $\mathscr{T}=\{\vide, E\}$.
 		\item la topologie discrète $\mathscr{T}=\mathfrak{P}(E)$.
-		\item la topologie cofinie $\mathscr{T}=\{\vide\}\cup\{O\subset E\ |\ \complement O\text{ fini}\}$.
+		\item la topologie cofinie $\mathscr{T}=\{\vide\}\cup\ens{O\subset E}{\complement O\text{ fini}}$.
 		Démontrons que c'est bien une topologie sur $E$.
 		Par définition $\vide\in\mathscr{T}$ et $\complement E=\vide$ est fini donc $E\in\mathscr{T}$.
 		Si $O$ et $O'$ sont dans $\mathscr{T}$ alors $\complement O$ et $\complement O'$ sont finis donc $\complement O\cup\complement O'=\complement(O\cap O')$ est fini donc $O\cap O'$ est dans $\mathscr{T}$.
@@ -643,16 +645,16 @@ Un espace topologique est un ensemble munie d'une topologie.
 \end{remarque}
 
 \begin{proposition}
-	$\overline{X}=\{x\in E| \forall V\in\mathfrak{V}(x), V\cap X\neq\vide\}$
+	$\overline{X}=\ens{x\in E}{\forall V\in\mathfrak{V}(x), V\cap X\neq\vide}$
 \end{proposition}
 
 \begin{demonstration}
 	$\overline{X}
 		=\complement(\complement X)^\circ
 		=\complement\bigcup_{\complement X\supset O\in\mathscr{T}}O
-		=\complement\{x\in E| \exists O\in\mathscr{T}, x\in O\subset\complement X\}
-		=\complement\{x\in E| \exists V\in\mathfrak{V}(x), V\cap X=\vide\}
-		=\{x\in E| \forall V\in\mathfrak{V}(x), V\cap X\neq\vide\}$
+		=\complement\ens{x\in E}{\exists O\in\mathscr{T}, x\in O\subset\complement X}
+		=\complement\ens{x\in E}{\exists V\in\mathfrak{V}(x), V\cap X=\vide}
+		=\ens{x\in E}{\forall V\in\mathfrak{V}(x), V\cap X\neq\vide}$
 \end{demonstration}
 
 \begin{definition}
@@ -826,7 +828,7 @@ Soient $(E, \mathscr{T}_1), (E, \mathscr{T}_2), (F, \mathscr{U})$ des espace top
 Soit $E$ est un espace topologique et $F$ une partie de $E$.
 
 \begin{proposition}
-	La topologie cofinie sur $E$ est $\mathscr{T}=\{\vide\}\cup\{X\subset E|\complement X\text{ fini}\}$.
+	La topologie cofinie sur $E$ est $\mathscr{T}=\{\vide\}\cup\ens{X\subset E}{\complement X\text{ fini}}$.
 \end{proposition}
 
 \begin{demonstration}
@@ -838,7 +840,7 @@ Soit $E$ est un espace topologique et $F$ une partie de $E$.
 \end{demonstration}
 
 \begin{proposition}
-	La topologie codén\up{ble} sur $E$ est $\mathscr{T}=\{\vide\}\cup\{X\subset E|\complement X\text{ dénombrable}\}$.
+	La topologie codén\up{ble} sur $E$ est $\mathscr{T}=\{\vide\}\cup\ens{X\subset E}{\complement X\text{ dénombrable}}$.
 \end{proposition}
 
 \begin{demonstration}
@@ -850,7 +852,7 @@ Soit $E$ est un espace topologique et $F$ une partie de $E$.
 \end{demonstration}
 
 \begin{proposition}
-	la topologie classique sur $\R$ est $\mathscr{T}=\{]a, b[|a<b\}$
+	la topologie classique sur $\R$ est $\mathscr{T}=\ens{]a, b[}{a<b}$
 \end{proposition}
 
 \section{Topologie induite}
@@ -900,17 +902,17 @@ On note $F=\prod_{i\in I} F_i$ le produit cartésien des $F_i$ et $\pi_i\colon F
 \end{definition}
 
 \begin{proposition}
-	L'ensemble $\mathfrak{B}=\{\prod_{k=1}^nO_{i_k}\times\prod_{j\in I\setminus\{i_1, ..., i_n\}}F_j|n\in\N^*, O_{i_k}\in\mathscr{U}_{i_k}\}$ des pavés formés d'ouverts différents de $F_i$ dans un ensemble $\{i_1,...,i_n\}$ fini de directions est une base de topologie de $F$.
+	L'ensemble $\mathfrak{B}=\{\prod_{k=1}^nO_{i_k}\times\prod_{j\in I\setminus\ens{i_1, ..., i_n\}}F_j}{n\in\N^*, O_{i_k}\in\mathscr{U}_{i_k}}$ des pavés formés d'ouverts différents de $F_i$ dans un ensemble $\{i_1,...,i_n\}$ fini de directions est une base de topologie de $F$.
 \end{proposition}
 
 \begin{demonstration}
 	Pour assurer la continuité des projections, la topologie produit $\mathscr{U}$ doit contenir toutes ces images réciproque $\inv{\pi_i}(O_i)=O_i\times\prod_{i\neq j\in I}F_j$.
-	Elle inclue donc $\mathfrak{A}=\{O_i\times\prod_{i\neq j\in I}F_j|i\in I, O_i\in\mathscr{U}_i\}$.
+	Elle inclue donc $\mathfrak{A}=\ens{O_i\times\prod_{i\neq j\in I}F_j}{i\in I, O_i\in\mathscr{U}_i}$.
 	En tant que topologie, $\mathscr{U}$ est stable par intersection finie.
-	Elle inclue donc $\mathfrak{B}=\{\bigcap_{k=1}^nA_k|n\in\N^*, A_k\in\mathfrak{A}\}$.
+	Elle inclue donc $\mathfrak{B}=\ens{\bigcap_{k=1}^nA_k}{n\in\N^*, A_k\in\mathfrak{A}}$.
 	Soit $B=\bigcap_{k=1}^nA_k\in\mathfrak{B}$.
 	Certain $A_k=O_k\times\prod_{i_k\neq j\in I}F_j$ ont des $i_k$ égaux, c'est à dire des $O_k$ venant d'un même topologie.
-	Soit $i'_{1\infegal l\infegal m}$ une renumérotation unique des topologies visités et $K_l=\{k|i_k=i'_l\}$ l'ensemble des indices dont les ouverts proviennent du même espace $F_{i'_l}$.
+	Soit $i'_{1\infegal l\infegal m}$ une renumérotation unique des topologies visités et $K_l=\ens{k}{i_k=i'_l}$ l'ensemble des indices dont les ouverts proviennent du même espace $F_{i'_l}$.
 	Alors $B=\bigcap_{l=1}^m\bigcap_{k\in K_l}A_l$ avec chaque intersection finie.
 	De même $O'_l=\bigcap_{k\in K_l}O_k\in\mathscr{U}_{i'_l}$ et
 	$$
@@ -1160,7 +1162,7 @@ On considère ici un espace topologique $(E, \mathscr{T})$.
 		Alors $\complement(X\cap Y)=\complement X\cup\complement Y$ est fini, donc ne peut couvrir $E$ donc $X\cap Y\neq\vide$.
 		\item[$T_2\not\Rightarrow T_{2\frac{1}{2}}$:] Soit un triangle équilatéral $T$ de sommets notés $S_i$.
 		Considérons $E=T^\circ\cup\{S_1, S_2, S_3\}$.
-		On le munit de la topologie trace de $\R^2$ sur $T^\circ$ à laquelle on ajoute les croissants $\{S_i\}\cup(T^\circ\cap B(\rho M_i, | \rho M_i-S_i|))$ avec $M_i=\frac{S_i+S_{i+1}}{2}$ le milieu des deux sommets consécutifs et $\rho>1$.
+		On le munit de la topologie trace de $\R^2$ sur $T^\circ$ à laquelle on ajoute les croissants $\ens{S_i\}\cup(T^\circ\cap B(\rho M_i,}{\rho M_i-S_i|))$ avec $M_i=\frac{S_i+S_{i+1}}{2}$ le milieu des deux sommets consécutifs et $\rho>1$.
 		On représente par exemple un voisinage du sommet $A$ en gris.
 		\begin{center}
 			\begin{tikzpicture}[scale=0.75]
@@ -1172,14 +1174,14 @@ On considère ici un espace topologique $(E, \mathscr{T})$.
 			\end{tikzpicture}
 		\end{center}
 		Les points de $T^\circ$ sont séparés car la topologie de $\R^2$ est séparée.
-		Les points de $\{S_1, S_2, S_3\}$ sont séparé de ceux dans $T^\circ$ en prenant $\rho$ suffisamment grand.
+		Les points de $\{S_1, S_2, S_3}$ sont séparé de ceux dans $T^\circ$ en prenant $\rho$ suffisamment grand.
 		Idem entre les points de $\{S_1, S_2, S_3\}$.
 		Cette topologie est donc $T_2$.
 		Elle n'est pas $T_{2\frac{1}{2}}$ car l'adhérence des croissants voisins de $S_i$ contiennent toujours $S_{i+1}$.
 		\item[$T_0+T_3\not\Rightarrow T_{3\frac{1}{2}}$:] Considérons $E=(\R\times\R^+)\cup\{\infty\}$ munit:
 		\begin{itemise}
 			\item de la topologie discrète sur $\R\times\R_+^*$
-			\item des voisinages $\{(x, 0)\}\cup R_x\setminus T_x$ de $(x, 0)$ où $R_x=V_x\cup O_x$ avec $V_x$ le segment verticale $\{(x, y)|y\in[0,2[\}$, $O_x$ l'oblique $\{(x+y, y)|y\in [0, 2[\}$ et $T_x$ un ensemble finis de « trous » dans $R_x$.
+			\item des voisinages $\{(x, 0)\}\cup R_x\setminus T_x$ de $(x, 0)$ où $R_x=V_x\cup O_x$ avec $V_x$ le segment verticale $\ens{(x, y)}{y\in[0,2[}$, $O_x$ l'oblique $\ens{(x+y, y)}{y\in [0, 2[}$ et $T_x$ un ensemble finis de « trous » dans $R_x$.
 			\item des voisinages $U_n=\{\infty\}\cup(\{x>n\}\times\R^+)$ de $\infty$
 		\end{itemise}
 		Cet espace est $T_2$ comme le montre le premier schéma, puisqu'il suffit de placer des « trous » aux bons endroits dans $R_x$ ou de choisir $n$ suffisamment grand pour avoir des voisinages disjoints.
@@ -1241,7 +1243,7 @@ On considère ici un espace topologique $(E, \mathscr{T})$.
 		Ainsi $f(C_{n+1})=0$ donc par récurrence, on a montré le lemme.
 		Ainsi $\infty$ adhère à $\inv{f}(\{0\})$ donc $f(\infty)=0$.
 		\item[$T_{2\frac{1}{2}}\not\Rightarrow T_3$ et $T_{2\frac{1}{2}}\not\Rightarrow T_{2\frac{3}{4}}$:]
-		Soit $K=\{1/n|n\in\N^*\}$.
+		Soit $K=\ens{1/n}{n\in\N^*}$.
 		On munie $\R$ de la la $K$-topologie dont une base est formée des $]a, b[$ et des $]a, b[\setminus K$.
 						Elle est plus fine que la topologie classique, préservant donc la continuité des fonctions $f:\R\rightarrow[0, 1]$.
 						En particulier, une fonction montrant la $T_{2\frac{3}{4}}$ séparation de $\R$ (par exemple une interpolation) montre que $(\R, K)$ l'est aussi.
@@ -1286,7 +1288,7 @@ Soit $(E, \mathscr{T})$ et $(F_i, \mathscr{U}_i)_{i\in I}$ des espaces topologiq
 \end{demonstration}
 
 \begin{definition}
-	Posons $Q=[0, 1]$ munie de la topologie $\{[0, t[|t\in[0, 1]\}$ appelée topologie supérieur.
+	Posons $Q=[0, 1]$ munie de la topologie $\ens{[0, t[}{t\in[0, 1]}$ appelée topologie supérieur.
 	On appelle quasi-cube les espace de la forme $Q^I$ pour un certain $I\neq\vide$.
 \end{definition}
 
@@ -1347,18 +1349,18 @@ Soit $(E, \mathscr{T})$ et $(F_i, \mathscr{U}_i)_{i\in I}$ des espaces topologiq
 		L'application $e:E\rightarrow \prod_{i\in I}Q$ définie par $e(x)_i=f_i(x)$ est continue d'après la proposition précédente.
 		Soient $x, y\in E$ différents.
 		Par $T_0$ quitte à échanger les rôles de $x$ et $y$, $\exists U\in\mathscr{T}, x\in U\not\ni y$.
-		Par $T_{3\frac{1}{2}}$ il existe une fonction continue $f$ telle que $f(x)=1$ et $f(\complement U)=\{0\}$ c'est à dire séparant $x$ et $y$.
+		Par $T_{3\frac{1}{2}}$ il existe une fonction continue $f$ telle que $f(x)=1$ et $f(\complement U)=\ens{0\}$ c'est à dire séparant $x$ et $y$.
 		Soit $x, F\in E\times\complement\mathscr{T}$ tels que $x\notin F$.
 		De même il existe une fonction continue et séparant $x$ et $F$.
 		Ainsi $f_{i\in I}$ sépare les points et les points des fermés.
 		D'après la proposition précédente c'est une application ouverte et injective.
 		D'après {\color{red} ???} c'est un homéomorphisme.
 		\item[$\Leftarrow$] Montrons d'abord que $\forall I\neq\vide, [0, 1]^I$ est $T_0+T_{3\frac{1}{2}}$.
-		$[0, 1]$ est séparé car munie de sa topologie usuelle (métrique de $|\cdot|$).
+		$[0, 1]$ est séparé car munie de sa topologie usuelle (métrique de $}{\cdot|$).
 		Par produit de séparés, $[0, 1]^I$ est séparé.
 		Soit $x, F\in[0, 1]^I\times\complement\mathscr{T}$ tels que $x\notin F$.
 		$O=\complement F$ est un ouvert de $[0, 1]^I$ contenant $x$.
-		Par définition de la topologie produit et de la topologie usuelle de $[0, 1]$, il existe un ouvert $V$ tels que $x\in V\subset U$ et $V=\prod_{k=1}^n]x_{i_k}-\varepsilon, x_{i_k}+\varepsilon[\times\prod_{i\in I\setminus\{i_1, ..., i_n\}}[0, 1]$.
+		Par définition de la topologie produit et de la topologie usuelle de $[0, 1]$, il existe un ouvert $V$ tels que $x\in V\subset U$ et $V=\prod_{k=1}^n]x_{i_k}-\varepsilon, x_{i_k}+\varepsilon[\times\prod_{i\in I\setminus\{i_1, ..., i_n}}[0, 1]$.
 					Soit $f$ une fonction chapeau en $x_{i_1}$ nulle hors $]x_{i_1}-\varepsilon, x_{i_1}+\varepsilon[$.
 		Alors $f\circ\pi_{i_1}$ montre que l'espace est $T_{3\frac{1}{2}}$.
 
@@ -1446,7 +1448,7 @@ Toute propriété topologique peut donc s’écrire en termes de suites converge
 Dans un espace topologique général (non métrisable), ce n’est plus le cas.
 
 Soit $\mathscr{T}_1$ la topologie codénombrable de $\R$ et $(u_n)$ une suite convergente pour $\mathscr{T}_1$ de limite $x$.
-On note $U=\{u_n|n\in\N\}$ et $V=\{x\}\cup\complement U$.
+On note $U=\ens{u_n}{n\in\N}$ et $V=\{x\}\cup\complement U$.
 Puisque $\complement V\subset U$ et que $U$ est dénombrable, $V$ est un ouvert.
 De plus $x\in V$ donc $V$ est un voisinage de $x$.
 En utilisant le caractérisation séquentielle $\exists n_0\in\N, n\supegal n_0\Rightarrow u_n\in V$.
@@ -1487,7 +1489,7 @@ On se donne une application $f:E\rightarrow F$.
 \end{demonstration}
 
 \begin{definition}
-	Si $\mathfrak{B}$ fait de $\mathfrak{F}=\{U|\exists X\in\mathfrak{B}, X\subset U\}$ un filtre on dit que $\mathfrak{B}$ est une base de filtre.
+	Si $\mathfrak{B}$ fait de $\mathfrak{F}=\ens{U}{\exists X\in\mathfrak{B}, X\subset U}$ un filtre on dit que $\mathfrak{B}$ est une base de filtre.
 \end{definition}
 
 \begin{proposition}
@@ -1638,7 +1640,7 @@ On se donne une application $f:E\rightarrow F$.
 		Soit $V\in\mathfrak{U}$.
 		Par l'absurde, si $V\subset X$ alors par croissance des filtres, $X\in\mathfrak{U}$.
 		Donc $V\not\subset X$, c'est à dire que $V\cap\complement X\neq\vide$.
-		$\mathfrak{B}=\{V\cap\complement X | V\in\mathfrak{U}\}$ est une base de filtre car $\mathfrak{U}$ est un filtre.
+		$\mathfrak{B}=\ens{V\cap\complement X}{V\in\mathfrak{U}}$ est une base de filtre car $\mathfrak{U}$ est un filtre.
 		Alors le filtre $\sigma_\text{filtre}(\mathfrak{B})$ est plus fin que $\mathfrak{U}$.
 		En effet soit $V\in\mathfrak{U}$ puisque $V\cap\complement X\subset V$ avec $V\cap\complement X\in\mathfrak{B}$, alors $V\in\sigma_\text{filtre}(\mathfrak{B})$.
 		Puisque $\mathfrak{U}$ est un ultrafiltre, $\mathfrak{U}=\sigma_\text{filtre}(\mathfrak{B})$.
@@ -1676,8 +1678,8 @@ On se donne une application $f:E\rightarrow F$.
 	On va appliquer le lemme de Zorn à $X$ pour montrer d'existence d'un ultrafiltre contenant $\mathfrak{F}$.
 	$X$ n'est pas vide, car il contient au moins les $\mathfrak{F}$.
 	Montrons que $X$ est inductif pour la relation d'ordre $\infegal$.
-	Soit $\{\mathfrak{F}_i | i\in I\}\subset X$ une partie totalement ordonnée.
-	Posons $\mathfrak{G}=\{X\subset E | \exists i\in I, X\in\mathfrak{F}_i\}$.
+	Soit $\ens{\mathfrak{F}_i}{i\in I}\subset X$ une partie totalement ordonnée.
+	Posons $\mathfrak{G}=\ens{X\subset E}{\exists i\in I, X\in\mathfrak{F}_i}$.
 	C'est un filtre sur $E$ car:
 	\begin{itemise}
 		\item Si $X\in\mathfrak{G}$ alors $X\in\mathfrak{F}_i$ pour un certain $i\in I$.
@@ -1708,7 +1710,7 @@ On se donne une application $f:E\rightarrow F$.
 
 \begin{demonstration}
 	Soit $(x_n)$ une suite de $E$.
-	Posons $X_n=\{x_p | p\supegal n\}$ et vérifions que $\mathfrak{B}_x=\{X_p | p\in\N\}$ est une base de filtre.
+	Posons $X_n=\ens{x_p}{p\supegal n}$ et vérifions que $\mathfrak{B}_x=\ens{X_p}{p\in\N}$ est une base de filtre.
 	\begin{itemise}
 		\item une suite étant une application $X_p$ n'est jamais vide.
 		\item Soit $X_m, X_n\in\mathfrak{B}$ alors $X_m\cap X_n=X_{\max(m, n)}\in\mathfrak{B}$.
@@ -1755,7 +1757,7 @@ On se donne une application $f:E\rightarrow F$.
 
 \begin{definition}
 	Soit $X$ une partie d'un espace topologique $E$.
-	La fermeture séquentielle de $X$ est $\overline{X}^\text{seq}=\{x | \exists(x_n)\in X^\N, x_n\rightarrow x\}$.
+	La fermeture séquentielle de $X$ est $\overline{X}^\text{seq}=\ens{x}{\exists(x_n)\in X^\N, x_n\rightarrow x}$.
 \end{definition}
 
 \begin{proposition}
@@ -1835,10 +1837,10 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 	Soit $X$ un ensemble et $F, G\in\mathfrak{P}(X^2)$.
 	On pose :
 	\begin{itemise}
-		\item $F\circ G=\{(x, z)\in X^2 | \exists y\in X, (x, y)\in G, (y, z)\in F\}$.
-		\item $F[x]=\{y\in X | (x, y)\in F\}$
-		\item $\inv{F}=\{(y, x) | (x, y)\in F\}$
-		\item $\Delta_X=\{(x, x) | x\in X\}$
+		\item $F\circ G=\ens{(x, z)\in X^2}{\exists y\in X, (x, y)\in G, (y, z)\in F}$.
+		\item $F[x]=\ens{y\in X}{(x, y)\in F}$
+		\item $\inv{F}=\ens{(y, x)}{(x, y)\in F}$
+		\item $\Delta_X=\ens{(x, x)}{x\in X}$
 	\end{itemise}
 \end{definition}
 
@@ -1854,7 +1856,7 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 \end{definition}
 
 \begin{definition}
-	Si $\mathfrak{B}$ fait de $\mathscr{U}=\{U\in\mathfrak{P}(E^2) | \exists X\in\mathfrak{B}, X\subset U\}$ une (quasi-)uniformité on dit que $\mathfrak{B}$ est une base de (quasi-)uniformité.
+	Si $\mathfrak{B}$ fait de $\mathscr{U}=\ens{U\in\mathfrak{P}(E^2)}{\exists X\in\mathfrak{B}, X\subset U}$ une (quasi-)uniformité on dit que $\mathfrak{B}$ est une base de (quasi-)uniformité.
 \end{definition}
 
 \begin{proposition}
@@ -1916,7 +1918,7 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 \end{proposition}
 
 \begin{demonstration}
-	Posons $\Phi:\mathscr{T}\mapsto\sigma_\text{quasi}(\mathfrak{B})$ avec $\mathfrak{B}$ la famille des intersections finies de $\mathfrak{B}'=\{O^2\cup\complement O\times E | O\in\mathscr{T}\}$ (appelée prébase de Pervin).
+	Posons $\Phi:\mathscr{T}\mapsto\sigma_\text{quasi}(\mathfrak{B})$ avec $\mathfrak{B}$ la famille des intersections finies de $\mathfrak{B}'=\ens{O^2\cup\complement O\times E}{O\in\mathscr{T}}$ (appelée prébase de Pervin).
 	\begin{center}
 		\begin{tikzpicture}[scale=1.75]
 			\fill[black!30!white] (0.5, 0.5) rectangle (0.75, 0.75);
@@ -1939,7 +1941,7 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 		Ainsi $\forall X'\in\mathfrak{B}', X'\circ X'\subset X'$.
 		Cette propriété passe aux intersections finies donc si $X\in\mathfrak{B}, X\circ X\subset X$.
 	\end{itemise}
-	Posons $\Psi:\mathscr{U}\mapsto\{U[x]|U\in\mathscr{U}\}$ pour $U[x]=\{y\in E|(x, y)\in U\}$.
+	Posons $\Psi:\mathscr{U}\mapsto\ens{U[x]}{U\in\mathscr{U}}$ pour $U[x]=\ens{y\in E}{(x, y)\in U}$.
 	Montrons que pour $\mathscr{U}$ une quasi-uniformité non vide $\mathfrak{V}=\Psi(\mathscr{U})$ est une voisinagination.
 	\begin{itemise}
 		\item Soit $U\in\mathscr{U}$.
@@ -1957,7 +1959,7 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 		\item[$\subset$] Si $O\in\mathscr{T}$ alors $O^2\cup\complement O\times E\in\mathfrak{B}'$ donc $O=(O^2\cup\complement O\times E)[x]\in\mathfrak{V}(x)$.
 		\item[$\supset$] Si $U[x]\in\mathfrak{V}(x)$ alors $\exists X_{1\infegal i\infegal n}\in\mathfrak{B}', \bigcap_{i=1}^nX_i\subset U$ avec $X_i=O_i^2\cup\complement O_i\times E$ et $O_i\in\mathscr{T}$.
 		Si $x\in O_i$ alors $X_i[x]=O_i$ sinon $X_i[x]=E$.
-		En posant $J=\{j\in I|x\in O_j\}$ qui est fini on a $(\bigcap_{i=1}^nX_i)[x]=\bigcap_{i=1}^nX_i[x]=\bigcap_{j\in J}O_j\in\mathscr{T}$ et $(\bigcap_{i=1}^nX_i)[x]\subset U[x]$.
+		En posant $J=\ens{j\in I}{x\in O_j}$ qui est fini on a $(\bigcap_{i=1}^nX_i)[x]=\bigcap_{i=1}^nX_i[x]=\bigcap_{j\in J}O_j\in\mathscr{T}$ et $(\bigcap_{i=1}^nX_i)[x]\subset U[x]$.
 	\end{itemise}
 \end{demonstration}
 
@@ -2072,7 +2074,7 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 
 \begin{proposition}
 	Soit $d_{i\in I}$ une jauge sur $E$.
-	La famille $\mathfrak{B}'=\{\inv{d_i}([0, \varepsilon[)|\varepsilon\in\R^+, i\in I\}$ est une prébase d'uniformité.
+	La famille $\mathfrak{B}'=\ens{\inv{d_i}([0, \varepsilon[)}{\varepsilon\in\R^+, i\in I}$ est une prébase d'uniformité.
 \end{proposition}
 
 \begin{demonstration}
@@ -2086,7 +2088,7 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 
 \begin{proposition}
 	Soit $d_{i\in I}$ une jauge sur $E$.
-	La famille $\mathfrak{B}'=\{\inv{d_i}(x, [0, \varepsilon[)|x\in E, \varepsilon\in\R^+, i\in I\}$ est une prébase de topologie.
+	La famille $\mathfrak{B}'=\ens{\inv{d_i}(x, [0, \varepsilon[)}{x\in E, \varepsilon\in\R^+, i\in I}$ est une prébase de topologie.
 	C'est exactement celle engendrée par l'uniformité définie au dessus.
 \end{proposition}
 
@@ -2094,7 +2096,7 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 \end{demonstration}
 
 \begin{proposition}
-	La topologie engendrée par la jauge $d_{i\in I}$ est la même que celle engendrée par $\{\max(d_{i_1}, ..., d_{i_n})|i_1, ..., i_n\in I\}$ appelée saturation de la jauge.
+	La topologie engendrée par la jauge $d_{i\in I}$ est la même que celle engendrée par $\ens{\max(d_{i_1}, ..., d_{i_n})}{i_1, ..., i_n\in I}$ appelée saturation de la jauge.
 \end{proposition}
 
 \begin{demonstration}
@@ -2121,7 +2123,7 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 				2^{-n} & \text{si} & (x, y)\in V_{n-1}\setminus V_n \\
 				0      & \text{si} & (x, y)\in\bigcap_{n\in\N} V_n
 			\end{array}\right.\\
-			d_U(x, y) & =\inf\{\sum_{k=0}^nf_U(a_k, a_{k+1})|a_0=x, a_k\in E, a_{n+1}=y\}
+			d_U(x, y) & =\inf\ens{\sum_{k=0}^nf_U(a_k, a_{k+1})}{a_0=x, a_k\in E, a_{n+1}=y}
 		\end{align*}
 		Vérifions que $d_U$ est un écart.
 		\begin{itemise}
@@ -2132,7 +2134,7 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 			En concaténant les chemins $a_k$ et $b_k$ on obtient $c_k$ reliant $x$ à $z$ et montrant que $d_U(x, z)\infegal\sum_{k=0}^mf_U(a_k, a_{k+1})+\sum_{k=0}^nf_U(b_k, b_{k+1})$ donc $d_U(x, z)\infegal d_U(x, y)+d_U(y, z)+\varepsilon$.
 			Étant vrai pour tout $\varepsilon$ on a $d_U(x, y)\infegal d_(x, y)+d_U(y, z)$.
 		\end{itemise}
-		Montrons $V_n\subset\{(x, y)|d_U(x, y)<2^{-n}\}=\inv{d_U}([0,2^{-n}[)\subset V_{n-1}$.
+		Montrons $V_n\subset\ens{(x, y)}{d_U(x, y)<2^{-n}}=\inv{d_U}([0,2^{-n}[)\subset V_{n-1}$.
 		\begin{itemise}
 			\item Soit $(x, y)\in V_n$ alors $f_U(x, y)\infegal 2^{-(n+1)}<2^{-n}$ donc $V_n\subset\inv{d_U}([0,2^{-n}[)$.
 			\item Montrons par récurrence forte:
@@ -2151,7 +2153,7 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 		Ainsi la famille d'écarts saturés engendre l'uniformité, et donc la même topologie.
 		\item[écarts$\Rightarrow T_{3\frac{1}{2}}$] Soit $\mathscr{T}$ une topologie engendrée par la jauge $d_{i\in I}$, $x, F\in E\times\complement\mathscr{T}$ avec $x\notin F$.
 		Alors $x\in\complement F$ est un voisinage de $x$ donc $\exists U\in\mathscr{U}, \complement F=U[x]$.
-		Par définition de l'uniformité engendrée par une jauge il existe $\varepsilon\in\R^+$ et $i\in I$ tels que $U=\inv{d_i}([0, \varepsilon[)$ donc $\complement F=\{y|d_i(x, y)<\varepsilon\}$.
+		Par définition de l'uniformité engendrée par une jauge il existe $\varepsilon\in\R^+$ et $i\in I$ tels que $U=\inv{d_i}([0, \varepsilon[)$ donc $\complement F=\ens{y}{d_i(x, y)<\varepsilon}$.
 	\end{itemise}
 \end{demonstration}
 
@@ -2224,7 +2226,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 		Par l'absurde supposons $\bigcap_{X\in\mathfrak{F}}\overline{X}=\vide$.
 		Alors $\bigcup_{X\in\mathfrak{F}}\complement\overline{X}=E$ donc par quasi-compacité $\exists X_{1\infegal i\infegal n}\in\mathfrak{F}, \bigcup_{i=1}^n\complement\overline{X_i}=E$.
 		Ainsi $\bigcap_{i=1}^n\overline{X_i}=\vide$ en particulier $\bigcap_{i=1}^nX_i=\vide\in\mathfrak{F}$ par stabilité par intersection finie des filtres, ce qui est absurde.
-		Soit donc $x\in\bigcap_{X\in\mathfrak{F}}\overline{X}$ et $\mathfrak{B}=\{V\cap X | V\in\mathfrak{V}(x), X\in\mathfrak{F}\}$.
+		Soit donc $x\in\bigcap_{X\in\mathfrak{F}}\overline{X}$ et $\mathfrak{B}=\ens{V\cap X}{V\in\mathfrak{V}(x), X\in\mathfrak{F}}$.
 		C'est une base de filtre.
 		En effet les $V\cap X$ sont toujours non vides car $x$ adhère à tout les $X\in\mathfrak{F}$ donc $\vide\notin\mathfrak{B}$ et les $V\cap X$ forment les voisinages de $x$ donc $\mathfrak{V}(x)\subset\mathfrak{B}$.
 		De plus cette famille est stable par intersection car $\mathfrak{V}(x)$ et $\mathfrak{F}$ le sont.
@@ -2298,7 +2300,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \begin{demonstration}
 	D’après la proposition précédente l’image de $f$ est compacte, elle est donc bornée car $\R$ est métrique.
 	Ainsi $M=\sup_{x\in K}f(x)$ existe.
-	Soit $z_n$ une suite croissante (dite suite maximisante) de limite $M$ et  M pour limite et $F_n=\{x\in K | z_n\infegal f(x)\infegal M\}$.
+	Soit $z_n$ une suite croissante (dite suite maximisante) de limite $M$ et  M pour limite et $F_n=\ens{x\in K}{z_n\infegal f(x)\infegal M}$.
 	Les $F_n$ constituent une suite décroissante de fermés non vides.
 	Par compacité leur intersection n’est pas vide.
 	Soit $x\in\bigcap_{n\in\N}F_n$ alors $\forall n\in\N, z_n\infegal f(x)\infegal M$ donc $f(x)=M$.
@@ -2403,13 +2405,13 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	\begin{itemise}
 		\item[$\Rightarrow$] Soit $y\in\widetilde{\{x\}}$.
 		Alors $\exists\mathfrak{F}\text{ filtre sur $\widetilde{\{x\}}$}, \mathfrak{F}\rightarrow y$.
-		Cette convergence a lieu pour la topologie trace c'est à dire pour l'ensemble des voisinages $\mathfrak{V}'(y)=\{V\cap\{x\}|V\in\mathfrak{V}(y)\}$.
+		Cette convergence a lieu pour la topologie trace c'est à dire pour l'ensemble des voisinages $\mathfrak{V}'(y)=\{V\cap\ens{x\}}{V\in\mathfrak{V}(y)}$.
 		Par séparation, si $y\neq x$, il existerait un voisinage de $y$ de rencontrant pas $\{x\}$ et donc $\vide\in\mathfrak{V}'(y)\subset\mathfrak{F}$, ce qui est impossible pour un filtre.
 		Ainsi les singletons sont fermé, notamment $\{E\}$.
 		\item[$\Leftarrow$] Réciproquement, si $\{E\}$ est fermé alors $G\setminus\{E\}$ est ouvert.
-		Par continuité de $\phi:x, y\longmapsto x\star\inv{y}$, $\inv{\phi}(G\setminus\{E\})=G^2\setminus\{(x, x)|x\in G\}$ est un ouvert de $G$.
+		Par continuité de $\phi:x, y\longmapsto x\star\inv{y}$, $\inv{\phi}(G\setminus\{E\})=G^2\setminus\ens{(x, x)}{x\in G}$ est un ouvert de $G$.
 		Ainsi pour $(x, y)\in G^2$ avec $x\neq y$, il existe un voisinage pour la topologie produit de $(x, y)$ ne rencontrant pas la diagonale.
-		Par définition de cette topologie, il existe un voisinage $V_x$ de $x$ et $V_y$ de $y$ tel que $(V_x\times V_y)\cap\{(x, x)|x\in G\}=\vide$, c'est à dire $V_x\cap V_y=\vide$.
+		Par définition de cette topologie, il existe un voisinage $V_x$ de $x$ et $V_y$ de $y$ tel que $(V_x\times V_y)\cap\ens{(x, x)}{x\in G}=\vide$, c'est à dire $V_x\cap V_y=\vide$.
 	\end{itemise}
 \end{demonstration}
 
@@ -2560,7 +2562,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 
 \begin{proposition}
 	Soit $(E, d)$ un espace métrique.
-	C'est un espace séparable pour la topologie engendrée par les boules ouvertes $B_\epsilon(x)=\{y|d(x, y)<\epsilon\}=\inv{d(x, \cdot)}([0, \epsilon[)$.
+	C'est un espace séparable pour la topologie engendrée par les boules ouvertes $B_\epsilon(x)=\ens{y}{d(x, y)<\epsilon}=\inv{d(x, \cdot)}([0, \epsilon[)$.
 \end{proposition}
 
 \begin{demonstration}
@@ -2708,7 +2710,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Elle est donc fermée et bornée d'après la proposition précédente.
 	Par bornitude, elle admet un élément maximal $y^+$.
 	Par fermeture séquentielle, il existe une suite $(y_n)$ de l'image de limite $y^+$, la convergence étant prise pour la distance $d(x, y)=|x-y|$.
-	Posons $F_n=\{x|y_n\infegal f(x)\infegal y^+\}$ une suite décroissante pour l'inclusion de fermés de l'image.
+	Posons $F_n=\ens{x}{y_n\infegal f(x)\infegal y^+}$ une suite décroissante pour l'inclusion de fermés de l'image.
 	Par l'absurde, si $\bigcap_{n\in\N}F_n=\vide$, alors par compacité de l'image, $\exists N, \bigcap_{n\infegal N}F_n=\vide$.
 	C'est absurde car par décroissance des $F_n$, on aurait $\bigcap_{n\infegal N}F_n=F_{\max(N)}=\vide$.
 	Soit alors $x\in\bigcap_{n\in\N}F_n$, il vient $\forall n\in\N, y_n\infegal f(x)\infegal y^+$, donc $|f(x)-y^+| \infegal |y_n-y^+|$.
@@ -2750,10 +2752,10 @@ soit: $\quad\forall\varepsilon > 0, \exists N, \quad m, n\ge N\implies d(x_m, x_
 \paragraph{Définition:}
 $
 	\text{$|| \cdot||:E\rightarrow\mathbb{R}^+$ est une norme sur $E$}:
-	\left\{
+	\left\ens{
 	\begin{array}{ll}
 		\text{$|| \cdot||$ est séparable:} & ||x||=0\iff x=0                 \\
-		\text{$|| \cdot||$ est homogène:}  & || \lambda x||=| \lambda| ||x|| \\
+		\text{$|| \cdot||$ est homogène:}  & || \lambda x||=}{\lambda| ||x|| \\
 		\text{inégalité triangulaire:}     & ||x+z|| \le ||x+y||+||y+z||     \\
 	\end{array}
 	\right.
@@ -2903,11 +2905,11 @@ $
 }
 
 \begin{proposition}
-	Si $\mathfrak{B}$ est une base $\sigma_\text{topologie}(\mathfrak{B})=\{U\subset E| \exists X_{i\in I}\in\mathfrak{B}, U=\bigcup_{i\in I}X_i\}$
+	Si $\mathfrak{B}$ est une base $\sigma_\text{topologie}(\mathfrak{B})=\{U\subset E| \exists X_{i\in I}\in\mathfrak{B}, U=\bigcup_{i\in I}X_i}$
 \end{proposition}
 
 \begin{demonstration}
-	Notons l'ensemble de droite $\mathscr{T}=\{U\subset E| \exists X_{i\in I}\in\mathfrak{B}, U=\bigcup_{i\in I}X_i\}$ et montrons $\mathscr{T}=\sigma_\text{topologie}(\mathfrak{B})$ par double inclusion.
+	Notons l'ensemble de droite $\mathscr{T}=\ens{U\subset E}{\exists X_{i\in I}\in\mathfrak{B}, U=\bigcup_{i\in I}X_i}$ et montrons $\mathscr{T}=\sigma_\text{topologie}(\mathfrak{B})$ par double inclusion.
 	\begin{itemise}
 		\item[$\subset$] Soit $O\in\mathscr{T}$ alors $\exists X_{i\in I}\in\mathfrak{B}, O=\bigcup_{i\in I}X_i$.
 		Or $\sigma_\text{topologie}(\mathfrak{B})$ continent $\mathfrak{B}$ donc $X_{i\in I}\in\sigma_\text{topologie}(\mathfrak{B})$, et est une topologie donc $O=\bigcup_{i\in I}X_i\in\sigma_\text{topologie}(\mathfrak{B})$.
@@ -2950,7 +2952,7 @@ $$
 Soit $\mathfrak{V}$ une voisinagination de $E$.
 Vérifions que $\mathfrak{V}'=\mathfrak{V}$.
 \begin{itemise}
-	\item Si $V\in\mathfrak{V}(x)$ posons $O=\{y\in E|V\in\mathfrak{V}(y)\}$.
+	\item Si $V\in\mathfrak{V}(x)$ posons $O=\ens{y\in E}{V\in\mathfrak{V}(y)}$.
 	Puisque $x\in V$ alors $x\in O$.
 	Si $y\in O$ alors $V\in\mathfrak{V}(y)$ donc $y\in V$ soit $O\subset V$, et $\exists W\in\mathfrak{V}(y), \forall z\in W, V\in\mathfrak{V}(z)$ soit $z\in O$  donc $W\subset O$ puis $O\in\mathfrak{V}(y)$ par définition de voisinagination, donc $O\in\Psi(\mathfrak{V})=\mathscr{T}_\text{ouvert}$.
 	Ainsi $\exists O\in\mathscr{T}_\text{ouvert}, x\in O\subset V$ donc $V\in\Psi(\mathscr{T}_\text{ouvert})(x)=\mathfrak{V}'(x)$.
