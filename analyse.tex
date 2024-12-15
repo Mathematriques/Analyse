@@ -361,8 +361,7 @@
 \section{Équivalences}
 
 Ayant été étudiés par de nombreuses personnes, il existe plusieurs façon équivalentes de définir un espace topologique.
-On donne dans la suite les définitions les plus classiques.
-Ces définitions étant équivalentes, on se permettra dans la suite de définir des topologies à partir d'une de ces constructions, voir d'un mélange de plusieurs d'entre elles.
+On donne dans la suite les définitions les plus classiques pour montrer qu'elles sont équivalentes.
 
 \begin{definition}
 	On appelle topologie d'ouverts sur $E$ une collection $\mathscr{O}\subset\mathfrak{P}(E)$ telle que:
@@ -388,22 +387,29 @@ Ces définitions étant équivalentes, on se permettra dans la suite de définir
 \end{proposition}
 
 \begin{demonstration}
-	L'application $\Psi:X\longmapsto\complement X$ est une bijection car c'est une involution.
-	Soit $\mathscr{O}$ une topologie d'ouverts et montrons que $\mathscr{F}=\Psi(\mathscr{O})$ est une topologie de fermés.
+	L'application $\complement : X\longmapsto E\setminus X$ est une bijection car c'est une involution.
+	Soit $\mathscr{O}$ une topologie d'ouverts et montrons que $\mathscr{F}=\complement\mathscr{O}$ est une topologie de fermés.
 	\begin{itemise}
-		\item Soit $I$ fini et $(F_i)_{i\in I}\in\mathscr{F}^I$ alors $\bigcup_{i\in I}F_i=\bigcup_{i\in I}\complement O_i=\complement\bigcap_{i\in I}O_i\in\Psi(\mathscr{O})=\mathscr{F}$.
-		\item Soit $I$ quelconque et $(F_i)_{i\in I}\in\mathscr{F}^I$ alors $\bigcap_{i\in I}F_i=\bigcap_{i\in I}\complement O_i=\complement\bigcup_{i\in I}O_i\in\Psi(\mathscr{O})=\mathscr{F}$.
+		\item si $(F_i)_{1\infegal i\infegal n}$ une famille finie de $\mathscr{F}$ alors
+		$\bigcup_{i=1}^nF_i=\bigcup_{i=1}^n\complement O_i=\complement\bigcap_{i=1}^nO_i\in\mathscr{F}$.
+		\item si $(F_i)_{i\in I}$ une famille quelconque de $\mathscr{F}$ alors
+		$\bigcap_{i\in I}F_i=\bigcap_{i\in I}\complement O_i=\complement\bigcup_{i\in I}O_i\in\mathscr{F}$.
 	\end{itemise}
-	Inversement on  montre de même que si $\mathscr{F}$ une topologie de fermés alors $\mathscr{O}=\Psi(\mathscr{F})$ est une topologie d'ouverts.
+	On montre de même que si $\mathscr{F}$ une topologie de fermés alors $\mathscr{O}=\complement\mathscr{F}$ est une topologie d'ouverts.
 \end{demonstration}
 
 \begin{definition}
 	On appelle voisinagination sur $E$ une fonction $\mathfrak{V}:E\rightarrow\mathfrak{P}(\mathfrak{P}(E))$ telle que:
 	\begin{itemise}
-		\item Toute partie de $E$ qui contient un ensemble de $\mathfrak{V}(x)$ appartient à $\mathfrak{V}(x)$.
-		\item Toute intersection finie d'ensembles de $\mathfrak{V}(x)$ appartient à $\mathfrak{V}(x)$.
-		\item Tout ensemble de $\mathfrak{V}(x)$ contient $x$.
-		\item Si $V$ appartient à $\mathfrak{V}(x)$ il existe un ensemble $W$ de $\mathfrak{V}(x)$ tel que $\forall y\in W, V\in\mathfrak{V}(y)$.
+		\item L'ensemble $\mathfrak{V}(x)$ contient l'espace complet.
+		\item Les ensembles de $\mathfrak{V}(x)$ contiennent chacun $x$.
+		\item Toute intersection finie d'ensemble de $\mathfrak{V}(x)$ est un ensemble de $\mathfrak{V}(x)$.
+		\item $\forall V\in\mathfrak{V}(x)\quad\left[V\subset W\subset E~\Rightarrow~W\in\mathfrak{V}(x)\right]$
+		\item $\forall V\in\mathfrak{V}(x)\quad\exists W\in\mathfrak{V}(x)\quad\forall y\in W\quad V\in\mathfrak{V}(y)$
+		% \item Toute partie de $E$ qui contient un ensemble de $\mathfrak{V}(x)$ appartient à $\mathfrak{V}(x)$.
+		% \item Toute intersection finie d'ensembles de $\mathfrak{V}(x)$ appartient à $\mathfrak{V}(x)$.
+		% \item Tout ensemble de $\mathfrak{V}(x)$ contient $x$.
+		% \item Si $V$ appartient à $\mathfrak{V}(x)$ il existe un ensemble $W$ de $\mathfrak{V}(x)$ tel que $\forall y\in W, V\in\mathfrak{V}(y)$.
 	\end{itemise}
 	Les images $\mathfrak{V}(x)$ sont appelées voisinages de $x$.
 \end{definition}
@@ -413,39 +419,50 @@ Ces définitions étant équivalentes, on se permettra dans la suite de définir
 \end{proposition}
 
 \begin{demonstration}
-	Soit $\Phi:\mathscr{T}\mapsto(x\mapsto\ens{V\subset E}{\exists O\in\mathscr{T}, x\in O\subset V})$. \\
-	Pour une voisinagination $\mathfrak{V}$ montrons que $\mathscr{T}=\ens{O\subset E}{\forall x\in O, O\in\mathfrak{V}(x)}$ est une topologie.
+	Soit $\Phi:\mathscr{O}\mapsto(x\mapsto\ens{V\subset E}{\exists O\in\mathscr{O},\ x\in O\subset V})$ allant de l'ensemble des topologies d'ouverts vers l'ensemble des voisinaginations
+	Nous allons montrer qu'elle estbijective en montrant l'injectivité puis la surjectivité.
 	\begin{itemise}
-		\item Soient $O_i$ des éléments de $\mathscr{T}$ et $x\in\bigcup_iO_i$.
-		Alors $x$ appartient à un certain $O_j\in\mathscr{T}$ donc $O_j\in\mathfrak{V}(x)$.
-		Or $\bigcup_iO_i$ inclut $O_j$ donc par définition des voisinages $\bigcup_iO_i\in\mathfrak{V}(x)$ ainsi $\bigcup_iO_i\in\mathscr{T}$.
-		\item Soient $O_i$ une collection finie d'éléments de $\mathscr{T}$ et $x\in\bigcap_{i=1}^nO_i$.
-		Alors $x$ appartient à chaque $O_i\in\mathscr{T}$ donc $O_i\in\mathfrak{V}(x)$.
-		Or une intersection finie de voisinages de $x$ reste un voisinage de $x$ donc $\bigcap_{i=1}^nO_i\in\mathfrak{V}(x)$ ainsi $\bigcap_{i=1}^nO_i\in\mathscr{T}$.
-	\end{itemise}
-	Montrons par double inclusion que l'image par $\Phi$ de $\mathscr{T}$ est $\mathfrak{V}$ c'est à dire $\Phi(\mathscr{T})(x)=\mathfrak{V}(x)$.
-	\begin{itemise}
-		\item Soit $V\in\Phi(\mathscr{T})(x)$ alors il existe $O\in\mathscr{T}$ tel que $x\in O\subset V$.
-		Étant dans $\mathscr{T}$ on a $\forall y\in O, O\in\mathfrak{V}(y)$ en particulier $O\in\mathfrak{V}(x)$.
-		Puisque $V$ inclut $O$ alors $V\in\mathfrak{V}(x)$.
-		\item Soit $V\in\mathfrak{V}(x)$ et posons (essayez de deviner, c'est magnifique) $U=\ens{y\in E}{V\in\mathfrak{V}(y)}$.
+		\item Montrons que $\Phi$ est injective.
+		Soient deux topologies $\mathscr{O}_1$ et $\mathscr{O}_2$ tels que $\Phi(\mathscr{O}_1)=\Phi(\mathscr{O}_2)$.
+		On veut donc montrer que $\mathscr{O}_1=\mathscr{O}_2$.
+		Soit donc $O_1\in\mathscr{O}_1$.
+		Pour $x\in O_1$ on a $O_1\in\Phi(\mathscr{O}_1)(x)$ par définition donc $O_1\in\Phi(\mathscr{O}_2)(x)$ par hypothèse.
+		Ainsi il existe un ouvert $O_{2, x}\in\mathscr{O}_2$ tel que $x\in O_2^x\subset O_1$.
+		Par axiome de passage à l'union des ouverts $\bigcup_{x\in O_1}O_2^x\in\mathscr{O}_2$ et on a les inclusions $O_1=\bigcup_{x\in O_1}\{x\}\subset\bigcup_{x\in O_1}O_2^x\subset O_1$.
+		Cela montre que $O_1\in\bigcup_{x\in O_1}O_2^x\in\mathscr{O}_2$ puis $\mathscr{O}_1\subset\mathscr{O}_2$.
+		L'argument étant symétrique on a donc l'égalité puis l'injectivité de $\Phi$.
+		\item Montrons que $\Phi$ est surjective en montrant qu'un antécédent par $\Phi$ de $\mathfrak{V}$ un voisinagination est $\mathscr{O}=\ens{O\subset E}{\forall x\in O, O\in\mathfrak{V}(x)}$.
 		\begin{itemise}
-			\item Puisque $V\in\mathfrak{V}(x)$ alors $x\in U$.
-			\item De $V\in\mathfrak{V}(y)$ on tire $y\in V$ montrant que si $y\in U$ alors $y\in V$ c'est à dire $U\subset V$.
-			\item Si $y\in U$ alors $V\in\mathfrak{V}(y)$ qui est un voisinage donc il existe un $W\in\mathfrak{V}(y)$ tel que pour tout $z\in W$, $V$ appartienne à $\mathfrak{V}(y)$, c'est à dire $z\in U$.
-			Ainsi $\mathfrak{V}(y)\ni W\subset U$ ce qui implique $O\in\mathfrak{V}(y)$.
-			On a montré $\forall y\in U, U\in\mathfrak{V}(y)$ c'est à dire $U\in\mathscr{T}$.
+			\item Vérifions donc que $\mathscr{O}$ est une topologie d'ouverts.
+			\begin{itemise}
+				\item Soit $(O_i)_{i\in I}$ une famille de $\mathscr{O}$ et $O=\in\bigcup_{i\in I}O_i$.
+				Montrons que $O\in\mathscr{O}$ en prenant $x\in O$.
+				Il existe donc $O_j$ tel que $x\in O_j\in\mathscr{O}$ ce qui montre $O_j\in\mathfrak{V}(x)$.
+				Or $O_j\subset O$ donc par axiome croissance des voisinages $O\in\mathfrak{V}(x)$.
+				Ainsi $O=\bigcup_{i\in I}O_i\in\mathscr{O}$.
+				\item Soit $(O_i)_{1\infegal i\infegal n}$ une famille finie de $\mathscr{O}$ et $O=\bigcap_{i=1}^nO_i$.
+				Montrons que $O\in\mathscr{O}$ en prenant $x\in O$.
+				Pour tout $i\in[\![1, n]\!]$ on a $x\in O_i\in\mathscr{O}$ ce qui montre $O_i\in\mathfrak{V}(x)$.
+				Par intersection finie de voisinages $O\in\mathfrak{V}(x)$.
+				Ainsi $O=\bigcap_{i=1}^nO_i\in\mathscr{O}$.
+			\end{itemise}
+			\item Montrons que $\Phi(\mathscr{O})=\mathfrak{V}$ en montrant $\Phi(\mathscr{O})(x)=\mathfrak{V}(x)$ par double inclusion.
+			\begin{itemise}
+				\item Soit $V\in\Phi(\mathscr{O})(x)$ il exsite $O\in\mathscr{O}$ tel que $x\in O\subset V$.
+				Par définition de $\mathscr{O}$ on a $O\in\mathfrak{V}(x)$ donc par axiome croissance des voisinages $V\in\mathfrak{V}(x)$.
+				\item Soit $V\in\mathfrak{V}(x)$ et posons $O=\ens{y\in E}{V\in\mathfrak{V}(y)}$.
+				\begin{itemise}
+					\item Montrons que $O\in\mathscr{O}$ en prenant $y\in O$.
+					Alors $V\in\mathfrak{V}(y)$ donc par axiome de compatibilité des voisinages il existe $W\in\mathfrak{V}(y)$ tel que $\forall z\in W, V\in\mathfrak{V}(z)$.
+					Par définition $\forall z\in W, z\in O$ ce qui montre $W\subset U$.
+					Par axiome de croissance des voisinages $U\in\mathfrak{V}(y)$.
+					Puisque $y\in U$ est quelconque $O\in\mathscr{O}$.
+					\item Par défintion $O\subset V$ et $x\in V$ donc $x\in O\subset V$.
+				\end{itemise}
+				Cela montre que $\exists O\in\mathscr{O}, x\in O\subset V$ c'est-à-dire $V\in\Phi(\mathscr{O})(x)$.
+			\end{itemise}
 		\end{itemise}
-		Ainsi $U$ est un ouvert de $\mathscr{T}$ tel que $x\in U\subset V$ c'est à dire $V\in\Phi(\mathscr{T})(x)$.
 	\end{itemise}
-	Montrons que $\mathscr{T}$ est l'unique préimage par $\Phi$ de $\mathfrak{V}$.
-	Soit donc une autre topologie $\mathscr{T}'$ elle aussi préimage, c'est à dire vérifiant $\Phi(\mathscr{T}')=\mathfrak{V}$ et montrons que $\mathscr{T}=\mathscr{T}'$ par double inclusion.
-	\begin{itemise}
-		\item Soit $O'\in\mathscr{T}'$ et $x\in O'$ alors $O'\in\mathfrak{V}(x)$ c'est à dire $\forall x\in O', O'\in\mathfrak{V}(x)$ donc $O'\in\mathscr{T}$.
-		\item Soit $O\in\mathscr{T}$ et $x\in O$ alors $O\in\mathfrak{V}(x)$ donc il existe un ouvert $O_x'$ de $\mathscr{T}'$ tel que $x\in O_x'\subset O$.
-		Ainsi $O=\bigcup_{x\in O}\{x\}\subset\bigcup_{x\in O}O_x'\subset\bigcup_{x\in O}O=O$ c'est à dire $O=\bigcup_{x\in O}O_x'$ qui est un ouvert de $\mathscr{T}'$ car réunion d'ouverts, soit $O\in\mathscr{T}'$.
-	\end{itemise}
-	On a donc montré que pour toute voisinagination $\mathfrak{V}$ il existait une unique topologie $\mathscr{T}$ telle que $\Phi(\mathscr{T})=\mathfrak{V}$ c'est à dire que $\Phi$ est bijective.
 \end{demonstration}
 
 \begin{definition}
@@ -529,15 +546,16 @@ Ces définitions étant équivalentes, on se permettra dans la suite de définir
 
 La définition élégante d'une topologie par les ouverts est celle donnée par Bourbaki.
 En pratique on utilise la caractérisation suivante, provenant de la convention qu'une intersection d'aucune partie de $E$ est $E$ lui même, et que l'union d'aucune partie de $E$ est $\vide$.
-Un espace topologique est un ensemble munie d'une topologie.
+Les définitions précédentes étant équivalentes, on se permettra dans la suite de définir des topologies à partir d'une de ces constructions, voir d'un mélange de plusieurs d'entre elles.
 
 \begin{definition}
-	Une topologie $\mathscr{T}$ est aussi définie par les propriétés:
+	Une topologie $\mathscr{T}$ sur $E$ est aussi définie par les propriétés:
 	\begin{itemise}
 		\item $E$ et $\vide$ sont dans $\mathscr{T}$
 		\item Si $O$ et $O'$ sont dans $\mathscr{T}$ alors $O\cap O'$ aussi.
 		\item Si les $O_i$ sont dans $\mathscr{T}$ alors $\bigcup_iO_i$ aussi.
 	\end{itemise}
+	Un espace topologique $(E, \mathscr{T})$ est un ensemble munie d'une topologie.
 \end{definition}
 
 \begin{exemple}
