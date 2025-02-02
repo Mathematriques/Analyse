@@ -708,47 +708,50 @@ Les définitions précédentes étant équivalentes, on se permettra dans la sui
 	\end{align*}
 \end{demonstration}
 
-
 \section{Continuité}
 
-Les espaces $E, F$ sont munis des topologies $\mathscr{T}, \mathscr{U}$ des voisinages $\mathfrak{V}, \mathfrak{W}$.
-On se donne une application $f\colon E\rightarrow F$.
+Le premier exemple de fonctions continues concerne des fonctions réelles définies sur un intervalle et dont le graphe peut se tracer sans lever le crayon.
+Cette première approche donne une idée de la notion (la fonction ne saute pas) mais n'est pas suffisante pour la définir, d'autant plus que certains graphes de fonctions pourtant continues ne peuvent pas se tracer de cette manière, telles par exemple des courbes ayant des propriétés fractales comme l'escalier de Cantor.
+
+Historiquement définie pour des fonctions de la variable réelle, la notion de continuité se généralise à des fonctions entre espaces métriques ou entre espaces topologiques, sous une forme locale et sous une forme globale.
+On énonce donc la continuité dans le cas de deux espaces topologiques $(E, \mathfrak{V})$ et $(F, \mathfrak{W})$, $f$ une application de $E$ dans $F$ et $x$ un point de $E$.
 
 \begin{definition}
-	$f$ est continue en $x$ si et seulement si tout voisinage de $f(x)$ inclut l'image par $f$ d'un voisinage de $x$ id est $\forall W\in\mathfrak{W}(f(x)), \exists V\in\mathfrak{V}(x) f(V)\subset W$.
+	La fonction $f$ est continue en $x$ si et seulement si tout voisinage de $f(x)$ inclut l'image par $f$ d'un voisinage de $x$ ce qui s'écrit :
+	$$
+	\forall W\in\mathfrak{W}[f(x)], \exists V\in\mathfrak{V}(x) f(V)\subset W
+	$$
+	Il suffit pour cela que cette propriété soit vérifiée pour tout $W$ d'une base de voisinages de $f(x)$, par exemple pour tout $W$ ouvert contenant $f(x)$. 
 \end{definition}
 
 \begin{proposition}
-	$f$ est continue en $x$ si et seulement si $\forall W\in\mathfrak{W}(f(x)), \inv{f}(W)\in\mathfrak{V}(x)$.
+	La fonction $f$ est continue en $x$ si et seulement si :
+	$$
+	\forall W\in\mathfrak{W}[f(x)], \inv{f}(W)\in\mathfrak{V}(x)
+	$$
 \end{proposition}
 
 \begin{demonstration}
-	Par double implication.
-	\begin{itemise}
-		\item[$\Rightarrow$] Supposons $f$ continue.
-		Soit $W\in\mathfrak{W}(f(x))$, alors par continuité de $f$, $\exists V\in\mathfrak{V}(x), f(V)\subset W$.
-		Ainsi $V\subset\inv{f}(f(V))=\inv{f}(W)$.
-		Donc $W$ est un voisinage de $x$.
-		\item[$\Leftarrow$] Soit $x\in E$ et $W\in\mathfrak{W}(f(x))$.
-		Alors $\inv{f}(W)\in\mathfrak{V}(x)$, et $f(\inv{f}(W))=W\subset W$, donc $f$ est continue en $x$.
-	\end{itemise}
+	On sait que $f(V)\subset W$ est équivalent à $V\subset\inv{f}(W)$.
+	Si $V$ est un voisinage, par croissance des voisinagination $\inv{f}(W)$ en est un ce qui montre le sens direct.
+	Si $\inv{f}(W)$ est un voisinage noté $V$ alors $f(V)=f(\inv{f}(W))=W\subset W$, donc $f$ est continue en $x$ ce qui montre la réciproque.
 \end{demonstration}
 
 \begin{proposition}
-	Si $f$ est continue en $x$ et $g$ en $f(x)$ alors $g\circ f$ l'est en $x$.
+	La composée de fonctions continues (en un point) est continue.
 \end{proposition}
 
 \begin{demonstration}
+	Soit $g$ une application continue en $f(x)$.
+	Utilisons la dernière caractérisation pour montrer que $g\circ f:E\rightarrow G$ est continue en $x$.
 	Soit $W$ un voisinage de $(g\circ f)(x)=g(f(x))$.
-	Par continuité de $g$, $\inv{g}(W)$ est un voisinage de ouvert de $f(x)$.
-	Par continuité de $f$, $\inv{f}(\inv{g}(W))=\inv{(g\circ f)}(W)$ est un voisinage de $x$.
+	Par continuité de $g$ en $f(x)$ puis de $f$ en $x$ on a que $\inv{g}(W)$ est un voisinage de ouvert de $f(x)$ et enfin que $\inv{f}(\inv{g}(W))=\inv{g\circ f}(W)$ est un voisinage de $x$.
 \end{demonstration}
 
 \begin{definition}
 	Soient $E$ et $F$ deux espaces topologiques.
 	L'application $f\colon E\rightarrow F$ est continue si et seulement si elle est continue tout point.
 	L'ensemble des applications continues de $E$ dans $F$ est noté $\mathcal{C}(E, F)$.
-	%S'il n'y a pas d'ambiguïté, on notera $f\in\cont(E, F)$ sans préciser les topologies.
 \end{definition}
 
 \begin{proposition}
@@ -769,7 +772,7 @@ On se donne une application $f\colon E\rightarrow F$.
 		Ainsi $f(y)\in W\cap f(X)$ soit $W\cap f(X)\neq\vide$ donc $f(x)\in\overline{f(X)}$.
 		\item Soit $G\in\complement\mathscr{U}$ et $F=\inv{f}(G)$.
 		Alors $f(\overline{F})\subset\overline{f(F)}\subset\overline{G}=G$ donc $\overline{F}\subset\inv{f}(G)=F$.
-		\item Il suffit d'utiliser $\inv{f}(O)=\inv{f}(\complement F)=\complement\inv{f}(F)\in\complement\mathscr{T}$.
+		\item Il suffit d'utiliser $\inv{f}(F)=\inv{f}(\complement O)=\complement\inv{f}(O)\in\complement\mathscr{T}$.
 		\item Soit $x\in E$ et $W\in\mathfrak{W}(f(x))$.
 		Alors $\exists O\in\mathscr{U}, f(x)\in O\subset W$.
 		Ainsi $x\in\inv{f}(O)$ et par hypothèse $\inv{f}(O)\in\mathscr{T}$ donc $\inv{f}(O)\in\mathfrak{V}(x)$.
