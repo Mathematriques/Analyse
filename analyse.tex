@@ -643,29 +643,35 @@ Les définitions précédentes étant équivalentes, on se permettra dans la sui
 \section{Premières propriétés}
 
 \begin{proposition}
+	Les intérieurs et les fermés sont en relations par :
 	\begin{itemise}
-		\item $X^\circ=\complement\overline{\complement X}$
-		\item $\overline{X}=\complement(\complement X)^\circ$
-		\item $\overline{X\cap Y}\subset\overline{X}\cap\overline{Y}$
-		\item $(X\cup Y)^\circ\supset X^\circ\cup Y^\circ$
+		\item $X^\circ=\complement\overline{\complement X}$ et $\overline{X}=\complement(\complement X)^\circ$.
+		\item $\overline{X\cap Y}\subset\overline{X}\cap\overline{Y}$ et $(X\cup Y)^\circ\supset X^\circ\cup Y^\circ$
 	\end{itemise}
 \end{proposition}
 
 \begin{demonstration}
-	$X^\circ=\bigcup_{X\supset O\in\mathscr{T}}O=\complement\bigcap_{\complement X\subset\complement O\in\complement\mathscr{T}}\complement O=\complement\overline{\complement X}$.
-
-	$\overline{X}=\bigcap_{X\subset F\in\complement\mathscr{T}}O=\complement\bigcup_{\complement X\subset\complement O\in\mathscr{T}}\complement F=\complement(\complement X)^\circ$.
-
-	$X\cap Y\subset\overline{X}\cap\overline{Y}$ qui est fermé donc par minimalité.
-
-	$X\cup Y\supset X^\circ\cup Y^\circ$ qui est ouvert donc par maximalité.
+	Appliquons les définitions :
+	\begin{itemise}
+		\item $X^\circ
+			=\bigcup\ens{O}{X\supset O\in\mathscr{T}}
+			=\complement\bigcap\ens{\complement O}{X\supset O\in\mathscr{T}}
+			=\complement\overline{\complement X}$.
+		\item $\overline{X\cap Y}$ est le plus petit fermé incluant $X\cap Y$ or $\overline{X}\cap\overline{Y}$ est fermé et l'inclut aussi.
+	\end{itemise}
+	Les autres relations s'obtiennent en passant au complémentaire.
 \end{demonstration}
 
 \begin{remarque}
+	Il faut faire un peut attention.
 	\begin{itemise}
 		\item Une intersection infinie d'ouverts peut ne pas être un ouvert : $\bigcap_{x>0}]-x,x[=\{0\}$.
 		\item Une union infinie de fermés peut ne pas être fermée : $\bigcup_{0<x<1}[x,1]=]0, 1]$.
-		\item les inclusions précédentes peuvent être strictes : $\overline{]-\infty, 0[\cap]0, +\infty[}=\overline{\vide}=\vide$ tandis que  $\overline{]-\infty, 0[}\cap\overline{]0, +\infty[}=]-\infty, 0]\cap\overline[0, +\infty[=\{0\}$.
+		\item Les inclusions précédentes peuvent être strictes :
+		\begin{itemise}
+			\item $\overline{]-\infty, 0[\cap]0, +\infty[}=\overline{\vide}=\vide$
+			\item $\overline{]-\infty, 0[}\cap\overline{]0, +\infty[}=]-\infty, 0]\cap[0, +\infty[=\{0\}$
+		\end{itemise}
 	\end{itemise}
 \end{remarque}
 
@@ -674,12 +680,14 @@ Les définitions précédentes étant équivalentes, on se permettra dans la sui
 \end{proposition}
 
 \begin{demonstration}
-	$\overline{X}
-		=\complement(\complement X)^\circ
-		=\complement\bigcup_{\complement X\supset O\in\mathscr{T}}O
-		=\complement\ens{x\in E}{\exists O\in\mathscr{T}, x\in O\subset\complement X}
-		=\complement\ens{x\in E}{\exists V\in\mathfrak{V}(x), V\cap X=\vide}
-		=\ens{x\in E}{\forall V\in\mathfrak{V}(x), V\cap X\neq\vide}$
+	\begin{align*}
+		\overline{X}
+		&=\complement(\complement X)^\circ
+		=\complement\bigcup\ens{O\in\mathscr{T}}{O\subset\complement X} \\
+		&=\complement\ens{x\in E}{\exists O\in\mathscr{T}, x\in O\subset\complement X} \\
+		&=\complement\ens{x\in E}{\exists V\in\mathfrak{V}(x), V\cap X=\vide} \\
+		&=\ens{x\in E}{\forall V\in\mathfrak{V}(x), V\cap X\neq\vide} \\
+	\end{align*}
 \end{demonstration}
 
 \begin{definition}
@@ -692,15 +700,12 @@ Les définitions précédentes étant équivalentes, on se permettra dans la sui
 
 \begin{demonstration}
 	La dernière équivalence vient de l'indépendance de $O\cap X\neq\vide$ à $x$.
-	$$
-		\begin{aligned}
-			\overline{X}=E
-				&\Leftrightarrow(\forall x\in E, \forall V\in\mathfrak{V}(x), V\cap X\neq\vide)\\
-				&\Leftrightarrow(\forall x\in E, \forall O\in\mathscr{T}, x\in O\Rightarrow O\cap X\neq\vide)\\
-				&\Leftrightarrow(\forall O\in\mathscr{T}, \forall x\in E, x\in O\Rightarrow O\cap X\neq\vide)\\
-				&\Leftrightarrow(\forall O\in\mathscr{T}, O\neq\vide\Rightarrow O\cap X\neq\vide)
-		\end{aligned}
-	$$
+	\begin{align*}
+		\overline{X}=E
+		&\iff\forall x\in E, \forall V\in\mathfrak{V}(x), V\cap X\neq\vide \\
+		&\iff\forall x\in E, \forall O\in\mathscr{T}, x\in O\Rightarrow O\cap X\neq\vide \\
+		&\iff\forall O\in\mathscr{T}, O\neq\vide\Rightarrow O\cap X\neq\vide
+	\end{align*}
 \end{demonstration}
 
 
@@ -820,7 +825,8 @@ Soient $(E, \mathscr{T}_1), (E, \mathscr{T}_2), (F, \mathscr{U})$ des espace top
 	On dit alors qu'elles ne sont pas comparables.
 \end{remarque}
 
-\begin{proposition}
+\begin{proposition} 
+	\text{}
 	\begin{itemise}
 		\item $f$ reste continue si l'on remplace la topologie sur $F$ par une topologie moins fine ou si on remplace la topologie sur $E$ par une topologie plus fine.
 		\item $f$ reste ouverte si l'on remplace la topologie sur $F$ par une topologie plus fine ou si on remplace la topologie sur X par une topologie moins fine.
