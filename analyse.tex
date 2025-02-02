@@ -360,7 +360,7 @@
 
 \section{Équivalences}
 
-Ayant été étudiés par de nombreuses personnes, il existe plusieurs façon équivalentes de définir un espace topologique.
+Ayant été étudiés par de nombreuses personnes, il existe plusieurs façons équivalentes de définir un espace topologique.
 On donne dans la suite les définitions les plus classiques pour montrer qu'elles sont équivalentes.
 
 \begin{definition}
@@ -379,7 +379,6 @@ On donne dans la suite les définitions les plus classiques pour montrer qu'elle
 		\item Toute intersection d'ensembles de $\mathscr{F}$ est un ensemble de $\mathscr{F}$.
 	\end{itemise}
 	Les éléments de $\mathscr{F}$ sont appelés les fermés de $E$.
-
 \end{definition}
 
 \begin{proposition}
@@ -387,31 +386,92 @@ On donne dans la suite les définitions les plus classiques pour montrer qu'elle
 \end{proposition}
 
 \begin{demonstration}
-	L'application $\complement : X\longmapsto E\setminus X$ est une bijection car c'est une involution.
+	L'application $\complement\colon X\longmapsto E\setminus X$ est une bijection car c'est une involution.
 	Soit $\mathscr{O}$ une topologie d'ouverts et montrons que $\mathscr{F}=\complement\mathscr{O}$ est une topologie de fermés.
 	\begin{itemise}
-		\item si $(F_i)_{1\infegal i\infegal n}$ une famille finie de $\mathscr{F}$ alors
+		\item Soit $(F_i)_{1\infegal i\infegal n}$ une famille finie de $\mathscr{F}$ alors
 		$\bigcup_{i=1}^nF_i=\bigcup_{i=1}^n\complement O_i=\complement\bigcap_{i=1}^nO_i\in\mathscr{F}$.
-		\item si $(F_i)_{i\in I}$ une famille quelconque de $\mathscr{F}$ alors
+		\item Soit $(F_i)_{i\in I}$ une famille quelconque de $\mathscr{F}$ alors
 		$\bigcap_{i\in I}F_i=\bigcap_{i\in I}\complement O_i=\complement\bigcup_{i\in I}O_i\in\mathscr{F}$.
 	\end{itemise}
 	On montre de même que si $\mathscr{F}$ une topologie de fermés alors $\mathscr{O}=\complement\mathscr{F}$ est une topologie d'ouverts.
 \end{demonstration}
 
 \begin{definition}
-	On appelle voisinagination sur $E$ une fonction $\mathfrak{V}:E\rightarrow\mathfrak{P}(\mathfrak{P}(E))$ telle que:
+	On appelle intérieur sur $E$ une application $\cdot^\circ\colon\mathfrak{P}(E)\rightarrow\mathfrak{P}(E)$ telle que :
 	\begin{itemise}
-		\item L'ensemble $\mathfrak{V}(x)$ contient l'espace complet.
-		\item Les ensembles de $\mathfrak{V}(x)$ contiennent chacun $x$.
-		\item Toute intersection finie d'ensemble de $\mathfrak{V}(x)$ est un ensemble de $\mathfrak{V}(x)$.
-		\item $\forall V\in\mathfrak{V}(x)\quad\left[V\subset W\subset E~\Rightarrow~W\in\mathfrak{V}(x)\right]$
-		\item $\forall V\in\mathfrak{V}(x)\quad\exists W\in\mathfrak{V}(x)\quad\forall y\in W\quad V\in\mathfrak{V}(y)$
-		% \item Toute partie de $E$ qui contient un ensemble de $\mathfrak{V}(x)$ appartient à $\mathfrak{V}(x)$.
-		% \item Toute intersection finie d'ensembles de $\mathfrak{V}(x)$ appartient à $\mathfrak{V}(x)$.
-		% \item Tout ensemble de $\mathfrak{V}(x)$ contient $x$.
-		% \item Si $V$ appartient à $\mathfrak{V}(x)$ il existe un ensemble $W$ de $\mathfrak{V}(x)$ tel que $\forall y\in W, V\in\mathfrak{V}(y)$.
+		\item $\cdot^\circ$ est une involution.
+		\item L'intérieur d'une intersection finie est l'intersection des intérieurs.
+		\item L'intérieur d'une partie est inclue dans celle-ci.
 	\end{itemise}
-	Les images $\mathfrak{V}(x)$ sont appelées voisinages de $x$.
+\end{definition}
+
+\begin{proposition}
+	Les fonctions d'intérieur sont en bijection avec les topologies d'ouverts.
+\end{proposition}
+
+\begin{demonstration}
+	On utilisera plusieurs fois dans la démonstration la croissance des fonctions intérieures.
+	En effet si $X\subset Y$ alors $X^\circ=(X\cap Y)^\circ=X^\circ\cap Y^\circ\subset Y^\circ$).
+
+	Soit $\Phi\colon\mathscr{O}\mapsto(X\mapsto\bigcup_{X\supset O\in\mathscr{O}}O)$ allant le l'ensemble des topologies d'ouverts vers l'ensemble des fonctions « intérieur ».
+	Montrons sa bijectivité.
+	\begin{itemise}
+		\item Montrons que $\Phi$ est injective.
+		Soient deux topologies $\mathscr{O}_1$ et $\mathscr{O}_2$ telles que $\Phi(\mathscr{O}_1)=\Phi(\mathscr{O}_2)$.
+		On veut montrer que $\mathscr{O}_1=\mathscr{O}_2$.
+		Soit donc $O_1\in\mathscr{O}_1$ alors $O_1=\bigcup_{O_1\supset O\in\mathscr{O}_1}O=\Phi(\mathscr{O}_1)(O_1)$.
+		Ainsi $O_1=\Phi(\mathscr{O}_2)(O_1)=\bigcup_{O_1\supset O\in\mathscr{O}_2}O\in\mathscr{O}_2$ puisque c'est une union d'ouverts de $\mathscr{O}_2$.
+		Donc $\mathscr{O}_1\subset\mathscr{O}_2$.
+		L'argument étant symétrique on a $\mathscr{O}_1=\mathscr{O}_2$ puis que $\Phi$ est injective.
+		\item Vérifions que $\Phi$ est injective.
+		Soit $\mathscr{T_\text{ouvert}}$ et $\mathscr{O}'$ tels que $\Phi(\mathscr{O})=\Phi(\mathscr{O}')$.
+		Soit $O\in\mathscr{O}$ alors $O=\Phi(\mathscr{O})(O)=\Phi(\mathscr{O}')(O)=\bigcup_{O\supset O'\in\mathscr{O}'}O'\in\mathscr{O}'$.
+		\item Montrons que $\Phi$ est surjective en montrant qu'un antécédent par $\Phi$ de $\cdot^\circ$ une fonction d'intérieur est $\mathscr{O}=\ens{O\subset E}{O=O^\circ}$.
+		\begin{itemise}
+			\item Vérifions que $\mathscr{O}$ est une topologie d'ouverts.
+			\begin{itemise}
+				\item Soit $(O_i)_{i\in I}$ une famille de $\mathscr{O}$ et $O=\bigcup_{i\in I}O_i$.
+				Par croissance $O_i^\circ\subset O^\circ$ donc $O=\bigcup_{i\in I}O_i=\bigcup_{i\in I}O_i^\circ\subset O^\circ$.
+				Puisque $O^\circ\subset O$ est un axiome on a $O\in\mathscr{O}$.
+				\item Soit $(O_i)_{1\infegal i\infegal n}$ une famille finie de $\mathscr{O}$ et $O=\bigcap_{i=1}^nO_i$.
+				Alors $O^\circ=(\bigcap_{i=1}^nO_i)^\circ=\bigcap_{i=1}^nO_i^\circ=\bigcap_{i=1}^nO_i=O$ donc $O\in\mathscr{O}$.
+			\end{itemise}
+			\item Montrons que $\Phi(\mathscr{O})=\cdot^\circ$ en montrant $\Phi(\mathscr{O})(X)=X^\circ$ par double inclusion.
+			\begin{itemise}
+				\item $X^\circ\in\mathscr{O}$ car $X^{\circ\circ}=X^\circ$ et $X\supset X^\circ$ donc $\Phi(\mathscr{O})(X)=\bigcup_{X\supset O\in\mathscr{O}}O\supset X^\circ$.
+				\item $X\supset O\in\mathscr{O}$ implique $O=O^\circ\subset X^\circ$ par croissance donc $\Phi(\mathscr{O})(X)=\subset X^\circ$.
+			\end{itemise}
+		\end{itemise}
+	\end{itemise}
+\end{demonstration}
+
+\begin{definition}
+	On appelle adhérence sur $E$ une application $\overline{\cdot}\colon\mathfrak{P}(E)\rightarrow\mathfrak{P}(E)$ telle que :
+	\begin{itemise}
+		\item $\overline{\cdot}$ est une involution.
+		\item L'adhérence d'une union finie est l'union des adhérences.
+		\item Toute partie est include dans son adhérence.
+	\end{itemise}
+\end{definition}
+
+\begin{proposition}
+	Les fonctions d'adhérence sont en bijection avec les topologies de fermés.
+\end{proposition}
+
+\begin{demonstration}
+	Il suffit de remarquer que ces axiomes passés au complémentaire deviennent ceux des intérieurs.
+	Il ne reste plus qu'à concaténer les deux démonstrations précédentes.
+\end{demonstration}
+
+\begin{definition}
+	On appelle voisinagination sur $E$ une fonction $\mathfrak{V}\colon E\rightarrow\mathfrak{P}(\mathfrak{P}(E))$ telle que :
+	\begin{itemise}
+		\item Toute partie de $E$ qui contient un ensemble de $\mathfrak{V}(x)$ appartient à $\mathfrak{V}(x)$.
+		\item Toute intersection finie d'ensembles de $\mathfrak{V}(x)$ appartient à $\mathfrak{V}(x)$.
+		\item Tout ensemble de $\mathfrak{V}(x)$ contient $x$.
+		\item Si $V$ appartient à $\mathfrak{V}(x)$, il existe un ensemble $W$ appartenant à $\mathfrak{V}(x)$ et tel que, pour tout $y\in W$, $V$ appartienne à $\mathfrak{V}(y)$.
+	\end{itemise}
 \end{definition}
 
 \begin{proposition}
@@ -419,23 +479,23 @@ On donne dans la suite les définitions les plus classiques pour montrer qu'elle
 \end{proposition}
 
 \begin{demonstration}
-	Soit $\Phi:\mathscr{O}\mapsto(x\mapsto\ens{V\subset E}{\exists O\in\mathscr{O},\ x\in O\subset V})$ allant de l'ensemble des topologies d'ouverts vers l'ensemble des voisinaginations
-	Nous allons montrer qu'elle estbijective en montrant l'injectivité puis la surjectivité.
+	Soit $\Phi\colon\mathscr{O}\mapsto(x\mapsto\ens{V\subset E}{\exists O\in\mathscr{O},\ x\in O\subset V})$ allant de l'ensemble des topologies d'ouverts vers l'ensemble des voisinaginations.
+	Montrons sa bijectivité.
 	\begin{itemise}
 		\item Montrons que $\Phi$ est injective.
-		Soient deux topologies $\mathscr{O}_1$ et $\mathscr{O}_2$ tels que $\Phi(\mathscr{O}_1)=\Phi(\mathscr{O}_2)$.
+		Soient deux topologies $\mathscr{O}_1$ et $\mathscr{O}_2$ telles que $\Phi(\mathscr{O}_1)=\Phi(\mathscr{O}_2)$.
 		On veut donc montrer que $\mathscr{O}_1=\mathscr{O}_2$.
 		Soit donc $O_1\in\mathscr{O}_1$.
 		Pour $x\in O_1$ on a $O_1\in\Phi(\mathscr{O}_1)(x)$ par définition donc $O_1\in\Phi(\mathscr{O}_2)(x)$ par hypothèse.
-		Ainsi il existe un ouvert $O_{2, x}\in\mathscr{O}_2$ tel que $x\in O_2^x\subset O_1$.
+		Ainsi il existe un ouvert $O_2^x\in\mathscr{O}_2$ tel que $x\in O_2^x\subset O_1$.
 		Par axiome de passage à l'union des ouverts $\bigcup_{x\in O_1}O_2^x\in\mathscr{O}_2$ et on a les inclusions $O_1=\bigcup_{x\in O_1}\{x\}\subset\bigcup_{x\in O_1}O_2^x\subset O_1$.
 		Cela montre que $O_1\in\bigcup_{x\in O_1}O_2^x\in\mathscr{O}_2$ puis $\mathscr{O}_1\subset\mathscr{O}_2$.
 		L'argument étant symétrique on a donc l'égalité puis l'injectivité de $\Phi$.
-		\item Montrons que $\Phi$ est surjective en montrant qu'un antécédent par $\Phi$ de $\mathfrak{V}$ un voisinagination est $\mathscr{O}=\ens{O\subset E}{\forall x\in O, O\in\mathfrak{V}(x)}$.
+		\item Montrons que $\Phi$ est surjective en montrant qu'un antécédent par $\Phi$ de $\mathfrak{V}$ une voisinagination est $\mathscr{O}=\ens{O\subset E}{\forall x\in O, O\in\mathfrak{V}(x)}$.
 		\begin{itemise}
 			\item Vérifions donc que $\mathscr{O}$ est une topologie d'ouverts.
 			\begin{itemise}
-				\item Soit $(O_i)_{i\in I}$ une famille de $\mathscr{O}$ et $O=\in\bigcup_{i\in I}O_i$.
+				\item Soit $(O_i)_{i\in I}$ une famille de $\mathscr{O}$ et $O=\bigcup_{i\in I}O_i$.
 				Montrons que $O\in\mathscr{O}$ en prenant $x\in O$.
 				Il existe donc $O_j$ tel que $x\in O_j\in\mathscr{O}$ ce qui montre $O_j\in\mathfrak{V}(x)$.
 				Or $O_j\subset O$ donc par axiome croissance des voisinages $O\in\mathfrak{V}(x)$.
@@ -465,97 +525,33 @@ On donne dans la suite les définitions les plus classiques pour montrer qu'elle
 	\end{itemise}
 \end{demonstration}
 
-\begin{definition}
-	On appelle adhérence sur $E$ une application $\overline{\cdot}\colon\mathfrak{P}(E)\rightarrow\mathfrak{P}(E)$, dont les images sont appelées les adhérences, telle que:
-	\begin{itemise}
-		\item $X\subset\overline{X}$
-		\item $\overline{\overline{X}}=\overline{X}$
-		\item $\overline{X\cup Y}=\overline{X}\cup\overline{Y}$
-		\item $\overline{\vide}=\vide$
-	\end{itemise}
-\end{definition}
-
-\begin{proposition}
-	Les topologies d'adhérence sont en bijection avec les topologies de fermés.
-\end{proposition}
-
-\begin{demonstration}
-	Posons $\Phi\colon\mathscr{T}\mapsto(X\mapsto\bigcap_{X\subset F\in\mathscr{T}}F)$.
-	Vérifions que $\Phi$ est surjective.
-	Soit $\overline{\cdot}$ une adhérence sur $E$.
-	On utilisera plusieurs fois la croissance de cette application (si $X\subset Y$ alors $\overline{Y}=\overline{Y\setminus X\cup X}=\overline{Y\setminus X}\cup\overline{X}\supset\overline{X}$). \\
-	Alors $\mathscr{T}_\text{fermé}=\ens{F\subset E}{F=\overline{F}}$ est un topologie de fermés.
-	\begin{itemise}
-		\item $\overline{\vide}=\vide$ donc $\vide\in\mathscr{T}_\text{fermé}$ et $E\subset\overline{E}\subset E$ donc $E\in\mathscr{T}_\text{fermé}$.
-		\item Si $F, F'\in\mathscr{T}_\text{fermé}$ alors $\overline{F\cup F'}=\overline{F}\cup\overline{F'}=F\cup F'$.
-		\item Si $F_{i\in I}\in\mathscr{T}_\text{fermé}$ alors $F_j=\overline{F_j}\supset\overline{\bigcap_{i\in I}F_i}$ donc $\bigcap_{j\in I}F_j\supset\overline{\bigcap_{i\in I}F_i}$.
-	\end{itemise}
-	Posons $\underline{\cdot}=\Phi(\mathscr{T}_\text{fermé})$.
-	Montrons que $\underline{X}=\overline{X}$.
-	\begin{itemise}
-		\item[$\subset$] $\overline{\overline{X}}=\overline{X}$ donc $\overline{X}\in\mathscr{T}_\text{fermé}$ et $X\subset\overline{X}$ puis $\underline{X}=\bigcap_{X\subset F\in\mathscr{T}_\text{fermé}}F\subset\overline{X}$.
-		\item[$\supset$] Par croissance $\underline{X}=\bigcap_{X\subset F\in\mathscr{T}_\text{fermé}}F=\bigcap_{\overline{X}\subset\overline{F}\in\mathscr{T}_\text{fermé}}F\supset\overline{X}$.
-	\end{itemise}
-	Vérifions que $\Phi$ soit injective.
-	Soit $\mathscr{T_\text{fermé}}$ et $\mathscr{T}_\text{fermé}'$ tels que $\Phi(\mathscr{T}_\text{fermé})=\Phi(\mathscr{T}_\text{fermé}')$.
-	Soit $F\in\mathscr{T}_\text{fermé}$ alors $F=\Phi(\mathscr{T}_\text{fermé})(F)=\Phi(\mathscr{T}_\text{fermé}')(F)=\bigcap_{F\subset F'\in\mathscr{T}_\text{fermé}'}F'\in\mathscr{T}_\text{fermé}'$.
-\end{demonstration}
-
-\begin{definition}
-	On appelle intérieur sur $E$ une application $\cdot^\circ\colon\mathfrak{P}(E)\rightarrow\mathfrak{P}(E)$, dont les images sont appelées les intérieurs, telle que:
-	\begin{itemise}
-		\item $X^\circ\subset X$
-		\item $X^{\circ\circ}=X^\circ$
-		\item $(X\cap Y)^\circ=X^\circ\cap Y^\circ$
-		\item $E^\circ=E$
-	\end{itemise}
-\end{definition}
-
-\begin{proposition}
-	Les topologies d'intérieur sont en bijection avec les topologies d'ouverts.
-\end{proposition}
-
-\begin{demonstration}
-	Posons $\Phi\colon\mathscr{T}\mapsto(X\mapsto\bigcup_{X\supset O\in\mathscr{T}}O)$.
-	\begin{itemise}
-		\item Vérifions que $\Phi$ est surjective.
-		Soit $\cdot^\circ$ un intérieur sur $E$.
-		On utilisera plusieur fois la croissance de cette application (si $X\subset Y$ alors $X^\circ=(X\cap Y)^\circ=X^\circ\cap Y^\circ\subset Y^\circ$). \\
-		Alors $\mathscr{T}_\text{ouvert}=\ens{O\subset E}{O=O^\circ}$ est un topologie d'ouverts.
-		\begin{itemise}
-			\item $\vide^\circ=\vide$ donc $\vide\in\mathscr{T}_\text{ouvert}$ et $E=E^\circ$ donc $E\in\mathscr{T}_\text{ouvert}$.
-			\item Si $O, O'\in\mathscr{T}_\text{ouvert}$
-			alors $(O\cap O')^\circ=O^\circ\cap{O'}^\circ=O\cap O'$.
-			\item Si $O_{i\in I}\in\mathscr{T}_\text{ouvert}$
-			alors $O_j=O_j^\circ\subset(\bigcup_{i\in I}O_i)^\circ$
-			donc $\bigcup_{j\in I}O_j\subset(\bigcup_{i\in I}O_i)^\circ$.
-		\end{itemise}
-		Posons $\cdot_\circ=\Phi(\mathscr{T}_\text{ouvert})$.
-		Montrons que $X_\circ=X^\circ$.
-		\begin{itemise}
-			\item[$\supset$] $X^{\circ\circ}=X^\circ$ donc $X^\circ\in\mathscr{T}_\text{ouvert}$ et $X\supset X^\circ$ puis $X^\circ=\bigcup_{X\supset O\in\mathscr{T}_\text{ouvert}}O\supset X^\circ$.
-			\item[$\subset$] Par croissance $X_\circ=\bigcup_{X\supset O\in\mathscr{T}_\text{ouvert}}O=\bigcup_{X^\circ\supset O^\circ\in\mathscr{T}_\text{ouvert}}O\subset X^\circ$.
-		\end{itemise}
-		\item Vérifions que $\Phi$ soit injective.
-		Soit $\mathscr{T_\text{ouvert}}$ et $\mathscr{T}_\text{ouvert}'$ tels que $\Phi(\mathscr{T}_\text{ouvert})=\Phi(\mathscr{T}_\text{ouvert}')$.
-		Soit $O\in\mathscr{T}_\text{Ouvert}$ alors $O=\Phi(\mathscr{T}_\text{ouvert})(O)=\Phi(\mathscr{T}_\text{ouvert}')(O)=\bigcup_{O\supset O'\in\mathscr{T}_\text{ouvert}'}O'\in\mathscr{T}_\text{ouvert}'$.
-	\end{itemise}
-\end{demonstration}
-
 \section{Définitions}
 
-La définition élégante d'une topologie par les ouverts est celle donnée par Bourbaki.
-En pratique on utilise la caractérisation suivante, provenant de la convention qu'une intersection d'aucune partie de $E$ est $E$ lui même, et que l'union d'aucune partie de $E$ est $\vide$.
+Les définitions élégantes d'une topologie par les ouverts et des voisinaginations sont celles données par Nicolas Bourbaki.
+Elles utilisent toutes les deux la convention qu'une intersection vide de parties de $E$ est $E$ lui même, et qu'une union vide est $\vide$.
+En pratique on remplace l'intersection finie par une intersection de deux éléments (puisqu'une intersection finie n'est autre qu'une répétion d'intersection de deux éléments) et un axiome pour décrire cette intersection vide.
+On reformule de plus ces axiomes avec des symboles, plus utilisés et concis.
 Les définitions précédentes étant équivalentes, on se permettra dans la suite de définir des topologies à partir d'une de ces constructions, voir d'un mélange de plusieurs d'entre elles.
 
 \begin{definition}
 	Une topologie $\mathscr{T}$ sur $E$ est aussi définie par les propriétés:
 	\begin{itemise}
-		\item $E$ et $\vide$ sont dans $\mathscr{T}$
-		\item Si $O$ et $O'$ sont dans $\mathscr{T}$ alors $O\cap O'$ aussi.
-		\item Si les $O_i$ sont dans $\mathscr{T}$ alors $\bigcup_iO_i$ aussi.
+		\item $\vide, E\in\mathscr{T}$.
+		\item $\forall U, V\in\mathscr{T}, U\cap V\in\mathscr{T}$.
+		\item $\forall (U_i)_{i\in I}\in\mathscr{T}, \bigcup_{i\in I}U_i\in\mathscr{T}$.
 	\end{itemise}
 	Un espace topologique $(E, \mathscr{T})$ est un ensemble munie d'une topologie.
+\end{definition}
+
+\begin{definition}
+	L'ensemble des voisinages $\mathfrak{V}(x)$ de $x$ sont caractérisée par : 
+	\begin{itemise}
+		\item $\forall V\in\mathfrak{V}(x), V\subset W\subset E\implies W\in\mathfrak{V}(x)$.
+		\item $\forall V, W\in\mathfrak{V}(x), V\cap W\in\mathfrak{V}(x)$.
+		\item $\forall V\in\mathfrak{V}(x), x\in V$.
+		\item $\forall V\in\mathfrak{V}(x)\quad\exists W\in\mathfrak{V}(x)\quad\forall y\in W\quad V\in\mathfrak{V}(y)$.
+		\item $E\in\mathfrak{V}(x)$.
+	\end{itemise}
 \end{definition}
 
 \begin{exemple}
@@ -563,11 +559,6 @@ Les définitions précédentes étant équivalentes, on se permettra dans la sui
 	\begin{itemise}
 		\item la topologie grossière $\mathscr{T}=\{\vide, E\}$.
 		\item la topologie discrète $\mathscr{T}=\mathfrak{P}(E)$.
-		\item la topologie cofinie $\mathscr{T}=\{\vide\}\cup\ens{O\subset E}{\complement O\text{ fini}}$.
-		Démontrons que c'est bien une topologie sur $E$.
-		Par définition $\vide\in\mathscr{T}$ et $\complement E=\vide$ est fini donc $E\in\mathscr{T}$.
-		Si $O$ et $O'$ sont dans $\mathscr{T}$ alors $\complement O$ et $\complement O'$ sont finis donc $\complement O\cup\complement O'=\complement(O\cap O')$ est fini donc $O\cap O'$ est dans $\mathscr{T}$.
-		Si les $O_i$ sont dans $\mathscr{T}$ alors $\complement O_i$ sont finis donc $\bigcap_i\complement O_i=\complement\bigcup_iO_i$ est fini donc $\bigcup_iO_i$ est dans $\mathscr{T}$.
 	\end{itemise}
 \end{exemple}
 
