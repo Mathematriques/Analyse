@@ -564,65 +564,81 @@ Les définitions précédentes étant équivalentes, on se permettra dans la sui
 
 \section{Système fondamental de voisinage, Base d'une topologie}
 
+\begin{proposition}
+	L'intersection de topologies est une topologie.
+\end{proposition}
+
+\begin{demonstration}
+	Soient $(\mathscr{T}_i)_{i\in I}$ des topologies de $E$ et $\mathscr{T}=\bigcap_{i\in I}\mathscr{T}_i$.
+	\begin{itemise}
+		\item $\forall i\in I;\ E, \vide\in\mathscr{T}_i$ donc $E, \vide\in\mathscr{T}$
+		\item Si $U, V\in\mathscr{T}$ alors $\forall i\in I;\ U, V\in\mathscr{T}_i$ donc $U\cap V\in\mathscr{T}_i$ puis $U\cap V\in\mathscr{T}$
+		\item Si $U_j\in\mathscr{T}$ alors $\forall i\in I;\ U_j\in\mathscr{T}_i$ donc $\bigcup_{j\in J} U_j\in\mathscr{T}_i$ puis $\bigcup_{j\in J} U_j\in\mathscr{T}$
+	\end{itemise}
+\end{demonstration}
+
+\begin{definition}
+	On pose donc $\sigma_\text{topologie}(\mathfrak{A})=\bigcap\ens{\text{$\mathscr{T}$ est une topologie}}{\mathfrak{A}\subset\mathscr{T}}$ la plus petite topologie contenant $\mathfrak{A}$ nommée topologie engendré par $\mathfrak{A}$.
+\end{definition}
+
 \begin{definition}
 	On appelle système fondamentale de voisinage d'un point $x$ un ensemble de voisinages $\mathfrak{S}$ tel que $\forall V\in\mathfrak{V}(x), \exists W\in\mathfrak{S}, W\subset V$. On peut de même définir un système fondamental de voisinage d'une partie de $E$.
 \end{definition}
 
 \begin{exemple}
+	En anticipant un peu sur la définition d'ensemble discret :
 	\begin{itemise}
 		\item Dans un espace discret, l'ensemble $\{x\}$ (qui est ouvert donc un voisinage) est une base fondamentale de voisinage de $x$.
 		\item Sur la droite rationnelle $[q-\frac{1}{n}, q+\frac{1}{n}]$ ou $]q-\frac{1}{n}, q+\frac{1}{n}[$ avec $n\in\N^*$ sont des systèmes fondamentaux de voisinages de $q\in\Q$.
-		\item Il en va de même pour le droite réelle.
+		\item Il en va de même pour la droite réelle.
 	\end{itemise}
 \end{exemple}
 
 \begin{definition}
-	On appelle base de la topologie $\mathscr{T}$ toute collection $\mathfrak{B}\subset\mathfrak{P}(E)$ telle que tout ouvert soit réunion d'éléments de $\mathfrak{B}$, id est $\forall O\in\mathscr{T}, \exists X_{i\in I}\in\mathfrak{B}, O=\bigcup_{i\in I} X_i$.
-	On dit que $\mathfrak{B}$ engendre par union les ouverts.
+	Un réseau de $\mathscr{T}$ est un ensemble $\mathfrak{R}$ de parties de $E$ engendrant par unions les ouverts :  $\forall O\in\mathscr{T}, \exists\mathcal{B}\subset\mathfrak{B}, O=\bigcup\mathcal{B}$.
+	Une base de $\mathscr{T}$ est un réseau constitué d'ouverts.
 \end{definition}
 
 \begin{proposition}
-	Il existe une topologie dont $\mathfrak{B}$ est une base si et seulement si:
-	\begin{itemise}
-		\item $\mathfrak{B}$ recouvre $E$ c'est à dire $E=\bigcup_{X\in\mathfrak{B}}X$
-		\item $\mathfrak{B}$ engendre ses intersections finies id est $X, Y\in\mathfrak{B}\implies\exists Z_{i\in I}\in\mathfrak{B}, X\cap Y=\bigcup_{i\in I}Z_i$
-	\end{itemise}
-	Cette topologie $\mathscr{T}$ est alors unique et ses ouverts sont les réunions d'éléments de $\mathfrak{B}$.
+	Il existe une topologie dont $\mathfrak{B}$ est une base si et seulement si $\mathfrak{B}$ engendre les intersections finies.
+	Cette topologie est alors unique et ses ouverts sont les réunions d'éléments de $\mathfrak{B}$.
 \end{proposition}
 
 \begin{demonstration}
+	Par double implication.
 	\begin{itemise}
-		\item[$\Rightarrow$] Pour le sens direct, si $\mathfrak{B}$ est une base d'une topologie $\mathscr{T}$ quelconque, alors les deux conditions sont vérifiée par application directe des propriétés de la topologie.
-		Puisque $\mathscr{T}$ doit être stable par union, alors c'est la seul topologie engendrée par $\mathfrak{B}$.
-		\item[$\Leftarrow$] Soit $\mathfrak{B}$ vérifiant les propriétés.
+		\item Soit $\mathfrak{B}$ une base d'une topologie $\mathscr{T}$ quelconque et $(X_i)_{1\infegal i\infegal n}$ une famille d'éléments de $\mathfrak{B}$.
+		Chaque $X_i$ est ouvert donc $\bigcap_{i=1}^nX_i$ aussi donc $\mathfrak{B}$ l'engendre.
+		\item Soit $\mathfrak{B}$ stable par intersection finie et posons $\mathcal{T}=\ens{\bigcup\mathcal{B}}{\mathcal{B}\subset\mathfrak{B}}$.
+		Montrons que c'est une topologie.
+		Dans la suite les $O_i$ seront des éléments de $\mathcal{T}$.
+		Puisque $\mathfrak{B}$ engendre $\mathcal{T}$ par union il existe une famille $\mathcal{B}_i\subset\mathfrak{B}$ telle que $O_i=\bigcup\mathcal{B}_i$.
 		\begin{itemise}
-			\item $E=\bigcup_{X\in\mathfrak{B}}X$ et $\vide=\bigcup_{X\in\vide}X$ donc $\vide, E\in\mathscr{T}$.
-			\item Si $X_i=\bigcup_{j\in J_i}Z_j\in\mathscr{T}$ alors $\bigcup_{i\in I}X_i=\bigcup_{i\in I}\bigcup_{j\in J_i}Z_j\in\mathscr{T}$.
-			\item Si $(X, Y)=(\bigcup_{i\in I}Z_i, \bigcup_{j\in J}Z_j)\in\mathscr{T}$ alors $Z_i\cap Z_j=\bigcup_{k\in K_{ij}}Z_k$ car $Z_\bullet\in\mathfrak{B}$ donc $X\cap Y=\bigcup_{i\in I}\bigcup_{j\in J}\bigcup_{k\in K_{ij}}Z_k\in\mathscr{T}$.
+			\item Si $(O_i)_{1\infegal i\infegal n}\in\mathcal{T}$ alors $O=\bigcap_{i=1}^nO_i=\bigcap_{i=1}^n\bigcup\mathcal{B}_i=\bigcup\bigcap_{i=1}^n\mathcal{B}_i\in\mathcal{T}$ car $\mathfrak{B}$ est stable par intersection finie donc $\bigcap_{i=1}^n\mathcal{B}_i\in\mathfrak{B}$.
+			\item Si $(O_i)_{i\in I}\in\mathcal{T}$ et $O=\bigcup_{i\in I}O_i=\bigcup_{i\in I}O_i=\bigcup_{i\in I}\bigcup\mathcal{B}_i\in\mathcal{T}$ car c'est une union d'éléments de $\mathfrak{B}$.
 		\end{itemise}
 	\end{itemise}
+	Soit une topologie $\mathscr{T}$ dont $\mathfrak{B}$ est une base, alors les éléments de $\mathfrak{B}\subset\mathscr{T}$ qui est stable par union quelconque.
+	Puisque $\mathcal{T}$ est le plus petit ensemble vérifiant cette propriété $\mathcal{T}\subset\mathscr{T}$.
+	Soit $O\in\mathscr{T}$ alors $\exists\mathcal{B}\subset\mathfrak{B}, O=\bigcup\mathcal{B}\in\mathcal{T}$ donc $\mathscr{T}\subset\mathscr{T}$.
 \end{demonstration}
-
-\begin{proposition}
-	L'intersection quelconque de topologies $(\mathscr{T}_i)_{i\in I}$ sur $E$ est une topologie.
-\end{proposition}
-
-\begin{demonstration}
-	\begin{itemise}
-		\item $E, \vide\in\mathscr{T}_{i\in I}$ donc $E, \vide\in\bigcap_{i\in I}\mathscr{T}_i$
-		\item Si $U, V\in\bigcap_{i\in I}\mathscr{T}_i$ alors $U, V\in\mathscr{T}_i, \forall i\in I$ donc $U\cap V\in\mathscr{T}_i, \forall i\in I$ puis $U\cap V\in\bigcap_{i\in I}\mathscr{T}_i$
-		\item Si $U_{j\in J}\in\bigcap_{i\in I}\mathscr{T}_i$ alors $U_{j\in J}\in\mathscr{T}_i, \forall i\in I$ donc $\bigcup_{j\in J} U_j\in\mathscr{T}_{i\in I}, \forall i\in I$ puis $\bigcup_{j\in J} U_j\in\bigcap_{i\in I}\mathscr{T}_i$
-	\end{itemise}
-\end{demonstration}
-
-\begin{definition}
-	On pose donc $\sigma_\text{topologie}(\mathfrak{A})=\bigcap_{\mathfrak{A}\subset\mathscr{T}\text{topologie}}\mathscr{T}$ la plus petite topologie contenant $\mathfrak{A}$ nommée topologie engendré par $\mathfrak{A}$.
-\end{definition}
 
 \begin{remarque}
-	Il est facile de vérifier que si $\mathfrak{B}$ est une base de la topologie $\mathscr{T}$ alors $\mathscr{T}=\sigma_\text{topologie}(\mathfrak{B})$.
+		En explicitant le cas de l'intersection vide on obtient deux conditions :
+		\begin{itemise}
+			\item $E=\bigcup_{X\in\mathfrak{B}}X$
+			\item $\forall X, Y\in\mathfrak{B}, \exists \mathcal{B}\subset\mathfrak{B}, X\cap Y=\bigcup\mathfrak{B}$
+		\end{itemise}
 \end{remarque}
 
+\begin{remarque}
+	Il est facile de vérifier que :
+	$$
+	\text{$\mathfrak{B}$ est une base de $\mathscr{T}$}
+	\iff
+	\mathscr{T}=\sigma_\text{topologie}(\mathfrak{B})
+	$$
+\end{remarque}
 
 \section{Premières propriétés}
 
