@@ -1738,9 +1738,9 @@ On se donne une application $f:E\rightarrow F$.
 \begin{proposition}
 	Soit $E$ un espace topologique.
 	$$
-		x_n\rightarrow x
-		\iff
-		\forall V\in\mathfrak{V}(x), \exists N, \forall n\supegal N, x_n\in V
+	x_n\rightarrow x
+	\iff
+	\forall V\in\mathfrak{V}(x), \exists N, \forall n\supegal N, x_n\in V
 	$$
 \end{proposition}
 
@@ -1757,12 +1757,12 @@ On se donne une application $f:E\rightarrow F$.
 
 \begin{definition}
 	Soit $X$ une partie d'un espace topologique $E$.
-	La fermeture séquentielle de $X$ est $\overline{X}^\text{seq}=\ens{x}{\exists(x_n)\in X^\N, x_n\rightarrow x}$.
+	La fermeture séquentielle de $X$ est $\overline{X}^\mathrm{seq}=\ens{x}{\exists(x_n)\in X^\N, x_n\rightarrow x}$.
 \end{definition}
 
 \begin{proposition}
 	Soit $X$ une partie d'un espace topologique $E$.
-	Alors $\overline{X}\supset\overline{X}^\text{seq}$.
+	Alors $\overline{X}\supset\overline{X}^\mathrm{seq}$.
 \end{proposition}
 
 \begin{demonstration}
@@ -2095,6 +2095,7 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 \end{proposition}
 
 \begin{demonstration}
+	{\textcolour{red} À faire }
 \end{demonstration}
 
 \begin{proposition}
@@ -2546,8 +2547,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \end{definition}
 
 \begin{proposition}
-	Soit $(E, d)$ un espace métrique.
-	C'est un espace séparable pour la topologie engendrée par les boules ouvertes $B_\epsilon(x)=\ens{y}{d(x, y)<\epsilon}=\inv{d(x, \cdot)}([0, \epsilon[)$.
+	Tout espace métrique $(E, d)$ est séparable pour la topologie engendrée par les boules ouvertes $B_\epsilon(x)=\ens{y}{d(x, y)<\epsilon}=\inv{d(x, \cdot)}([0, \epsilon[)$.
 \end{proposition}
 
 \begin{demonstration}
@@ -2566,11 +2566,11 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \end{remarque}
 
 \begin{proposition}
-	Soient $E$ et $F$ deux espaces métriques définis par $d$ et $\delta$, $f:E\rightarrow F$.
+	Soient $(E, d)$ et $(F, \delta)$ deux espaces métriques et $f\colon E\rightarrow F$.
 	$$
-		f\in\cont(x, F)
-		\iff
-		\forall\epsilon>0, \exists\eta, \forall y\in E, d(x, y)<\eta\implies\delta(f(x), f(y))<\epsilon
+	f\in\cont(x, F)
+	\iff
+	\forall\epsilon>0, \exists\eta>0, \forall y\in E, d(x, y)<\eta\implies\delta(f(x), f(y))<\epsilon
 	$$
 \end{proposition}
 
@@ -2593,9 +2593,9 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \begin{proposition}
 	Soit $E$ un espace métrique.
 	$$
-		(x_n)\rightarrow x
-		\iff
-		\forall\epsilon>0, \exists N, \forall n\supegal N, d(x_n, x)<\epsilon
+	(x_n)\longrightarrow x
+	\iff
+	\forall\epsilon>0, \exists N\in\N, \forall n\supegal N, d(x_n, x)<\epsilon
 	$$
 \end{proposition}
 
@@ -2612,7 +2612,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 
 \begin{proposition}
 	Soit $X$ une partie d'un espace métrique $E$.
-	Alors $\overline{X}=\overline{X}^\text{seq}$
+	Alors $\overline{X}=\overline{X}^\mathrm{seq}$
 \end{proposition}
 
 \begin{demonstration}
