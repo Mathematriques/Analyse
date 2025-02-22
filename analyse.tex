@@ -73,6 +73,15 @@
 \newcommand{\C}{\mathbb{C}}
 
 \newcommand\ens[2]{\{#1 \ |\ #2\}}
+\newcommand\equivalence[3]{
+	\begin{demonstration}
+		#1
+		\begin{itemise}
+			\item[$\Rightarrow$] #2
+			\item[$\Leftarrow$] #3
+		\end{itemise}
+	\end{demonstration}
+}
 
 %----- Pour l'instant pas utile -----
 \newcommand\transp{\, {}^t}
@@ -212,15 +221,14 @@
 	$H$ est un sous groupe de $G$ si et seulement si $H\neq\vide\et\forall x, y\in H, x\star\inv{y}\in H$.
 \end{proposition}
 
-\begin{demonstration}
-	Par double implication.
-	\begin{itemise}
-		\item[$\Rightarrow$] Par définition $e\in H\neq\vide$, et il suffit de composer l'existence d'un inverse avec le produit.
-		\item[$\Leftarrow$] Puisque $H$ est non vide $\exists x\in H$, donc $x\star x^{-1}=e\in H$.
-		Ainsi $\forall y\in H, e\star\inv{y}=\inv{y}\in H$.
-		C'est donc une opération interne car $x\star y=x\star\inv{(\inv{y})}\in H$, admettant $e$ pour neutre car $x\star e=x\in H$.
-	\end{itemise}
-\end{demonstration}
+\equivalence{Par double implication.}
+{
+	Par définition $e\in H\neq\vide$, et il suffit de composer l'existence d'un inverse avec le produit.
+}{
+	Puisque $H$ est non vide $\exists x\in H$, donc $x\star x^{-1}=e\in H$.
+	Ainsi $\forall y\in H, e\star\inv{y}=\inv{y}\in H$.
+	C'est donc une opération interne car $x\star y=x\star\inv{(\inv{y})}\in H$, admettant $e$ pour neutre car $x\star e=x\in H$.
+}
 
 \begin{proposition}
 	L'intersection d'une famille de sous-groupe $(H_i)_{i\in I}$ est un sous-groupe.
@@ -251,19 +259,17 @@
 	Tout sous-groupe de $(\Z, +)$ est de la forme $a\Z$, pour un unique $a\supegal0$.
 \end{proposition}
 
-\begin{demonstration}
-	Par double implication.
-	\begin{itemise}
-		\item[$\Leftarrow$] $a\Z$ est toujours un sous-groupe de $\Z$.
-		\item[$\Rightarrow$] Si $G=\{0\}=0\Z$ le résultat est vrai.
-		Soit $G$ un sous-groupe de $\Z$ avec un élément $x$ non nul.
-		Quite à prendre $-x\in G$ on peut supposer $x>0$
-		D'après l'algorithme d'Euclide, $\exists q\in\Z, \exists r\in[\![0, a-1]\!], x = qa + r$.
-		Mais puisque $G$ est un groupe $x-qa=r\in G$.
-		Si $r$ était non nul, ce serait un élément de $G$ strictement positif et strictement plus petit que $a$, ce qui est impossible.
-		Ainsi $r=0$, et donc $x\in a\Z$.
-	\end{itemise}
-\end{demonstration}
+\equivalence{Par double implication.}{
+	$a\Z$ est toujours un sous-groupe de $\Z$.
+}{
+	Si $G=\{0\}=0\Z$ le résultat est vrai.
+	Soit $G$ un sous-groupe de $\Z$ avec un élément $x$ non nul.
+	Quite à prendre $-x\in G$ on peut supposer $x>0$
+	D'après l'algorithme d'Euclide, $\exists q\in\Z, \exists r\in[\![0, a-1]\!], x = qa + r$.
+	Mais puisque $G$ est un groupe $x-qa=r\in G$.
+	Si $r$ était non nul, ce serait un élément de $G$ strictement positif et strictement plus petit que $a$, ce qui est impossible.
+	Ainsi $r=0$, et donc $x\in a\Z$.
+}
 
 \begin{proposition}
 	Tout sous-groupe de $(\R, +)$ est de la forme $a\Z$, pour un unique $a\supegal0$, ou dense.
@@ -330,19 +336,17 @@
 	(id est de $x, y, z, t\in G$ tels que $x\sim_H y$ et $z\sim_H t$ alors $xz\sim_H yt$).
 \end{proposition}
 
-\begin{demonstration}
-	Par double implication.
-	\begin{itemise}
-		\item[$\Rightarrow$] Supposons $H$ disingué.
-		Soient $x, y, z, t\in H$ tels que $x\sim_H y$ et $z\sim_H t$.
-		En utilisant l'associativité $(xz)H = x(zH) = x(tH) = x(Ht) = (xH)t = (yH)t = (yt)H$.
-		\item[$\Leftarrow$] Supposons $H$ compatible avec $\sim_H$ et prenons $x\in G$.
-		Si $y\in xH$ est dans une classe à droite alors $y\sim_H x$.
-		Par réfléxivité $x^{-1}\sim_H x^{-1}$ donc par compatibilité $yx^{-1}\sim_H xx^{-1}=e$.
-		Ainsi il existe $h\in H$ tel que $ = eh = h$ donc $y=hx$ c'est à dire $y\in Hx$.
-		De même pour l'inclusion réciproque.
-	\end{itemise}
-\end{demonstration}
+\equivalence{Par double implication.}{
+	Supposons $H$ disingué.
+	Soient $x, y, z, t\in H$ tels que $x\sim_H y$ et $z\sim_H t$.
+	En utilisant l'associativité $(xz)H = x(zH) = x(tH) = x(Ht) = (xH)t = (yH)t = (yt)H$.
+}{
+	Supposons $H$ compatible avec $\sim_H$ et prenons $x\in G$.
+	Si $y\in xH$ est dans une classe à droite alors $y\sim_H x$.
+	Par réfléxivité $x^{-1}\sim_H x^{-1}$ donc par compatibilité $yx^{-1}\sim_H xx^{-1}=e$.
+	Ainsi il existe $h\in H$ tel que $ = eh = h$ donc $y=hx$ c'est à dire $y\in Hx$.
+	De même pour l'inclusion réciproque.
+}
 
 \begin{definition}
 	Le quotient d'un groupe $G$ par $H\trianglelefteq G$ noté $G/H$ est l'ensemble des classes de $H$.
@@ -945,16 +949,14 @@ Soient $(E, \mathscr{T}_1)$, $(E, \mathscr{T}_2)$, $(F, \mathscr{U})$ des espace
 	$f\in\cont(E, F)\iff\forall i\in I, \pi_i\circ f\in\cont(E, F_i)$
 \end{proposition}
 
-\begin{demonstration}
-	Par double implication.
-	\begin{itemise}
-		\item[$\Rightarrow$] Soit $O_i$ un ouvert de $F_i$.
+\equivalence{Par double implication.}{
+	Soit $O_i$ un ouvert de $F_i$.
 		$\pi_i$ est continue donc $\inv{\pi_i}(O_i)$ est un ouvert de $F$.
 		$f$ est continue donc $\inv{f}(\inv{\pi_i}(O_i))=\inv{(\pi_i\circ f)}(O_i)$ est un ouvert de $E$.
-		\item[$\Leftarrow$] Soit $O$ un ouvert de $F$ alors $O=\bigcup_{j\in J}\bigcap_{k=1}^n\inv{\pi_{i_{jk}}}(O_{j_k})$ d'après la base trouvée précédemment.
+}{
+	Soit $O$ un ouvert de $F$ alors $O=\bigcup_{j\in J}\bigcap_{k=1}^n\inv{\pi_{i_{jk}}}(O_{j_k})$ d'après la base trouvée précédemment.
 		$\inv{f}(O)=\bigcup_{j\in J}\bigcap_{k=1}^n\inv{f}(\inv{\pi_{i_{jk}}}(O_{jk}))=\bigcup_{j\in J}\bigcap_{k=1}^n\inv{(\pi_{i_{jk}}\circ f)}(O_{jk})$ est une union d'intersection finie d'ouverts de $E$, donc est un ouvert.
-	\end{itemise}
-\end{demonstration}
+}
 
 \chapter{Séparation}
 
@@ -1038,35 +1040,31 @@ On considère ici un espace topologique $(E, \mathscr{T})$.
 	$T_3$ équivaut à tout fermé de $E$ est l'intersection de ses voisinages ouverts.
 \end{proposition}
 
-\begin{demonstration}
-	Par double implication.
-	\begin{itemise}
-		\item[$\Rightarrow$] Soit $F\in\complement\mathscr{T}$ et $x\notin F$ alors $\exists V_x\in\mathscr{T}, F\subset V_x\et x\notin V_x$.
+\equivalence{Par double implication.}{
+	Soit $F\in\complement\mathscr{T}$ et $x\notin F$ alors $\exists V_x\in\mathscr{T}, F\subset V_x\et x\notin V_x$.
 		Donc $F\subset\bigcap_{x\notin F}V_x\subset F$.
-		\item[$\Leftarrow$] Soit $F\in\complement\mathscr{T}$ et $x\notin F$.
+}{
+	Soit $F\in\complement\mathscr{T}$ et $x\notin F$.
 		Supposons $\forall U, V\in\mathscr{T}, (x\in U\et F\subset V)\implies U\cap V\neq\vide$.
 		Soit $U$ un ouvert contenant $x$.
 		Par hypothèse $\bigcap_{F\subset V\in\mathscr{T}}V=F$.
 		Donc $U\cap F=U\cap\bigcap_{F\subset V\in\mathscr{T}}V=\bigcap_{F\subset V\in\mathscr{T}}U\cap V\neq\vide$.
 		Donc $x\in\widetilde{F}=F$ car $F$ est fermé, ce qui est absurde.
-	\end{itemise}
-\end{demonstration}
+}
 
 \begin{proposition}
 	$T_4$ équivaut à $\forall O, F\in\mathscr{T}\times\complement\mathscr{T}, F\subset O\implies\exists U\in\mathscr{T}, F\subset U\subset\overline{U}\subset O$.
 \end{proposition}
 
-\begin{demonstration}
-	Par double implication.
-	\begin{itemise}
-		\item[$\Rightarrow$] Soit $O$ un ouvert et $F\subset O$ un fermé.
+\equivalence{Par double implication.}{
+	Soit $O$ un ouvert et $F\subset O$ un fermé.
 		Puisque $\complement O$ est un fermé disjoint de $F$, $\exists U, V\in\mathscr{T}, F\subset U\et\complement O\subset V\et U\cap V=\vide$.
 		Alors $F\subset u\subset\overline{U}=\bigcap_{U\subset F\in\complement\mathscr{T}}F\subset\complement V\subset O$.
-		\item[$\Leftarrow$] Soient $F, G\in\complement\mathscr{T}$ disjoints.
+}{
+	Soient $F, G\in\complement\mathscr{T}$ disjoints.
 		Puisque $\complement G$ est ouvert et $F\subset\complement G$ alors $\exists U\in\mathscr{T}, F\subset U\subset\overline{U}\subset\complement G$.
 		Puisque $\complement\overline{U}$ est ouvert, que $G\subset\complement\overline{U}$ et que $U\cap\complement\overline{U}\subset U\cap\complement U=\vide$, $T_4$ est montré pour $V=\complement\overline{U}$.
-	\end{itemise}
-\end{demonstration}
+}
 
 \section{Classification}
 
@@ -1514,22 +1512,20 @@ On se donne une application $f:E\rightarrow F$.
 	\end{itemise}
 \end{proposition}
 
-\begin{demonstration}
-	Par double implication.
-	\begin{itemise}
-		\item[$\Rightarrow$] Soit $\mathfrak{B}$ une base de filtre $\mathfrak{F}$.
+\equivalence{Par double implication.}{
+	Soit $\mathfrak{B}$ une base de filtre $\mathfrak{F}$.
 		\begin{itemise}
 			\item si $\vide\in\mathfrak{B}$ alors $\vide\in\mathfrak{F}$
 			\item soit $X, Y\in\mathfrak{B}$ alors $X, Y\in\mathfrak{F}$ donc $X\cap Y\in\mathfrak{F}$ donc $\exists Z\in\mathfrak{B}, Z\subset X\cap Y$
 		\end{itemise}
-		\item[$\Leftarrow$] Soit $\mathfrak{B}$ vérifiant les propriétés.
+}{
+	Soit $\mathfrak{B}$ vérifiant les propriétés.
 		\begin{itemise}
 			\item si $\vide\in\mathfrak{F}$ alors $\vide\in\mathfrak{B}$
 			\item si $U, V\in\mathfrak{F}$ alors $\exists X, Y\in\mathfrak{B}, X\subset U, Y\subset V$ donc $\exists Z\in\mathfrak{B}, Z\subset X\cap Y\subset U\cap V$ donc $U\cap V\in\mathfrak{F}$
 			\item si $U\in\mathfrak{F}$ et $U\subset V$ alors $\exists X\in\mathfrak{B}, X\subset U\subset V$ donc $V\in\mathfrak{F}$
 		\end{itemise}
-	\end{itemise}
-\end{demonstration}
+}
 
 \begin{proposition}
 	L'intersection d'une famille de filtre $(\mathfrak{F}_i)_{i\in I}$ sur $E$ est un filtre sur $E$.
@@ -1576,28 +1572,24 @@ On se donne une application $f:E\rightarrow F$.
 	Un espace topologique est $T_2$ si et seulement si tout filtre a au plus une limite.
 \end{proposition}
 
-\begin{demonstration}
-	Par double implication.
-	\begin{itemise}
-		\item[$\Rightarrow$] Par l'absurde, soit $\mathfrak{F}$ un filtre convergent vers $x$ et $y$ distincts.
+\equivalence{Par double implication.}{
+	Par l'absurde, soit $\mathfrak{F}$ un filtre convergent vers $x$ et $y$ distincts.
 		Par définition de la convergence d'un filtre, $\mathfrak{V}(x)\infegal\mathfrak{F}$ et $\mathfrak{V}(y)\infegal\mathfrak{F}$.
 		Soient $X$ et $Y$ des voisinages disjoints de $x$ et $y$ respectivement.
 		Alors $X\in\mathfrak{V}(x)\subset\mathfrak{F}$ et $Y\in\mathfrak{V}(y)\subset\mathfrak{F}$.
 		Par stabilité par intersection finie d'un filtre $X\cap Y=\vide\in\mathfrak{F}$ ce qui est absurde.
-		\item[$\Leftarrow$] Soient $x\neq y$.
+}{
+	Soient $x\neq y$.
 		Supposons $\forall V, W\in\mathfrak{V}(x)\times\mathfrak{V}(y), V\cap W\neq\vide$.
 		Alors $V\cap W$ forment une base de filtre dont le filtre associé converge vers $x$ et $y$, ce qui est absurde.
-	\end{itemise}
-\end{demonstration}
+}
 
 \begin{proposition}
 	$x$ adhère à $X$ si et seulement si c'est la limite d'un filtre sur $X$.
 \end{proposition}
 
-\begin{demonstration}
-	Par double implication.
-	\begin{itemise}
-		\item[$\Rightarrow$] La trace $\mathfrak{B}$ des voisinages sur $X$ forme une base de filtre car :
+\equivalence{Par double implication.}{
+	La trace $\mathfrak{B}$ des voisinages sur $X$ forme une base de filtre car :
 		\begin{itemise}
 			\item $\forall V\in\mathfrak{V}(x), V\cap X\supset\{x\}\neq\vide$ donc $\vide\notin\mathfrak{B}$
 			\item si $Y, Z\in\mathfrak{B}$ alors $\exists V, W\in\mathfrak{V}(x), Y=X\cap V, Z=X\cap W$ donc $Y\cap Z=X\cap(V\cap W)\in\mathfrak{V}(x)$ par stabilité par intersection des voinsinages.
@@ -1605,32 +1597,30 @@ On se donne une application $f:E\rightarrow F$.
 		Soit $\mathfrak{F}$ le filtre engendré par $\mathfrak{B}$
 		Soit $V\in\mathfrak{V}(x)$, alors $V\cap X\in\mathfrak{B}$ par construction, donc appartient au filtre sur $X$ engendré par $\mathfrak{B}$ de par la caractérisation.
 		On a donc un exemple de filtre qui convient.
-		\item[$\Leftarrow$] Soit $V\in\mathfrak{V}(x)$.
+}{
+	Soit $V\in\mathfrak{V}(x)$.
 		Par convergence vers $x$, on a que $V\in\mathfrak{F}$.
 		Par croissance des filtre, puisque $V\subset X\in\mathfrak{P}(X)$, alors $X\in\mathfrak{F}$.
 		Par stabilité par intersection des filtres, $V\cap X\in\mathfrak{F}$, donc n'est pas vide.
 		Ainsi $x\in\overline{X}$.
-	\end{itemise}
-\end{demonstration}
+}
 
 \begin{proposition}
 	$f\text{ continue en }x\iff\forall\mathfrak{F}\text{ filtre},\quad\mathfrak{F}\rightarrow x\Rightarrow\sigma_\text{filtre}(f(\mathfrak{F}))\rightarrow f(x)$
 \end{proposition}
 
-\begin{demonstration}
-	Par double implication.
-	\begin{itemise}
-		\item[$\Rightarrow$] Soit $\mathfrak{F}$ convergent en $x$ et $W\in\mathfrak{W}(f(x))$.
+\equivalence{Par double implication.}{
+	Soit $\mathfrak{F}$ convergent en $x$ et $W\in\mathfrak{W}(f(x))$.
 		Par continuité $\exists V\in\mathfrak{V}(x), f(V)\subset W$.
 		Par convergence $V\in\mathfrak{F}$.
 		Ainsi $\exists W'\in f(\mathfrak{F}), W'\subset W$, c'est à dire $W\in\sigma_\text{filtre}(f(\mathfrak{F}))$.
 		Donc $\sigma_\text{filtre}(f(\mathfrak{F}))$ est plus fin que $\mathfrak{W}(f(x))$.
-		\item[$\Leftarrow$] Soit $W\in\mathfrak{W}(f(x))$.
+}{
+	Soit $W\in\mathfrak{W}(f(x))$.
 		Prenons $\mathfrak{F}=\mathfrak{V}(x)$ alors $\mathfrak{F}\rightarrow x$ donc $\sigma_\text{filtre}(f(\mathfrak{F}))\rightarrow f(x)$ id est $\sigma_\text{filtre}(f(\mathfrak{F}))\supset\mathfrak{W}(f(x))$.
 		Ainsi $W\in\sigma_\text{filtre}(f(\mathfrak{F}))$.
 		Or $f(\mathfrak{F})$ est une base de ce filtre donc $\exists V\in\mathfrak{F}=\mathfrak{V}(x), f(V)\subset W$.
-	\end{itemise}
-\end{demonstration}
+}
 
 \section{Ultrafiltres}
 
@@ -1647,10 +1637,8 @@ On se donne une application $f:E\rightarrow F$.
 	$\mathfrak{U}\text{ est un ultrafiltre}\iff\forall X\subset E, (X\in\mathfrak{U})\ou(\complement X\in\mathfrak{U})$
 \end{proposition}
 
-\begin{demonstration}
-	Par double implication.
-	\begin{itemise}
-		\item[$\Rightarrow$] Soit $\mathfrak{U}$ un ultrafiltre et $X\in\mathfrak{P}(E)$ tel que $X\notin\mathfrak{U}$.
+\equivalence{Par double implication.}{
+	Soit $\mathfrak{U}$ un ultrafiltre et $X\in\mathfrak{P}(E)$ tel que $X\notin\mathfrak{U}$.
 		Soit $V\in\mathfrak{U}$.
 		Par l'absurde, si $V\subset X$ alors par croissance des filtres, $X\in\mathfrak{U}$.
 		Donc $V\not\subset X$, c'est à dire que $V\cap\complement X\neq\vide$.
@@ -1660,13 +1648,13 @@ On se donne une application $f:E\rightarrow F$.
 		Puisque $\mathfrak{U}$ est un ultrafiltre, $\mathfrak{U}=\sigma_\text{filtre}(\mathfrak{B})$.
 		Or $\complement X=E\cap\complement X\in\mathfrak{B}$ puisque $E\in\mathfrak{U}$.
 		Donc $\complement X\in\sigma_\text{filtre}(\mathfrak{B})=\mathfrak{U}$.
-		\item[$\Leftarrow$] Par l'absurde, supposons que $\mathfrak{U}$ n'est pas un ultrafiltre.
+}{
+	Par l'absurde, supposons que $\mathfrak{U}$ n'est pas un ultrafiltre.
 		Il existe alors un filtre $\mathfrak{F}$ strictement plus fin, et donc une partie $X$ de $E$ dans $\mathfrak{F}$ qui n'est pas dans $\mathfrak{U}$.
 		Puisque $X\in\mathfrak{U}\ou\complement X\in\mathfrak{U}$ est vrai par hypothèse, on en déduit que $\complement X\in\mathfrak{U}$.
 		Puisque $\mathfrak{F}$ est plus fin que $\mathfrak{U}$, alors $\complement X\in\mathfrak{F}$.
 		Par stabilité par intersection de $\mathfrak{F}$, on a $\vide=X\cap\complement X\in\mathfrak{F}$ ce qui est absurde car $\mathfrak{F}$ est un filtre.
-	\end{itemise}
-\end{demonstration}
+}
 
 \begin{proposition}
 	Soit $f:E\rightarrow F$ une application et $\mathfrak{B}$ une base d'un ultrafiltre filtre de $E$.
@@ -1756,18 +1744,16 @@ On se donne une application $f:E\rightarrow F$.
 	$$
 \end{proposition}
 
-\begin{demonstration}
-	Par double implication.
-	\begin{itemise}
-		\item[$\Rightarrow$] Soit $V\in\mathfrak{V}(x)$.
-		Par convergence de $(x_n)$ vers $x$, $V$ appartient au filtre associé à $(x_n)$.
-		Par caractérisation du filtre engendré, $\exists X\in\mathfrak{B}_x, X\subset V$.
-		Par définition de la base de filtre associée à la suite, $\exists N, X_N=X\subset V$, c'est à dire $\exists N, \forall n\supegal N\implies x_n\in V$.
-		\item[$\Leftarrow$] Soit $V\in\mathfrak{V}(x)$.
-		Par hypothèse, $\exists N, X_N\in\mathfrak{B}_x, X_N\subset V$.
-		Par caractérisation du filtre engendré $V\in\sigma_\text{filtre}(\mathfrak{B}_x)$, c'est à dire que $(x_n)$ converge vers $x$.
-	\end{itemise}
-\end{demonstration}
+\equivalence{Par double implication.}{
+	Soit $V\in\mathfrak{V}(x)$.
+	Par convergence de $(x_n)$ vers $x$, $V$ appartient au filtre associé à $(x_n)$.
+	Par caractérisation du filtre engendré, $\exists X\in\mathfrak{B}_x, X\subset V$.
+	Par définition de la base de filtre associée à la suite, $\exists N, X_N=X\subset V$, c'est à dire $\exists N, \forall n\supegal N\implies x_n\in V$.
+}{
+	Soit $V\in\mathfrak{V}(x)$.
+	Par hypothèse, $\exists N, X_N\in\mathfrak{B}_x, X_N\subset V$.
+	Par caractérisation du filtre engendré $V\in\sigma_\text{filtre}(\mathfrak{B}_x)$, c'est à dire que $(x_n)$ converge vers $x$.	
+}
 
 \begin{definition}
 	Soit $X$ une partie d'un espace topologique $E$.
@@ -1883,26 +1869,24 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 	\end{itemise}
 \end{proposition}
 
-\begin{demonstration}
-	Par double implication.
+\equivalence{Par double implication.}{
+	Soit $\mathfrak{B}$ une base de $\mathscr{U}$.
 	\begin{itemise}
-		\item[$\Rightarrow$] Soit $\mathfrak{B}$ une base de $\mathscr{U}$.
-		\begin{itemise}
-			\item Si $X\in\mathfrak{B}\subset\mathscr{U}$ alors $\Delta_E\subset X$.
-			\item Si $X, Y\in\mathfrak{B}\subset\mathscr{U}$ alors $X\cap Y\in\mathscr{U}$ donc $\exists Z\in\mathfrak{B}, Z\subset X\cap Y$.
-			\item Si $X\in\mathfrak{B}\subset\mathscr{U}$ alors $\exists V\in\mathscr{U}, V\circ V\subset X$ donc $\exists Y\in\mathfrak{B}, Y\subset V$ donc $Y\circ Y\subset V\circ V\subset X$.
-			\item Si $\mathfrak{B}$ est une base d'uniformité: si $X\in\mathfrak{B}\subset\mathscr{U}$ alors $ x^{-1}\in\mathscr{U}$ donc $\exists Y\in\mathscr{B}, Y\subset x^{-1}$.
-		\end{itemise}
-		\item[$\Leftarrow$] Soit $\mathfrak{B}$ vérifiant les propriétés.
-		\begin{itemise}
-			\item Si $U\in\mathscr{U}$ alors $\exists X\in\mathfrak{B}, X\subset U$ donc $\Delta_E\subset X\subset U$.
-			\item Si $U, V\in\mathscr{U}$ alors $\exists X, Y\in\mathfrak{B}, X\subset U, Y\subset V$ donc $\exists Z\in\mathfrak{V}, Z\subset X\cap Y\subset U\cap V\in\mathscr{U}$.
-			\item Si $U\in\mathscr{U}$ et $U\subset V$ alors $\exists X\in\mathfrak{B}, X\subset U\subset V$ donc $V\in\mathscr{U}$.
-			\item Si $U\in\mathscr{U}$ alors $\exists X\in\mathfrak{B}, X\subset U$ donc $\exists Y\in\mathfrak{B}\subset\mathscr{U}, Y\circ Y\subset X\subset U$.
-			\item Si $\mathfrak{B}$ vérifie le dernier axiome: si $U\in\mathscr{U}$ alors $\exists X\in\mathfrak{B}, X\subset U$ donc $\exists Y\in\mathfrak{B}, Y\subset x^{-1}\subset\inv{U}$ donc $\inv{U}\in\mathscr{U}$.
-		\end{itemise}
+		\item Si $X\in\mathfrak{B}\subset\mathscr{U}$ alors $\Delta_E\subset X$.
+		\item Si $X, Y\in\mathfrak{B}\subset\mathscr{U}$ alors $X\cap Y\in\mathscr{U}$ donc $\exists Z\in\mathfrak{B}, Z\subset X\cap Y$.
+		\item Si $X\in\mathfrak{B}\subset\mathscr{U}$ alors $\exists V\in\mathscr{U}, V\circ V\subset X$ donc $\exists Y\in\mathfrak{B}, Y\subset V$ donc $Y\circ Y\subset V\circ V\subset X$.
+		\item Si $\mathfrak{B}$ est une base d'uniformité: si $X\in\mathfrak{B}\subset\mathscr{U}$ alors $ x^{-1}\in\mathscr{U}$ donc $\exists Y\in\mathscr{B}, Y\subset x^{-1}$.
 	\end{itemise}
-\end{demonstration}
+}{
+	Soit $\mathfrak{B}$ vérifiant les propriétés.
+	\begin{itemise}
+		\item Si $U\in\mathscr{U}$ alors $\exists X\in\mathfrak{B}, X\subset U$ donc $\Delta_E\subset X\subset U$.
+		\item Si $U, V\in\mathscr{U}$ alors $\exists X, Y\in\mathfrak{B}, X\subset U, Y\subset V$ donc $\exists Z\in\mathfrak{V}, Z\subset X\cap Y\subset U\cap V\in\mathscr{U}$.
+		\item Si $U\in\mathscr{U}$ et $U\subset V$ alors $\exists X\in\mathfrak{B}, X\subset U\subset V$ donc $V\in\mathscr{U}$.
+		\item Si $U\in\mathscr{U}$ alors $\exists X\in\mathfrak{B}, X\subset U$ donc $\exists Y\in\mathfrak{B}\subset\mathscr{U}, Y\circ Y\subset X\subset U$.
+		\item Si $\mathfrak{B}$ vérifie le dernier axiome: si $U\in\mathscr{U}$ alors $\exists X\in\mathfrak{B}, X\subset U$ donc $\exists Y\in\mathfrak{B}, Y\subset x^{-1}\subset\inv{U}$ donc $\inv{U}\in\mathscr{U}$.
+	\end{itemise}	
+}
 
 \begin{proposition}
 	L'intersection d'une famille de (quasi-)uniformités $\mathscr{U}_{i\in I}$ est une (quasi-)uniformité.
@@ -2023,56 +2007,53 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 	Un espace topologie $E$ est $T_3$ si et seulement si sa quasi-uniformité de Pervin vérifie $\forall U\in\mathscr{U}, \forall x\in E, \exists V\in\mathscr{U}, V=\inv{V}\et (V\circ V)[x]\subset U[x]$
 \end{proposition}
 
-\begin{demonstration}
-	Par double implication.
+\equivalence{Par double implication.}{
+	Soit $U\in\mathscr{U}$ et $x\in E$.
+	$U[x]$ est un voisinage de $x$ donc $\exists O\in\mathscr{T}, x\in O\subset U[x]$.
+	Or $x\notin\complement O$ fermé donc par $T_3$ $\exists U, \complement F\in\mathscr{T}, x\in U\et\complement O\subset\complement F\et U\cap\complement F=\vide$ ce qui s'écrit aussi $x\in U\subset F\subset O$.
+	Posons $V=F^2\cup\complement^2F\cup(O\setminus U)^2$ est symétrique.
 	\begin{itemise}
-		\item[$\Rightarrow$] %{\color{red} ???}
-		Soit $U\in\mathscr{U}$ et $x\in E$.
-		$U[x]$ est un voisinage de $x$ donc $\exists O\in\mathscr{T}, x\in O\subset U[x]$.
-		Or $x\notin\complement O$ fermé donc par $T_3$ $\exists U, \complement F\in\mathscr{T}, x\in U\et\complement O\subset\complement F\et U\cap\complement F=\vide$ ce qui s'écrit aussi $x\in U\subset F\subset O$.
-		Posons $V=F^2\cup\complement^2F\cup(O\setminus U)^2$ est symétrique.
-		\begin{itemise}
-			\item $(O^2\cup\complement O\times E)\cap(\complement^2F\cup F\times E)=[O^2\cap...]\cup[\complement^2F\cap...]\cup[\cancel{(\complement O\cap F)}\times E]\subset V$ et le membre de gauche est dans la base de Pervin montrant $V\in\mathscr{U}$.
-			\item Si $(x, y)\in(F\setminus U)\times\complement F$ et $t\in O\setminus F$ (rectangle et ligne rouge) on a $(x, t)\in(F\setminus U)\times(O\setminus F)\subset(O\setminus U)^2\subset V$ et $(t, y)\in(O\setminus F)\times\complement F\subset(\complement F)^2\subset V$ montrant $(F\setminus U)\times\complement F\subset V\circ V$.
-			Or $V$ est symétrique donc $V\circ V$ aussi donc $\complement F\times(F\setminus U)\subset V\circ V$.
-			Puisque $V\subset V\circ V$ ainsi $(F\setminus U)^2\subset F^2\subset V\circ V$ et $\complement^2 F\subset V\circ V$.
-			Ainsi $(F\setminus U)^2\cup(F\setminus U\times\complement F)\cup(\complement F\times F\setminus U)\cup\complement^2F=[(F\setminus U)\cup\complement F]^2=\complement^2U\subset V\circ V$.
-			\item Idem pour $(x, y)\in(O\setminus F)\times F$ et $t\in F\setminus U$ (en bleu) montrant $O^2\subset V\circ V$.
-			\item En développant on a $\complement(O^2\cup\complement^2 U)=(U\times\complement O)\cup(\complement O\times U)$.
-			Par symétrie limitons nous à $(x, y)\in U\times\complement O$  (en noir).
-			Pour avoir $(x, t), (t, y)\in V$ il faudrait $(x, t)\in F^2$ et $(t, y)\in\complement^2F$ soit $t\in\vide$ ce qui est impossible donc $U\times\complement O\not\subset V\circ V$.
-		\end{itemise}
-		\begin{center}
-			\begin{tikzpicture}[scale=3]
-				\pgfmathsetmacro{\x}{0.5};
-				\pgfmathsetmacro{\d}{0.2};
-				\fill[black!10!white] (0,0) rectangle (\x,\x);
-				\fill[black!20!white] (\x,\x) rectangle (1,1);
-				\fill[black!30!white] (\x-\d,\x-\d) rectangle (\x+\d,\x+\d);
-				\draw[dotted] (\x-\d, 0)--(\x-\d, 1) (\x, 0)--(\x, 1) (\x+\d, 0)--(\x+\d, 1);
-				\draw[dotted] (0, \x-\d)--(1, \x-\d) (0, \x)--(1, \x) (0, \x+\d)--(1, \x+\d);
-				\draw[thin] (0,-0.0)--(\x-\d,-0.0) node[right] {$U$};
-				\draw[thin] (0,-0.1)--(\x   ,-0.1) node[right] {$F$};
-				\draw[thin] (0,-0.2)--(\x+\d,-0.2) node[right] {$O$};
-				\draw[thick] (0,\x+\d) rectangle (\x-\d,1);
-				\draw[very thick, black!20!red] (\x-\d,\x) rectangle (\x,1) (\x,\x)--(\x+\d,\x+\d);
-				\draw[very thick, black!20!blue] (\x,0) rectangle (\x+\d,\x) (\x,\x)--(\x-\d,\x-\d);
-				\pgfmathsetmacro{\x}{0.4};
-				\pgfmathsetmacro{\y}{0.9};
-				\pgfmathsetmacro{\t}{0.6};
-				\draw[dashed, black!20!red] (\x,\y)--(\x,\t)--(\t,\t)--(\t,\y)--cycle;
-			\end{tikzpicture}
-		\end{center}
-		Ainsi $V\circ V=O^2\cup\complement^2 U$ donc $(V\circ V)[x]=O\subset U[x]$ car $x\notin\complement U$.
-		\item[$\Leftarrow$] Soit $\mathscr{U}$ vérifiant la propriété, $\mathscr{T}$ la topologie engendrée par $\mathscr{U}$, $F\in\complement\mathscr{T}$ et $x\notin F$.
-		Ainsi $\complement F$ est un voisinage de $x$ donc par définition $\exists U\in\mathscr{U}, \complement F=U[x]$.
-		D'après la propriété $\exists V\in\mathscr{U}, V=\inv{V}\et V\circ V[x]\subset U[x]$.
-		De $y\in\overline{V[x]}$ c'est à dire $y$ adhère à $V[x]$ alors tout voisinage de $y$ rencontre $V[x]$.
-		Or $V[y]$ est un voisinage de $y$ donc $V[x]\cap V[y]\neq\vide$.
-		Soit $z\in V[x]\cap V[y]$ alors $(x, z), (y, z)\in V$ donc par symétrie $(x, z), (z, y)\in V$ soit $y\in V\circ V[x]$.
-		Ainsi $\overline{V[x]}\subset U[x]=\complement F$ donc $x\in V[x], F\subset\complement\overline{V[x]}, V[x]\cap\complement\overline{V[x]}=\vide$ faisant de l'espace un $T_3$.
+		\item $(O^2\cup\complement O\times E)\cap(\complement^2F\cup F\times E)=[O^2\cap...]\cup[\complement^2F\cap...]\cup[\cancel{(\complement O\cap F)}\times E]\subset V$ et le membre de gauche est dans la base de Pervin montrant $V\in\mathscr{U}$.
+		\item Si $(x, y)\in(F\setminus U)\times\complement F$ et $t\in O\setminus F$ (rectangle et ligne rouge) on a $(x, t)\in(F\setminus U)\times(O\setminus F)\subset(O\setminus U)^2\subset V$ et $(t, y)\in(O\setminus F)\times\complement F\subset(\complement F)^2\subset V$ montrant $(F\setminus U)\times\complement F\subset V\circ V$.
+		Or $V$ est symétrique donc $V\circ V$ aussi donc $\complement F\times(F\setminus U)\subset V\circ V$.
+		Puisque $V\subset V\circ V$ ainsi $(F\setminus U)^2\subset F^2\subset V\circ V$ et $\complement^2 F\subset V\circ V$.
+		Ainsi $(F\setminus U)^2\cup(F\setminus U\times\complement F)\cup(\complement F\times F\setminus U)\cup\complement^2F=[(F\setminus U)\cup\complement F]^2=\complement^2U\subset V\circ V$.
+		\item Idem pour $(x, y)\in(O\setminus F)\times F$ et $t\in F\setminus U$ (en bleu) montrant $O^2\subset V\circ V$.
+		\item En développant on a $\complement(O^2\cup\complement^2 U)=(U\times\complement O)\cup(\complement O\times U)$.
+		Par symétrie limitons nous à $(x, y)\in U\times\complement O$  (en noir).
+		Pour avoir $(x, t), (t, y)\in V$ il faudrait $(x, t)\in F^2$ et $(t, y)\in\complement^2F$ soit $t\in\vide$ ce qui est impossible donc $U\times\complement O\not\subset V\circ V$.
 	\end{itemise}
-\end{demonstration}
+	\begin{center}
+		\begin{tikzpicture}[scale=3]
+			\pgfmathsetmacro{\x}{0.5};
+			\pgfmathsetmacro{\d}{0.2};
+			\fill[black!10!white] (0,0) rectangle (\x,\x);
+			\fill[black!20!white] (\x,\x) rectangle (1,1);
+			\fill[black!30!white] (\x-\d,\x-\d) rectangle (\x+\d,\x+\d);
+			\draw[dotted] (\x-\d, 0)--(\x-\d, 1) (\x, 0)--(\x, 1) (\x+\d, 0)--(\x+\d, 1);
+			\draw[dotted] (0, \x-\d)--(1, \x-\d) (0, \x)--(1, \x) (0, \x+\d)--(1, \x+\d);
+			\draw[thin] (0,-0.0)--(\x-\d,-0.0) node[right] {$U$};
+			\draw[thin] (0,-0.1)--(\x   ,-0.1) node[right] {$F$};
+			\draw[thin] (0,-0.2)--(\x+\d,-0.2) node[right] {$O$};
+			\draw[thick] (0,\x+\d) rectangle (\x-\d,1);
+			\draw[very thick, black!20!red] (\x-\d,\x) rectangle (\x,1) (\x,\x)--(\x+\d,\x+\d);
+			\draw[very thick, black!20!blue] (\x,0) rectangle (\x+\d,\x) (\x,\x)--(\x-\d,\x-\d);
+			\pgfmathsetmacro{\x}{0.4};
+			\pgfmathsetmacro{\y}{0.9};
+			\pgfmathsetmacro{\t}{0.6};
+			\draw[dashed, black!20!red] (\x,\y)--(\x,\t)--(\t,\t)--(\t,\y)--cycle;
+		\end{tikzpicture}
+	\end{center}
+	Ainsi $V\circ V=O^2\cup\complement^2 U$ donc $(V\circ V)[x]=O\subset U[x]$ car $x\notin\complement U$.
+}{
+	Soit $\mathscr{U}$ vérifiant la propriété, $\mathscr{T}$ la topologie engendrée par $\mathscr{U}$, $F\in\complement\mathscr{T}$ et $x\notin F$.
+	Ainsi $\complement F$ est un voisinage de $x$ donc par définition $\exists U\in\mathscr{U}, \complement F=U[x]$.
+	D'après la propriété $\exists V\in\mathscr{U}, V=\inv{V}\et V\circ V[x]\subset U[x]$.
+	De $y\in\overline{V[x]}$ c'est à dire $y$ adhère à $V[x]$ alors tout voisinage de $y$ rencontre $V[x]$.
+	Or $V[y]$ est un voisinage de $y$ donc $V[x]\cap V[y]\neq\vide$.
+	Soit $z\in V[x]\cap V[y]$ alors $(x, z), (y, z)\in V$ donc par symétrie $(x, z), (z, y)\in V$ soit $y\in V\circ V[x]$.
+	Ainsi $\overline{V[x]}\subset U[x]=\complement F$ donc $x\in V[x], F\subset\complement\overline{V[x]}, V[x]\cap\complement\overline{V[x]}=\vide$ faisant de l'espace un $T_3$.	
+}
 
 \section{Équivalence}
 
@@ -2233,43 +2214,39 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Un espace topologique est quasi-compact si et seulement si de tout filtre on peut en extraire un filtre plus fin convergent.
 \end{proposition}
 
-\begin{demonstration}
-	Par double implication.
-	\begin{itemise}
-		\item[$\Rightarrow$] Soit $\mathfrak{F}$ un filtre sur $E$ quasi-compact.
-		Par l'absurde supposons $\bigcap_{X\in\mathfrak{F}}\overline{X}=\vide$.
-		Alors $\bigcup_{X\in\mathfrak{F}}\complement\overline{X}=E$ donc par quasi-compacité $\exists X_{1\infegal i\infegal n}\in\mathfrak{F}, \bigcup_{i=1}^n\complement\overline{X_i}=E$.
-		Ainsi $\bigcap_{i=1}^n\overline{X_i}=\vide$ en particulier $\bigcap_{i=1}^nX_i=\vide\in\mathfrak{F}$ par stabilité par intersection finie des filtres, ce qui est absurde.
-		Soit donc $x\in\bigcap_{X\in\mathfrak{F}}\overline{X}$ et $\mathfrak{B}=\ens{V\cap X}{V\in\mathfrak{V}(x), X\in\mathfrak{F}}$.
-		C'est une base de filtre.
-		En effet les $V\cap X$ sont toujours non vides car $x$ adhère à tout les $X\in\mathfrak{F}$ donc $\vide\notin\mathfrak{B}$ et les $V\cap X$ forment les voisinages de $x$ donc $\mathfrak{V}(x)\subset\mathfrak{B}$.
-		De plus cette famille est stable par intersection car $\mathfrak{V}(x)$ et $\mathfrak{F}$ le sont.
-		Ainsi le filtre engendré par $\mathfrak{B}$ converge vers $x$.
-		\item[$\Leftarrow$] Par contraposée soit $(F_i)_{i\in I}$ une famille de fermés de $E$ dont les intersections finies sont non vides.
-		Posons $\mathfrak{B}$ la collection de ces intersections.
-		C'est une base de filtre car ses éléments sont non vides et qu'elle est stable par intersection deux à deux.
-		Par hypothèse, il existe donc un filtre $\mathfrak{F}$ convergent plus fin que $\sigma_\text{filtre}(\mathfrak{B})$.
-		Soit $x$ sa limite.
-		Ainsi $\sigma_\text{filtre}(\mathfrak{B})$ est un filtre sur $F_i$ (qui est une intersection finie des $F_{i\in I}$) convergent vers $x$ donc $x$ adhère à tout les $F_i$ fermés donc $\forall i\in I, x\in F_i$ soit $\bigcap_{i\in I}F_i\neq\vide$.
-	\end{itemise}
-\end{demonstration}
+\equivalence{Par double implication.}{
+	Soit $\mathfrak{F}$ un filtre sur $E$ quasi-compact.
+	Par l'absurde supposons $\bigcap_{X\in\mathfrak{F}}\overline{X}=\vide$.
+	Alors $\bigcup_{X\in\mathfrak{F}}\complement\overline{X}=E$ donc par quasi-compacité $\exists X_{1\infegal i\infegal n}\in\mathfrak{F}, \bigcup_{i=1}^n\complement\overline{X_i}=E$.
+	Ainsi $\bigcap_{i=1}^n\overline{X_i}=\vide$ en particulier $\bigcap_{i=1}^nX_i=\vide\in\mathfrak{F}$ par stabilité par intersection finie des filtres, ce qui est absurde.
+	Soit donc $x\in\bigcap_{X\in\mathfrak{F}}\overline{X}$ et $\mathfrak{B}=\ens{V\cap X}{V\in\mathfrak{V}(x), X\in\mathfrak{F}}$.
+	C'est une base de filtre.
+	En effet les $V\cap X$ sont toujours non vides car $x$ adhère à tout les $X\in\mathfrak{F}$ donc $\vide\notin\mathfrak{B}$ et les $V\cap X$ forment les voisinages de $x$ donc $\mathfrak{V}(x)\subset\mathfrak{B}$.
+	De plus cette famille est stable par intersection car $\mathfrak{V}(x)$ et $\mathfrak{F}$ le sont.
+	Ainsi le filtre engendré par $\mathfrak{B}$ converge vers $x$.
+}{
+	Par contraposée soit $(F_i)_{i\in I}$ une famille de fermés de $E$ dont les intersections finies sont non vides.
+	Posons $\mathfrak{B}$ la collection de ces intersections.
+	C'est une base de filtre car ses éléments sont non vides et qu'elle est stable par intersection deux à deux.
+	Par hypothèse, il existe donc un filtre $\mathfrak{F}$ convergent plus fin que $\sigma_\text{filtre}(\mathfrak{B})$.
+	Soit $x$ sa limite.
+	Ainsi $\sigma_\text{filtre}(\mathfrak{B})$ est un filtre sur $F_i$ (qui est une intersection finie des $F_{i\in I}$) convergent vers $x$ donc $x$ adhère à tout les $F_i$ fermés donc $\forall i\in I, x\in F_i$ soit $\bigcap_{i\in I}F_i\neq\vide$.
+}
 
 \begin{proposition}
 	Un espace est quasi-compact si et seulement si tout ultrafiltre converge.
 \end{proposition}
 
-\begin{demonstration}
-	Par double implication.
-	\begin{itemise}
-		\item[$\Rightarrow$] Supposons $E$ quasi-compact.
-		Soit $\mathfrak{U}$ un ultrafiltre sur $E$.
-		Par le théorème précédent on peut extraire un filtre de $\mathfrak{U}$ convergent.
-		Puisque $\mathfrak{U}$ est un ultrafiltre, $\mathfrak{U}$ converge.
-		\item[$\Leftarrow$] Supposons que tout ultrafiltre sur $E$ converge.
-		Soit un filtre $\mathfrak{F}$.
-		Il est contenu dans un ultrafiltre d'après le lemme de Zorn, qui converge par hypothèse.
-	\end{itemise}
-\end{demonstration}
+\equivalence{Par double implication.}{
+	Supposons $E$ quasi-compact.
+	Soit $\mathfrak{U}$ un ultrafiltre sur $E$.
+	Par le théorème précédent on peut extraire un filtre de $\mathfrak{U}$ convergent.
+	Puisque $\mathfrak{U}$ est un ultrafiltre, $\mathfrak{U}$ converge.
+}{
+	Supposons que tout ultrafiltre sur $E$ converge.
+	Soit un filtre $\mathfrak{F}$.
+	Il est contenu dans un ultrafiltre d'après le lemme de Zorn, qui converge par hypothèse.
+}
 
 \begin{proposition}
 	Tout produit d’espaces quasi-compacts est quasi-compact.
@@ -2351,13 +2328,11 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Un groupe $(G, \star)$ munie d'une topologie est un groupe topologique si et seulement si $x, y\longmapsto x\star\inv{y}$ est continue.
 \end{proposition}
 
-\begin{demonstration}
-	Par double implication.
-	\begin{itemise}
-		\item[$\Rightarrow$] Le sens directe vient de la composition d'applications continues.
-		\item[$\Leftarrow$] En prenant $x=e$ puis $\inv{y}$ dans $x, y\longmapsto x\star\inv{y}$, on vérifie que c'est un groupe topologique.
-	\end{itemise}
-\end{demonstration}
+\equivalence{Par double implication.}{
+	Le sens directe vient de la composition d'applications continues.
+}{
+	En prenant $x=e$ puis $\inv{y}$ dans $x, y\longmapsto x\star\inv{y}$, on vérifie que c'est un groupe topologique.
+}
 
 %\section{Mesure de Haar}
 
@@ -2395,39 +2370,35 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	$$
 \end{proposition}
 
-\begin{demonstration}
-	Par double implication
-	\begin{itemise}
-		\item[$\Rightarrow$] Le sens direct est évident.
-		\item[$\Leftarrow$] Soit $x\in G$ et $V$ un voisinage de $y=f(x)$.
-		D'après la proposition précédente il existe un voisinage $W$ de $e_H$ tel que $V=y\star_HW$.
-		Puisque $f$ est un morphisme de groupe, $f(e_G)=e_H$.
-		Par continuité de $f$ en $e_G$, $\inv{f}(W)$ est un voisinage de $e_G$.
-		Par continuité des translations, $x\star_G\inv{f}(W)$ est un voisinage de $x$.
-		Or $x\star_G\inv{f}(W)\subset\inv{f}(y\star_HW)$.
-		En effet si $x\star_Gz\in x\star_G\inv{f}(W)$ alors $f(x\star_Gz)=f(x)\star_Hf(z)\in y\star_HW$.
-		Donc $\inv{f}(V)$ contient un voisinage de $x$.
-	\end{itemise}
-\end{demonstration}
+\equivalence{Par double implication.}{
+	Le sens direct est évident.
+}{
+	Soit $x\in G$ et $V$ un voisinage de $y=f(x)$.
+	D'après la proposition précédente il existe un voisinage $W$ de $e_H$ tel que $V=y\star_HW$.
+	Puisque $f$ est un morphisme de groupe, $f(e_G)=e_H$.
+	Par continuité de $f$ en $e_G$, $\inv{f}(W)$ est un voisinage de $e_G$.
+	Par continuité des translations, $x\star_G\inv{f}(W)$ est un voisinage de $x$.
+	Or $x\star_G\inv{f}(W)\subset\inv{f}(y\star_HW)$.
+	En effet si $x\star_Gz\in x\star_G\inv{f}(W)$ alors $f(x\star_Gz)=f(x)\star_Hf(z)\in y\star_HW$.
+	Donc $\inv{f}(V)$ contient un voisinage de $x$.
+}
 
 \begin{proposition}
 	Un groupe topologique est séparé si et seulement si le singleton ${e}$ est fermé.
 \end{proposition}
 
-\begin{demonstration}
-	Par double implication.
-	\begin{itemise}
-		\item[$\Rightarrow$] Soit $y\in\widetilde{\{x\}}$.
-		Alors $\exists\mathfrak{F}\text{ filtre sur $\widetilde{\{x\}}$}, \mathfrak{F}\rightarrow y$.
-		Cette convergence a lieu pour la topologie trace c'est à dire pour l'ensemble des voisinages $\mathfrak{V}'(y)=\{V\cap\ens{x\}}{V\in\mathfrak{V}(y)}$.
-		Par séparation, si $y\neq x$, il existerait un voisinage de $y$ de rencontrant pas $\{x\}$ et donc $\vide\in\mathfrak{V}'(y)\subset\mathfrak{F}$, ce qui est impossible pour un filtre.
-		Ainsi les singletons sont fermé, notamment $\{E\}$.
-		\item[$\Leftarrow$] Réciproquement, si $\{E\}$ est fermé alors $G\setminus\{E\}$ est ouvert.
-		Par continuité de $\phi:x, y\longmapsto x\star\inv{y}$, $\inv{\phi}(G\setminus\{E\})=G^2\setminus\ens{(x, x)}{x\in G}$ est un ouvert de $G$.
-		Ainsi pour $(x, y)\in G^2$ avec $x\neq y$, il existe un voisinage pour la topologie produit de $(x, y)$ ne rencontrant pas la diagonale.
-		Par définition de cette topologie, il existe un voisinage $V_x$ de $x$ et $V_y$ de $y$ tel que $(V_x\times V_y)\cap\ens{(x, x)}{x\in G}=\vide$, c'est à dire $V_x\cap V_y=\vide$.
-	\end{itemise}
-\end{demonstration}
+\equivalence{Par double implication.}{
+	Soit $y\in\widetilde{\{x\}}$.
+	Alors $\exists\mathfrak{F}\text{ filtre sur $\widetilde{\{x\}}$}, \mathfrak{F}\rightarrow y$.
+	Cette convergence a lieu pour la topologie trace c'est à dire pour l'ensemble des voisinages $\mathfrak{V}'(y)=\{V\cap\ens{x\}}{V\in\mathfrak{V}(y)}$.
+	Par séparation, si $y\neq x$, il existerait un voisinage de $y$ de rencontrant pas $\{x\}$ et donc $\vide\in\mathfrak{V}'(y)\subset\mathfrak{F}$, ce qui est impossible pour un filtre.
+	Ainsi les singletons sont fermé, notamment $\{E\}$.
+}{
+	Réciproquement, si $\{E\}$ est fermé alors $G\setminus\{E\}$ est ouvert.
+	Par continuité de $\phi:x, y\longmapsto x\star\inv{y}$, $\inv{\phi}(G\setminus\{E\})=G^2\setminus\ens{(x, x)}{x\in G}$ est un ouvert de $G$.
+	Ainsi pour $(x, y)\in G^2$ avec $x\neq y$, il existe un voisinage pour la topologie produit de $(x, y)$ ne rencontrant pas la diagonale.
+	Par définition de cette topologie, il existe un voisinage $V_x$ de $x$ et $V_y$ de $y$ tel que $(V_x\times V_y)\cap\ens{(x, x)}{x\in G}=\vide$, c'est à dire $V_x\cap V_y=\vide$.
+}
 
 \begin{proposition}
 	Soit $O$ un ouvert et $X$ une partie d'un groupe topologique.
@@ -2603,19 +2574,19 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	$$
 \end{proposition}
 
-\begin{demonstration}
+\equivalence{
 	On reformule simplement la définition avec les voisinages.
-	\begin{itemise}
-		\item[$\Rightarrow$] Soit $\epsilon>0$.
-		Puisque $B_\epsilon(f(x))$ est un voisinage de $x$, $\exists V\in\mathfrak{V}(x), f(V)\subset B_\epsilon(f(x))$.
-		Les boules ouvertes étant par construction une base de voisinages, $\exists\eta>0, B_\eta(x)\subset V$.
-		On a donc bien que si $d(x, y)<\eta$, alors $y\in V$, donc $f(y)\in B_\epsilon(f(x))$, soit $\delta(f(x), f(y))<\epsilon$.
-		\item[$\Leftarrow$] Soit $W\in\mathfrak{W}(f(x))$.
-		Alors pour $\epsilon$ assez petit, $B_\epsilon(x)\subset W$.
-		Donc $V=B_\eta(x)$ est un voisinage de $x$ tel que si $y\in V$, alors $d(x, y)<\eta$, donc $\delta(f(x), f(y))<\epsilon$, soit $f(y)\in B_\epsilon(f(x))$.
-		Donc $f(V)\subset W$, assurant la continuité de $f$ en $x$.
-	\end{itemise}
-\end{demonstration}
+}{
+	Soit $\epsilon>0$.
+	Puisque $B_\epsilon(f(x))$ est un voisinage de $x$, $\exists V\in\mathfrak{V}(x), f(V)\subset B_\epsilon(f(x))$.
+	Les boules ouvertes étant par construction une base de voisinages, $\exists\eta>0, B_\eta(x)\subset V$.
+	On a donc bien que si $d(x, y)<\eta$, alors $y\in V$, donc $f(y)\in B_\epsilon(f(x))$, soit $\delta(f(x), f(y))<\epsilon$.
+}{
+	 Soit $W\in\mathfrak{W}(f(x))$.
+	Alors pour $\epsilon$ assez petit, $B_\epsilon(x)\subset W$.
+	Donc $V=B_\eta(x)$ est un voisinage de $x$ tel que si $y\in V$, alors $d(x, y)<\eta$, donc $\delta(f(x), f(y))<\epsilon$, soit $f(y)\in B_\epsilon(f(x))$.
+	Donc $f(V)\subset W$, assurant la continuité de $f$ en $x$.	
+}
 
 \section{Les suites suffisent}
 
@@ -2628,17 +2599,16 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	$$
 \end{proposition}
 
-\begin{demonstration}
+\equivalence{
 	On reformule simplement la définition avec les voisinages.
-	\begin{itemise}
-		\item[$\Rightarrow$] Soit $\epsilon>0$.
-		Puisque $B_\epsilon(x)$ est un voisinage de $x$, $\exists N, \forall n\supegal N, x_n\in B_\epsilon(x)$, c'est à dire $\exists N, \forall n\supegal N, d(x_n, x)\epsilon$.
-		\item[$\Leftarrow$] Soit $V\in\mathfrak{V}(x)$.
-		Alors pour $\epsilon$ assez petit, $B_\epsilon(x)\subset V$.
-		Or $\exists N, \forall n\supegal N, x_n\in B_\epsilon(x)$, donc $\exists N, X_N\in V$.
-		Par caractérisation du filtre engendré par une base de filtre, $(x_n)$ converge.
-	\end{itemise}
-\end{demonstration}
+}{
+	Soit $\epsilon>0$.
+	Puisque $B_\epsilon(x)$ est un voisinage de $x$ il existe $N\in\N$ tel que $\forall n\supegal N$, $x_n\in B_\epsilon(x)$, c'est à dire $\exists N, \forall n\supegal N, d(x_n, x)\epsilon$.
+}{
+	Alors pour $\epsilon$ assez petit, $B_\epsilon(x)\subset V$.
+	Or $\exists N, \forall n\supegal N, x_n\in B_\epsilon(x)$, donc $\exists N, X_N\in V$.
+	Par caractérisation du filtre engendré par une base de filtre, $(x_n)$ converge.	
+}
 
 \begin{proposition}
 	Soit $X$ une partie d'un espace métrique $E$.
