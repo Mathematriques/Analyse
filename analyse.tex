@@ -557,10 +557,28 @@ Les définitions précédentes étant équivalentes, on se permettra dans la sui
 \begin{exemple}
 	Voici quelques topologies dont on peut toujours munir un ensemble quelconque $E$:
 	\begin{itemise}
-		\item la topologie grossière $\mathscr{T}=\{\vide, E\}$.
-		\item la topologie discrète $\mathscr{T}=\mathfrak{P}(E)$.
+		\item la topologie grossière $\{\vide, E\}$.
+		\item la topologie discrète $\mathfrak{P}(E)$.
+		\item la topologie cofinie $\{\vide\}\cup\ens{X\subset E}{\text{$\complement X$ fini}}$.
+		\item la topologie codénombrable $\{\vide\}\cup\ens{X\subset E}{\complement X\text{ dénombrable}}$.
 	\end{itemise}
 \end{exemple}
+
+\begin{demonstration}
+	Les deux premières collections sont bien des topologies car les unions et les intersections sont par définition dans la topologie.
+	Vérifions que la troisième construction est bien une topologie.
+	La quatrième s'en déduit en remplaçant « fini » par « dénombrable ».
+	\begin{itemise}
+		\item Soit $(O_i)_{i\in I}$ une famille de $\mathscr{T}$ et $O=\bigcup_{i\in I}O_i$.
+		S'ils sont tous vides alors $O=\vide\in\mathscr{T}$.
+		Sinon il existe un $O_j\in\mathscr{T}$ non vide, ce qui implique $\complement O_j$ est fini.
+		De plus $\complement O=\bigcap_{i\in I}\complement O_i\subset\complement O_j$ fini donc $\complement O$ est fini donc $O\in\mathscr{T}$.
+		\item Soit $(O_i)_{1\infegal i\infegal n}$ une famille finie de $\mathscr{T}$ et $O=\bigcap_{i=1}^nO_i$.
+		Si un des $O_i$ est vide alors $O=\vide\in\mathscr{T}$.
+		Sinon chaque $O_i\in\mathscr{T}$ est non vide, ce qui implique $\complement O_i$ est fini.
+		Donc $\complement O=\bigcup_{i=1}^n\complement O_i$ est une union finie d'ensemble finis donc est finie donc $O\in\mathscr{T}$.
+	\end{itemise}
+\end{demonstration}
 
 \section{Système fondamental de voisinage, Base d'une topologie}
 
@@ -851,38 +869,11 @@ Soient $(E, \mathscr{T}_1)$, $(E, \mathscr{T}_2)$, $(F, \mathscr{U})$ des espace
 	\textcolor{red}{???}
 \end{demonstration}
 
-\chapter{Topologies de références}
+\section{Génération de topologie}
 
-\section{Trousse à topologies}
-
-\begin{definition}
-	La topologie cofinie est $\mathscr{T}=\{\vide\}\cup\ens{X\subset E}{\text{$\complement X$ fini}}$.
-\end{definition}
-
-\begin{definition}
-	La topologie codénombrable est $\mathscr{T}=\{\vide\}\cup\ens{X\subset E}{\complement X\text{ dénombrable}}$.
-\end{definition}
-
-\begin{demonstration}
-	Vérifions que la première est une topologie.
-	La seconde s'en déduit en remplaçant fini par dénombrable.
-	\begin{itemise}
-		\item Soit $(O_i)_{i\in I}$ une famille de $\mathscr{T}$ et $O=\bigcup_{i\in I}O_i$.
-		S'ils sont tous vides alors $O=\vide\in\mathscr{T}$.
-		Sinon il existe un $O_j\in\mathscr{T}$ non vide, ce qui implique $\complement O_j$ est fini.
-		De plus $\complement O=\bigcap_{i\in I}\complement O_i\subset\complement O_j$ fini donc $\complement O$ est fini donc $O\in\mathscr{T}$.
-		\item Soit $(O_i)_{1\infegal i\infegal n}$ une famille finie de $\mathscr{T}$ et $O=\bigcap_{i=1}^nO_i$.
-		Si un des $O_i$ est vide alors $O=\vide\in\mathscr{T}$.
-		Sinon chaque $O_i\in\mathscr{T}$ est non vide, ce qui implique $\complement O_i$ est fini.
-		Donc $\complement O=\bigcup_{i=1}^n\complement O_i$ est une union finie d'ensemble finis donc est finie donc $O\in\mathscr{T}$.
-	\end{itemise}
-\end{demonstration}
-
-\begin{proposition}
-	La topologie classique sur $\R$ est $\mathscr{T}=\ens{]a, b[\subset\R}{a<b}$
-\end{proposition}
-
-\section{Topologie induite}
+% \begin{proposition}
+% 	La topologie classique sur $\R$ est $\ens{]a, b[\subset\R}{a<b}$.
+% \end{proposition}
 
 \begin{definition}
 	Soit $E$ est un espace topologique et $F$ une partie de $E$.
@@ -895,11 +886,8 @@ Soient $(E, \mathscr{T}_1)$, $(E, \mathscr{T}_2)$, $(F, \mathscr{U})$ des espace
 	Les notions de continuité à droite ou à gauche aux bornes de l’intervalle font alors partie intégrante de la notion générale de continuité sur l’espace topologique $[a, b]$.
 \end{remarque}
 
-\section{Topologie quotient}
-
-Soit $E$ et $F$ deux espaces topologiques, $\mathcal{R}$ une relation d’équivalence sur $E$, $\pi\colon E\rightarrow E/\mathcal{R}$ la surjection canonique et $f\colon E/\mathcal{R}\rightarrow F$ une application.
-
 \begin{definition}
+	Soit $E$ et $F$ deux espaces topologiques, $\mathcal{R}$ une relation d’équivalence sur $E$ de surjection canonique $\pi\colon E\rightarrow E/\mathcal{R}$.
 	La topologie quotient sur $E/\mathcal{R}$ est formée des ouverts $O$ tels que $\inv{\pi}(O)$ soit un ouvert de $E$.
 \end{definition}
 
@@ -908,26 +896,23 @@ Soit $E$ et $F$ deux espaces topologiques, $\mathcal{R}$ une relation d’équiv
 \end{proposition}
 
 \begin{demonstration}
-	$\pi$ est continue par construction.
+	Par construction $\pi$ est continue.
 	Soit $\mathscr{U}$ une topologie sur $E/\mathcal{R}$ rendant $\pi$ continue.
 	Si $O\in\mathscr{U}$ alors $\inv{\pi}(O)$ est un ouvert de $E$ par continuité de $\pi$, donc $O$ est dans la topologie quotient, qui est donc plus fine que $\mathscr{U}$.
 \end{demonstration}
 
 \begin{proposition}
-	$f\in\cont(E/\mathcal{R}, F)\iff f\circ\pi\in\cont(E, F)$
+	Une application $f\colon E/\mathcal{R}\rightarrow F$ est continue si et seulement si $f\circ\pi$ l'est.
 \end{proposition}
 
 \begin{demonstration}
 	Si $O$ est un ouvert de $F$, alors $\inv{f}(O)$ est un ouvert de $E/\mathcal{R}$ si et seulement si $\inv{\pi}(\inv{f}(O))$ est ouvert dans $E$, c'est à dire $\inv{(f\circ\pi)}(O)$.
 \end{demonstration}
 
-\section{Topologie produit}
-
-Soient $E, (F_i, \mathscr{U}_i)_{i\in I}$ des espaces topologiques.
-On note $F=\prod_{i\in I} F_i$ le produit cartésien des $F_i$ et $\pi_i\colon F\rightarrow F_i$ les projections canoniques.
-
 \begin{definition}
-	La topologie produit est la topologie initiale associées aux projections canoniques, c'est à dire la topologie la moins fine rendant les $\pi_i\colon F\rightarrow F_i$ continues.
+	Soit $(E_i)_{i\in I}$ des espaces topologiques.
+	On note $E=\prod_{i\in I} E_i$ le produit cartésien des $E_i$ et $\pi_i\colon E\rightarrow E_i$ les projections canoniques.
+	La topologie produit est la topologie initiale associées aux projections canoniques, c'est à dire la topologie la moins fine rendant les $\pi_i\colon E\rightarrow E_i$ continues.
 \end{definition}
 
 \begin{proposition}
