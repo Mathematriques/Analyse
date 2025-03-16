@@ -17,6 +17,7 @@
 \usepackage{tikz}
 \usepackage{hyperref}
 \usepackage{tikz-cd}
+\usetikzlibrary{patterns}
 %\usepackage[backend=biber, style=alphabetic, maxnames=15, sorting=ynt]{biblatex}
 %\addbibresource{sample.bib} % la bibilographie
 %\setlength\parindent{0pt}
@@ -63,8 +64,8 @@
 \newcommand{\id}{\mathrm{id}}
 \newcommand\vide{\varnothing}
 \newcommand{\inv}[1]{#1^{-1}}
-\newcommand\et{\text{ et }}
-\newcommand\ou{\text{ ou }}
+\newcommand{\et}{\mathrel{\mathrm{et}}}
+\newcommand{\ou}{\mathrel{\mathrm{ou}}}
 
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
@@ -75,6 +76,7 @@
 \renewcommand{\cal}[1]{\mathcal{#1}}
 \renewcommand{\frak}[1]{\mathfrak{#1}}
 \newcommand{\scr}[1]{\mathscr{#1}}
+\newcommand{\rm}[1]{\mathrm{#1}}
 
 \newcommand\ens[2]{\{#1 \ |\ #2\}}
 \newcommand\equivalence[3]{
@@ -244,11 +246,11 @@
 \end{demonstration}
 
 \begin{definition}
-	On appelle $\sigma_\text{groupe}(\frak{B})=\bigcap_{\substack{H\text{ sous-groupe}\\\frak{B}\subset H}}H$, le sous-groupe engendré par $\frak{B}$.
+	On appelle $\sigma_\rm{groupe}(\frak{B})=\bigcap_{\substack{H\text{ sous-groupe}\\\frak{B}\subset H}}H$, le sous-groupe engendré par $\frak{B}$.
 \end{definition}
 
 \begin{proposition}
-	$\sigma_\text{groupe}(\frak{B})=\ens{x_1^{\epsilon_1}\star\dots\star x_n^{\epsilon_n}}{n\in\N, x_i\in\frak{B}, \epsilon_i=\pm1}$
+	$\sigma_\rm{groupe}(\frak{B})=\ens{x_1^{\epsilon_1}\star\dots\star x_n^{\epsilon_n}}{n\in\N, x_i\in\frak{B}, \epsilon_i=\pm1}$
 \end{proposition}
 
 \begin{demonstration}
@@ -433,7 +435,7 @@ On donne dans la suite les définitions les plus classiques pour montrer qu'elle
 		Donc $\scr{O}_1\subset\scr{O}_2$.
 		L'argument étant symétrique on a $\scr{O}_1=\scr{O}_2$ puis que $\Phi$ est injective.
 		\item Vérifions que $\Phi$ est injective.
-		Soit $\scr{T_\text{ouvert}}$ et $\scr{O}'$ tels que $\Phi(\scr{O})=\Phi(\scr{O}')$.
+		Soit $\scr{T_\rm{ouvert}}$ et $\scr{O}'$ tels que $\Phi(\scr{O})=\Phi(\scr{O}')$.
 		Soit $O\in\scr{O}$ alors $O=\Phi(\scr{O})(O)=\Phi(\scr{O}')(O)=\bigcup_{O\supset O'\in\scr{O}'}O'\in\scr{O}'$.
 		\item Montrons que $\Phi$ est surjective en montrant qu'un antécédent par $\Phi$ de $\cdot^\circ$ une fonction d'intérieur est $\scr{O}=\ens{O\subset E}{O=O^\circ}$.
 		\begin{itemise}
@@ -604,7 +606,7 @@ Les définitions précédentes étant équivalentes, on se permettra dans la sui
 
 \begin{definition}
 	Pour toute partie $\frak{A}$ on appelle topologie engendrée par $\frak{A}$ l'intersection des topologie de $E$ incluant $\frak{A}$.
-	Elle est notée $\sigma_\text{topologie}(\frak{A})$ et on nomme alors $\frak{A}$ une pré-base de cette topologie.
+	Elle est notée $\sigma_\rm{topologie}(\frak{A})$ et on nomme alors $\frak{A}$ une pré-base de cette topologie.
 \end{definition}
 
 On peut en donner une approche plus constructive en faisant émerger une topologie à partir d'une famille quelconque.
@@ -669,7 +671,7 @@ Ces notions sont utiles car de nombreuses propriétés d'une topologie se ramèn
 % 	$$
 % 	\text{$\frak{B}$ est une base de $\scr{T}$}
 % 	\iff
-% 	\scr{T}=\sigma_\text{topologie}(\frak{B})
+% 	\scr{T}=\sigma_\rm{topologie}(\frak{B})
 % 	$$
 % \end{remarque}
 
@@ -975,7 +977,7 @@ Cela revient à avoir l'équivalence entre la continuité de $f$ et celle de $\i
 \begin{align*}
 \forall Y\colon\mathbf{Top}, \forall f\colon Y\rightarrow A, f\in\mathcal{C}(Y, A)\iff \iota\circ f\in\mathcal{C}(Y, X)
 \end{align*}
-La topologie induite $\scr{T}_\text{induite}$ vérifie cette propriété car $(\iota\circ f)^{-1}(O)=f^{-1}(\iota^{-1}(O))=f^{-1}(A\cap O)$.
+La topologie induite $\scr{T}_\rm{induite}$ vérifie cette propriété car $(\iota\circ f)^{-1}(O)=f^{-1}(\iota^{-1}(O))=f^{-1}(A\cap O)$.
 C'est aussi la seul topologie la vérifiant.
 En effet soit $\scr{T}$ une autre topologie sur $A$ la vérifiant cette propriété.
 % \begin{centre}
@@ -984,9 +986,9 @@ En effet soit $\scr{T}$ une autre topologie sur $A$ la vérifiant cette proprié
 % 	\end{tikzcd}
 % \end{centre}
 Prenons $Y=(A, \scr{T})$ et $f=\id$ qui est alors continue.
-Ainsi d'après le sens directe $\iota\circ\id=\iota\colon(A, \scr{T})\rightarrow X$ continue donc $\scr{T}_\text{induite}\subset\scr{T}$.
-Réciproquement prenons $Y=(A, \scr{T}_\text{induite})$ et $f=\id$.
-Puisque $\iota\circ\id=\iota$ est continue l'implication réciproque donne $\id\colon(A, \scr{T}_\text{induite})\rightarrow(A, \scr{T})$ continue donc $\scr{T}\subset\scr{T}_\text{induite}$.
+Ainsi d'après le sens directe $\iota\circ\id=\iota\colon(A, \scr{T})\rightarrow X$ continue donc $\scr{T}_\rm{induite}\subset\scr{T}$.
+Réciproquement prenons $Y=(A, \scr{T}_\rm{induite})$ et $f=\id$.
+Puisque $\iota\circ\id=\iota$ est continue l'implication réciproque donne $\id\colon(A, \scr{T}_\rm{induite})\rightarrow(A, \scr{T})$ continue donc $\scr{T}\subset\scr{T}_\rm{induite}$.
 
 \chapter{Séparation}
 
@@ -1516,9 +1518,9 @@ On se donne une application $f:E\rightarrow F$.
 \begin{definition}
 	On appelle filtre sur $E$ une collection $\frak{F}\subset\frak{P}(E)$ telle que :
 	\begin{itemise}
-		\item Toute partie de $E$ incluant un élément de $\frak{F}$ appartient à $\frak{F}$ ;
-		\item Toute intersection finie d'éléments de $\frak{F}$ appartient à $\frak{F}$ ;
-		\item L'ensemble vide n'appartient pas à $\frak{F}$.
+		\item Toute partie de $E$ incluant un élément de $\frak{F}$ appartient à $\frak{F}$
+		\item Toute intersection finie d'éléments de $\frak{F}$ appartient à $\frak{F}$
+		\item L'ensemble vide n'appartient pas à $\frak{F}$
 	\end{itemise}
 \end{definition}
 
@@ -1545,7 +1547,7 @@ On se donne une application $f:E\rightarrow F$.
 
 \begin{definition}
 	Pour toute partie $\frak{A}$ non vide on appelle le filtre engendré par $\frak{A}$ l'intersection des filtres de $E$ contenant $\frak{A}$.
-	Il est noté $\sigma_\text{filtre}(\frak{A})$ et on nomme alors $\frak{A}$ une pré-base de ce filtre.
+	Il est noté $\sigma_\rm{filtre}(\frak{A})$ et on nomme alors $\frak{A}$ une pré-base de ce filtre.
 \end{definition}
 
 Comme pour la notion de base d'une topologie on peut en donner une approche plus constructive.
@@ -1647,19 +1649,19 @@ Ces notions sont utiles car de nombreuses propriétés d'une topologie se ramèn
 }
 
 \begin{proposition}
-	$f\text{ continue en }x\iff\forall\frak{F}\text{ filtre},\quad\frak{F}\rightarrow x\Rightarrow\sigma_\text{filtre}(f(\frak{F}))\rightarrow f(x)$
+	$f\text{ continue en }x\iff\forall\frak{F}\text{ filtre},\quad\frak{F}\rightarrow x\Rightarrow\sigma_\rm{filtre}(f(\frak{F}))\rightarrow f(x)$
 \end{proposition}
 
 \equivalence{Par double implication.}{
 	Soit $\frak{F}$ convergent en $x$ et $W\in\frak{W}(f(x))$.
 		Par continuité $\exists V\in\frak{V}(x), f(V)\subset W$.
 		Par convergence $V\in\frak{F}$.
-		Ainsi $\exists W'\in f(\frak{F}), W'\subset W$, c'est à dire $W\in\sigma_\text{filtre}(f(\frak{F}))$.
-		Donc $\sigma_\text{filtre}(f(\frak{F}))$ est plus fin que $\frak{W}(f(x))$.
+		Ainsi $\exists W'\in f(\frak{F}), W'\subset W$, c'est à dire $W\in\sigma_\rm{filtre}(f(\frak{F}))$.
+		Donc $\sigma_\rm{filtre}(f(\frak{F}))$ est plus fin que $\frak{W}(f(x))$.
 }{
 	Soit $W\in\frak{W}(f(x))$.
-		Prenons $\frak{F}=\frak{V}(x)$ alors $\frak{F}\rightarrow x$ donc $\sigma_\text{filtre}(f(\frak{F}))\rightarrow f(x)$ id est $\sigma_\text{filtre}(f(\frak{F}))\supset\frak{W}(f(x))$.
-		Ainsi $W\in\sigma_\text{filtre}(f(\frak{F}))$.
+		Prenons $\frak{F}=\frak{V}(x)$ alors $\frak{F}\rightarrow x$ donc $\sigma_\rm{filtre}(f(\frak{F}))\rightarrow f(x)$ id est $\sigma_\rm{filtre}(f(\frak{F}))\supset\frak{W}(f(x))$.
+		Ainsi $W\in\sigma_\rm{filtre}(f(\frak{F}))$.
 		Or $f(\frak{F})$ est une base de ce filtre donc $\exists V\in\frak{F}=\frak{V}(x), f(V)\subset W$.
 }
 
@@ -1684,11 +1686,11 @@ Ces notions sont utiles car de nombreuses propriétés d'une topologie se ramèn
 		Par l'absurde, si $V\subset X$ alors par croissance des filtres, $X\in\frak{U}$.
 		Donc $V\not\subset X$, c'est à dire que $V\cap\complement X\neq\vide$.
 		$\frak{B}=\ens{V\cap\complement X}{V\in\frak{U}}$ est une base de filtre car $\frak{U}$ est un filtre.
-		Alors le filtre $\sigma_\text{filtre}(\frak{B})$ est plus fin que $\frak{U}$.
-		En effet soit $V\in\frak{U}$ puisque $V\cap\complement X\subset V$ avec $V\cap\complement X\in\frak{B}$, alors $V\in\sigma_\text{filtre}(\frak{B})$.
-		Puisque $\frak{U}$ est un ultrafiltre, $\frak{U}=\sigma_\text{filtre}(\frak{B})$.
+		Alors le filtre $\sigma_\rm{filtre}(\frak{B})$ est plus fin que $\frak{U}$.
+		En effet soit $V\in\frak{U}$ puisque $V\cap\complement X\subset V$ avec $V\cap\complement X\in\frak{B}$, alors $V\in\sigma_\rm{filtre}(\frak{B})$.
+		Puisque $\frak{U}$ est un ultrafiltre, $\frak{U}=\sigma_\rm{filtre}(\frak{B})$.
 		Or $\complement X=E\cap\complement X\in\frak{B}$ puisque $E\in\frak{U}$.
-		Donc $\complement X\in\sigma_\text{filtre}(\frak{B})=\frak{U}$.
+		Donc $\complement X\in\sigma_\rm{filtre}(\frak{B})=\frak{U}$.
 }{
 	Par l'absurde, supposons que $\frak{U}$ n'est pas un ultrafiltre.
 		Il existe alors un filtre $\frak{F}$ strictement plus fin, et donc une partie $X$ de $E$ dans $\frak{F}$ qui n'est pas dans $\frak{U}$.
@@ -1704,7 +1706,7 @@ Ces notions sont utiles car de nombreuses propriétés d'une topologie se ramèn
 
 \begin{demonstration}
 	$f(\frak{B})$ est une base de filtre car $\frak{B}$ est une base de filtre.
-	On peut donc poser $\frak{U}=\sigma_\text{filtre}(\frak{B})$ et $\frak{V}=\sigma_\text{filtre}(f(\frak{B}))$.
+	On peut donc poser $\frak{U}=\sigma_\rm{filtre}(\frak{B})$ et $\frak{V}=\sigma_\rm{filtre}(f(\frak{B}))$.
 	Soit $Y\subset F$.
 	Puisque $\inv{f}(Y)$ et $\inv{f}(\complement Y)$ sont complémentaires dans $E$, d'après le caractérisation précédente, l'un des deux appartient à l'ultrafiltre engendré par $\frak{B}$.
 	Si c'est $\inv{f}(Y)$ alors $Y=f(\inv{f}(Y))$ appartient au filtre engendré par $f(\frak{B})$.
@@ -1768,7 +1770,7 @@ Ces notions sont utiles car de nombreuses propriétés d'une topologie se ramèn
 \begin{demonstration}
 	Soit $X_n$ un élément de la base de filtre $\frak{B}_x$.
 	Par croissance de $\phi$, $X_{\phi(n)}\subset X_n$, avec $X_{\phi(n)}\in\frak{B}_{x\circ\phi}$.
-	Ainsi $\frak{B}_x\subset\sigma_\text{filtre}(\frak{B}_{x\circ\phi})$, puis $\sigma_\text{filtre}(\frak{B}_x)\subset\sigma_\text{filtre}(\frak{B}_{x\circ\phi})$.
+	Ainsi $\frak{B}_x\subset\sigma_\rm{filtre}(\frak{B}_{x\circ\phi})$, puis $\sigma_\rm{filtre}(\frak{B}_x)\subset\sigma_\rm{filtre}(\frak{B}_{x\circ\phi})$.
 \end{demonstration}
 
 \begin{definition}
@@ -1793,17 +1795,17 @@ Ces notions sont utiles car de nombreuses propriétés d'une topologie se ramèn
 }{
 	Soit $V\in\frak{V}(x)$.
 	Par hypothèse, $\exists N, X_N\in\frak{B}_x, X_N\subset V$.
-	Par caractérisation du filtre engendré $V\in\sigma_\text{filtre}(\frak{B}_x)$, c'est à dire que $(x_n)$ converge vers $x$.	
+	Par caractérisation du filtre engendré $V\in\sigma_\rm{filtre}(\frak{B}_x)$, c'est à dire que $(x_n)$ converge vers $x$.	
 }
 
 \begin{definition}
 	Soit $X$ une partie d'un espace topologique $E$.
-	La fermeture séquentielle de $X$ est $\overline{X}^\mathrm{seq}=\ens{x}{\exists(x_n)\in X^\N, x_n\rightarrow x}$.
+	La fermeture séquentielle de $X$ est $\overline{X}^\rm{seq}=\ens{x}{\exists(x_n)\in X^\N, x_n\rightarrow x}$.
 \end{definition}
 
 \begin{proposition}
 	Soit $X$ une partie d'un espace topologique $E$.
-	Alors $\overline{X}\supset\overline{X}^\mathrm{seq}$.
+	Alors $\overline{X}\supset\overline{X}^\rm{seq}$.
 \end{proposition}
 
 \begin{demonstration}
@@ -1846,36 +1848,29 @@ L'affaiblissement convenable consiste à omettre l'axiome de symétrie.
 On parle alors de quasi-uniformité, et tout espace est quasi-uniformisable : c'est donc cet axiome de symétrie qui caractérise véritablement les espaces uniformisable parmi les espaces topologiques, et le procédé consistant à définir une topologie à partir d'entourages de la diagonale est tout à fait général.
 Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales pour définir les topologies: par les ouverts (Sierpinski) par les fermé (Alexandroff) par les voisinages (Hausdorff) par les fermetures (Kuratowski) par les filtres convergents (Bourbaki) et cætera...
 
-{\colour{red} Ajouter les explications de \href{https://projects.lsv.ens-paris-saclay.fr/topology/?page_id=2869}{ce super site} !}
+\begin{remarque}
+	Dans le « complément d'analyse » la notation de $F\circ G$ est inverse $\ens{(x, z)\in X^2}{\exists y\in X, (x, y)\in G, (y, z)\in F}$.
+	L'interprétation des éléments de l'uniformité en tant que relation me fait pencher pour la notation de \href{https://projects.lsv.ens-paris-saclay.fr/topology/?page_id=2869}{ce super site}.
+\end{remarque}
 
-\paragraph{Notations :}
-Nous aurons besoin de ces notations pour la suite.
-Soit $X$ un ensemble et $F, G\in\frak{P}(X^2)$.
-\begin{itemise}
-	\item $F\circ G=\ens{(x, z)\in X^2}{\exists y\in X, (x, y)\in G, (y, z)\in F}$.
-	\item $F[x]=\ens{y\in X}{(x, y)\in F}$
-	\item $\inv{F}=\ens{(y, x)}{(x, y)\in F}$
-	\item $\Delta_X=\ens{(x, x)}{x\in X}$
-\end{itemise}
-
-\begin{figure}[h]
+\begin{figure}
 	\centring
 	\begin{tikzpicture}[scale=6]
 		\draw (0,0) -- (1,0) -- (1,1) -- (0,1) -- cycle;
 		\draw[very thick] (0,0) -- (1,1);
 		\node at (0.81, 0.91) {$\Delta$};
-		% F
+		% G
 		\pgfmathsetmacro{\xf}{0.23}
 		\pgfmathsetmacro{\yf}{0.28}
 		\pgfmathsetmacro{\wf}{0.2}
 		\pgfmathsetmacro{\hf}{0.2}
-		\draw[thick] (\xf, \yf) -- (\xf+\hf, \yf+\hf) -- (\xf+\hf+\wf, \yf+\hf-\wf) -- (\xf+\wf, \yf-\wf) node[anchor=south, minimum height=1cm] {$F$} -- cycle;
-		% G
+		\draw[thick] (\xf, \yf) -- (\xf+\hf, \yf+\hf) -- (\xf+\hf+\wf, \yf+\hf-\wf) -- (\xf+\wf, \yf-\wf) node[anchor=south, minimum height=1cm] {$G$} -- cycle;
+		% F
 		\pgfmathsetmacro{\xg}{0.6}
 		\pgfmathsetmacro{\yg}{0.55}
 		\pgfmathsetmacro{\hg}{0.15}
 		\pgfmathsetmacro{\wg}{0.2}
-		\draw[thick] (\xg, \yg) -- (\xg+\hg, \yg+\hg) node[anchor=north, minimum height=0.75cm] {$G$} -- (\xg+\hg+\wg, \yg+\hg) -- (\xg+\wg, \yg) -- cycle;
+		\draw[thick] (\xg, \yg) -- (\xg+\hg, \yg+\hg) node[anchor=north, minimum height=0.75cm] {$F$} -- (\xg+\hg+\wg, \yg+\hg) -- (\xg+\wg, \yg) -- cycle;
 		% point de F°G
 		\pgfmathsetmacro{\x}{0.75}
 		\pgfmathsetmacro{\z}{0.25}
@@ -1898,44 +1893,64 @@ Soit $X$ un ensemble et $F, G\in\frak{P}(X^2)$.
 	\caption{$F\circ G$}
 \end{figure}
 
-\section{Définitions}
+\section{Définition et motivation}
 
+Une relation binaire $\cal{R}$ sur un ensemble $E$ est une partie de $E^2$.
+Pour $(x, y)\in\cal{R}$ on note plus souvent $x\cal{R}y$ (penser à la relation d'égalité par exemple).
+On peut définire une notion de composition de relation : $\cal{R}\circ\cal{S}$ est l'ensemble des paires $(x, z)$ tel qu'il existe $y$ vérifiant $x\cal{R}y$ et $y\cal{S}z$.
+Notez que $\cal{R}\circ\cal{R}\subset\cal{R}$ si et seulement si $\cal{R}$ est transitive.
+De même on montre qu'une relation est réfléxive si et seulement si elle contient la diagonale $\Delta=\ens{(x, x)}{x\in X}$.
+\begin{align*}
+	\cal{R}\circ\cal{R}\subset\cal{R}
+	&\iff \forall x, z\in X, \quad x(\cal{R}\circ\cal{R})z\implies x\cal{R}z \\
+	&\iff \forall x, z\in X, \quad (\exists y\in X, \quad x\cal{R}y\et y\cal{R}z) \implies x\cal{R}z \\
+	&\iff \forall x, y, z\in X, \quad (x\cal{R}y\et y\cal{R}z) \implies x\cal{R}z \\	
+	&\iff \text{$\cal{R}$ est transitive}
+\end{align*}
+
+Une quasi-uniformité $\scr{U}$ est un filtre de relation binaires sur $E$ vérifiant une forme faible de transitivité :
+pour toute relation $\cal{S}$ de $\scr{U}$ il existe une autre relation $\cal{R}$ de $\scr{U}$ telle que $\cal{R}\circ\cal{R}\subset\cal{S}$.
+En utilisant une forme équivalente des axiomes d'un filtre on obtient la forme partique suivante.
 \begin{definition}
-	On appelle quasi-uniformité sur $E$ une collection $\scr{U}\subset\frak{P}(E)$, dont ses éléments sont appelés les entourages, telle que:
+	On appelle quasi-uniformité sur $E$ une collection $\scr{U}\subset\frak{P}(E^2)$, dont ses éléments sont appelés les entourages, telle que :
 	\begin{itemise}
-		\item $U\in\scr{U}\Rightarrow\Delta_E\subset U$
-		\item $U, V\in\scr{U}\Rightarrow U\cap V\in\scr{U}$
-		\item $U\in\scr{U}\et U\subset V\Rightarrow V\in\scr{U}$
-		\item $U\in\scr{U}\Rightarrow\exists V\in\scr{U}, V\circ V\subset U$
-		\item Si $\scr{U}$ est une uniformité: $U\in\scr{U}\Rightarrow\inv{U}\in\scr{U}$
+		\item $R\in\scr{U}\Rightarrow\Delta_E\subset R$
+		\item $R, S\in\scr{U}\Rightarrow R\cap S\in\scr{U}$
+		\item $R\in\scr{U}\et R\subset S\Rightarrow S\in\scr{U}$
+		\item $R\in\scr{U}\Rightarrow\exists S\in\scr{U}, S\circ S\subset R$
+		\item Si $\scr{U}$ est une uniformité: $R\in\scr{U}\Rightarrow\inv{R}\in\scr{U}$
 	\end{itemise}
 \end{definition}
 
 \section{Base d'une uniformité}
 
 \begin{proposition}
-	L'intersection d'une famille de quasi-uniformités $\scr{U}_{i\in I}$ est une quasi-uniformité.
+	L'intersection d'une famille de quasi-uniformités est une quasi-uniformité.
 \end{proposition}
 
 \begin{demonstration}
-	Vérifions les axiomes.
-	\begin{itemise}
-		\item Si $U\in\bigcap_{i\in I}\scr{U}_i$ alors $U\in\scr{U}$ donc $\Delta_E\in U$.
-		\item Si $U, V\in\bigcap_{i\in I}\scr{U}_i$ alors $U, V\in\scr{U}_i$ donc $U\cap V\in\scr{U}_i$ donc $U\cap V\in\bigcap_{i\in I}\scr{U}_i$.
-		\item Si $U\in\bigcap_{i\in I}\scr{U}_i\et U\subset V$ alors $U\in\scr{U}_i\et U\subset V$ donc $V\in\scr{U}_i$ donc $V\in\bigcap_{i\in I}\scr{U}_i$.
-		\item Si $U\in\bigcap_{i\in I}\scr{U}_i$ alors $U\in\scr{U}_i$ donc $\exists V_i\in\scr{U}_i, V_i\circ V_i\subset U$.
-		Considérons {\color{red} ???}
-		\item Si $\scr{U}$ est une uniformité: Si $U\in\bigcap_{i\in I}\scr{U}_i$ alors $U\in\scr{U}_i$ donc $\inv{U}\in\scr{U}_i$ donc $\in{U}\in\bigcap_{i\in I}\scr{U}_i$.
-	\end{itemise}
+	Soient $(\scr{U}_i)_{i\in I}$ des quasi-uniformités de $E$ et $\scr{U}=\bigcap_{i\in I}\scr{U}_i$.
+	On a déjà vu qu'une intersection que filtre était un filtre.
+	Une intersection de partie contenant la diagonale contient encore la diagonale.
+	Pour les quasi-uniformités il ne reste donc qu'a prouver la réfexivité faible.
+	
+	Soit $R\in\scr{U}$ puisque $R\in\scr{U}_i$ il existe $S_i\in\scr{U}_i$ tel que $S_i\circ S_i\subset R$ pour tout $i$.
+	Soit $S=\bigcap_{i\in I} S_i$.
+	C'est un élément de $\scr{U}$ car il appartient à chaque $\scr{U}_i$.
+	Soit $(x, z)\in S\circ S$ il existe donc $y\in S$ tel que $(x, y), (y, z)\in S$.
+	Pour un $j\in I$ arbitraire on a donc $(x, y), (y, z)\in S_j$ donc $(x, z)\in S_j\circ S_j\subset R$.
+	Ainsi $S\circ S\subset R$.
+
+	Si $\scr{U}$ est une uniformité: Si $R\in\bigcap_{i\in I}\scr{U}_i$ alors $R\in\scr{U}_i$ donc $\inv{R}\in\scr{U}_i$ donc $\inv{R}\in\bigcap_{i\in I}\scr{U}_i$.
 \end{demonstration}
 
 \begin{definition}
 	Pour toute partie $\frak{A}$ on appelle quasi-uniformité engendrée par $\frak{A}$ l'intersection des quasi-uniformité de $E$ incluant $\frak{A}$.
-	Elle est notée $\sigma_\text{quasi}(\frak{A})$ et on nomme alors $\frak{A}$ une pré-base de cette quasi-uniformité.
+	Elle est notée $\sigma_\rm{quasi}(\frak{A})$ et on nomme alors $\frak{A}$ une pré-base de cette quasi-uniformité.
 \end{definition}
 
 Comme pour la notion de base d'une topologie on peut en donner une approche plus constructive.
-Cependant le nombre de condition pour former une sous base est plus grand, rendant la manipulation des sous-base moins pratique.
+Cependant le nombre de conditions pour former une sous base est plus grand, rendant la manipulation des sous-base moins pratique.
 
 \begin{definition}
 	Une partie $\frak{B}$ de la quasi-uniformité $\scr{U}$ est appelé une base si tout élément de $\scr{U}$ continent un élément de $\frak{B}$.
@@ -1944,10 +1959,10 @@ Cependant le nombre de condition pour former une sous base est plus grand, renda
 \begin{proposition}
 	Il existe une quasi-uniformité dont $\frak{B}$ est une base si et seulement si :
 	\begin{itemise}
-		\item Tout élément $X$ de $\frak{B}$ conclue la diagonale $\Delta_E$.
-		\item Pour toute paire $X, Y$ de $\frak{B}$ il existe $Z$ dans $\frak{B}$ tel que $Z\subset X\cap Y$.
-		\item Pour tout $X$ de $\frak{B}$ il existe $Y$ dans $\frak{B}$ tel que $Y\circ Y\subset X$.
-		\item Si $\frak{B}$ est une base d'uniformité: $X\in\frak{B}\Rightarrow\exists Y\in\frak{B}, Y\subset X^{-1}$
+		\item Tout élément $R$ de $\frak{B}$ contient la diagonale $\Delta_E$.
+		\item Pour toute paire $R, S$ de $\frak{B}$ il existe $T$ dans $\frak{B}$ tel que $T\subset R\cap S$.
+		\item Pour tout $R$ de $\frak{B}$ il existe $S$ dans $\frak{B}$ tel que $S\circ S\subset R$.
+		\item Si $\frak{B}$ est une base d'uniformité: $R\in\frak{B}\Rightarrow\exists S\in\frak{B}, S\subset R^{-1}$
 	\end{itemise}
 	Cette quasi-uniformité est alors unique et elle est formée des ensembles incluant un élément.% de $\frak{B}$.
 \end{proposition}
@@ -1955,26 +1970,47 @@ Cependant le nombre de condition pour former une sous base est plus grand, renda
 \equivalence{Par double implication.}{
 	Supposons que $\frak{B}$ soit une base d'une quasi-uniformité $\scr{U}$.
 	Les deux premières conditions sont claires.
-	Soit $X\in\frak{B}$ alors $X\in\scr{U}$ donc il existe $U\in\scr{U}$ tel que $U\circ U\subset X$.
-	Puisque c'est une base il existe $Y\in\frak{B}$ tel que $Y\subset U$ et par croissance $Y\circ Y\subset U\circ U\subset X$.
+	Soit $R\in\frak{B}$ alors $R\in\scr{U}$ donc il existe $S\in\scr{U}$ tel que $S\circ S\subset R$.
+	Puisque c'est une base il existe $T\in\frak{B}$ tel que $T\subset S$ et par croissance $T\circ T\subset S\circ S\subset R$.
 	Par définition tout élément de $\scr{U}$ inclut un élément de $\frak{B}$ et réciproquement tout ensemble incluant un élément de $\frak{B}$ inclut donc un élément de $\scr{U}$ dont appartient à la quasi-uniformité.
-	Ainsi $\scr{U}=\ens{U\in\frak{P}(E)}{\exists A\in\frak{B}, A\subset U}$.
+	Ainsi $\scr{U}=\ens{R\in\frak{P}(E^2)}{\exists S\in\frak{B}, S\subset R}$.
 }{
 	Soit $\frak{B}$ vérifiant les propriétés et montrons que le $\scr{U}$ trouvé est une quasi-uniformité.
 	Les axiomes de la diagonale, de l'intersection et de la croissance sont claires.
-	Soit $U\in\scr{U}$ alors il existe $X\in\frak{B}$ inclut dans $U$ donc il existe $Y\in\frak{B}$ $Y\circ Y\subset X\subset U$.
-	Si $\frak{B}$ vérifie le dernier axiome alors pour $U\in\scr{U}$ il existe $X\in\frak{B}$ inclut dans $U$.
-	Ainsi il exsite $Y\in\frak{B}$ tel que $Y\subset X^{-1}\subset\inv{U}$ donc $\inv{U}\in\scr{U}$.
+	Soit $R\in\scr{U}$ alors il existe $T\in\frak{B}$ inclut dans $R$ donc il existe $S\in\frak{B}$ $S\circ S\subset T\subset R$.
+	Si $\frak{B}$ vérifie le dernier axiome alors pour $R\in\scr{U}$ il existe $T\in\frak{B}$ inclut dans $R$.
+	Ainsi il exsite $S\in\frak{B}$ tel que $S\subset\inv{T}\subset\inv{R}$ donc $\inv{R}\in\scr{U}$.
 }
 
 \begin{definition}
 	Une partie non vide $\frak{A}$ d'une quasi-uniformité $\scr{U}$ est appelée une sous-base si l'ensemble des intersections finies de $\frak{A}$ est une base de $\scr{U}$.
 \end{definition}
 
+\begin{exemple}
+	On appelle espace hémi-métrique un espace munie d'une hémi-distance $d\colon E\times E\rightarrow\overline{\R}$.
+	C'est une fonctio positive, nulle sur la diagonale et qui vérifie l'inégalité triangulaire.
+	Généralisons la notion de boule d'un espace métrique avec les relations $\approx_r :=\ens{(x, y)}{d(x, y)<r}$.
+	On montre que cette famille est une base de quasi-uniformité donc qu'elle engendre une naturellement une quasi-uniformité $\scr{U}_d$ dont les entourges contiennent au moins une relations $\approx_r$.
+
+	La famille de ces $\approx_r$ avec $r>0$ est stable par intersection finie.
+	C'est donc une sous-base si et seulement si c'est une base.
+	Appliquons donc le théorème de caractérisation des bases de quasi-uniformité.
+	Puisque $d$ est nulle sur la diagonale chaque $\approx_r$ contient $\Delta_E$.
+	L'intersection des deux relations $\approx_r$ et $\approx_s$ n'est autre que $\approx_{\min(r, s)}$ qui est bien dans la famille.
+	Il ne reste plus qu'a montrer la transitivité faible.
+
+	Soit $\approx_s$ avec $s>0$ une relation de la famille.
+	Posons $r=s/2$ et prenons un triplet $x, y, z$ vérifiant $x\approx_ry$ et $y\approx_rz$.
+	Ainsi $d(x, y)<r$ et $d(y, z)<r$ donc par inégalité triangulaire $d(x,z)<s$ ce qui montre $x\approx_s z$.
+	La transitivité faible n'est autre qu'un avatar de l'inégalité triangulaire.
+\end{exemple}
+
 \section{Topologie engendrée}
 
+Pour toute relation binaire $R$ sur $E$ on note $R[x]:=\ens{y\in E}{xRy}$ l'image de $x$ par $R$.
+
 \begin{definition}
-	À partir d'une structure quasi-uniforme $\mathscr{U}$ on définit une topologie dite topologie engendrée par $\mathscr{U}$ en appelant voisinage d'un point $x$ les ensembles de la forme $U[x]$ avec $U\in\mathscr{U}$.
+	À partir d'une structure quasi-uniforme $\mathscr{U}$ on définit une topologie dite topologie engendrée par $\mathscr{U}$ en appelant voisinage d'un point $x$ les ensembles de la forme $R[x]$ avec $R\in\mathscr{U}$.
 	On vérifie facilement que les ensemble ainsi définis corresponent à une unique topologie (cf Bourbaki TG II.3 proposition 1).
 \end{definition}
 
@@ -1985,18 +2021,33 @@ Nous allons résoudre ici le problème réciproque : étant donné une topologie
 
 \begin{proposition}
 	Soit $(E, \scr{T})$ un espace topologique.
-	La famille suivante est une prébase d'uniformité appelée la prébase de Pervin (1962) $\frak{A}_\text{Pervin}=\ens{R_U=(U\times U)\cup(\complement U\times E)}{U\in\scr{T}}$.
+	La famille suivante est une prébase de quasi-uniformité appelée la prébase de Pervin (1962) $\frak{A}_\rm{Pervin}=\ens{R_U:=(U\times U)\cup(\complement U\times E)}{U\in\scr{T}}$.
 	Cette prébase engendre la topologie d'origine $\scr{T}$.
 \end{proposition}
 
-La relation $R_U$ dit simplement $x\in U\implies y\in U$.
-Cela permet de montrer facilement la transitivité de $R_U$ c'est-à-dire $R_U\circ R_U\subset R_U$.
-En effet si $(x, z)$ appartient à $R_U\circ R_U$ il existe un $y$ tel que $(x, y), (y, z)\in R_U$ donc $x\in U\implies y\in U$ et $y\in U\implies z\in U$.
-Par transitivité de l'implication $x\in U\implies z\in U$ donc $(x, z)\in R_U$.
+\begin{remarque}
+	En tant que relation binaire $xR_Uy$ n'est autre que $x\in U\implies y\in U$.
+	Cela permet de démontrer facilement $R_U\circ R_U\subset R_U$ c'est-à-dire la transitivité de $R_U$.
+	Soit donc $x$, $y$ et $z$ tels que $xR_Uy$ et $yR_Uz$.
+	Ainsi $x\in U\implies y\in U$ et $y\in U\implies z\in U$.
+	Par transitivité de l'implication on a donc $x\in U\implies z\in U$ soit $xR_Uz$.
+\end{remarque}
 
-\begin{figure}[h]
+\begin{remarque}
+	% On se servira plusieurs fois dans la suite de la démarche suivante.
+	Si $R\in\scr{U}_\rm{Pervin}$ il existe $S$ dans la prébase de Pervin tel que $S\subset R$.
+	Par définition de celle-ci il existe donc une famille finie d'ouverts $(U_i)_{1\leqslant i\leqslant n}$ tel que $S=R_{U_1}\cap\dots\cap R_{U_n}=\bigcap_{i=1}^nR_{U_i}$.
+	Pour tout $A, B\subset E^2$ on voit sur un dessin que $(A\cap B)[x]=A[x]\cap B[x]$ c'est-à-dire que la tranche en $x$ d'une intersection de patates c'est l'intersection des tranches de patates.
+	Par récurrence on a ainsi $S[x]=(\bigcap_{i=1}^nR_{U_i})[x]=\bigcap_{i=1}^nR_{U_i}[x]$.
+	Le schéma \ref{fig:pervin} montre que si $x\in U$ alors $R_U[x]=U$ et sinon $R_U[x]=E$.
+	En collectionnant dans un ensemble $J$ les indices $j$ tels que $x\in U_j$ on a donc $S[x]=\bigcap_{j\in J}U_j$.
+	C'est un ouvert en tant qu'intersection finie d'ouvert et il contient $x$ car construction.
+	On a donc montré l'existence d'un ouvert $O$ tel que $x\in O\subset R[x]$ pour tout $x\in E$.
+\end{remarque}
+
+\begin{figure}
 	\centring
-	\begin{tikzpicture}[scale=4]
+	\begin{tikzpicture}[scale=6]
 		\pgfmathsetmacro{\x}{0.23}
 		\pgfmathsetmacro{\l}{0.23}
 		\fill[black!10!white] (0, 0) rectangle (\x, 1);
@@ -2010,58 +2061,104 @@ Par transitivité de l'implication $x\in U\implies z\in U$ donc $(x, z)\in R_U$.
 		\node at (0.81, 0.91) {$\Delta$};
 	\end{tikzpicture}
 	\caption{Représentation d'un élément de la prébase de Pervin}
+	\label{fig:pervin}
 \end{figure}
 
 \begin{demonstration}
-	Montrons que les intersections finies $\frak{B}$ de $\frak{A}_\text{Pervin}$ est une base d'uniformité.
+	Montrons que les intersections finies $\frak{B}_\rm{Pervin}$ de $\frak{A}_\rm{Pervin}$ est une base d'uniformité.
 	\begin{itemise}
 		\item Chaque élément de la famille contient la diagonale ce qui passe à l'interserction.
-		\item Les intersections de deux éléments de $\frak{B}$ sont par définition dans $\frak{B}$.
+		\item Les intersections de deux éléments de $\frak{B}_\rm{Pervin}$ sont par définition dans $\frak{B}_\rm{Pervin}$.
 		\item Soit $S=R_{U_1}\cap\dots\cap R_{U_n}$ une intersection finie de relations de Pervin.
-		On cherche $R$ une relation de $\frak{B}$ telle que $R\circ R\subset S$.
+		On cherche $R$ une relation de $\frak{B}_\rm{Pervin}$ telle que $R\circ R\subset S$.
 		Montrons que $S$ convient.
-		Soit $(x, z)\in S\circ S$ il existe $y$ tel que $(x, y), (y, z)\in S$ donc pour $i$ quelconque $(x, y), (y, z)\in R_{U_i}$.
-		Ainsi $(x, z)\in R_{U_i}\circ R_{U_i}$ et d'après ce qui précède $(x, z)\in R_{U_i}$.
+		Soit $(x, z)\in S\circ S$ il existe $y$ tel que $(x, y), (y, z)\in S\subset R_i$ pour un $i$ quelconque.
+		Ainsi $(x, z)\in R_{U_i}\circ R_{U_i}$ et par transitivité $(x, z)\in R_{U_i}$.
 		En passant à l'intersection $(x, z)\in S$.
 	\end{itemise}
-	Soit $\scr{U}$ la quasi-uniformité engendrée par $\frak{B}$ et $\scr{T}_\scr{U}$ la topologie engendrée par $\scr{U}$.
-	Montrons que $\scr{T}_\scr{U}=\scr{T}$ par double inclusion.
+	Soit $\scr{U}_\rm{Pervin}$ la quasi-uniformité engendrée par $\frak{B}_\rm{Pervin}$ et $\scr{T}_\rm{Pervin}$ la topologie engendrée par $\scr{U}_\rm{Pervin}$.
+	Montrons par double inclusion que $\scr{T}=\scr{T}_\rm{Pervin}$.
 	\begin{itemise}
-		\item[$\subset$] Soit $U$ un ouvert de $\scr{T}$ et $x\in U$.
-		Alors $R_U[x]=U$ est un voisinage de $x$ d'après $\scr{U}$ donc $U$ est un ouvert de $\scr{T}_\scr{U}$.
-		\item[$\supset$] Soit $V\in\scr{T}_\scr{U}$ et $x\in V$.
-		La topologie engendrée par des voisinages dit que $V$ est un voisinage de $x$.
-		Ainsi il existe $U\in\scr{U}$ tel que $V=U[x]$.
-		Par définition de $\scr{U}$ il existe un élément $S\in\frak{B}$ tel que $S\subset U$.
-		Donc il existe une famille finie de relations de $R_{U_i}$ telles que $S=R_{U_1}\cap\dots\cap R_{U_n}$.
-		Par récurrence $(R_{U_1}\cap\dots\cap R_{U_n})[x]=R_{U_1}[x]\cap\dots\cap R_{U_n}[x]$.
-		Avec le dessin on a $R_U[x]=U$ si $x\in U$ et $R_U[x]=E$ sinon.
-		Ainsi $V=U[x]\supset S[x]=\bigcap_{\substack{i=1 \\ x\in U_i}}^nU_i$ qui contient $x$.
-		C'est aussi un ouvert de $\scr{T}$ en tant qu'intersection finie d'ouverts.
+		\item[$\subset$] Soit $U\in\scr{T}$ et $x\in U$.
+		Puisque $U=R_U[x]$ est un voisinage de $x$ d'après $\scr{U}_\rm{Pervin}$ alors $U$ est un ouvert de $\scr{T}_\rm{Pervin}$.
+		\item[$\supset$] Soit $U\in\scr{T}_\rm{Pervin}$ et $x\in U$.
+		La topologie engendrée par des voisinages dit que $U$ est un voisinage de $x$.
+		Ainsi il existe $R\in\scr{U}$ tel que $U=R[x]$.
+		D'après la remarque précédente il existe $O_x$ un ouvert de $\scr{T}$ tel que $x\in O_x\subset R[x]=U$.
+		Ainsi $U=\bigcup_{x\in U}O_x$ est un ouvert de $\scr{T}$.
 	\end{itemise}
 \end{demonstration}
 
 \section{Séparation}
 
 \begin{proposition}
-	Un espace topologie $E$ est $T_3$ si et seulement si sa quasi-uniformité de Pervin vérifie $\forall U\in\scr{U}, \forall x\in E, \exists V\in\scr{U}, V=\inv{V}\et (V\circ V)[x]\subset U[x]$
+	Un espace topologie $E$ est $T_3$ si et seulement si sa quasi-uniformité de Pervin vérifie
+	\begin{align*}
+		\forall R\in\scr{U}_\rm{Pervin},\quad \forall x\in E,\quad \exists S\in\scr{U},\quad S=\inv{S}\et (S\circ S)[x]\subset R[x]
+	\end{align*}
 \end{proposition}
 
 \equivalence{Par double implication.}{
-	Soit $U\in\scr{U}$ et $x\in E$.
-	$U[x]$ est un voisinage de $x$ donc $\exists O\in\scr{T}, x\in O\subset U[x]$.
-	Or $x\notin\complement O$ fermé donc par $T_3$ $\exists U, \complement F\in\scr{T}, x\in U\et\complement O\subset\complement F\et U\cap\complement F=\vide$ ce qui s'écrit aussi $x\in U\subset F\subset O$.
-	Posons $V=F^2\cup\complement^2F\cup(O\setminus U)^2$ est symétrique.
+	Supposons la topologie $T_3$ et prenons $R\in\scr{U}_\rm{Pervin}$ et $x\in E$.
+	D'après la remarque précédente il existe $O$ un ouvert tel que $x\in O\subset R[x]$.
+	Ainsi $\complement O$ est un fermé ne contenant pas $x$ donc par $T_3$ il existe deux ouvert $U$, $V$ d'intersection vide tels que $x\in U$ et $\complement O\subset V$.
+	Cela montre $x\in U\subset\complement V\subset O$.
+	Posons $S = V^2\cup(\complement V)^2\cup(O\cap U)^2$.
+
+	C'est un élément de la base de Pervin car :
+	\begin{align*}
+		R_O\cap R_V\cap R_{O\cap U}
+		&=(O^2\cup\complement O\times E)\cap(V^2\cup\complement V\times E)\cap((O\cap U)^2\cup\complement (O\cap U)\times E) \\
+		&=(O^2\cup\complement O\times E)\cap(V^2\cup\complement V\times E)\cap((O\cap U)^2\cup\complement (O\cap U)\times E) \\
+	\end{align*}
+
+	\begin{figure}[h]
+		\centring
+		\begin{tikzpicture}[scale=6]
+			\pgfmathsetmacro{\x}{0.5}
+			\draw[very thick] (\x, -0.01) node[anchor=south west] {$x$} -- (\x, +0.01);
+			% O
+			\pgfmathsetmacro{\o}{0.3}
+			%\fill[black!10!white] (0, 0) rectangle (\x-\o, 1);
+			%\fill[black!10!white] (\x+\o, 0) rectangle (1, 1);
+			\fill[black!10!white] (\x-\o,\x-\o) rectangle (\x+\o, \x+\o);
+			%\draw[dashed] (\x-\o, 0) -- (\x-\o, 1);
+			%\draw[dashed] (\x+\o, 0) -- (\x+\o, 1);
+			\draw[very thick] (\x-\o, 0) node[anchor=south west] {$O$} -- (\x+\o, 0);
+			% V
+			\pgfmathsetmacro{\v}{0.3}
+			\draw[dotted] (\v, -0.03) -- (\v, 1);
+			\draw[dotted] (1-\v, -0.03) -- (1-\v, 1);
+			\draw[very thick] (0, -0.03) node[anchor=north west] {$V$} -- (\v, -0.03);
+			\draw[very thick] (1-\v, -0.03) -- (1, -0.03);
+			\draw[pattern=north west lines] (0, 0) rectangle (\v, \v);
+			\draw[pattern=north west lines] (1-\v, 1-\v) rectangle (1, 1);
+			% U
+			\pgfmathsetmacro{\u}{0.1}
+			\draw[very thick] (\x-\u, -0.06) node[anchor=north west] {$U$} -- (\x+\u, -0.06);
+			% CV
+			\draw[pattern=horizontal lines] (\v, \v) rectangle (1-\v, 1-\v);
+			% O\
+
+			\draw (0,0) -- (1,0) -- (1,1) -- (0,1) -- cycle;
+			\draw[very thick] (0,0) -- (1,1);
+			% \node at (0.81, 0.91) {$\Delta$};
+		\end{tikzpicture}
+	\end{figure}
+
+
+	Or $x\notin\complement O$ fermé donc par $T_3$ $\exists R, \complement F\in\scr{T}, x\in R\et\complement O\subset\complement F\et R\cap\complement F=\vide$ ce qui s'écrit aussi $x\in R\subset F\subset O$.
+	Posons $V=F^2\cup\complement^2F\cup(O\setminus R)^2$ est symétrique.
 	\begin{itemise}
 		\item $(O^2\cup\complement O\times E)\cap(\complement^2F\cup F\times E)=[O^2\cap...]\cup[\complement^2F\cap...]\cup[\cancel{(\complement O\cap F)}\times E]\subset V$ et le membre de gauche est dans la base de Pervin montrant $V\in\scr{U}$.
-		\item Si $(x, y)\in(F\setminus U)\times\complement F$ et $t\in O\setminus F$ (rectangle et ligne rouge) on a $(x, t)\in(F\setminus U)\times(O\setminus F)\subset(O\setminus U)^2\subset V$ et $(t, y)\in(O\setminus F)\times\complement F\subset(\complement F)^2\subset V$ montrant $(F\setminus U)\times\complement F\subset V\circ V$.
-		Or $V$ est symétrique donc $V\circ V$ aussi donc $\complement F\times(F\setminus U)\subset V\circ V$.
-		Puisque $V\subset V\circ V$ ainsi $(F\setminus U)^2\subset F^2\subset V\circ V$ et $\complement^2 F\subset V\circ V$.
-		Ainsi $(F\setminus U)^2\cup(F\setminus U\times\complement F)\cup(\complement F\times F\setminus U)\cup\complement^2F=[(F\setminus U)\cup\complement F]^2=\complement^2U\subset V\circ V$.
-		\item Idem pour $(x, y)\in(O\setminus F)\times F$ et $t\in F\setminus U$ (en bleu) montrant $O^2\subset V\circ V$.
-		\item En développant on a $\complement(O^2\cup\complement^2 U)=(U\times\complement O)\cup(\complement O\times U)$.
-		Par symétrie limitons nous à $(x, y)\in U\times\complement O$  (en noir).
-		Pour avoir $(x, t), (t, y)\in V$ il faudrait $(x, t)\in F^2$ et $(t, y)\in\complement^2F$ soit $t\in\vide$ ce qui est impossible donc $U\times\complement O\not\subset V\circ V$.
+		\item Si $(x, y)\in(F\setminus R)\times\complement F$ et $t\in O\setminus F$ (rectangle et ligne rouge) on a $(x, t)\in(F\setminus R)\times(O\setminus F)\subset(O\setminus R)^2\subset V$ et $(t, y)\in(O\setminus F)\times\complement F\subset(\complement F)^2\subset V$ montrant $(F\setminus R)\times\complement F\subset V\circ V$.
+		Or $V$ est symétrique donc $V\circ V$ aussi donc $\complement F\times(F\setminus R)\subset V\circ V$.
+		Puisque $V\subset V\circ V$ ainsi $(F\setminus R)^2\subset F^2\subset V\circ V$ et $\complement^2 F\subset V\circ V$.
+		Ainsi $(F\setminus R)^2\cup(F\setminus R\times\complement F)\cup(\complement F\times F\setminus R)\cup\complement^2F=[(F\setminus R)\cup\complement F]^2=\complement^2R\subset V\circ V$.
+		\item Idem pour $(x, y)\in(O\setminus F)\times F$ et $t\in F\setminus R$ (en bleu) montrant $O^2\subset V\circ V$.
+		\item En développant on a $\complement(O^2\cup\complement^2 R)=(R\times\complement O)\cup(\complement O\times R)$.
+		Par symétrie limitons nous à $(x, y)\in R\times\complement O$  (en noir).
+		Pour avoir $(x, t), (t, y)\in V$ il faudrait $(x, t)\in F^2$ et $(t, y)\in\complement^2F$ soit $t\in\vide$ ce qui est impossible donc $R\times\complement O\not\subset V\circ V$.
 	\end{itemise}
 	\begin{center}
 		\begin{tikzpicture}[scale=3]
@@ -2084,15 +2181,15 @@ Par transitivité de l'implication $x\in U\implies z\in U$ donc $(x, z)\in R_U$.
 			\draw[dashed, black!20!red] (\x,\y)--(\x,\t)--(\t,\t)--(\t,\y)--cycle;
 		\end{tikzpicture}
 	\end{center}
-	Ainsi $V\circ V=O^2\cup\complement^2 U$ donc $(V\circ V)[x]=O\subset U[x]$ car $x\notin\complement U$.
+	Ainsi $V\circ V=O^2\cup\complement^2 R$ donc $(V\circ V)[x]=O\subset R[x]$ car $x\notin\complement R$.
 }{
 	Soit $\scr{U}$ vérifiant la propriété, $\scr{T}$ la topologie engendrée par $\scr{U}$, $F\in\complement\scr{T}$ et $x\notin F$.
-	Ainsi $\complement F$ est un voisinage de $x$ donc par définition $\exists U\in\scr{U}, \complement F=U[x]$.
-	D'après la propriété $\exists V\in\scr{U}, V=\inv{V}\et V\circ V[x]\subset U[x]$.
+	Ainsi $\complement F$ est un voisinage de $x$ donc par définition $\exists R\in\scr{U}, \complement F=R[x]$.
+	D'après la propriété $\exists V\in\scr{U}, V=\inv{V}\et V\circ V[x]\subset R[x]$.
 	De $y\in\overline{V[x]}$ c'est à dire $y$ adhère à $V[x]$ alors tout voisinage de $y$ rencontre $V[x]$.
 	Or $V[y]$ est un voisinage de $y$ donc $V[x]\cap V[y]\neq\vide$.
 	Soit $z\in V[x]\cap V[y]$ alors $(x, z), (y, z)\in V$ donc par symétrie $(x, z), (z, y)\in V$ soit $y\in V\circ V[x]$.
-	Ainsi $\overline{V[x]}\subset U[x]=\complement F$ donc $x\in V[x], F\subset\complement\overline{V[x]}, V[x]\cap\complement\overline{V[x]}=\vide$ faisant de l'espace un $T_3$.	
+	Ainsi $\overline{V[x]}\subset R[x]=\complement F$ donc $x\in V[x], F\subset\complement\overline{V[x]}, V[x]\cap\complement\overline{V[x]}=\vide$ faisant de l'espace un $T_3$.	
 }
 
 \section{Équivalence}
@@ -2326,9 +2423,9 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Par contraposée soit $(F_i)_{i\in I}$ une famille de fermés de $E$ dont les intersections finies sont non vides.
 	Posons $\frak{B}$ la collection de ces intersections.
 	C'est une base de filtre car ses éléments sont non vides et qu'elle est stable par intersection deux à deux.
-	Par hypothèse, il existe donc un filtre $\frak{F}$ convergent plus fin que $\sigma_\text{filtre}(\frak{B})$.
+	Par hypothèse, il existe donc un filtre $\frak{F}$ convergent plus fin que $\sigma_\rm{filtre}(\frak{B})$.
 	Soit $x$ sa limite.
-	Ainsi $\sigma_\text{filtre}(\frak{B})$ est un filtre sur $F_i$ (qui est une intersection finie des $F_{i\in I}$) convergent vers $x$ donc $x$ adhère à tout les $F_i$ fermés donc $\forall i\in I, x\in F_i$ soit $\bigcap_{i\in I}F_i\neq\vide$.
+	Ainsi $\sigma_\rm{filtre}(\frak{B})$ est un filtre sur $F_i$ (qui est une intersection finie des $F_{i\in I}$) convergent vers $x$ donc $x$ adhère à tout les $F_i$ fermés donc $\forall i\in I, x\in F_i$ soit $\bigcap_{i\in I}F_i\neq\vide$.
 }
 
 \begin{proposition}
@@ -2355,7 +2452,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Alors $\pi_i(\frak{U})$ est la base d'un ultrafiltre $\frak{U}_i$ sur $E_i$, qui converge d'après le théorème précédent.
 	Appelons $x_i\in E_i$ sa limite et posons $x=(x_i)_{i\in I}\in E$.
 	Soit $U=\prod_{k=1}^nO_{i_k}\times\prod_{i\in I\setminus\{i_1, ..., i_n\}}E_i$ un ouvert élémentaire de $E$ contenant $x$.
-	Comme $\frak{U}_i\rightarrow x_i$ on a $O_{i_k}\in\frak{U}_{i_k}=\sigma_\text{filtre}(\pi_{i_k}(\frak{U}))$.
+	Comme $\frak{U}_i\rightarrow x_i$ on a $O_{i_k}\in\frak{U}_{i_k}=\sigma_\rm{filtre}(\pi_{i_k}(\frak{U}))$.
 	Puisque $\pi_{i_k}(\frak{U})$ est une base $\exists V\in\frak{U}, \pi_{i_k}(V)\subset O_{i_k}$ soit $V\subset\inv{\pi_{i_k}}(O_{i_k})$.
 	Par croissance des filtres $\inv{\pi_{i_k}}(O_{i_k})=O_{i_k}\times\prod_{i_k\neq j\in I}E_j\in\frak{U}$.
 	Par stabilité des filtres par intersection finie $\bigcap_{k=1}^n\inv{\pi_{i_k}}(O_{i_k})=U\in\frak{U}$.
@@ -2709,7 +2806,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 
 \begin{proposition}
 	Soit $X$ une partie d'un espace métrique $E$.
-	Alors $\overline{X}=\overline{X}^\mathrm{seq}$
+	Alors $\overline{X}=\overline{X}^\rm{seq}$
 \end{proposition}
 
 \begin{demonstration}
@@ -2924,7 +3021,7 @@ $
 \end{proposition}
 
 \begin{demonstration}
-	Posons $\Phi:\scr{T}\mapsto\sigma_\text{quasi}(\frak{B})$ avec $\frak{B}$ la famille des intersections finies de $\frak{B}'=\ens{O^2\cup\complement O\times E}{O\in\scr{T}}$ (appelée prébase de Pervin).
+	Posons $\Phi:\scr{T}\mapsto\sigma_\rm{quasi}(\frak{B})$ avec $\frak{B}$ la famille des intersections finies de $\frak{B}'=\ens{O^2\cup\complement O\times E}{O\in\scr{T}}$ (appelée prébase de Pervin).
 	Montrons que $\frak{B}$ est une base de quasi-uniformité.
 	\begin{itemise}
 		\item Si $X\in\frak{B}'$ alors $\Delta_E\subset X$.
@@ -3024,14 +3121,14 @@ $
 }
 
 \begin{proposition}
-	Si $\frak{B}$ est une base $\sigma_\text{topologie}(\frak{B})=\{U\subset E| \exists X_{i\in I}\in\frak{B}, U=\bigcup_{i\in I}X_i}$
+	Si $\frak{B}$ est une base $\sigma_\rm{topologie}(\frak{B})=\{U\subset E| \exists X_{i\in I}\in\frak{B}, U=\bigcup_{i\in I}X_i}$
 \end{proposition}
 
 \begin{demonstration}
-	Notons l'ensemble de droite $\scr{T}=\ens{U\subset E}{\exists X_{i\in I}\in\frak{B}, U=\bigcup_{i\in I}X_i}$ et montrons $\scr{T}=\sigma_\text{topologie}(\frak{B})$ par double inclusion.
+	Notons l'ensemble de droite $\scr{T}=\ens{U\subset E}{\exists X_{i\in I}\in\frak{B}, U=\bigcup_{i\in I}X_i}$ et montrons $\scr{T}=\sigma_\rm{topologie}(\frak{B})$ par double inclusion.
 	\begin{itemise}
 		\item[$\subset$] Soit $O\in\scr{T}$ alors $\exists X_{i\in I}\in\frak{B}, O=\bigcup_{i\in I}X_i$.
-		Or $\sigma_\text{topologie}(\frak{B})$ continent $\frak{B}$ donc $X_{i\in I}\in\sigma_\text{topologie}(\frak{B})$, et est une topologie donc $O=\bigcup_{i\in I}X_i\in\sigma_\text{topologie}(\frak{B})$.
+		Or $\sigma_\rm{topologie}(\frak{B})$ continent $\frak{B}$ donc $X_{i\in I}\in\sigma_\rm{topologie}(\frak{B})$, et est une topologie donc $O=\bigcup_{i\in I}X_i\in\sigma_\rm{topologie}(\frak{B})$.
 		\item[$\supset$] Montons que $\scr{T}$ est une topologie.
 		\begin{itemise}
 			\item de $E\subset\bigcup_{X\in\frak{B}}X$ on a $E\in\scr{T}$.
@@ -3042,41 +3139,41 @@ $
 			\item Si $O_{i\in I}\in\scr{T}$ alors $\exists X^i_{j\in J}\in\frak{B}, O_i=\bigcup_{i\in I, j\in J}X^i_j$ donc $\bigcup_{i\in I}O_i=\bigcup_{i\in I, j\in J}X^i_j\in\scr{T}$.
 		\end{itemise}
 		De plus $\scr{T}$ contient $\frak{B}$.
-		Or $\sigma_\text{topologie}(\frak{B})$ est la plus petite topologie contenant $\frak{B}$.
-		Donc $\scr{T}\supset\sigma_\text{topologie}(\frak{B})$.
+		Or $\sigma_\rm{topologie}(\frak{B})$ est la plus petite topologie contenant $\frak{B}$.
+		Donc $\scr{T}\supset\sigma_\rm{topologie}(\frak{B})$.
 	\end{itemise}
 \end{demonstration}
 
 Soit $\frak{V}$ une voisinagination de $E$.
-Vérifions que $\scr{T}_\text{ouvert}=\Phi(\frak{V})$ est une topologie d'ouverts.
+Vérifions que $\scr{T}_\rm{ouvert}=\Phi(\frak{V})$ est une topologie d'ouverts.
 \begin{itemise}
-	\item $\forall x\in\vide, \vide\in\frak{V}(x)$ est vrai donc $\vide\in\scr{T}_\text{ouvert}$ et $E\in\scr{T}_\text{ouvert}$ par hypothèse.
-	\item Si $O, O'\in\scr{T}_\text{ouvert}$ alors $x\in O\cap O'$ implique $x\in O\et x\in O'$ donc $O\in\frak{V}(x)\et O'\in\frak{V}(x)$, soit $O, O'\in\frak{V}(x)$.
-	Par définition des voisinaginations $O\cap O'\in\frak{V}(x)$ soit $O\cap O'\in\scr{T}_\text{ouvert}$.
-	\item Si $O_{i\in I}\in\scr{T}_\text{ouvert}$ alors $x\in\bigcup_{i\in I} O_i$ implique $\exists i\in I, x\in O_i$.
-	Ainsi $O_i\in\frak{V}(x)\et O_i\subset\bigcup_{i\in I} O_i$, donc par définition des voisinaginations $\bigcup_{i\in I} O_i\in\frak{V}(x)$ soit $\bigcup_{i\in I} O_i\in\scr{T}_\text{ouvert}$.
+	\item $\forall x\in\vide, \vide\in\frak{V}(x)$ est vrai donc $\vide\in\scr{T}_\rm{ouvert}$ et $E\in\scr{T}_\rm{ouvert}$ par hypothèse.
+	\item Si $O, O'\in\scr{T}_\rm{ouvert}$ alors $x\in O\cap O'$ implique $x\in O\et x\in O'$ donc $O\in\frak{V}(x)\et O'\in\frak{V}(x)$, soit $O, O'\in\frak{V}(x)$.
+	Par définition des voisinaginations $O\cap O'\in\frak{V}(x)$ soit $O\cap O'\in\scr{T}_\rm{ouvert}$.
+	\item Si $O_{i\in I}\in\scr{T}_\rm{ouvert}$ alors $x\in\bigcup_{i\in I} O_i$ implique $\exists i\in I, x\in O_i$.
+	Ainsi $O_i\in\frak{V}(x)\et O_i\subset\bigcup_{i\in I} O_i$, donc par définition des voisinaginations $\bigcup_{i\in I} O_i\in\frak{V}(x)$ soit $\bigcup_{i\in I} O_i\in\scr{T}_\rm{ouvert}$.
 \end{itemise}
 
 $$
-	\scr{T}_\text{ouvert}\underset{\Psi}{\longmapsto}\frak{V}\underset{\Phi}{\longmapsto}\scr{T}_\text{ouvert}'
+	\scr{T}_\rm{ouvert}\underset{\Psi}{\longmapsto}\frak{V}\underset{\Phi}{\longmapsto}\scr{T}_\rm{ouvert}'
 $$
 
 Vérifions que $\Psi\circ\Phi=\id$.
-Soit $\scr{T}_\text{ouvert}$ une topologie d'ouverts de $E$.
-Vérifions que $\scr{T}_\text{ouvert}'=\scr{T}_\text{ouvert}$.
+Soit $\scr{T}_\rm{ouvert}$ une topologie d'ouverts de $E$.
+Vérifions que $\scr{T}_\rm{ouvert}'=\scr{T}_\rm{ouvert}$.
 
 $$
-	\frak{V}\underset{\Phi}{\longmapsto}\scr{T}_\text{ouvert}\underset{\Psi}{\longmapsto}\frak{V}'
+	\frak{V}\underset{\Phi}{\longmapsto}\scr{T}_\rm{ouvert}\underset{\Psi}{\longmapsto}\frak{V}'
 $$
 Soit $\frak{V}$ une voisinagination de $E$.
 Vérifions que $\frak{V}'=\frak{V}$.
 \begin{itemise}
 	\item Si $V\in\frak{V}(x)$ posons $O=\ens{y\in E}{V\in\frak{V}(y)}$.
 	Puisque $x\in V$ alors $x\in O$.
-	Si $y\in O$ alors $V\in\frak{V}(y)$ donc $y\in V$ soit $O\subset V$, et $\exists W\in\frak{V}(y), \forall z\in W, V\in\frak{V}(z)$ soit $z\in O$  donc $W\subset O$ puis $O\in\frak{V}(y)$ par définition de voisinagination, donc $O\in\Psi(\frak{V})=\scr{T}_\text{ouvert}$.
-	Ainsi $\exists O\in\scr{T}_\text{ouvert}, x\in O\subset V$ donc $V\in\Psi(\scr{T}_\text{ouvert})(x)=\frak{V}'(x)$.
-	\item Si $V'\in\frak{V}'(x)$ alors $\exists O\in\scr{T}_\text{ouvert}, x\in O\subset V'$.
-	Or $\scr{T}_\text{ouvert}=\Phi(\frak{V})$ donc $O\in\frak{V}(x)$, puis $V'\in\frak{V}(x)$ par définition d'une voisinagination.
+	Si $y\in O$ alors $V\in\frak{V}(y)$ donc $y\in V$ soit $O\subset V$, et $\exists W\in\frak{V}(y), \forall z\in W, V\in\frak{V}(z)$ soit $z\in O$  donc $W\subset O$ puis $O\in\frak{V}(y)$ par définition de voisinagination, donc $O\in\Psi(\frak{V})=\scr{T}_\rm{ouvert}$.
+	Ainsi $\exists O\in\scr{T}_\rm{ouvert}, x\in O\subset V$ donc $V\in\Psi(\scr{T}_\rm{ouvert})(x)=\frak{V}'(x)$.
+	\item Si $V'\in\frak{V}'(x)$ alors $\exists O\in\scr{T}_\rm{ouvert}, x\in O\subset V'$.
+	Or $\scr{T}_\rm{ouvert}=\Phi(\frak{V})$ donc $O\in\frak{V}(x)$, puis $V'\in\frak{V}(x)$ par définition d'une voisinagination.
 \end{itemise}
 
 
