@@ -1856,7 +1856,7 @@ Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales 
 \begin{figure}
 	\centring
 	\begin{tikzpicture}[scale=6]
-		\draw (0,0) -- (1,0) -- (1,1) -- (0,1) -- cycle;
+		\draw (0,0) rectangle (1,1);
 		\draw[very thick] (0,0) -- (1,1);
 		\node at (0.81, 0.91) {$\Delta$};
 		% G
@@ -2056,7 +2056,7 @@ Nous allons résoudre ici le problème réciproque : étant donné une topologie
 		\draw[dashed] (\x, 0) -- (\x, 1);
 		\draw[dashed] (\x+\l, 0) -- (\x+\l, 1);
 		\draw[very thick] (\x, 0) node[anchor=north west] {$U$} -- (\x+\l, 0);
-		\draw (0,0) -- (1,0) -- (1,1) -- (0,1) -- cycle;
+		\draw (0,0) rectangle (1,1);
 		\draw[very thick] (0,0) -- (1,1);
 		\node at (0.81, 0.91) {$\Delta$};
 	\end{tikzpicture}
@@ -2094,102 +2094,82 @@ Nous allons résoudre ici le problème réciproque : étant donné une topologie
 \begin{proposition}
 	Un espace topologie $E$ est $T_3$ si et seulement si sa quasi-uniformité de Pervin vérifie
 	\begin{align*}
-		\forall R\in\scr{U}_\rm{Pervin},\quad \forall x\in E,\quad \exists S\in\scr{U},\quad S=\inv{S}\et (S\circ S)[x]\subset R[x]
+		\forall R\in\scr{U}_\rm{Pervin},\quad \forall x\in E,\quad \exists S\in\scr{U}_\rm{Pervin},\quad S=\inv{S}\et (S\circ S)[x]\subset R[x]
 	\end{align*}
 \end{proposition}
 
 \equivalence{Par double implication.}{
 	Supposons la topologie $T_3$ et prenons $R\in\scr{U}_\rm{Pervin}$ et $x\in E$.
 	D'après la remarque précédente il existe $O$ un ouvert tel que $x\in O\subset R[x]$.
-	Ainsi $\complement O$ est un fermé ne contenant pas $x$ donc par $T_3$ il existe deux ouverts $U$, $V$ d'intersection vide tels que $x\in U$ et $\complement O\subset V$.
-	Cela montre $x\in U\subset\complement V\subset O$.
-	Posons $S = V^2\cup(\complement V)^2\cup(O\cap U)^2$.
+	Ainsi $\complement O$ est un fermé ne contenant pas $x$ donc par $T_3$ il existe deux ouverts $U$ et $U'$ tels que $x\in U$, $\complement O\subset U'$ et d'intesection vide.
+	Cela montre $x\in U\subset\complement U'\subset O$ donc en particulier $x\in U\subset\overline{U}\subset O$.
 
-	C'est un élément de la base de Pervin car :
-	\begin{align*}
-		R_O\cap R_V\cap R_{O\cap U}
-		&=(O^2\cup\complement O\times E)\cap(V^2\cup\complement V\times E)\cap((O\cap U)^2\cup\complement (O\cap U)\times E) \\
-		&=(O^2\cup\complement O\times E)\cap(V^2\cup\complement V\times E)\cap((O\cap U)^2\cup\complement (O\cap U)\times E) \\
-	\end{align*}
+	Posons $S_{OU} = O^2\cup(\complement\overline{U})^2$.
+	C'est un élément de $\scr{U}_\rm{Pervin}$ car il inclut $R_O\cap R_{\complement\overline{U}}$.
+	En effet chaque terme du développement est inclus dans $O^2$ dans $(\complement\overline{U})^2$ ou vides donc toujours dans $S_{OU}$.
+	On peut répéter l'argument de séparation à partir de $x\in U$.
+	Il existe donc un ouvert $V$ tel que $x\in V\subset\overline{V}\subset U$ que $S_{UV}=U^2\cup(\complement\overline{V})^2$ est un élément de $\scr{U}_\rm{Pervin}$.
+	Ainsi $S=S_{OU}\cap S_{UV}$ est symétrique dans l'unformité de Pervin.
 
-	\begin{figure}[h]
+	Montrons qu'il est solution du problème.
+	Soit $z\in(S\circ S)[x]$ il existe donc $y$ tel que $(x, y), (y, z)\in S=S_{OU}\cap S_{UV}$.
+	En particulier $(x, y)\in S_{UV}$ et $(y, z)\in S_{OU}$.
+	Puisque $x\in V$ alors $x\notin\complement\overline{V}$ donc $y\in U$ puis $y\notin\complement\overline{U}$ ce qui montre $z\in O$.
+	Ainsi $(S\circ S)[x]\subset O\subset R[x]$.
+	\begin{figure}
 		\centring
 		\begin{tikzpicture}[scale=6]
+			\draw (0,0) rectangle (1,1);
+			\pgfmathsetmacro{\e}{0.01}
 			\pgfmathsetmacro{\x}{0.5}
 			\draw[very thick] (\x, -0.01) node[anchor=south west] {$x$} -- (\x, +0.01);
-			% O
-			\pgfmathsetmacro{\o}{0.3}
-			%\fill[black!10!white] (0, 0) rectangle (\x-\o, 1);
-			%\fill[black!10!white] (\x+\o, 0) rectangle (1, 1);
-			\fill[black!10!white] (\x-\o,\x-\o) rectangle (\x+\o, \x+\o);
-			%\draw[dashed] (\x-\o, 0) -- (\x-\o, 1);
-			%\draw[dashed] (\x+\o, 0) -- (\x+\o, 1);
-			\draw[very thick] (\x-\o, 0) node[anchor=south west] {$O$} -- (\x+\o, 0);
-			% V
-			\pgfmathsetmacro{\v}{0.3}
-			\draw[dotted] (\v, -0.03) -- (\v, 1);
-			\draw[dotted] (1-\v, -0.03) -- (1-\v, 1);
-			\draw[very thick] (0, -0.03) node[anchor=north west] {$V$} -- (\v, -0.03);
-			\draw[very thick] (1-\v, -0.03) -- (1, -0.03);
-			\draw[pattern=north west lines] (0, 0) rectangle (\v, \v);
-			\draw[pattern=north west lines] (1-\v, 1-\v) rectangle (1, 1);
-			% U
-			\pgfmathsetmacro{\u}{0.1}
-			\draw[very thick] (\x-\u, -0.06) node[anchor=north west] {$U$} -- (\x+\u, -0.06);
-			% CV
-			\draw[pattern=horizontal lines] (\v, \v) rectangle (1-\v, 1-\v);
-			% O\
+			\pgfmathsetmacro{\o}{0.4}
+			\pgfmathsetmacro{\u}{0.3}
+			\pgfmathsetmacro{\v}{0.2}
 
-			\draw (0,0) -- (1,0) -- (1,1) -- (0,1) -- cycle;
+			\fill[black!20!white] (0, 0) --
+				(\x-\u, 0) -- (\x-\u, \x-\o) -- (\x-\v, \x-\o) -- (\x-\v, \x-\u) --
+				(\x+\v, \x-\u) -- (\x+\v, \x-\o) -- (\x+\u, \x-\o) -- (\x+\u, 0) -- (1, 0) --
+				(1, \x-\u) -- (\x+\o, \x-\u) -- (\x+\o, \x-\v) -- (\x+\u, \x-\v) --
+				(\x+\u, \x+\v) -- (\x+\o, \x+\v) -- (\x+\o, \x+\u) -- (1, \x+\u) -- (1, 1) --
+				(\x+\u, 1) -- (\x+\u, \x+\o) -- (\x+\v, \x+\o) --
+				(\x+\v, \x+\u) -- (\x-\v, \x+\u) -- (\x-\v, \x+\o) -- (\x-\u, \x+\o) -- (\x-\u, 1) -- 
+				(0, 1) -- (0, \x+\u) -- (\x-\o, \x+\u) -- (\x-\o, \x+\v) -- (\x-\u, \x+\v) --
+				(\x-\u, \x-\v) -- (\x-\o, \x-\v) -- (\x-\o, \x-\u) -- (0, \x-\u) -- cycle;
+
+			\draw[red, very thick] (\x-\o,\x-\o) rectangle (\x+\o, \x+\o);
+			\draw[red, very thick] (\e, \e) rectangle (\x-\u, \x-\u);
+			\draw[red, very thick] (\e, \x+\u) rectangle (\x-\u, 1-\e);
+			\draw[red, very thick] (\x+\u, \x+\u) rectangle (1-\e, 1-\e);
+			\draw[red, very thick] (\x+\u, \e) rectangle (1-\e, \x-\u);
+
+			\draw[blue, very thick] (0, 0) rectangle (\x-\v, \x-\v);
+			\draw[blue, very thick] (\x+\v, \x+\v) rectangle (1, 1);
+			\draw[blue, very thick] (0, \x+\v) rectangle (\x-\v, 1);
+			\draw[blue, very thick] (\x+\v, 0) rectangle (1, \x-\v);
+			\draw[blue, very thick] (\x-\u,\x-\u) rectangle (\x+\u, \x+\u);
+
+			\draw[very thick] (\x-\o, -0.02) -- (\x+\o, -0.02) node[anchor=north east] {$O$};
+			\draw[very thick] (\x-\u, -0.04) -- (\x+\u, -0.04) node[anchor=north east] {$U$};
+			\draw[very thick] (\x-\v, -0.06) -- (\x+\v, -0.06) node[anchor=north east] {$V$};
+			
 			\draw[very thick] (0,0) -- (1,1);
-			% \node at (0.81, 0.91) {$\Delta$};
+			\node[anchor=south east] at (0.5, 0.5) {$\Delta$};
 		\end{tikzpicture}
+		\caption{Représentation de $S_{OU}$ en rouge de $S_{UV}$ en bleu et de l'intersection $S$ en gris}
+		\label{fig:pervin-T3}
 	\end{figure}
-
-
-	Or $x\notin\complement O$ fermé donc par $T_3$ $\exists R, \complement F\in\scr{T}, x\in R\et\complement O\subset\complement F\et R\cap\complement F=\vide$ ce qui s'écrit aussi $x\in R\subset F\subset O$.
-	Posons $V=F^2\cup\complement^2F\cup(O\setminus R)^2$ est symétrique.
-	\begin{itemise}
-		\item $(O^2\cup\complement O\times E)\cap(\complement^2F\cup F\times E)=[O^2\cap...]\cup[\complement^2F\cap...]\cup[\cancel{(\complement O\cap F)}\times E]\subset V$ et le membre de gauche est dans la base de Pervin montrant $V\in\scr{U}$.
-		\item Si $(x, y)\in(F\setminus R)\times\complement F$ et $t\in O\setminus F$ (rectangle et ligne rouge) on a $(x, t)\in(F\setminus R)\times(O\setminus F)\subset(O\setminus R)^2\subset V$ et $(t, y)\in(O\setminus F)\times\complement F\subset(\complement F)^2\subset V$ montrant $(F\setminus R)\times\complement F\subset V\circ V$.
-		Or $V$ est symétrique donc $V\circ V$ aussi donc $\complement F\times(F\setminus R)\subset V\circ V$.
-		Puisque $V\subset V\circ V$ ainsi $(F\setminus R)^2\subset F^2\subset V\circ V$ et $\complement^2 F\subset V\circ V$.
-		Ainsi $(F\setminus R)^2\cup(F\setminus R\times\complement F)\cup(\complement F\times F\setminus R)\cup\complement^2F=[(F\setminus R)\cup\complement F]^2=\complement^2R\subset V\circ V$.
-		\item Idem pour $(x, y)\in(O\setminus F)\times F$ et $t\in F\setminus R$ (en bleu) montrant $O^2\subset V\circ V$.
-		\item En développant on a $\complement(O^2\cup\complement^2 R)=(R\times\complement O)\cup(\complement O\times R)$.
-		Par symétrie limitons-nous à $(x, y)\in R\times\complement O$  (en noir).
-		Pour avoir $(x, t), (t, y)\in V$ il faudrait $(x, t)\in F^2$ et $(t, y)\in\complement^2F$ soit $t\in\vide$ ce qui est impossible donc $R\times\complement O\not\subset V\circ V$.
-	\end{itemise}
-	\begin{centre}
-		\begin{tikzpicture}[scale=3]
-			\pgfmathsetmacro{\x}{0.5};
-			\pgfmathsetmacro{\d}{0.2};
-			\fill[black!10!white] (0,0) rectangle (\x,\x);
-			\fill[black!20!white] (\x,\x) rectangle (1,1);
-			\fill[black!30!white] (\x-\d,\x-\d) rectangle (\x+\d,\x+\d);
-			\draw[dotted] (\x-\d, 0)--(\x-\d, 1) (\x, 0)--(\x, 1) (\x+\d, 0)--(\x+\d, 1);
-			\draw[dotted] (0, \x-\d)--(1, \x-\d) (0, \x)--(1, \x) (0, \x+\d)--(1, \x+\d);
-			\draw[thin] (0,-0.0)--(\x-\d,-0.0) node[right] {$U$};
-			\draw[thin] (0,-0.1)--(\x   ,-0.1) node[right] {$F$};
-			\draw[thin] (0,-0.2)--(\x+\d,-0.2) node[right] {$O$};
-			\draw[thick] (0,\x+\d) rectangle (\x-\d,1);
-			\draw[very thick, black!20!red] (\x-\d,\x) rectangle (\x,1) (\x,\x)--(\x+\d,\x+\d);
-			\draw[very thick, black!20!blue] (\x,0) rectangle (\x+\d,\x) (\x,\x)--(\x-\d,\x-\d);
-			\pgfmathsetmacro{\x}{0.4};
-			\pgfmathsetmacro{\y}{0.9};
-			\pgfmathsetmacro{\t}{0.6};
-			\draw[dashed, black!20!red] (\x,\y)--(\x,\t)--(\t,\t)--(\t,\y)--cycle;
-		\end{tikzpicture}
-	\end{centre}
-	Ainsi $V\circ V=O^2\cup\complement^2 R$ donc $(V\circ V)[x]=O\subset R[x]$ car $x\notin\complement R$.
 }{
-	Soit $\scr{U}$ vérifiant la propriété, $\scr{T}$ la topologie engendrée par $\scr{U}$, $F\in\complement\scr{T}$ et $x\notin F$.
-	Ainsi $\complement F$ est un voisinage de $x$ donc par définition $\exists R\in\scr{U}, \complement F=R[x]$.
-	D'après la propriété $\exists V\in\scr{U}, V=\inv{V}\et V\circ V[x]\subset R[x]$.
-	De $y\in\overline{V[x]}$ c'est à dire $y$ adhère à $V[x]$ alors tout voisinage de $y$ rencontre $V[x]$.
-	Or $V[y]$ est un voisinage de $y$ donc $V[x]\cap V[y]\neq\vide$.
-	Soit $z\in V[x]\cap V[y]$ alors $(x, z), (y, z)\in V$ donc par symétrie $(x, z), (z, y)\in V$ soit $y\in V\circ V[x]$.
-	Ainsi $\overline{V[x]}\subset R[x]=\complement F$ donc $x\in V[x], F\subset\complement\overline{V[x]}, V[x]\cap\complement\overline{V[x]}=\vide$ faisant de l'espace un $T_3$.	
+	Supposons que $\scr{U}_\rm{Pervin}$ vérifie la propriété.
+	Soit $F$ un fermé et $x\notin F$ alors $\complement F$ est un ouvert contenant $x$.
+	Par définition des voisiange par la base de Pervin il existe donc un entourage $R$ tel que $R[x]\subset\complement F$.
+	Par hypothèse il existe un entourage $S$ symétrique tel que $(S\circ S)[x]\subset R[x]$.
+	Montrons que $\overline{S[x]}\subset\complement F$.
+	Soit $y\in\overline{S[x]}$ par définition $S[y]$ est un voisinage de $y$ donc $S[x]\cap S[y]$ est non vide.
+	Prenons $z$ dedans alors $(x, z), (y, z)\in S$ donc par symétrie $(x, z), (z, y)\in S$.
+	Ainsi $(x, y)\in S\circ S$ c'est-à-dire $y\in (S\circ S)[x]\subset R[x]\subset\complement F$.
+	En passant au complémentaire on a donc $F\subset\complement\overline{S[x]}$ et $x\in S[x]$ avec $\complement\overline{S[x]}$ et $S[x]$ deux voisinages d'intersection vide.
+	Cela montre $T_3$.
 }
 
 \section{Équivalence}
