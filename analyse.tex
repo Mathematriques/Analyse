@@ -76,7 +76,7 @@
 \renewcommand{\cal}[1]{\mathcal{#1}}
 \renewcommand{\frak}[1]{\mathfrak{#1}}
 \newcommand{\scr}[1]{\mathscr{#1}}
-\newcommand{\rm}[1]{\mathrm{#1}}
+\renewcommand{\rm}[1]{\mathrm{#1}}
 
 \newcommand\ens[2]{\{#1 \ |\ #2\}}
 \newcommand\equivalence[3]{
@@ -110,7 +110,7 @@
 \tableofcontents
 
 \chapter*{Introduction}
-\begin{center}
+\begin{centre}
 	\begin{tikzpicture}[xscale=3, yscale=2]
 		\node (G) at (1, 1) {$(G, \star)$};
 		\node (M) at (2, 1) {$(\Omega, \mu)$};
@@ -143,7 +143,7 @@
 		\draw[black, -stealth] (ELC)--(EM);
 		\draw[black, -stealth] (EM)--(EN);
 	\end{tikzpicture}
-\end{center}
+\end{centre}
 
 \chapter{Ensembles, en grosse balle}
 
@@ -538,8 +538,8 @@ On donne dans la suite les définitions les plus classiques pour montrer qu'elle
 \section{Définitions}
 
 Les définitions élégantes d'une topologie par les ouverts et des voisinaginations sont celles données par Nicolas Bourbaki.
-Elles utilisent toutes les deux la convention qu'une intersection vide de parties de $E$ est $E$ lui même, et qu'une union vide est $\vide$.
-En pratique on remplace l'intersection finie par une intersection de deux éléments (puisqu'une intersection finie n'est autre qu'une répétion d'intersection de deux éléments) et un axiome pour décrire cette intersection vide.
+Elles utilisent toutes les deux la convention qu'une intersection vide de parties de $E$ est $E$ lui-même, et qu'une union vide est $\vide$.
+En pratique on remplace l'intersection finie par une intersection de deux éléments (puisqu'une intersection finie n'est autre qu'une répétition d'intersection de deux éléments) et un axiome pour décrire cette intersection vide.
 On reformule de plus ces axiomes avec des symboles, plus utilisés et concis.
 Les définitions précédentes étant équivalentes, on se permettra dans la suite de définir des topologies à partir d'une de ces constructions, voir d'un mélange de plusieurs d'entre elles.
 
@@ -575,7 +575,7 @@ Les définitions précédentes étant équivalentes, on se permettra dans la sui
 \end{exemple}
 
 \begin{demonstration}
-	Les deux premières collections sont bien des topologies car les unions et les intersections sont par définition dans la topologie.
+	Les deux premières collections sont bien des topologies, car les unions et les intersections sont par définition dans la topologie.
 	Vérifions que la troisième construction est bien une topologie.
 	La quatrième s'en déduit en remplaçant « fini » par « dénombrable ».
 	\begin{itemise}
@@ -610,8 +610,8 @@ Les définitions précédentes étant équivalentes, on se permettra dans la sui
 \end{definition}
 
 On peut en donner une approche plus constructive en faisant émerger une topologie à partir d'une famille quelconque.
-Pour cela on utilise deux intermédiaires : les bases et prébases d'une topologie.
-Ces notions sont utiles car de nombreuses propriétés d'une topologie se ramènent à des énoncés sur une de ses bases et beaucoup de topologies sont faciles à définir par la donnée d'une base. 
+Pour cela on utilise deux intermédiaires : les bases et pré-bases d'une topologie.
+Ces notions sont utiles, car de nombreuses propriétés d'une topologie se ramènent à des énoncés sur une de ses bases et beaucoup de topologies sont faciles à définir par la donnée d'une base. 
 
 \begin{definition}
 	Une partie $\frak{B}$ de la topologie $\scr{T}$ est appelé une base si tout ouvert de $\scr{T}$ est une réunion d'ouvert de $\frak{B}$.
@@ -698,7 +698,7 @@ Ces notions sont utiles car de nombreuses propriétés d'une topologie se ramèn
 \end{demonstration}
 
 \begin{remarque}
-	Il faut faire un peut attention.
+	Il faut faire un peu attention.
 	\begin{itemise}
 		\item Une intersection infinie d'ouverts peut ne pas être un ouvert : $\bigcap_{x>0}]-x,x[=\{0\}$.
 		\item Une union infinie de fermés peut ne pas être fermée : $\bigcup_{0<x<1}[x,1]=]0, 1]$.
@@ -780,7 +780,7 @@ On énonce donc la continuité dans le cas de deux espaces topologiques $(E, \fr
 	Soit $g$ une application continue en $f(x)$.
 	Utilisons la dernière caractérisation pour montrer que $g\circ f:E\rightarrow G$ est continue en $x$.
 	Soit $W$ un voisinage de $(g\circ f)(x)=g(f(x))$.
-	Par continuité de $g$ en $f(x)$ puis de $f$ en $x$ on a que $\inv{g}(W)$ est un voisinage de ouvert de $f(x)$ et enfin que $\inv{f}(\inv{g}(W))=\inv{g\circ f}(W)$ est un voisinage de $x$.
+	Par continuité de $g$ en $f(x)$ puis de $f$ en $x$ on a que $\inv{g}(W)$ est un voisinage d'ouvert de $f(x)$ et enfin que $\inv{f}(\inv{g}(W))=\inv{g\circ f}(W)$ est un voisinage de $x$.
 \end{demonstration}
 
 \begin{definition}
@@ -824,7 +824,7 @@ On énonce donc la continuité dans le cas de deux espaces topologiques $(E, \fr
 \end{demonstration}
 
 \begin{exemple}
-	Il faut cependant ce méfier :
+	Il faut cependant se méfier :
 	\begin{itemise}
 		\item L'image directe d'un ouvert par une application continue n'est pas nécessairement ouvert (on dit alors que $f$ est ouverte).
 		Par exemple l'image de $\R$ par $x\mapsto\frac{1}{1+x^2}$ est $]0,1]$ qui n'est ni fermé ni ouvert.
@@ -834,7 +834,7 @@ On énonce donc la continuité dans le cas de deux espaces topologiques $(E, \fr
 
 \section{Comparaison de topologies}
 
-Soient $(E, \scr{T}_1)$, $(E, \scr{T}_2)$, $(F, \scr{U})$ des espace topologiques et $f\colon E\rightarrow F$.
+Soient $(E, \scr{T}_1)$, $(E, \scr{T}_2)$, $(F, \scr{U})$ des espaces topologiques et $f\colon E\rightarrow F$.
 
 \begin{definition}
 	On dit que $\scr{U}$ est plus fine que $\scr{T}$ si l'identité $\id\colon(E, \scr{U})\rightarrow(E, \scr{T})$ est continue.
@@ -895,7 +895,7 @@ Soient $(E, \scr{T}_1)$, $(E, \scr{T}_2)$, $(F, \scr{U})$ des espace topologique
 
 \begin{remarque}
 	Cette notion est d’usage fréquent, c’est en particulier à elle qu’on fait appel pour définir la continuité d’une fonction sur un intervalle fermé $[a, b]$ de $\R$.
-	On dira que f est continue sur $[a, b]$ si elle est continue pour la toplogie induite par $\R$ sur cet intervalle, topologie pour laquelle $[a, b]$ est en fait ouvert !
+	On dira que f est continue sur $[a, b]$ si elle est l’est pour la topologie induite par $\R$ sur cet intervalle, topologie pour laquelle $[a, b]$ est en fait ouvert !
 	Les notions de continuité à droite ou à gauche aux bornes de l’intervalle font alors partie intégrante de la notion générale de continuité sur l’espace topologique $[a, b]$.
 \end{remarque}
 
@@ -934,9 +934,9 @@ Soient $(E, \scr{T}_1)$, $(E, \scr{T}_2)$, $(F, \scr{U})$ des espace topologique
 
 \begin{demonstration}
 	Pour assurer la continuité des projections, la topologie produit $\scr{U}$ doit contenir toutes ces images réciproque $\inv{\pi_i}(O_i)=O_i\times\prod_{i\neq j\in I}F_j$.
-	Elle inclue donc $\frak{A}=\ens{O_i\times\prod_{i\neq j\in I}F_j}{i\in I, O_i\in\scr{U}_i}$.
+	Elle inclut donc $\frak{A}=\ens{O_i\times\prod_{i\neq j\in I}F_j}{i\in I, O_i\in\scr{U}_i}$.
 	En tant que topologie, $\scr{U}$ est stable par intersection finie.
-	Elle inclue donc $\frak{B}=\ens{\bigcap_{k=1}^nA_k}{n\in\N^*, A_k\in\frak{A}}$.
+	Elle inclut donc $\frak{B}=\ens{\bigcap_{k=1}^nA_k}{n\in\N^*, A_k\in\frak{A}}$.
 	Soit $B=\bigcap_{k=1}^nA_k\in\frak{B}$.
 	Certain $A_k=O_k\times\prod_{i_k\neq j\in I}F_j$ ont des $i_k$ égaux, c'est à dire des $O_k$ venant d'un même topologie.
 	Soit $i'_{1\leqslant l\leqslant m}$ une renumérotation unique des topologies visités et $K_l=\ens{k}{i_k=i'_l}$ l'ensemble des indices dont les ouverts proviennent du même espace $F_{i'_l}$.
@@ -971,7 +971,7 @@ Soient $(E, \scr{T}_1)$, $(E, \scr{T}_2)$, $(F, \scr{U})$ des espace topologique
 
 On peut trouver \href{https://www.youtube.com/watch?v=xMmQrqdOkwI}{ici} une justification catégorique à cette définition.
 Soit $A\subset X$.
-Inspiré par la théorie des catégorie on peut s'intéresser à un morphisme $f\colon Y\rightarrow A$.
+Inspiré par la théorie des catégories on peut s'intéresser à un morphisme $f\colon Y\rightarrow A$.
 On souhaite éviter de changer la continuité de $f$ en la voyant comme une application de $Y$ dans $A$ ou comme une application de $Y$ dans $X$.
 Cela revient à avoir l'équivalence entre la continuité de $f$ et celle de $\iota\circ f$ où $\iota\colon A\hookrightarrow X$ est l'injection naturelle.
 \begin{align*}
@@ -986,7 +986,7 @@ En effet soit $\scr{T}$ une autre topologie sur $A$ la vérifiant cette proprié
 % 	\end{tikzcd}
 % \end{centre}
 Prenons $Y=(A, \scr{T})$ et $f=\id$ qui est alors continue.
-Ainsi d'après le sens directe $\iota\circ\id=\iota\colon(A, \scr{T})\rightarrow X$ continue donc $\scr{T}_\rm{induite}\subset\scr{T}$.
+Ainsi d'après le sens direct $\iota\circ\id=\iota\colon(A, \scr{T})\rightarrow X$ continue donc $\scr{T}_\rm{induite}\subset\scr{T}$.
 Réciproquement prenons $Y=(A, \scr{T}_\rm{induite})$ et $f=\id$.
 Puisque $\iota\circ\id=\iota$ est continue l'implication réciproque donne $\id\colon(A, \scr{T}_\rm{induite})\rightarrow(A, \scr{T})$ continue donc $\scr{T}\subset\scr{T}_\rm{induite}$.
 
@@ -1044,8 +1044,8 @@ On considère ici un espace topologique $(E, \scr{T})$.
 \begin{proposition}
 	$T_2$ est équivalente à :
 	\begin{itemise}
-		\item tout point de $E$ est l'intersection de ses voisinage fermés.
-		\item quelque soit $I$ la diagonale de $E^I$ est fermée.
+		\item tout point de $E$ est l'intersection de ses voisinages fermés.
+		\item quel que soit $I$ la diagonale de $E^I$ est fermée.
 		\item la diagonale de $E\times E$ est fermée.
 	\end{itemise}
 \end{proposition}
@@ -1101,7 +1101,7 @@ On considère ici un espace topologique $(E, \scr{T})$.
 \section{Classification}
 
 \begin{proposition}
-	\begin{center}
+	\begin{centre}
 		\begin{tikzpicture}[xscale=2.5, yscale=1.5]
 			\node (T0) at (0, 0) {$T_0$};
 			\node (T1) at (1, 0) {$T_1$};
@@ -1141,7 +1141,7 @@ On considère ici un espace topologique $(E, \scr{T})$.
 			\draw[->, dashed] (T23/4) -- node {$\times$} (T3);
 			\draw[->, dashed] (T0+T3) -- node {$\times$} (T31/2);
 		\end{tikzpicture}
-	\end{center}
+	\end{centre}
 \end{proposition}
 
 \begin{demonstration}
@@ -1208,7 +1208,7 @@ On considère ici un espace topologique $(E, \scr{T})$.
 		Considérons $E=T^\circ\cup\{S_1, S_2, S_3\}$.
 		On le munit de la topologie trace de $\R^2$ sur $T^\circ$ à laquelle on ajoute les croissants $\ens{S_i\}\cup(T^\circ\cap B(\rho M_i,}{\rho M_i-S_i|))$ avec $M_i=\frac{S_i+S_{i+1}}{2}$ le milieu des deux sommets consécutifs et $\rho>1$.
 		On représente par exemple un voisinage du sommet $A$ en gris.
-		\begin{center}
+		\begin{centre}
 			\begin{tikzpicture}[scale=0.75]
 				\draw[very thick] (1.0, 0.000) node[anchor=west]{$A$}
 				-- (-0.5, 0.866025403784) node[anchor=east]{$C$}
@@ -1216,7 +1216,7 @@ On considère ici un espace topologique $(E, \scr{T})$.
 				\filldraw[black!20] (1.0, 0.000) circle (2pt);
 				\filldraw[black!20] (-0.5, 0.866025403784) arc (210:270:1.75)--(-0.5, 0.866025403784) ;
 			\end{tikzpicture}
-		\end{center}
+		\end{centre}
 		Les points de $T^\circ$ sont séparés car la topologie de $\R^2$ est séparée.
 		Les points de $\{S_1, S_2, S_3}$ sont séparé de ceux dans $T^\circ$ en prenant $\rho$ suffisamment grand.
 		Idem entre les points de $\{S_1, S_2, S_3\}$.
@@ -1225,11 +1225,11 @@ On considère ici un espace topologique $(E, \scr{T})$.
 		\item[$T_0+T_3\not\Rightarrow T_{3\frac{1}{2}}$:] Considérons $E=(\R\times\R^+)\cup\{\infty\}$ munit:
 		\begin{itemise}
 			\item de la topologie discrète sur $\R\times\R_+^*$
-			\item des voisinages $\{(x, 0)\}\cup R_x\setminus T_x$ de $(x, 0)$ où $R_x=V_x\cup O_x$ avec $V_x$ le segment verticale $\ens{(x, y)}{y\in[0,2[}$, $O_x$ l'oblique $\ens{(x+y, y)}{y\in [0, 2[}$ et $T_x$ un ensemble finis de « trous » dans $R_x$.
+			\item des voisinages $\{(x, 0)\}\cup R_x\setminus T_x$ de $(x, 0)$ où $R_x=V_x\cup O_x$ avec $V_x$ le segment vertical $\ens{(x, y)}{y\in[0,2[}$, $O_x$ l'oblique $\ens{(x+y, y)}{y\in [0, 2[}$ et $T_x$ un ensemble finis de « trous » dans $R_x$.
 			\item des voisinages $U_n=\{\infty\}\cup(\{x>n\}\times\R^+)$ de $\infty$
 		\end{itemise}
 		Cet espace est $T_2$ comme le montre le premier schéma, puisqu'il suffit de placer des « trous » aux bons endroits dans $R_x$ ou de choisir $n$ suffisamment grand pour avoir des voisinages disjoints.
-		\begin{center}
+		\begin{centre}
 			\begin{tikzpicture}[scale=0.75]
 				\filldraw[black!10, very thick] (5,0) rectangle (7,2.5);
 				\draw[dashed] (5,0)--(5,2.5);
@@ -1265,7 +1265,7 @@ On considère ici un espace topologique $(E, \scr{T})$.
 				\draw[black!20!red, very thick] (1.75, 2)--(1.75, 0)--(3.75, 2);
 				\draw[black!20!red, very thick] (2.3, 2)--(2.3, 0)--(4.3, 2);
 			\end{tikzpicture}
-		\end{center}
+		\end{centre}
 
 		Cet espace est $T_3$.
 		Montrons $\forall x, O\in E\times\scr{T}, x\in O\Rightarrow\exists G\in\complement\scr{T}, x\in G\subset O$
@@ -1283,18 +1283,18 @@ On considère ici un espace topologique $(E, \scr{T})$.
 		Soit $c\in C_n$ alors $[0, \varepsilon[$ est ouvert pour la topologie trace de $\R$ sur $[0, 1]$.
 		Par continuité $\inv{f}([0, \varepsilon[)$ est ouvert et contient $c$, donc $O_c\setminus T_c^\varepsilon$ avec $T_c^\varepsilon$ fini, puis $\inv{f}(\{0\})=\bigcap_{q\in\N^*}\inv{f}([0,\frac{1}{q}[)\supset\bigcap_{q\in\N^*}\bigcup_{c\in C_n}O_c\setminus T_c^{1/q}=\bigcup_{c\in C_n}O_c\setminus\bigcup_{q\in\N^*}\bigcap_{c\in C_n}T_c^{1/q}$ qui est indénombrable car $\bigcup_{c\in C_n}O_c$ l'est et $\bigcup_{q\in\N^*}\bigcap_{c\in C_n}T_c^{1/q}$ ne l'est pas.
 		Sa projection $P_n$ sur l'axe des abscisses, et donc $C_{n+1}=P_n\cap[n+1, n+2[\times\{0\}$ est indénombrable.
-		Soit $x\in C_{n+1}$ alors $x$ a « au dessus de lui » une infinité indénombrable de points d'annulation de $f$, donc adhère à $\inv{f}(\{0\})$ qui est fermé en tant qu'image réciproque d'un fermé par une application continue.
+		Soit $x\in C_{n+1}$ alors $x$ a « au-dessus de lui » une infinité indénombrable de points d'annulation de $f$, donc adhère à $\inv{f}(\{0\})$ qui est fermé en tant qu'image réciproque d'un fermé par une application continue.
 		Ainsi $f(C_{n+1})=0$ donc par récurrence, on a montré le lemme.
 		Ainsi $\infty$ adhère à $\inv{f}(\{0\})$ donc $f(\infty)=0$.
 		\item[$T_{2\frac{1}{2}}\not\Rightarrow T_3$ et $T_{2\frac{1}{2}}\not\Rightarrow T_{2\frac{3}{4}}$:]
 		Soit $K=\ens{1/n}{n\in\N^*}$.
-		On munie $\R$ de la la $K$-topologie dont une base est formée des $]a, b[$ et des $]a, b[\setminus K$.
-						Elle est plus fine que la topologie classique, préservant donc la continuité des fonctions $f:\R\rightarrow[0, 1]$.
-						En particulier, une fonction montrant la $T_{2\frac{3}{4}}$ séparation de $\R$ (par exemple une interpolation) montre que $(\R, K)$ l'est aussi.
-						Cet espace n'est pas $T_3$.
-						Soit $]a, 2[, ]-1, b[$ des ouverts contenant respectivement $K$ et $\{0\}$.
-						De $0\in]-1, b[$ on a $b>0$.
-						Si $a>0$ alors $\frac{1}{a}\leqslant \lceil\frac{1}{a}\rceil=n\in\N^*$ donc $\frac{1}{n}<a$ et $K\ni\frac{1}{n}\notin]a, 2[$ absurde.
+		On munit $\R$ de la la $K$-topologie dont une base est formée des $]a, b[$ et des $]a, b[\setminus K$.
+		Elle est plus fine que la topologie classique, préservant donc la continuité des fonctions $f:\R\rightarrow[0, 1]$.
+		En particulier, une fonction montrant la $T_{2\frac{3}{4}}$ séparation de $\R$ (par exemple une interpolation) montre que $(\R, K)$ l'est aussi.
+		Cet espace n'est pas $T_3$.
+		Soit $]a, 2[, ]-1, b[$ des ouverts contenant respectivement $K$ et $\{0\}$.
+		De $0\in]-1, b[$ on a $b>0$.
+		Si $a>0$ alors $\frac{1}{a}\leqslant \lceil\frac{1}{a}\rceil=n\in\N^*$ donc $\frac{1}{n}<a$ et $K\ni\frac{1}{n}\notin]a, 2[$ absurde.
 		Ainsi $a\leqslant0<b$, forçant tout voisinages de la base de $0$ et $K$ à s'intersecter.
 	\end{itemise}
 \end{demonstration}
@@ -1422,8 +1422,8 @@ Soit $(E, \scr{T})$ et $(F_i, \scr{U}_i)_{i\in I}$ des espaces topologiques $F=\
 
 \section{Les pièges dans les espaces non séparés}
 
-\textbf{Se méfier des sous-espaces fermés:}
-Quand $E$ n'est pas séparé ($T_2$) certains espaces d'habitude fermé ne le sont plus: comme par exemple la diagonale $\Delta_E$.
+\textbf{Se méfier des sous-espaces fermés :}
+Quand $E$ n'est pas séparé ($T_2$) certains espaces d'habitude fermés ne le sont plus, par exemple la diagonale $\Delta_E$.
 Par ailleurs, certaines propriétés, vraies pour les espaces fermés et séparé ne la sont plus: dans un espace $T_2+T_4$, un sous-espace fermé est $T_2+T_4$.
 Mais un sous-espace fermé d'un $T_4$ n'est pas nécessairement $T_4$...
 
@@ -1441,13 +1441,13 @@ On dit alors que $f$ est une rétraction $E\rightarrow X$.
 
 \begin{exemple}
 	Si $E$ n'est pas séparé la diagonale $\Delta_E$ n'est pas fermée.
-	Mais le graphe d'une application continue $f:E\rightarrow F$ est un rétract de $E\times F$ grâce à la rétraction $E\times F\rightarrow\Gamma(f); (x, y)\mapsto(x, f(x))$.
+	Mais le graphe d'une application continue $f\colon E\rightarrow F$ est un rétract de $E\times F$ grâce à la rétraction $E\times F\rightarrow\Gamma(f); (x, y)\mapsto(x, f(x))$.
 	Si $E$ et $F$ sont séparé alors $\Gamma(f)$ est fermé ce qui montre $\Delta_E$ fermé avec $f=\id$.
 \end{exemple}
 
-\textbf{Se méfier des applications continues:}
+\textbf{Se méfier des applications continues :}
 Si $E$ et $F$ sont séparés $f\in\cal{C}(E, F)$ a un graphe fermé.
-Si les espaces ne sont pas séparé c'est à priori faux.
+Si les espaces ne sont pas séparés c'est à priori faux.
 Comme c'est bien souvent le graphe fermé qui est important, un remède est de considérer les applications dont le graphe est fermé plutôt que les applications continues.
 
 \begin{exemple}
@@ -1465,25 +1465,25 @@ Comme c'est bien souvent le graphe fermé qui est important, un remède est de c
 	Or $(rx, rf(x))\in\Gamma(f)$ fermé on a $(\lambda x, \lambda f(x))\in\Gamma(f)$ id est $f(\lambda x)=\lambda f(x)$.
 \end{exemple}
 
-\textbf{Se méfier des espace localement compacts:}
+\textbf{Se méfier des espaces localement compacts :}
 « Tout point de $E$ appartient à un ouvert dont la fermeture est compacte » est équivalent dans un espace séparé à « tout point de $E$ a un voisinage compact » c'est à dire:
 $$
 	\forall x\in E, \exists O\in\scr{T}, x\in O\et\overline{O}\text{ compact}
 	\iff
 	\forall x\in E, \exists V\in\frak{V}(x), V\text{ compact}
 $$
-Si l'on essaye de généraliser cette définition aux quasi-compact on perd l'équivalence, ce qui donne deux définitions de la local-quasi-compacité.
+Si l'on essaye de généraliser cette définition au quasi-compact on perd l'équivalence, ce qui donne deux définitions de la local-quasi-compacité.
 On a $\Rightarrow$ car $\overline{O}$ est un voisinage de $x$ compact.
 Montrons que la réciproque peut être fausse.
-Pour $E=\N$ numie de la topologie $\{\vide, \{0\}, \{0, 1\}, \{0, 1, 2\}, ...\}$ on obtient bine un espace localement quasi-compact au second sens (pour $n\in\N$ il suffit de prendre $\intervalle{0, n}$).
-Il ne l'est pas au premier sens car avec cette topologie, les fermés ne sont pas borné (donc impossibles à recouvrir avec des ouverts qui sont bornés dans cette topologie).
-Cette espace est de plus $T_0$ mais pas $T_1$ (mais totu de même $T_4$...).
+Pour $E=\N$ numie de la topologie $\{\vide, \{0\}, \{0, 1\}, \{0, 1, 2\}, ...\}$ on obtient bien un espace localement quasi-compact au second sens (pour $n\in\N$ il suffit de prendre $\intervalle{0, n}$).
+Il ne l'est pas au premier sens car avec cette topologie, les fermés ne sont pas bornés (donc impossibles à recouvrir avec des ouverts qui sont bornés dans cette topologie).
+Cette espace est de plus $T_0$ mais pas $T_1$ (mais tout de même $T_4$...).
 
 Le remède aux espaces localement-quasi-compacts est simple: préciser clairement la définition utilisée.
 
-\textbf{Se méfier les espaces quasi-compacts:}
-Le muricain utilise \textit{compact} pour signifier \textit{quasi-compact}, tandis qu'il faut lui dire \textit{compact-Hausdorff} en lieu et place de \textit{compact}.
+\textbf{Se méfier les espaces quasi-compacts :}
 Beaucoup de propriétés vraies dans les espaces compacts deviennent fausses dans les espaces quasi-compacts.
+La litérature anglo-saxonne utilise \textit{compact} pour le français \textit{quasi-compact} et \textit{compact-Hausdorff} pour \textit{compact}.
 
 \chapter{Filtres}
 
@@ -1503,7 +1503,7 @@ Munissons maintenant $\R$ de la topologie discrète $\scr{T}_2$
 Pour cette topologie, $\{x\}$ est un voisinage de $x$.
 De même la caractérisation séquentielle donne qu'une suite convergente vers $x$ sera constante à partir d'un certain rang.
 
-On a donc un problème: $\scr{T}_1$ et $\scr{T}_2$ ont les même suites convergentes sans êtres les mêmes topologies.
+On a donc un problème: $\scr{T}_1$ et $\scr{T}_2$ ont les mêmes suites convergentes sans êtres les mêmes topologies.
 Cela implique que certaines propriétés topologiques ne peuvent plus s’exprimer en termes de suites.
 Par exemple, l’injection canonique $i : (\R, \scr{T}_1)\rightarrow (\R, \scr{T}_2)$ n’est pas continue car pour $\{x\}$ ouvert de $\scr{T}_2$ mais pas de $\scr{T}_1$, on a $\inv{i}(\{x\})=\{x\}$.
 Pourtant, pour toute suite $(u_n)$ convergente vers $x$ pour $\scr{T}_1$, $(u_n)$ est donc stationnaire en $x$ à partir d'un certain rang, ce qui impose que $i(u_n)$ soit aussi stationnaire, et donc converge aussi vers $x$ dans $\scr{T}_2$.
@@ -1552,8 +1552,8 @@ On se donne une application $f:E\rightarrow F$.
 
 Comme pour la notion de base d'une topologie on peut en donner une approche plus constructive.
 On peut en donner une approche plus constructive en faisant émerger une topologie à partir d'une famille quelconque.
-Pour cela on utilise deux intermédiaires : les bases et prébases d'une topologie.
-Ces notions sont utiles car de nombreuses propriétés d'une topologie se ramènent à des énoncés sur une de ses bases et beaucoup de topologies sont faciles à définir par la donnée d'une base. 
+Pour cela on utilise deux intermédiaires : les bases et pré-bases d'une topologie.
+Ces notions sont utiles, car de nombreuses propriétés d'une topologie se ramènent à des énoncés sur une de ses bases et beaucoup de topologies sont faciles à définir par la donnée d'une base. 
 
 \begin{definition}
  Une partie $\frak{B}$ d'un filtre $\frak{F}$ est appelé une base si tout élément de $\frak{F}$ continent un élément de $\frak{B}$.
@@ -1561,7 +1561,7 @@ Ces notions sont utiles car de nombreuses propriétés d'une topologie se ramèn
 
 \begin{proposition}
 	Il existe un filtre dont $\frak{B}$ est une base si et seulement si $\frak{B}$ est non vide, ne contient pas l'ensemble vide et l'intersection de deux éléments de $\frak{B}$ inclut un élément de $\frak{B}$.
-	Ce filtre est alors unique et ses éléments sont les ensemble incluant un élément de $\frak{B}$.
+	Ce filtre est alors unique et ses éléments sont les ensembles incluant un élément de $\frak{B}$.
 \end{proposition}
 
 \equivalence{Par double implication.}{
@@ -1643,7 +1643,7 @@ Ces notions sont utiles car de nombreuses propriétés d'une topologie se ramèn
 }{
 	Soit $V\in\frak{V}(x)$.
 		Par convergence vers $x$, on a que $V\in\frak{F}$.
-		Par croissance des filtre, puisque $V\subset X\in\frak{P}(X)$, alors $X\in\frak{F}$.
+		Par croissance des filtres, puisque $V\subset X\in\frak{P}(X)$, alors $X\in\frak{F}$.
 		Par stabilité par intersection des filtres, $V\cap X\in\frak{F}$, donc n'est pas vide.
 		Ainsi $x\in\overline{X}$.
 }
@@ -1810,7 +1810,7 @@ Ces notions sont utiles car de nombreuses propriétés d'une topologie se ramèn
 
 \begin{demonstration}
 	On a démontré qu'une suite définissait un filtre, et que la suite convergeait si et seulement si ce filtre convergeait.
-	Par caractérisation de l'adhérence en terme de filtre, on obtient l'inclusion.
+	Par caractérisation de l'adhérence en termes de filtre, on obtient l'inclusion.
 \end{demonstration}
 
 \begin{proposition}
@@ -1824,7 +1824,7 @@ Ces notions sont utiles car de nombreuses propriétés d'une topologie se ramèn
 
 \begin{demonstration}
 	On a démontré qu'une suite définissait un filtre, et que la suite convergeait si et seulement si ce filtre convergeait.
-	Par caractérisation de la continuité en terme de filtre, on obtient l'implication.
+	Par caractérisation de la continuité en termes de filtre, on obtient l'implication.
 \end{demonstration}
 
 \begin{proposition}
@@ -1833,20 +1833,20 @@ Ces notions sont utiles car de nombreuses propriétés d'une topologie se ramèn
 
 \begin{demonstration}
 	On a démontré qu'une suite définissait un filtre, et que la suite convergeait si et seulement si ce filtre convergeait.
-	Par caractérisation de la compacité en terme de filtre, on obtient l'implication.
+	Par caractérisation de la compacité en termes de filtre, on obtient l'implication.
 \end{demonstration}
 
 \chapter{Structures uniformes}
 
-Les espaces métriques forment une classe importante d'espaces topologiques, qui est néanmoins insuffisante pour englober tout les espaces de l'analyse.
+Les espaces métriques forment une classe importante d'espaces topologiques, qui est néanmoins insuffisante pour englober toute l’analyse.
 Une généralisation satisfaisante est donnée par les espaces uniformes.
 Les groupes topologiques, en particulier les espaces vectoriels topologiques, sont uniformisables.
 Il y a toutefois des espaces topologiques non uniformisables.
 Une question naturelle pour le topologue est donc de déterminer quelles sont les topologies que l'on peut définir à partir de familles d'entourages de la diagonale.
-Pour obtenir une classe d'espaces plus lage que la classe des espaces uniformes, il faut affaiblir les exigences que l'on met sur cette famille d'entourages.
+Pour obtenir une classe d'espaces plus large que la classe des espaces uniformes, il faut affaiblir les exigences que l'on met sur cette famille d'entourages.
 L'affaiblissement convenable consiste à omettre l'axiome de symétrie.
 On parle alors de quasi-uniformité, et tout espace est quasi-uniformisable : c'est donc cet axiome de symétrie qui caractérise véritablement les espaces uniformisable parmi les espaces topologiques, et le procédé consistant à définir une topologie à partir d'entourages de la diagonale est tout à fait général.
-Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales pour définir les topologies: par les ouverts (Sierpinski) par les fermé (Alexandroff) par les voisinages (Hausdorff) par les fermetures (Kuratowski) par les filtres convergents (Bourbaki) et cætera...
+Aussi ce procédé doit-il être ajouté au catalogue des méthodes générales pour définir les topologies: par les ouverts (Sierpinski) par les fermés (Alexandroff) par les voisinages (Hausdorff) par les fermetures (Kuratowski) par les filtres convergents (Bourbaki) et cætera...
 
 \begin{remarque}
 	Dans le « complément d'analyse » la notation de $F\circ G$ est inverse $\ens{(x, z)\in X^2}{\exists y\in X, (x, y)\in G, (y, z)\in F}$.
@@ -1912,7 +1912,7 @@ Une quasi-uniformité $\scr{U}$ est un filtre de relation binaires sur $E$ véri
 pour toute relation $\cal{S}$ de $\scr{U}$ il existe une autre relation $\cal{R}$ de $\scr{U}$ telle que $\cal{R}\circ\cal{R}\subset\cal{S}$.
 En utilisant une forme équivalente des axiomes d'un filtre on obtient la forme partique suivante.
 \begin{definition}
-	On appelle quasi-uniformité sur $E$ une collection $\scr{U}\subset\frak{P}(E^2)$, dont ses éléments sont appelés les entourages, telle que :
+	On appelle quasi-uniformité sur $E$ une collection $\scr{U}\subset\frak{P}(E^2)$ dont ses éléments sont appelés les entourages, telle que :
 	\begin{itemise}
 		\item $R\in\scr{U}\Rightarrow\Delta_E\subset R$
 		\item $R, S\in\scr{U}\Rightarrow R\cap S\in\scr{U}$
@@ -1945,7 +1945,7 @@ En utilisant une forme équivalente des axiomes d'un filtre on obtient la forme 
 \end{demonstration}
 
 \begin{definition}
-	Pour toute partie $\frak{A}$ on appelle quasi-uniformité engendrée par $\frak{A}$ l'intersection des quasi-uniformité de $E$ incluant $\frak{A}$.
+	Pour toute partie $\frak{A}$ on appelle quasi-uniformité engendrée par $\frak{A}$ l'intersection des quasi-uniformités de $E$ incluant $\frak{A}$.
 	Elle est notée $\sigma_\rm{quasi}(\frak{A})$ et on nomme alors $\frak{A}$ une pré-base de cette quasi-uniformité.
 \end{definition}
 
@@ -1987,17 +1987,17 @@ Cependant le nombre de conditions pour former une sous base est plus grand, rend
 \end{definition}
 
 \begin{exemple}
-	On appelle espace hémi-métrique un espace munie d'une hémi-distance $d\colon E\times E\rightarrow\overline{\R}$.
-	C'est une fonctio positive, nulle sur la diagonale et qui vérifie l'inégalité triangulaire.
+	On appelle espace hémi-métrique un ensemble muni d'une hémi-distance $d\colon E\times E\rightarrow\overline{\R}$.
+	C'est une fonction positive, nulle sur la diagonale et qui vérifie l'inégalité triangulaire.
 	Généralisons la notion de boule d'un espace métrique avec les relations $\approx_r :=\ens{(x, y)}{d(x, y)<r}$.
-	On montre que cette famille est une base de quasi-uniformité donc qu'elle engendre une naturellement une quasi-uniformité $\scr{U}_d$ dont les entourges contiennent au moins une relations $\approx_r$.
+	On montre que cette famille est une base engendrant donc une quasi-uniformité $\scr{U}_d$ dont les entourages contiennent au moins une relation $\approx_r$.
 
 	La famille de ces $\approx_r$ avec $r>0$ est stable par intersection finie.
 	C'est donc une sous-base si et seulement si c'est une base.
 	Appliquons donc le théorème de caractérisation des bases de quasi-uniformité.
 	Puisque $d$ est nulle sur la diagonale chaque $\approx_r$ contient $\Delta_E$.
 	L'intersection des deux relations $\approx_r$ et $\approx_s$ n'est autre que $\approx_{\min(r, s)}$ qui est bien dans la famille.
-	Il ne reste plus qu'a montrer la transitivité faible.
+	Il ne reste plus qu'à montrer la transitivité faible.
 
 	Soit $\approx_s$ avec $s>0$ une relation de la famille.
 	Posons $r=s/2$ et prenons un triplet $x, y, z$ vérifiant $x\approx_ry$ et $y\approx_rz$.
@@ -2011,7 +2011,7 @@ Pour toute relation binaire $R$ sur $E$ on note $R[x]:=\ens{y\in E}{xRy}$ l'imag
 
 \begin{definition}
 	À partir d'une structure quasi-uniforme $\mathscr{U}$ on définit une topologie dite topologie engendrée par $\mathscr{U}$ en appelant voisinage d'un point $x$ les ensembles de la forme $R[x]$ avec $R\in\mathscr{U}$.
-	On vérifie facilement que les ensemble ainsi définis corresponent à une unique topologie (cf Bourbaki TG II.3 proposition 1).
+	On vérifie facilement que les ensembles ainsi définis correspondent à une unique topologie (cf Bourbaki TG II.3 proposition 1).
 \end{definition}
 
 L'inverse est faux : une topologie engendrée par une structure quasi-uniforme est en général, engendrée par une famille de structures quasi-uniformes.
@@ -2021,8 +2021,8 @@ Nous allons résoudre ici le problème réciproque : étant donné une topologie
 
 \begin{proposition}
 	Soit $(E, \scr{T})$ un espace topologique.
-	La famille suivante est une prébase de quasi-uniformité appelée la prébase de Pervin (1962) $\frak{A}_\rm{Pervin}=\ens{R_U:=(U\times U)\cup(\complement U\times E)}{U\in\scr{T}}$.
-	Cette prébase engendre la topologie d'origine $\scr{T}$.
+	La famille suivante est une pré-base de quasi-uniformité appelée la pré-base de Pervin (1962) $\frak{A}_\rm{Pervin}=\ens{R_U:=(U\times U)\cup(\complement U\times E)}{U\in\scr{T}}$.
+	Cette pré-base engendre la topologie d'origine $\scr{T}$.
 \end{proposition}
 
 \begin{remarque}
@@ -2101,7 +2101,7 @@ Nous allons résoudre ici le problème réciproque : étant donné une topologie
 \equivalence{Par double implication.}{
 	Supposons la topologie $T_3$ et prenons $R\in\scr{U}_\rm{Pervin}$ et $x\in E$.
 	D'après la remarque précédente il existe $O$ un ouvert tel que $x\in O\subset R[x]$.
-	Ainsi $\complement O$ est un fermé ne contenant pas $x$ donc par $T_3$ il existe deux ouvert $U$, $V$ d'intersection vide tels que $x\in U$ et $\complement O\subset V$.
+	Ainsi $\complement O$ est un fermé ne contenant pas $x$ donc par $T_3$ il existe deux ouverts $U$, $V$ d'intersection vide tels que $x\in U$ et $\complement O\subset V$.
 	Cela montre $x\in U\subset\complement V\subset O$.
 	Posons $S = V^2\cup(\complement V)^2\cup(O\cap U)^2$.
 
@@ -2157,10 +2157,10 @@ Nous allons résoudre ici le problème réciproque : étant donné une topologie
 		Ainsi $(F\setminus R)^2\cup(F\setminus R\times\complement F)\cup(\complement F\times F\setminus R)\cup\complement^2F=[(F\setminus R)\cup\complement F]^2=\complement^2R\subset V\circ V$.
 		\item Idem pour $(x, y)\in(O\setminus F)\times F$ et $t\in F\setminus R$ (en bleu) montrant $O^2\subset V\circ V$.
 		\item En développant on a $\complement(O^2\cup\complement^2 R)=(R\times\complement O)\cup(\complement O\times R)$.
-		Par symétrie limitons nous à $(x, y)\in R\times\complement O$  (en noir).
+		Par symétrie limitons-nous à $(x, y)\in R\times\complement O$  (en noir).
 		Pour avoir $(x, t), (t, y)\in V$ il faudrait $(x, t)\in F^2$ et $(t, y)\in\complement^2F$ soit $t\in\vide$ ce qui est impossible donc $R\times\complement O\not\subset V\circ V$.
 	\end{itemise}
-	\begin{center}
+	\begin{centre}
 		\begin{tikzpicture}[scale=3]
 			\pgfmathsetmacro{\x}{0.5};
 			\pgfmathsetmacro{\d}{0.2};
@@ -2180,7 +2180,7 @@ Nous allons résoudre ici le problème réciproque : étant donné une topologie
 			\pgfmathsetmacro{\t}{0.6};
 			\draw[dashed, black!20!red] (\x,\y)--(\x,\t)--(\t,\t)--(\t,\y)--cycle;
 		\end{tikzpicture}
-	\end{center}
+	\end{centre}
 	Ainsi $V\circ V=O^2\cup\complement^2 R$ donc $(V\circ V)[x]=O\subset R[x]$ car $x\notin\complement R$.
 }{
 	Soit $\scr{U}$ vérifiant la propriété, $\scr{T}$ la topologie engendrée par $\scr{U}$, $F\in\complement\scr{T}$ et $x\notin F$.
@@ -2234,7 +2234,7 @@ Nous allons résoudre ici le problème réciproque : étant donné une topologie
 \begin{proposition}
 	Soit $(d_i)_{i\in I}$ une jauge sur $E$.
 	La famille $\frak{B}'=\ens{\inv{d_i}(x, [0, \varepsilon[)}{x\in E, \varepsilon\in\R^+, i\in I}$ est une prébase de topologie.
-	C'est exactement celle engendrée par l'uniformité définie au dessus.
+	C'est exactement celle engendrée par l'uniformité définie au-dessus.
 \end{proposition}
 
 \begin{demonstration}
@@ -2250,7 +2250,7 @@ Nous allons résoudre ici le problème réciproque : étant donné une topologie
 \end{demonstration}
 
 \begin{proposition}
-	Pour un espace topologique on a a l'équivalence entre:
+	Pour un espace topologique on a l'équivalence entre:
 	\begin{itemise}
 		\item être $T_{3\frac{1}{2}}$
 		\item être uniformisable
@@ -2262,12 +2262,12 @@ Nous allons résoudre ici le problème réciproque : étant donné une topologie
 	Par implications circulaires.
 	\begin{itemise}
 		\item[$ii\implies iii$] Soit $\scr{U}$ une uniformité.
-		Montrons que les entourages symétriques forme une base.
+		Montrons que les entourages symétriques forment une base.
 		Soit $U\in\scr{U}$ alors $U'=U\cap U^{-1}\in\scr{U}$ par axiome de symétrie et intersection de l'uniformité.
 		Ainsi $\frak{B}=\ens{U'}{U\in\scr{U}}$ est une base car pour tout $U$ il existe $U'\in\frak{B}$ tel que $U'\subset U$.
 		Construisons une jauge $(d_U)_{U\in\frak{B}}$ puis montrons que sa topologie coïncide. % avec celle de $\scr{U}$.
 		\begin{itemise}
-			\item Soit $U\in\frak{B}$ et vérifions que la fonction suivante est une pseudo distance :
+			\item Soit $U\in\frak{B}$ et vérifions que la fonction suivante est une pseudo-distance :
 			$$
 			d_U(x, y)=\inf\left\{\frac{1}{n}\ \Big|\ n\in\N, \exists (a_0, a_1), \dots, (a_{n-1}, a_n)\in U, x=a_0, y=a_n\right\}
 			$$
@@ -2276,7 +2276,7 @@ Nous allons résoudre ici le problème réciproque : étant donné une topologie
 				En répetant $n$ fois ce couple on a $d_U(x, x)\leqslant 1/n$ donc en passant à la limite $d_U(x, x)=0$.
 				\item Par symétrie de $U$ une chaîne de $x$ à $y$ se retourne en une chaîne de $y$ à $x$ ce qui montre $d_U(x, y)=d_U(y, x)$.
 				\item Soient $x$ $y$ $z$ trois points et $\varepsilon>0$.
-				Par définition de la borne inférieur il existe deux chaînes $x=a_0, \dots, a_m=y$ et $y=b_0, \dots, b_n=z$ dans $U$ telles que $\frac{1}{m}<d_U(x, y)+\frac{\varepsilon}{2}$ et $\frac{1}{n}<d_U(y, z)+\frac{\varepsilon}{2}$.
+				Par définition de la borne inférieure il existe deux chaînes $x=a_0, \dots, a_m=y$ et $y=b_0, \dots, b_n=z$ dans $U$ telles que $\frac{1}{m}<d_U(x, y)+\frac{\varepsilon}{2}$ et $\frac{1}{n}<d_U(y, z)+\frac{\varepsilon}{2}$.
 				Puisque la chaîne $a_0, \dots, a_m, b_0, \dots, b_n$ relie $x$ à $z$ en $m+n$ étapes on a :
 				$$
 				d_U(x, z)
@@ -2505,7 +2505,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Soit $\id:(E, \scr{T}_1)\rightarrow(E, \scr{T}_2)$ avec $(E, \scr{T}_1)$ compact $(E, \scr{T}_2)$ séparé et $\scr{T}_2\subset\scr{T}_1$.
 	Par comparaison $\id$ est continue.
 	Soit $F$ un fermé de $(E, \scr{T}_1)$ quasi-compact alors $F$ est quasi-compact.
-	Sont image $\id(F)=F$ est donc quasi-compact dans $(E, \scr{T}_2)$ séparé donc $F\in\complement\scr{T}_2$.
+	Son image $\id(F)=F$ est donc quasi-compact dans $(E, \scr{T}_2)$ séparé donc $F\in\complement\scr{T}_2$.
 	Ainsi $\scr{T}_1\subset\scr{T}_2$.
 \end{demonstration}
 
@@ -2516,7 +2516,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \section{Définitions et premières propriétés}
 
 \begin{definition}
-	On appelle groupe topologique $(G, \star)$ un groupe munie d'une topologie pour laquelle les applications $\star:G^2\rightarrow G$ et $\inv{}:G\rightarrow G$ sont continues.
+	On appelle groupe topologique $(G, \star)$ un groupe muni d'une topologie pour laquelle les applications $\star:G^2\rightarrow G$ et $\inv{}:G\rightarrow G$ sont continues.
 \end{definition}
 
 \begin{proposition}
@@ -2524,7 +2524,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \end{proposition}
 
 \equivalence{Par double implication.}{
-	Le sens directe vient de la composition d'applications continues.
+	Le sens direct vient de la composition d'applications continues.
 }{
 	En prenant $x=e$ puis $\inv{y}$ dans $x, y\longmapsto x\star\inv{y}$, on vérifie que c'est un groupe topologique.
 }
@@ -2548,7 +2548,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \end{demonstration}
 
 \begin{proposition}
-	Dans un groupe topologique, les voisinages d’un point sont les translatés des voisinage de $e$.
+	Dans un groupe topologique, les voisinages d’un point sont les translatés des voisinages de $e$.
 \end{proposition}
 
 \begin{demonstration}
@@ -2587,7 +2587,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Alors $\exists\frak{F}\text{ filtre sur $\widetilde{\{x\}}$}, \frak{F}\rightarrow y$.
 	Cette convergence a lieu pour la topologie trace c'est à dire pour l'ensemble des voisinages $\frak{V}'(y)=\{V\cap\ens{x\}}{V\in\frak{V}(y)}$.
 	Par séparation, si $y\neq x$, il existerait un voisinage de $y$ de rencontrant pas $\{x\}$ et donc $\vide\in\frak{V}'(y)\subset\frak{F}$, ce qui est impossible pour un filtre.
-	Ainsi les singletons sont fermé, notamment $\{E\}$.
+	Ainsi les singletons sont fermés, notamment $\{E\}$.
 }{
 	Réciproquement, si $\{E\}$ est fermé alors $G\setminus\{E\}$ est ouvert.
 	Par continuité de $\phi:x, y\longmapsto x\star\inv{y}$, $\inv{\phi}(G\setminus\{E\})=G^2\setminus\ens{(x, x)}{x\in G}$ est un ouvert de $G$.
@@ -2606,7 +2606,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \end{demonstration}
 
 \begin{proposition}
-	Tout groupe quotient $G/H$ d'un groupe topologique $G$ par un sous-groupe disingué $H$ est encore un groupe topologique, lorsque $G/H$ est muni de la topologie quotient.
+	Tout groupe quotient $G/H$ d'un groupe topologique $G$ par un sous-groupe distingué $H$ est encore un groupe topologique, lorsque $G/H$ est muni de la topologie quotient.
 	De plus, $G/H$ est séparé si et seulement si $H$ est fermé.
 \end{proposition}
 
@@ -2614,7 +2614,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Soit $OH$ un voisinage de $eH$ dans $G/H$.
 	Par définition de la topologie quotient, $\inv{\pi}(OH)=O$ est un voisinage de $e$ dans $G$.
 	Par continuité, $\inv{\cdot}(O)$ est un voisinage de $(e, e)$ dans $G\times G$.
-	Par définition de la topologie produit, il existes deux voisinages $O_1$ et $O_2$ de $e$ tels que $\inv{\cdot}(O)=O_1\times O_2$.
+	Par définition de la topologie produit, il existe deux voisinages $O_1$ et $O_2$ de $e$ tels que $\inv{\cdot}(O)=O_1\times O_2$.
 	Puisque $\inv{\pi}(\pi(O_i))\subset O_i$, $\inv{\pi}(\pi(O_i))$ est un voisinage de $e$ dans $G$.
 	Par définition de la topologie quotient, $\pi(O_i)$ est un voisinage de $eH$ dans $G/H$.
 	Par définition de la topologie produit, $\pi(O_1)\times\pi(O_2)$ est un voisinage de $(e, e)$ dans $(G/H)^2$.
@@ -2623,7 +2623,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	En effet, soit $(x_1H, x_2H)\in\pi(O_1)\times\pi(O_2)$, c'est à dire $(x_1, x_2)\in O_1\times O_2=\inv{\cdot}(O)$, alors $x_1H*x_2H=(x_1\cdot x_2)H\in OH$.
 	Donc $*$ est continue en $(e, e)$ en tant que morphisme de groupe de $(G/H)^2$ dans $G/H$.
 	Elle est donc continue.
-	\begin{center}
+	\begin{centre}
 		\begin{tikzpicture}[xscale=3, yscale=1.5]
 			% Noeuds (MODIFIABLES : Styles et Coefficients d'InterFeuilles)
 			\node (GG) at (0, 0) {$G\times G$};
@@ -2636,7 +2636,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 			\draw[black, -stealth] (GG)-- node [left, midway] {$(\pi, \pi)$} (QQ);
 			\draw[black, -stealth] (G)-- node [left, midway] {$\pi$} (Q);
 		\end{tikzpicture}
-	\end{center}
+	\end{centre}
 \end{demonstration}
 
 \chapter{Espace vectoriel topologique}
@@ -2652,7 +2652,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \end{definition}
 
 \begin{proposition}
-	Dans un $\R$-espace vectoriel topologique, les voisinages d’un point sont les translatés des voisinage de l'origine.
+	Dans un $\R$-espace vectoriel topologique, les voisinages d’un point sont les translatés des voisinages de l'origine.
 \end{proposition}
 
 \begin{demonstration}
@@ -2697,14 +2697,14 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \begin{demonstration}
 	Soit $x\in E$, $y=f(x)$ et $W$ un voisinage de $y$.
 	Il existe alors un voisinage $V$ de $0_F$ tel que $W=y+V$
-	Par translation des voisinage $\inv{f}(W)=\inv{f}(y+V)\supset x+\inv{f}(V)$.
+	Par translation des voisinages $\inv{f}(W)=\inv{f}(y+V)\supset x+\inv{f}(V)$.
 	Par continuité en $0_E$ de $f$, $\inv{f}(V)$ est un voisinage de $0_E$.
 	Ainsi $\inv{f}(W)$ est un voisinage de $x$.
 \end{demonstration}
 
 \begin{proposition}
 	Soit $E$ un ensemble qui soit un espace $\R$-vectoriel et un espace topologique.
-	S'il vérifie les conclusions des deux premières propositions, alors réciproquement c'est un un espace vectoriel topologique.
+	S'il vérifie les conclusions des deux premières propositions, alors réciproquement c'est un espace vectoriel topologique.
 \end{proposition}
 
 \begin{demonstration}
@@ -2797,7 +2797,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	On reformule simplement la définition avec les voisinages.
 }{
 	Soit $\epsilon>0$.
-	Puisque $B_\epsilon(x)$ est un voisinage de $x$ il existe $N\in\N$ tel que $\forall n\geqslant N$, $x_n\in B_\epsilon(x)$, c'est à dire $\exists N, \forall n\geqslant N, d(x_n, x)\epsilon$.
+	Puisque $B_\epsilon(x)$ est un voisinage de $x$ il existe $N\in\N$ tel que $\forall n\geqslant N$, $x_n\in B_\epsilon(x)$, c’est-à-dire $\exists N, \forall n\geqslant N, d(x_n, x)\epsilon$.
 }{
 	Alors pour $\epsilon$ assez petit, $B_\epsilon(x)\subset V$.
 	Or $\exists N, \forall n\geqslant N, x_n\in B_\epsilon(x)$, donc $\exists N, X_N\in V$.
@@ -2854,7 +2854,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Raisonnons par l'absurde.
 	Soit $x_0\in E$ et $R_0=\vide$.
 	Définissons par récurrence $x_{n+1}=E\setminus R_n$ et $R_{n+1}=R_n\cup B_\eta(x_{n+1})$.
-	Ces suites sont bien définies car $R_0$ ne recouvre pas $E$, et que si $R_n$ ne recouvre pas $E$, alors $x_{n+1}$ existe, et par hypothèse $R_{n+1}$ est une unions finie de boules ouvertes donc ne peut recouvrir $E$.
+	Ces suites sont bien définies car $R_0$ ne recouvre pas $E$, et que si $R_n$ ne recouvre pas $E$, alors $x_{n+1}$ existe, et par hypothèse $R_{n+1}$ est une union finie de boules ouvertes donc ne peut recouvrir $E$.
 	En particulier on a que $d(x_{n+1}, x_n)\geqslant\eta$.
 	Par hypothèse, on peut en extraire une sous suite $(y_n)$ convergente, de limite $y$.
 	Par convergence de $(y_n)$ vers $y$, $\exists N, \forall n\geqslant N, d(y_n, y)<\eta/2$.
@@ -3088,7 +3088,7 @@ $
 	.. controls ++(175: 2) and ++(165: 1) .. (0, 0);
 \end{tikzpicture}
 
-\begin{center}
+\begin{centre}
 	\begin{tikzpicture}[scale=0.5]
 		\draw [help lines] (0, 0) grid (3, 3);
 		\draw [show curve controls] (0, 0)
@@ -3097,7 +3097,7 @@ $
 		.. controls (2, 1) .. (2, 0)
 		.. controls (1, 0) .. (0, 0);
 	\end{tikzpicture}
-\end{center}
+\end{centre}
 
 \begin{tikzpicture}
 	\begin{scope}[scale=0.5]
