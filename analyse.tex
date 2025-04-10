@@ -21,6 +21,7 @@
 %\usepackage[backend=biber, style=alphabetic, maxnames=15, sorting=ynt]{biblatex}
 %\addbibresource{sample.bib} % la bibilographie
 %\setlength\parindent{0pt}
+\tikzcdset{scale cd/.style={every label/.append style={scale=#1}, cells={nodes={scale=#1}}}}
 
 %------- Commande en Anglais -------
 \newenvironment{centre}{\center}{\endcenter}
@@ -77,6 +78,7 @@
 \renewcommand{\frak}[1]{\mathfrak{#1}}
 \newcommand{\scr}[1]{\mathscr{#1}}
 \renewcommand{\rm}[1]{\mathrm{#1}}
+\renewcommand{\bf}[1]{\mathbf{#1}}
 
 \newcommand\ens[2]{\{#1 \ |\ #2\}}
 \newcommand\equivalence[3]{
@@ -209,14 +211,14 @@
 
 \begin{proposition}
 	Dans un groupe, il n'existe qu'un neutre et qu'un symétrique.
-	Pour un élément $x$ de $G$, on notera $ x^{-1}$ ou $-x$ ce symétrique.
-	De plus $\inv{(x^{-1})}=x$
+	Pour un élément $x$ de $G$, on notera $ \inv{x}$ ou $-x$ ce symétrique.
+	De plus $\inv{(\inv{x})}=x$
 \end{proposition}
 
 \begin{demonstration}
 	Soit $e$ et $e'$ deux neutres, alors $e\star e'=e'\star e=e=e'$.
 	Soit $x$ un élément de $G$, $y$ et $y'$ deux symétriques, alors $y'=e\star y'=y\star x\star y'=y\star e=y$.
-	De plus $(x^{-1})^{-1}=e\star(x^{-1})^{-1}=(x\star x^{-1})\star(x^{-1})^{-1}=x\star(x^{-1}\star(x^{-1})^{-1})=x\star e=x$.
+	De plus $\inv{(\inv{x})}=e\star\inv{(\inv{x})}=(x\star \inv{x})\star\inv{(\inv{x})}=x\star(\inv{x}\star\inv{(\inv{x})})=x\star e=x$.
 \end{demonstration}
 
 \begin{definition}
@@ -231,7 +233,7 @@
 {
 	Par définition $e\in H\neq\vide$, et il suffit de composer l'existence d'un inverse avec le produit.
 }{
-	Puisque $H$ est non vide $\exists x\in H$, donc $x\star x^{-1}=e\in H$.
+	Puisque $H$ est non vide $\exists x\in H$, donc $x\star \inv{x}=e\in H$.
 	Ainsi $\forall y\in H, e\star\inv{y}=\inv{y}\in H$.
 	C'est donc une opération interne car $x\star y=x\star\inv{(\inv{y})}\in H$, admettant $e$ pour neutre car $x\star e=x\in H$.
 }
@@ -349,8 +351,8 @@
 }{
 	Supposons $H$ compatible avec $\sim_H$ et prenons $x\in G$.
 	Si $y\in xH$ est dans une classe à droite alors $y\sim_H x$.
-	Par réfléxivité $x^{-1}\sim_H x^{-1}$ donc par compatibilité $yx^{-1}\sim_H xx^{-1}=e$.
-	Ainsi il existe $h\in H$ tel que $ = eh = h$ donc $y=hx$ c'est à dire $y\in Hx$.
+	Par réfléxivité $\inv{x}\sim_H \inv{x}$ donc par compatibilité $y\inv{x}\sim_H x\inv{x}=e$.
+	Ainsi il existe $h\in H$ tel que $ = eh = h$ donc $y=hx$ c'est-à-dire $y\in Hx$.
 	De même pour l'inclusion réciproque.
 }
 
@@ -614,13 +616,12 @@ Pour cela on utilise deux intermédiaires : les bases et pré-bases d'une topolo
 Ces notions sont utiles, car de nombreuses propriétés d'une topologie se ramènent à des énoncés sur une de ses bases et beaucoup de topologies sont faciles à définir par la donnée d'une base. 
 
 \begin{definition}
-	Une partie $\frak{B}$ de la topologie $\scr{T}$ est appelé une base si tout ouvert de $\scr{T}$ est une réunion d'ouvert de $\frak{B}$.
-	Cela revient à dire que pour tout ouvert $U$ et tout point $x\in U$, il existe un ouvert $V\in\frak{B}$ tel que $x\in V\subset U$.
+	Une partie $\frak{B}$ de la topologie $\scr{T}$ est appelée une base si tout voisinage inclus un élément de $\frak{B}$.
 \end{definition}
 
 \begin{proposition}
-	Il existe une topologie dont $\frak{B}$ est une base si et seulement si $\frak{B}$ engendre ses intersections finies.
-	Cette topologie est alors unique et ses ouverts sont les réunions d'éléments de $\frak{B}$.
+	Il existe une topologie dont $\frak{B}$ est une base si et seulement si l'intersection de deux éléments de $\frak{B}$ inclut un élément de $\frak{B}$.
+	Cette topologie est alors unique et ses voisinages d'un point $x$ sont les ensembles contenant un élément de $\frak{B}$ contenant $x$.
 \end{proposition}
 
 \equivalence{Par double implication.}{
@@ -642,7 +643,7 @@ Ces notions sont utiles, car de nombreuses propriétés d'une topologie se ramè
 }
 
 \begin{definition}
-	Une partie $\frak{A}$ d'une topologie $\scr{T}$ est appelé une sous-base si l’ensemble des intersections finies de $\frak{A}$ est une base de $\scr{T}$.
+	Une partie $\frak{A}$ d'une topologie $\scr{T}$ est appelée une sous-base si l’ensemble des intersections finies de $\frak{A}$ est une base de $\scr{T}$.
 \end{definition}
 
 \begin{definition}
@@ -780,7 +781,7 @@ On énonce donc la continuité dans le cas de deux espaces topologiques $(E, \fr
 	Soit $g$ une application continue en $f(x)$.
 	Utilisons la dernière caractérisation pour montrer que $g\circ f:E\rightarrow G$ est continue en $x$.
 	Soit $W$ un voisinage de $(g\circ f)(x)=g(f(x))$.
-	Par continuité de $g$ en $f(x)$ puis de $f$ en $x$ on a que $\inv{g}(W)$ est un voisinage d'ouvert de $f(x)$ et enfin que $\inv{f}(\inv{g}(W))=\inv{g\circ f}(W)$ est un voisinage de $x$.
+	Par continuité de $g$ en $f(x)$ puis de $f$ en $x$ on a que $\inv{g}(W)$ est un voisinage d'ouvert de $f(x)$ et enfin que $\inv{f}(\inv{g}(W))=\inv{(g\circ f)}(W)$ est un voisinage de $x$.
 \end{demonstration}
 
 \begin{definition}
@@ -905,7 +906,7 @@ Soient $(E, \scr{T}_1)$, $(E, \scr{T}_2)$, $(F, \scr{U})$ des espaces topologiqu
 \end{definition}
 
 \begin{proposition}
-	La topologie quotient est la topologie finale associée à $\pi$, c'est à dire la plus fine rendant $\pi$ continue.
+	La topologie quotient est la topologie finale associée à $\pi$, c'est-à-dire la plus fine rendant $\pi$ continue.
 \end{proposition}
 
 \begin{demonstration}
@@ -919,13 +920,13 @@ Soient $(E, \scr{T}_1)$, $(E, \scr{T}_2)$, $(F, \scr{U})$ des espaces topologiqu
 \end{proposition}
 
 \begin{demonstration}
-	Si $O$ est un ouvert de $F$, alors $\inv{f}(O)$ est un ouvert de $E/\mathcal{R}$ si et seulement si $\inv{\pi}(\inv{f}(O))$ est ouvert dans $E$, c'est à dire $\inv{(f\circ\pi)}(O)$.
+	Si $O$ est un ouvert de $F$, alors $\inv{f}(O)$ est un ouvert de $E/\mathcal{R}$ si et seulement si $\inv{\pi}(\inv{f}(O))$ est ouvert dans $E$, c'est-à-dire $\inv{(f\circ\pi)}(O)$.
 \end{demonstration}
 
 \begin{definition}
 	Soit $(E_i)_{i\in I}$ des espaces topologiques.
 	On note $E=\prod_{i\in I} E_i$ le produit cartésien des $E_i$ et $\pi_i\colon E\rightarrow E_i$ les projections canoniques.
-	La topologie produit est la topologie initiale associées aux projections canoniques, c'est à dire la topologie la moins fine rendant les $\pi_i\colon E\rightarrow E_i$ continues.
+	La topologie produit est la topologie initiale associées aux projections canoniques, c'est-à-dire la topologie la moins fine rendant les $\pi_i\colon E\rightarrow E_i$ continues.
 \end{definition}
 
 \begin{proposition}
@@ -938,7 +939,7 @@ Soient $(E, \scr{T}_1)$, $(E, \scr{T}_2)$, $(F, \scr{U})$ des espaces topologiqu
 	En tant que topologie, $\scr{U}$ est stable par intersection finie.
 	Elle inclut donc $\frak{B}=\ens{\bigcap_{k=1}^nA_k}{n\in\N^*, A_k\in\frak{A}}$.
 	Soit $B=\bigcap_{k=1}^nA_k\in\frak{B}$.
-	Certain $A_k=O_k\times\prod_{i_k\neq j\in I}F_j$ ont des $i_k$ égaux, c'est à dire des $O_k$ venant d'un même topologie.
+	Certain $A_k=O_k\times\prod_{i_k\neq j\in I}F_j$ ont des $i_k$ égaux, c'est-à-dire des $O_k$ venant d'un même topologie.
 	Soit $i'_{1\leqslant l\leqslant m}$ une renumérotation unique des topologies visités et $K_l=\ens{k}{i_k=i'_l}$ l'ensemble des indices dont les ouverts proviennent du même espace $F_{i'_l}$.
 	Alors $B=\bigcap_{l=1}^m\bigcap_{k\in K_l}A_l$ avec chaque intersection finie.
 	De même $O'_l=\bigcap_{k\in K_l}O_k\in\scr{U}_{i'_l}$ et
@@ -971,24 +972,24 @@ Soient $(E, \scr{T}_1)$, $(E, \scr{T}_2)$, $(F, \scr{U})$ des espaces topologiqu
 
 On peut trouver \href{https://www.youtube.com/watch?v=xMmQrqdOkwI}{ici} une justification catégorique à cette définition.
 Soit $A\subset X$.
-Inspiré par la théorie des catégories on peut s'intéresser à un morphisme $f\colon Y\rightarrow A$.
-On souhaite éviter de changer la continuité de $f$ en la voyant comme une application de $Y$ dans $A$ ou comme une application de $Y$ dans $X$.
-Cela revient à avoir l'équivalence entre la continuité de $f$ et celle de $\iota\circ f$ où $\iota\colon A\hookrightarrow X$ est l'injection naturelle.
+On souhaite éviter de changer la continuité de $f\colon\bf{Top}(Y, A)$ en la voyant comme une application de $Y$ dans $A$ ou comme une application de $Y$ dans $X$.
+Cela revient à demander l'équivalence entre la continuité de $f$ et celle de $\iota\circ f$ où $\iota\colon A\hookrightarrow X$ est l'injection naturelle.
 \begin{align*}
-\forall Y\colon\mathbf{Top}, \forall f\colon Y\rightarrow A, f\in\mathcal{C}(Y, A)\iff \iota\circ f\in\mathcal{C}(Y, X)
+\forall Y\colon\bf{Top}, \forall f\colon\bf{Top}(Y, A),\quad f\in\bf{Top}(Y, A)\iff \iota\circ f\in\bf{Top}(Y, X)
 \end{align*}
-La topologie induite $\scr{T}_\rm{induite}$ vérifie cette propriété car $(\iota\circ f)^{-1}(O)=f^{-1}(\iota^{-1}(O))=f^{-1}(A\cap O)$.
+La topologie induite $\scr{T}_\rm{induite}$ vérifie cette propriété car $\inv{(\iota\circ f)}(O)=\inv{f}(\inv{\iota}(O))=\inv{f}(A\cap O)$.
 C'est aussi la seul topologie la vérifiant.
 En effet soit $\scr{T}$ une autre topologie sur $A$ la vérifiant cette propriété.
-% \begin{centre}
-% 	\begin{tikzcd}[row sep=3pc, column sep=3pc]
-% 		Y \ar[rr, bend right=20, "\iota\circ f"'] \arrow[r, "f"] & (A, \scr{T}) \arrow[r, "\iota"] & X \\
-% 	\end{tikzcd}
-% \end{centre}
 Prenons $Y=(A, \scr{T})$ et $f=\id$ qui est alors continue.
 Ainsi d'après le sens direct $\iota\circ\id=\iota\colon(A, \scr{T})\rightarrow X$ continue donc $\scr{T}_\rm{induite}\subset\scr{T}$.
 Réciproquement prenons $Y=(A, \scr{T}_\rm{induite})$ et $f=\id$.
 Puisque $\iota\circ\id=\iota$ est continue l'implication réciproque donne $\id\colon(A, \scr{T}_\rm{induite})\rightarrow(A, \scr{T})$ continue donc $\scr{T}\subset\scr{T}_\rm{induite}$.
+
+\begin{centre}
+	\begin{tikzcd}[scale cd=1.5] % [row sep=3pc, column sep=3pc]
+		Y \ar[rr, bend right=20, "\iota\circ f"'] \arrow[r, "f"] & (A, \scr{T}) \arrow[r, "\iota"] & X \\
+	\end{tikzcd}
+\end{centre}
 
 \chapter{Séparation}
 
@@ -1063,7 +1064,7 @@ On considère ici un espace topologique $(E, \scr{T})$.
 		Si $x\neq y$ alors $(x, y)\notin\Delta$.
 		Or $\Delta$ est fermée dans $E^2$, donc $\complement\Delta$ est un ouvert.
 		Par définition de la base de la topologie produit, $\exists U_{i\in I}, V_{i\in I}\in\scr{T}, \complement\Delta=\bigcup_{i\in I} U_i\times V_i$.
-		Puisque $(x, y)\notin\Delta$ je peux extraire du recouvrement $U, V$ tels que $(x, y)\in U\times V$, c'est à dire $x\in U\et y\in V$.
+		Puisque $(x, y)\notin\Delta$ je peux extraire du recouvrement $U, V$ tels que $(x, y)\in U\times V$, c'est-à-dire $x\in U\et y\in V$.
 		Or $V\times W\subset\complement\Delta$, donc $U\cap V=\vide$.
 	\end{itemise}
 \end{demonstration}
@@ -1170,11 +1171,11 @@ On considère ici un espace topologique $(E, \scr{T})$.
 		Quitte à échanger $x$ et $y$ dans la formule de $T_0$ on a $\exists O\in\scr{T}, x\in O\et y\notin O$, soit $x\in O\not\ni y$.
 		Puisque $x\notin\complement O$ et $\complement O$ est fermé $T_3$ donne :
 		$\exists U, V\in\scr{T}, x\in U\et\complement O\subset V\et U\cap V=\vide$, équivalent à
-		$x\in U\et\complement V\subset O\et U\subset\complement V$, c'est à dire
+		$x\in U\et\complement V\subset O\et U\subset\complement V$, c'est-à-dire
 		$x\in U\subset\complement V\subset O\not\ni y$.
 		De même puisque $x\notin\complement U$ et $\complement U$ est fermé $T_3$ donne :
 		$\exists W, T\in\scr{T}, x\in W\et\complement U\subset T\et W\cap T=\vide$, équivalent à
-		$x\in W\et\complement T\subset U\et W\subset\complement T$, c'est à dire
+		$x\in W\et\complement T\subset U\et W\subset\complement T$, c'est-à-dire
 		$x\in W\subset\complement T\subset U\subset\complement V\subset O\not\ni y$.
 		Puisque $\overline{W}$ est le plus petit fermé contenant $W$, $\overline{W}\subset\complement T$.
 		De même $\overline{V}\subset\complement U$.
@@ -1321,6 +1322,7 @@ Soit $(E, \scr{T})$ et $(F_i, \scr{U}_i)_{i\in I}$ des espaces topologiques $F=\
 \end{proposition}
 
 \begin{demonstration}
+	Vérifions chaque propriété.
 	\begin{itemise}
 		\item Contraposer l'injectivié de $e$ s'écrivant $e(x)=e(y)\Rightarrow x=y$ donne la séparation.
 		\item Par définition, $\pi_i\circ e=f_i$  qui est continue, rendant $e$ continue.
@@ -1393,7 +1395,7 @@ Soit $(E, \scr{T})$ et $(F_i, \scr{U}_i)_{i\in I}$ des espaces topologiques $F=\
 		L'application $e:E\rightarrow \prod_{i\in I}Q$ définie par $e(x)_i=f_i(x)$ est continue d'après la proposition précédente.
 		Soient $x, y\in E$ différents.
 		Par $T_0$ quitte à échanger les rôles de $x$ et $y$, $\exists U\in\scr{T}, x\in U\not\ni y$.
-		Par $T_{3\frac{1}{2}}$ il existe une fonction continue $f$ telle que $f(x)=1$ et $f(\complement U)=\ens{0\}$ c'est à dire séparant $x$ et $y$.
+		Par $T_{3\frac{1}{2}}$ il existe une fonction continue $f$ telle que $f(x)=1$ et $f(\complement U)=\ens{0\}$ c'est-à-dire séparant $x$ et $y$.
 		Soit $x, F\in E\times\complement\scr{T}$ tels que $x\notin F$.
 		De même il existe une fonction continue et séparant $x$ et $F$.
 		Ainsi $f_{i\in I}$ sépare les points et les points des fermés.
@@ -1466,7 +1468,7 @@ Comme c'est bien souvent le graphe fermé qui est important, un remède est de c
 \end{exemple}
 
 \textbf{Se méfier des espaces localement compacts :}
-« Tout point de $E$ appartient à un ouvert dont la fermeture est compacte » est équivalent dans un espace séparé à « tout point de $E$ a un voisinage compact » c'est à dire:
+« Tout point de $E$ appartient à un ouvert dont la fermeture est compacte » est équivalent dans un espace séparé à « tout point de $E$ a un voisinage compact » c'est-à-dire:
 $$
 	\forall x\in E, \exists O\in\scr{T}, x\in O\et\overline{O}\text{ compact}
 	\iff
@@ -1546,17 +1548,15 @@ On se donne une application $f:E\rightarrow F$.
 \end{demonstration}
 
 \begin{definition}
-	Pour toute partie $\frak{A}$ non vide on appelle le filtre engendré par $\frak{A}$ l'intersection des filtres de $E$ contenant $\frak{A}$.
+	Pour toute partie $\frak{A}$ non vide et ne contenant pas l'ensemble vide on appelle le filtre engendré par $\frak{A}$ l'intersection des filtres de $E$ contenant $\frak{A}$.
 	Il est noté $\sigma_\rm{filtre}(\frak{A})$ et on nomme alors $\frak{A}$ une pré-base de ce filtre.
 \end{definition}
 
 Comme pour la notion de base d'une topologie on peut en donner une approche plus constructive.
-On peut en donner une approche plus constructive en faisant émerger une topologie à partir d'une famille quelconque.
-Pour cela on utilise deux intermédiaires : les bases et pré-bases d'une topologie.
-Ces notions sont utiles, car de nombreuses propriétés d'une topologie se ramènent à des énoncés sur une de ses bases et beaucoup de topologies sont faciles à définir par la donnée d'une base. 
+Il faut cependant remarquer que contrairement aux topologies, certains axiomes commencent à restreindre la définition de pré-base.
 
 \begin{definition}
- Une partie $\frak{B}$ d'un filtre $\frak{F}$ est appelé une base si tout élément de $\frak{F}$ continent un élément de $\frak{B}$.
+	Une partie $\frak{B}$ d'un filtre $\frak{F}$ est appelée une base si tout élément de $\frak{F}$ inclus un élément de $\frak{B}$.
 \end{definition}
 
 \begin{proposition}
@@ -1575,7 +1575,7 @@ Ces notions sont utiles, car de nombreuses propriétés d'une topologie se ramè
 	Soit $\frak{B}$ vérifiant les propriétés et montrons que le $\frak{F}$ trouvé est un filtre.
 	\begin{itemise}
 		\item Soit $U\in\frak{F}$ et $U\subset V$ alors $\exists X\in\frak{B}, X\subset U\subset V$ donc $V\in\frak{F}$.
-		\item Soit $U, V\in\frak{F}$ alors $\exists X, Y, Z\in\frak{B}, X\subset U, Y\subset V, Z\subset X\cap Y$ donc $X\subset U\cap V\in\frak{F}$
+		\item Soit $U, V\in\frak{F}$ alors $\exists X, Y, Z\in\frak{B}, X\subset U, Y\subset V, Z\subset X\cap Y$ donc $Z\subset U\cap V\in\frak{F}$
 		\item Pour que $\vide\in\frak{F}$ il faudrait $\vide\in\frak{B}$ ce qui est faux.
 	\end{itemise}
 }
@@ -1593,11 +1593,11 @@ Ces notions sont utiles, car de nombreuses propriétés d'une topologie se ramè
 \end{definition}
 
 \begin{demonstration}
-	Montrons que $\frak{G}=\ens{A}{f^{-1}(A)\in\frak{F}}$ est un filtre.
+	Montrons que $\frak{G}=\ens{A}{\inv{f}(A)\in\frak{F}}$ est un filtre.
 	\begin{itemise}
-		\item Soit $A\in\frak{G}$ et $A\subset B$ alors $\frak{F}\ni f^{-1}(A)\subset f^{-1}(B)$ donc $B\in\frak{G}$.
-		\item Soit $A, B\in\frak{G}$ alors $f^{-1}(A\cap B)=f^{-1}(A)\cap f^{-1}(B)\in\frak{F}$ donc $A\cap B\in\frak{G}$.
-		\item Puisque $f^{-1}(\vide)=\vide\notin\frak{F}$ donc $\vide\notin\frak{G}$.
+		\item Soit $A\in\frak{G}$ et $A\subset B$ alors $\frak{F}\ni \inv{f}(A)\subset \inv{f}(B)$ donc $B\in\frak{G}$.
+		\item Soit $A, B\in\frak{G}$ alors $\inv{f}(A\cap B)=\inv{f}(A)\cap \inv{f}(B)\in\frak{F}$ donc $A\cap B\in\frak{G}$.
+		\item Puisque $\inv{f}(\vide)=\vide\notin\frak{F}$ donc $\vide\notin\frak{G}$.
 	\end{itemise}
 	Montrons que $f(\frak{F})$ est une base de filtre.
 	Cet ensemble est non vide, ne contient pas l'ensemble vide.
@@ -1656,7 +1656,7 @@ Ces notions sont utiles, car de nombreuses propriétés d'une topologie se ramè
 	Soit $\frak{F}$ convergent en $x$ et $W\in\frak{W}(f(x))$.
 		Par continuité $\exists V\in\frak{V}(x), f(V)\subset W$.
 		Par convergence $V\in\frak{F}$.
-		Ainsi $\exists W'\in f(\frak{F}), W'\subset W$, c'est à dire $W\in\sigma_\rm{filtre}(f(\frak{F}))$.
+		Ainsi $\exists W'\in f(\frak{F}), W'\subset W$, c'est-à-dire $W\in\sigma_\rm{filtre}(f(\frak{F}))$.
 		Donc $\sigma_\rm{filtre}(f(\frak{F}))$ est plus fin que $\frak{W}(f(x))$.
 }{
 	Soit $W\in\frak{W}(f(x))$.
@@ -1673,18 +1673,18 @@ Ces notions sont utiles, car de nombreuses propriétés d'une topologie se ramè
 \end{definition}
 
 \begin{definition}
-	On dit qu'un filtre $\frak{U}$ sur est un ultrafiltre s'il n'existe pas de filtre strictement plus fin (c'est à dire que $\forall\frak{F}\text{ filtre}, \frak{F}\supset\frak{U}\Rightarrow\frak{F}=\frak{U}$).
+	On dit qu'un filtre $\frak{U}$ sur est un ultrafiltre s'il n'existe pas de filtre strictement plus fin (c'est-à-dire que pour tout filtre $\frak{F}$ incluant $\frak{U}$ il s'avère que $\frak{F}=\frak{U}$).
 \end{definition}
 
 \begin{proposition}
-	$\frak{U}\text{ est un ultrafiltre}\iff\forall X\subset E, (X\in\frak{U})\ou(\complement X\in\frak{U})$
+	$\frak{U}$ est un ultrafiltre si et seulement si $\forall X\subset E, (X\in\frak{U})\ou(\complement X\in\frak{U})$.
 \end{proposition}
 
 \equivalence{Par double implication.}{
 	Soit $\frak{U}$ un ultrafiltre et $X\in\frak{P}(E)$ tel que $X\notin\frak{U}$.
 		Soit $V\in\frak{U}$.
 		Par l'absurde, si $V\subset X$ alors par croissance des filtres, $X\in\frak{U}$.
-		Donc $V\not\subset X$, c'est à dire que $V\cap\complement X\neq\vide$.
+		Donc $V\not\subset X$, c'est-à-dire que $V\cap\complement X\neq\vide$.
 		$\frak{B}=\ens{V\cap\complement X}{V\in\frak{U}}$ est une base de filtre car $\frak{U}$ est un filtre.
 		Alors le filtre $\sigma_\rm{filtre}(\frak{B})$ est plus fin que $\frak{U}$.
 		En effet soit $V\in\frak{U}$ puisque $V\cap\complement X\subset V$ avec $V\cap\complement X\in\frak{B}$, alors $V\in\sigma_\rm{filtre}(\frak{B})$.
@@ -1791,11 +1791,11 @@ Ces notions sont utiles, car de nombreuses propriétés d'une topologie se ramè
 	Soit $V\in\frak{V}(x)$.
 	Par convergence de $(x_n)$ vers $x$, $V$ appartient au filtre associé à $(x_n)$.
 	Par caractérisation du filtre engendré, $\exists X\in\frak{B}_x, X\subset V$.
-	Par définition de la base de filtre associée à la suite, $\exists N, X_N=X\subset V$, c'est à dire $\exists N, \forall n\geqslant N\implies x_n\in V$.
+	Par définition de la base de filtre associée à la suite, $\exists N, X_N=X\subset V$, c'est-à-dire $\exists N, \forall n\geqslant N\implies x_n\in V$.
 }{
 	Soit $V\in\frak{V}(x)$.
 	Par hypothèse, $\exists N, X_N\in\frak{B}_x, X_N\subset V$.
-	Par caractérisation du filtre engendré $V\in\sigma_\rm{filtre}(\frak{B}_x)$, c'est à dire que $(x_n)$ converge vers $x$.	
+	Par caractérisation du filtre engendré $V\in\sigma_\rm{filtre}(\frak{B}_x)$, c'est-à-dire que $(x_n)$ converge vers $x$.	
 }
 
 \begin{definition}
@@ -1908,9 +1908,9 @@ De même on montre qu'une relation est réfléxive si et seulement si elle conti
 	&\iff \text{$\cal{R}$ est transitive}
 \end{align*}
 
-Une quasi-uniformité $\scr{U}$ est un filtre de relation binaires sur $E$ vérifiant une forme faible de transitivité :
-pour toute relation $\cal{S}$ de $\scr{U}$ il existe une autre relation $\cal{R}$ de $\scr{U}$ telle que $\cal{R}\circ\cal{R}\subset\cal{S}$.
-En utilisant une forme équivalente des axiomes d'un filtre on obtient la forme partique suivante.
+Une quasi-uniformité $\scr{U}$ est un filtre de relation binaires sur $E$ réflexives vérifiant une forme faible de transitivité :
+pour toute relation $\cal{S}$ de $\scr{U}$ il existe $\cal{R}$ de $\scr{U}$ telle que $\cal{R}\circ\cal{R}\subset\cal{S}$.
+En utilisant une forme équivalente des axiomes d'un filtre on obtient la définition partique suivante.
 \begin{definition}
 	On appelle quasi-uniformité sur $E$ une collection $\scr{U}\subset\frak{P}(E^2)$ dont ses éléments sont appelés les entourages, telle que :
 	\begin{itemise}
@@ -1924,47 +1924,17 @@ En utilisant une forme équivalente des axiomes d'un filtre on obtient la forme 
 
 \section{Base d'une uniformité}
 
-\begin{proposition}
-	L'intersection d'une famille de quasi-uniformités est une quasi-uniformité.
-\end{proposition}
-
-\begin{demonstration}
-	Soient $(\scr{U}_i)_{i\in I}$ des quasi-uniformités de $E$ et $\scr{U}=\bigcap_{i\in I}\scr{U}_i$.
-	On a déjà vu qu'une intersection que filtre était un filtre.
-	Une intersection de partie contenant la diagonale contient encore la diagonale.
-	Pour les quasi-uniformités il ne reste donc qu'a prouver la réfexivité faible.
-	
-	Soit $R\in\scr{U}$ puisque $R\in\scr{U}_i$ il existe $S_i\in\scr{U}_i$ tel que $S_i\circ S_i\subset R$ pour tout $i$.
-	Soit $S=\bigcap_{i\in I} S_i$.
-	C'est un élément de $\scr{U}$ car il appartient à chaque $\scr{U}_i$.
-	Soit $(x, z)\in S\circ S$ il existe donc $y\in S$ tel que $(x, y), (y, z)\in S$.
-	Pour un $j\in I$ arbitraire on a donc $(x, y), (y, z)\in S_j$ donc $(x, z)\in S_j\circ S_j\subset R$.
-	Ainsi $S\circ S\subset R$.
-
-	Si $\scr{U}$ est une uniformité: Si $R\in\bigcap_{i\in I}\scr{U}_i$ alors $R\in\scr{U}_i$ donc $\inv{R}\in\scr{U}_i$ donc $\inv{R}\in\bigcap_{i\in I}\scr{U}_i$.
-\end{demonstration}
+Contrairement aux topologies et aux filtres, la catégorie des quasi-unfiormités n'admet pas de borne supérieure à cause de l'axiome de faible transitivité.
+On ne pourra donc pas définir aussi simplement la quasi-uniformité par le limite décroissante d'une suite d'ensembles.
+Cependant on peut conserver la construction explicite à partir des bases.
 
 \begin{definition}
-	Pour toute partie $\frak{A}$ on appelle quasi-uniformité engendrée par $\frak{A}$ l'intersection des quasi-uniformités de $E$ incluant $\frak{A}$.
-	Elle est notée $\sigma_\rm{quasi}(\frak{A})$ et on nomme alors $\frak{A}$ une pré-base de cette quasi-uniformité.
-\end{definition}
-
-Comme pour la notion de base d'une topologie on peut en donner une approche plus constructive.
-Cependant le nombre de conditions pour former une sous base est plus grand, rendant la manipulation des sous-base moins pratique.
-
-\begin{definition}
-	Une partie $\frak{B}$ de la quasi-uniformité $\scr{U}$ est appelé une base si tout élément de $\scr{U}$ continent un élément de $\frak{B}$.
+	Une partie $\frak{B}$ de la quasi-uniformité $\scr{U}$ est appelée une base si tout élément de $\scr{U}$ continent un élément de $\frak{B}$.
 \end{definition}
 
 \begin{proposition}
-	Il existe une quasi-uniformité dont $\frak{B}$ est une base si et seulement si :
-	\begin{itemise}
-		\item Tout élément $R$ de $\frak{B}$ contient la diagonale $\Delta_E$.
-		\item Pour toute paire $R, S$ de $\frak{B}$ il existe $T$ dans $\frak{B}$ tel que $T\subset R\cap S$.
-		\item Pour tout $R$ de $\frak{B}$ il existe $S$ dans $\frak{B}$ tel que $S\circ S\subset R$.
-		\item Si $\frak{B}$ est une base d'uniformité: $R\in\frak{B}\Rightarrow\exists S\in\frak{B}, S\subset R^{-1}$
-	\end{itemise}
-	Cette quasi-uniformité est alors unique et elle est formée des ensembles incluant un élément.% de $\frak{B}$.
+	Il existe une quasi-uniformité dont $\frak{B}$ est une base si et seulement si $\frak{B}$ est une base de filtre de relations binaires réflexives et faiblements transitives.
+	Cette quasi-uniformité est alors unique et ses éléments sont les ensembles incluant un élément de $\frak{B}$.
 \end{proposition}
 
 \equivalence{Par double implication.}{
@@ -1978,13 +1948,14 @@ Cependant le nombre de conditions pour former une sous base est plus grand, rend
 	Soit $\frak{B}$ vérifiant les propriétés et montrons que le $\scr{U}$ trouvé est une quasi-uniformité.
 	Les axiomes de la diagonale, de l'intersection et de la croissance sont claires.
 	Soit $R\in\scr{U}$ alors il existe $T\in\frak{B}$ inclut dans $R$ donc il existe $S\in\frak{B}$ $S\circ S\subset T\subset R$.
-	Si $\frak{B}$ vérifie le dernier axiome alors pour $R\in\scr{U}$ il existe $T\in\frak{B}$ inclut dans $R$.
-	Ainsi il exsite $S\in\frak{B}$ tel que $S\subset\inv{T}\subset\inv{R}$ donc $\inv{R}\in\scr{U}$.
 }
 
-\begin{definition}
-	Une partie non vide $\frak{A}$ d'une quasi-uniformité $\scr{U}$ est appelée une sous-base si l'ensemble des intersections finies de $\frak{A}$ est une base de $\scr{U}$.
-\end{definition}
+\begin{remarque}
+	Pour une base d'uniformité il suffit de demander en plus à la base que pour toute relation $R$ de celle-ci il existe une relation $S$ telle que $S\subset R$.
+	L'ensemble $\scr{U}$ trouvé devient alors une uniformité.
+	En effet soit $R\in\scr{U}$ il existe $T$ dans $\frak{B}$ tel que $T\subset R$.
+	D'après le dernier axiome il existe $S$ dans la base tel que $S\subset\inv{T}\subset\inv{R}$ ce qui montre que $\inv{R}$ est dans $\scr{U}$.
+\end{remarque}
 
 \begin{exemple}
 	On appelle espace hémi-métrique un ensemble muni d'une hémi-distance $d\colon E\times E\rightarrow\overline{\R}$.
@@ -1992,17 +1963,15 @@ Cependant le nombre de conditions pour former une sous base est plus grand, rend
 	Généralisons la notion de boule d'un espace métrique avec les relations $\approx_r :=\ens{(x, y)}{d(x, y)<r}$.
 	On montre que cette famille est une base engendrant donc une quasi-uniformité $\scr{U}_d$ dont les entourages contiennent au moins une relation $\approx_r$.
 
-	La famille de ces $\approx_r$ avec $r>0$ est stable par intersection finie.
-	C'est donc une sous-base si et seulement si c'est une base.
-	Appliquons donc le théorème de caractérisation des bases de quasi-uniformité.
 	Puisque $d$ est nulle sur la diagonale chaque $\approx_r$ contient $\Delta_E$.
-	L'intersection des deux relations $\approx_r$ et $\approx_s$ n'est autre que $\approx_{\min(r, s)}$ qui est bien dans la famille.
-	Il ne reste plus qu'à montrer la transitivité faible.
+	La famille de ces $\approx_r$ avec $r>0$ est stable par intersection finie.
+	En effet l'intersection des deux relations $\approx_r$ et $\approx_s$ n'est autre que $\approx_{\min(r, s)}$ qui est bien dans la famille.
+	D'aprs le théorème de caractérisation des bases de quasi-uniformité il ne reste plus qu'à montrer la transitivité faible.
 
 	Soit $\approx_s$ avec $s>0$ une relation de la famille.
-	Posons $r=s/2$ et prenons un triplet $x, y, z$ vérifiant $x\approx_ry$ et $y\approx_rz$.
+	Prenons trois points $x$, $y$ et $z$ vérifiant $x\approx_ry$ et $y\approx_rz$ avec $r=\frac{s}{2}$.
 	Ainsi $d(x, y)<r$ et $d(y, z)<r$ donc par inégalité triangulaire $d(x,z)<s$ ce qui montre $x\approx_s z$.
-	La transitivité faible n'est autre qu'un avatar de l'inégalité triangulaire.
+	La transitivité faible est donc un avatar de l'inégalité triangulaire.
 \end{exemple}
 
 \section{Topologie engendrée}
@@ -2243,7 +2212,7 @@ Nous allons résoudre ici le problème réciproque : étant donné une topologie
 	\begin{itemise}
 		\item[$ii\implies iii$] Soit $\scr{U}$ une uniformité.
 		Montrons que les entourages symétriques forment une base.
-		Soit $U\in\scr{U}$ alors $U'=U\cap U^{-1}\in\scr{U}$ par axiome de symétrie et intersection de l'uniformité.
+		Soit $U\in\scr{U}$ alors $U'=U\cap\inv{U}\in\scr{U}$ par axiome de symétrie et intersection de l'uniformité.
 		Ainsi $\frak{B}=\ens{U'}{U\in\scr{U}}$ est une base car pour tout $U$ il existe $U'\in\frak{B}$ tel que $U'\subset U$.
 		Construisons une jauge $(d_U)_{U\in\frak{B}}$ puis montrons que sa topologie coïncide. % avec celle de $\scr{U}$.
 		\begin{itemise}
@@ -2565,14 +2534,14 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \equivalence{Par double implication.}{
 	Soit $y\in\widetilde{\{x\}}$.
 	Alors $\exists\frak{F}\text{ filtre sur $\widetilde{\{x\}}$}, \frak{F}\rightarrow y$.
-	Cette convergence a lieu pour la topologie trace c'est à dire pour l'ensemble des voisinages $\frak{V}'(y)=\{V\cap\ens{x\}}{V\in\frak{V}(y)}$.
+	Cette convergence a lieu pour la topologie trace c'est-à-dire pour l'ensemble des voisinages $\frak{V}'(y)=\{V\cap\ens{x\}}{V\in\frak{V}(y)}$.
 	Par séparation, si $y\neq x$, il existerait un voisinage de $y$ de rencontrant pas $\{x\}$ et donc $\vide\in\frak{V}'(y)\subset\frak{F}$, ce qui est impossible pour un filtre.
 	Ainsi les singletons sont fermés, notamment $\{E\}$.
 }{
 	Réciproquement, si $\{E\}$ est fermé alors $G\setminus\{E\}$ est ouvert.
 	Par continuité de $\phi:x, y\longmapsto x\star\inv{y}$, $\inv{\phi}(G\setminus\{E\})=G^2\setminus\ens{(x, x)}{x\in G}$ est un ouvert de $G$.
 	Ainsi pour $(x, y)\in G^2$ avec $x\neq y$, il existe un voisinage pour la topologie produit de $(x, y)$ ne rencontrant pas la diagonale.
-	Par définition de cette topologie, il existe un voisinage $V_x$ de $x$ et $V_y$ de $y$ tel que $(V_x\times V_y)\cap\ens{(x, x)}{x\in G}=\vide$, c'est à dire $V_x\cap V_y=\vide$.
+	Par définition de cette topologie, il existe un voisinage $V_x$ de $x$ et $V_y$ de $y$ tel que $(V_x\times V_y)\cap\ens{(x, x)}{x\in G}=\vide$, c'est-à-dire $V_x\cap V_y=\vide$.
 }
 
 \begin{proposition}
@@ -2581,7 +2550,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \end{proposition}
 
 \begin{demonstration}
-	$O\star X=\bigcup_{x\in X}O\star x$ est ouvert car $O\star x$ l'est car c'est l'image réciproque de l'ouvert $O$ par l'application continue $y\longmapsto y\star x^{-1}$.
+	$O\star X=\bigcup_{x\in X}O\star x$ est ouvert car $O\star x$ l'est car c'est l'image réciproque de l'ouvert $O$ par l'application continue $y\longmapsto y\star\inv{x}$.
 	Idem pour l'autre sens.
 \end{demonstration}
 
@@ -2600,7 +2569,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Par définition de la topologie produit, $\pi(O_1)\times\pi(O_2)$ est un voisinage de $(e, e)$ dans $(G/H)^2$.
 
 	De plus $\inv{*}(OH)\supset\pi(O_1)\times\pi(O_2)$.
-	En effet, soit $(x_1H, x_2H)\in\pi(O_1)\times\pi(O_2)$, c'est à dire $(x_1, x_2)\in O_1\times O_2=\inv{\cdot}(O)$, alors $x_1H*x_2H=(x_1\cdot x_2)H\in OH$.
+	En effet, soit $(x_1H, x_2H)\in\pi(O_1)\times\pi(O_2)$, c'est-à-dire $(x_1, x_2)\in O_1\times O_2=\inv{\cdot}(O)$, alors $x_1H*x_2H=(x_1\cdot x_2)H\in OH$.
 	Donc $*$ est continue en $(e, e)$ en tant que morphisme de groupe de $(G/H)^2$ dans $G/H$.
 	Elle est donc continue.
 	\begin{centre}
@@ -2701,7 +2670,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 
 \begin{demonstration}
 	Soient $K$ un compact et $V$ un voisinage ouvert de 0.
-	Soit $x\in K$, par absorption de $K$ par $V$, $\exists n\in\N^*, \forall\lambda\in[-\frac{1}{n}, \frac{1}{n}], \lambda x\in V$, c'est à dire $\exists n\in\N^*, x\in nV$.
+	Soit $x\in K$, par absorption de $K$ par $V$, $\exists n\in\N^*, \forall\lambda\in[-\frac{1}{n}, \frac{1}{n}], \lambda x\in V$, c'est-à-dire $\exists n\in\N^*, x\in nV$.
 	Ainsi $K\subset\bigcup_{n\in\N^*}nV$.
 	Par compacité de $K$ on peut extraire de ce recouvrement ouvert un sous recouvrement fini.
 	Soit $N$ le plus grand indice de ce recouvrement fini, alors $K\subset NV$, ce qui fait de $K$ une partie bornée.
@@ -2712,7 +2681,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \section{Définitions et premières propriétés}
 
 \begin{definition}
-	On appelle distance sur $E$ toute application $d:E\times E\rightarrow\R^+$ qui soit séparable, symétrique et Minkovskienne, c'est à dire:
+	On appelle distance sur $E$ toute application $d:E\times E\rightarrow\R^+$ qui soit séparable, symétrique et Minkovskienne, c'est-à-dire:
 	\begin{itemise}
 		\item $\forall x, y\in E, d(x, y)=0\iff x=y$
 		\item $\forall x, y\in E, d(x, y)=d(y, x)$
@@ -2792,7 +2761,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \begin{demonstration}
 	L'inclusion réciproque à déjà été prouvée précédemment.
 	Soit $x\in\overline{X}$ et $V$ un voisinage de $x$.
-	Alors $V$ contient une boule ouverte centrée en $x$, c'est à dire $\exists\epsilon>0, B_\epsilon(x)\subset V$.
+	Alors $V$ contient une boule ouverte centrée en $x$, c'est-à-dire $\exists\epsilon>0, B_\epsilon(x)\subset V$.
 	En prenant $x_n\in B_{1/n}(x)\cap X$ qui est non vide car $x$ est dedans, avec $1/n<\epsilon$, on obtient une suite $(x_n)$ de $X$ qui converge vers $x$.
 \end{demonstration}
 
@@ -2804,7 +2773,7 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 \begin{demonstration}
 	L'implication directe à déjà été prouvée précédemment.
 	Soit $W$ un voisinage de $f(x)$.
-	Alors $W$ continent une boule ouverte centrée en $f(x)$, c'est à dire $\exists\epsilon>0, B^F_\epsilon(f(x))\subset V$.
+	Alors $W$ continent une boule ouverte centrée en $f(x)$, c'est-à-dire $\exists\epsilon>0, B^F_\epsilon(f(x))\subset V$.
 	Soit $(x_n)$ une suite de $\inf{f}(W)$ telle que $x_n\in B^E_{1/n}(x)$.
 	Alors $x_n\rightarrow x$ donc $f(x_n)\rightarrow f(x)$, donc $\exists N, \forall n\geqslant N, f(x_n)\in B^F_\epsilon(f(x))\subset W$.
 	Ainsi $f(B^E_{1/n}(x))\subset W$ et $B^E_{1/n}(x)$ est un voisinage de $x$.
@@ -2827,8 +2796,8 @@ Ceci est particulièrement clair des propositions ci-dessous, qui deviennent év
 	Puisque $\bigcup_{i\in I}O_i$ est un recouvrement de $E$ et que $y\in E$, $\exists i\in I, y\in O_i$.
 	Les ouverts étant engendrés par les boules ouvertes, $\exists\eta>0, B_\eta(y)\subset O_i$.
 	Par convergence de $(y_n)$ vers $y$, $\exists N, \forall n\geqslant N, d(y_n, y)<\eta/2$.
-	Prenons maintenant $n\geqslant\max(N, 2/\eta)$ et $z\in B_{1/n}(y_n)$ c'est à dire $d(z, y_n)<1/n$.
-	Alors $d(y, z)\leqslant d(y, y_n)+d(y_n, z)<\eta/2+1/n\leqslant\eta$, c'est à dire $B_{1/n}(y_n)\subset B_\eta(y)\subset O_i$, ce qui est impossible.
+	Prenons maintenant $n\geqslant\max(N, 2/\eta)$ et $z\in B_{1/n}(y_n)$ c'est-à-dire $d(z, y_n)<1/n$.
+	Alors $d(y, z)\leqslant d(y, y_n)+d(y_n, z)<\eta/2+1/n\leqslant\eta$, c'est-à-dire $B_{1/n}(y_n)\subset B_\eta(y)\subset O_i$, ce qui est impossible.
 
 	Montrons que $\forall\eta>0$, il existe un recouvrement fini de $E$ par des boules ouvertes de rayon $\eta$.
 	Raisonnons par l'absurde.
@@ -3026,7 +2995,7 @@ $
 		Ainsi $z\in U[x]$ puis $V[y]\subset U[x]$.
 		Or $V[y]\in\frak{V}(y)$ donc d'après le point précédent $U[x]\in\frak{V}(y)$
 	\end{itemise}
-	Montrons que $\Psi\circ\Phi\cong\id$, c'est à dire $\scr{T}\cong\frak{V}$ (l'ismorphisme canonique défini en permière partie) par double inclusion.
+	Montrons que $\Psi\circ\Phi\cong\id$, c'est-à-dire $\scr{T}\cong\frak{V}$ (l'ismorphisme canonique défini en permière partie) par double inclusion.
 	\begin{itemise}
 		\item[$\subset$] Si $O\in\scr{T}$ alors $O^2\cup\complement O\times E\in\frak{B}'$ donc $O=(O^2\cup\complement O\times E)[x]\in\frak{V}(x)$.
 		\item[$\supset$] Si $U[x]\in\frak{V}(x)$ alors $\exists X_{1\leqslant i\leqslant n}\in\frak{B}', \bigcap_{i=1}^nX_i\subset U$ avec $X_i=O_i^2\cup\complement O_i\times E$ et $O_i\in\scr{T}$.
@@ -3177,7 +3146,7 @@ C'est absurde, donc $O$ est vide, puis $\complement\overline{X}=\vide$, soit $\o
 \end{remarque}
 
 \begin{proposition}
-	La topologie produit est la topologie initiale associée aux projections canoniques $\pi_i:E\rightarrow E_i$, c'est à dire la moins fine rendant les $\pi_i$ continues.
+	La topologie produit est la topologie initiale associée aux projections canoniques $\pi_i:E\rightarrow E_i$, c'est-à-dire la moins fine rendant les $\pi_i$ continues.
 \end{proposition}
 
 \begin{demonstration}
